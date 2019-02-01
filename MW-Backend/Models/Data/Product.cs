@@ -47,5 +47,9 @@ namespace MW_Backend.Models.Data
 
         public int ProductSiblingId { get; set; }
 
+        public Coupon Coupon { get; set; }
+
+        [Required]
+        public string CouponLibel { get; set; } = "";
     }
 }

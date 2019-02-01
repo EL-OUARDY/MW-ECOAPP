@@ -19,9 +19,6 @@ namespace MW_Backend.Models.Data
         [MaxLength(30)]
         public string Slug { get; set; }
 
-        [Required]
-        public byte Sorting { get; set; }
-
         //maybe a list of subcategories 
     }
 }
