@@ -13,7 +13,7 @@ namespace MW_Backend
     {
         public static void Register(HttpConfiguration config)
         {
-            // Enable Cors
+            // Enable Cors (change the mothods later)
             config.EnableCors(new EnableCorsAttribute("http://localhost:4200", headers: "*", methods: "*"));
             
             // Web API configuration and services

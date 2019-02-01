@@ -16,17 +16,22 @@ namespace MW_Backend.Models.Data
         public string Name { get; set; }
 
         [Required]
-        [StringLength(50)]
+        [StringLength(60)]
         public string Slug { get; set; }
 
         [Required]
         public decimal Price { get; set; }
 
         [Required]
+        public string Color { get; set; }
+
+        [Required]
+        public string Size { get; set; }
+
+        [Required]
         public string Description { get; set; }
 
         public DateTime? Date_Added { get; set; }
-
 
         public decimal? OldPrice { get; set; }
 
@@ -34,11 +39,13 @@ namespace MW_Backend.Models.Data
         public byte Discount { get; set; } = 0; // its a % , by default : 0
 
 
-
         public SubCategory SubCategory { get; set; }
 
         public int SubCategoryId { get; set; }
 
-        public string MainImg { get; set; }
+        public Product_Sibling ProductSibling { get; set; }
+
+        public int ProductSiblingId { get; set; }
+
     }
 }

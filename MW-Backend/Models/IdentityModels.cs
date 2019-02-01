@@ -24,6 +24,7 @@ namespace MW_Backend.Models
     {
         public DbSet<Category> Categories { get; set; }
         public DbSet<SubCategory> Sub_Categories { get; set; }
+        public DbSet<Product_Sibling> ProductSiblings { get; set; }
 
         public DbSet<Product> Products { get; set; }
 
