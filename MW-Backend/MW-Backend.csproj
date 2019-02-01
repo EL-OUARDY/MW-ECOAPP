@@ -261,9 +261,14 @@
     <Compile Include="Migrations\201902011750356_addCoupons.Designer.cs">
       <DependentUpon>201902011750356_addCoupons.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902012042536_addAdressesBook.cs" />
+    <Compile Include="Migrations\201902012042536_addAdressesBook.Designer.cs">
+      <DependentUpon>201902012042536_addAdressesBook.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Data\Address-Book.cs" />
     <Compile Include="Models\Data\Category.cs" />
     <Compile Include="Models\Data\Coupon.cs" />
     <Compile Include="Models\Data\Product.cs" />
@@ -378,6 +383,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902011750356_addCoupons.resx">
       <DependentUpon>201902011750356_addCoupons.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902012042536_addAdressesBook.resx">
+      <DependentUpon>201902012042536_addAdressesBook.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

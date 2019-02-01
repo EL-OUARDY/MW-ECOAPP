@@ -9,7 +9,7 @@ namespace MW_Backend.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(MW_Backend.Models.ApplicationDbContext context)

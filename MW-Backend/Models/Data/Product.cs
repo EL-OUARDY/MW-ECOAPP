@@ -49,7 +49,6 @@ namespace MW_Backend.Models.Data
 
         public Coupon Coupon { get; set; }
 
-        [Required]
-        public string CouponLibel { get; set; } = "";
+        public string CouponLibel { get; set; }
     }
 }

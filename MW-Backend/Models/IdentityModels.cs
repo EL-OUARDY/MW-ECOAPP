@@ -22,6 +22,8 @@ namespace MW_Backend.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<Address_Book> Addresses_Book { get; set; }
+
         public DbSet<Category> Categories { get; set; }
         public DbSet<SubCategory> Sub_Categories { get; set; }
         public DbSet<Product_Sibling> ProductSiblings { get; set; }
