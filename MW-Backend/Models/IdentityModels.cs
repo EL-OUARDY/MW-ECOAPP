@@ -31,6 +31,11 @@ namespace MW_Backend.Models
 
         public DbSet<Product> Products { get; set; }
 
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<Order_Item> Order_Items { get; set; }
+
+
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
