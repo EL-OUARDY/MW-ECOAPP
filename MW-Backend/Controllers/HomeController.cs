@@ -10,8 +10,6 @@ namespace MW_Backend.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Title = "Home Page";
-
             return View();
         }
     }
