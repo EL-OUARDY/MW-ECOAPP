@@ -38,7 +38,7 @@ namespace MW_Backend.Controllers.api
         [ResponseType(typeof(Product))]
         public IHttpActionResult GetProduct(string slug)
         {
-            var model = db.Products.Where(x => x.Slug == slug).Include("SubCategory").SingleOrDefault();
+            var model = db.Products.Where(x => x.Slug == slug).SingleOrDefault();
             if (model == null)
             {
                 return NotFound();

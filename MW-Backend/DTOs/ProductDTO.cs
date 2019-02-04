@@ -26,6 +26,5 @@ namespace MW_Backend.DTOs
 
         public byte Discount { get; set; }
 
-        public SubCategory SubCategory { get; set; }
     }
 }

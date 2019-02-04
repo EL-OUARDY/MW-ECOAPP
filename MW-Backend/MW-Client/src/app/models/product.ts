@@ -10,8 +10,4 @@ export interface Product {
     OldPrice: number;
     Description: string;
     Discount: number;
-    SubCategory: {};
 }
-
-// export interface SubCategory {
-// }

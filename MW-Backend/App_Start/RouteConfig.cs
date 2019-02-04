@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MW_Backend.App_Start;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,11 +14,29 @@ namespace MW_Backend
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            // routes.MapMvcAttributeRoutes();
+
             routes.MapRoute(
-                name: "Default",
+                name: "default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
+                // Set a constraint to only use this for routes identified as server-side routes
+                constraints: new
+                {
+                    serverRoute = new ServerRouteConstraint(url =>
+                    {
+                        return url.PathAndQuery.StartsWith("/Settings",
+                            StringComparison.InvariantCultureIgnoreCase);
+                    })
+                });
+
+            // This is a catch-all for when no other routes matched. Let the Angular 2 router take care of it
+            routes.MapRoute(
+                name: "angular",
+                url: "{*url}",
+                defaults: new { controller = "Home", action = "Index" } // The view that bootstraps Angular 2
             );
+
         }
     }
 }
