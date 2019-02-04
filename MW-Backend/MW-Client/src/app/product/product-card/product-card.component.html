@@ -1,8 +1,8 @@
 <div class="card ">
-  <img class="card-img-top" [src]="product.image" alt="Card image cap">
+  <img class="card-img-top" [src]=" '/Content/Images/' + product.Id" alt="Card image cap">
   <div class="card-body">
-    <h5 class="card-title">{{product.title}}</h5>
-    <p class="card-text">{{product.price | currency: 'USD':'symbol'}}</p>
+    <h5 class="card-title"><a routerLink="/product/{{product.Slug}}">{{product.Name}}</a></h5>
+    <p class="card-text">{{product.Price | currency: 'USD':'symbol'}}</p>
   </div>
   <div class="card-footer">
     <a *ngIf="getQuantity() === 0; else updateQte" (click)="addToCart(product)" class="btn btn-secondary btn-block">

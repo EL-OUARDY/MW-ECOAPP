@@ -14,7 +14,7 @@ namespace MW_Backend
         public static void Register(HttpConfiguration config)
         {
             // Enable Cors (change the mothods later)
-            config.EnableCors(new EnableCorsAttribute("http://localhost:4200", headers: "*", methods: "*"));
+            // config.EnableCors(new EnableCorsAttribute("http://localhost:4200", headers: "*", methods: "*"));
             
             // Web API configuration and services
             // Configure Web API to use only bearer token authentication.
@@ -26,8 +26,8 @@ namespace MW_Backend
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
+                routeTemplate: "api/{controller}/{slug}",
+                defaults: new { slug = RouteParameter.Optional }
             );
         }
     }

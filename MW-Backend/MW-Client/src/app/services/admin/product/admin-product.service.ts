@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class AdminProductService {
-  private readonly rootUrl = 'http://localhost:1394/api';
+  // private readonly rootUrl = 'http://localhost:1394/api';
 
   constructor(private http: HttpClient) { }
 
@@ -25,8 +25,7 @@ export class AdminProductService {
 
 
   PostProduct(p) {
-
-    this.http.post(this.rootUrl + '/Products', p).subscribe(res => {
+    this.http.post('/api/Products', p).subscribe(res => {
       console.log(res);
     });
   }

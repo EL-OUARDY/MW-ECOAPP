@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Product } from 'src/app/models/product';
+import { MiniProduct } from 'src/app/models/miniProduct';
 import { CartService } from 'src/app/services/cart.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class ProductQuantityComponent {
 
-  @Input() product: Product;
+  @Input() product: MiniProduct;
 
   constructor(private cartService: CartService) { }
 

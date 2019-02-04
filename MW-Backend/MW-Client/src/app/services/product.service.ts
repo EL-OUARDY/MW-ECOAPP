@@ -1,21 +1,21 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { MiniProduct } from '../models/miniProduct';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  getProducts() {
-    return [
-      { Id: 100, title: 'Princess jewelries', image: '../assets/99.jpg', price: 110 },
-      { Id: 101, title: 'Cindrella red shoes', image: '../assets/87.jpg', price: 45 },
-      { Id: 102, title: 'beat Headphones', image: '../assets/14.jfif', price: 10 },
-      { Id: 103, title: 'iPhone X', image: '../assets/7.jpg', price: 1000 },
-      { Id: 104, title: 'Football shoes', image: '../assets/1.jpg', price: 20 },
-    ];
+  getProductList() {
+    return this.http.get('/api/products');
+  }
+
+  getProduct(slug: string) {
+    return this.http.get('/api/products/' + slug);
   }
 
 }

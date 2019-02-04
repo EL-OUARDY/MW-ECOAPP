@@ -1,5 +1,10 @@
 <div class="products row ">
-  <div *ngFor="let p of products" class="col-3">
+  <div *ngFor="let p of products$ | async" class="col-3">
     <product-card [product]="p"></product-card>
+    <div class=" alert alert-danger ">
+      {{p | json }}
+    </div>
   </div>
 </div>
+
+<div><button (click)="n()" >click</button></div>

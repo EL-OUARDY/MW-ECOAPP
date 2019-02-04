@@ -15,10 +15,6 @@ namespace MW_Backend.Models.Data
         [MaxLength(30)]
         public string Name { get; set; }
 
-        [Required]
-        [MaxLength(30)]
-        public string Slug { get; set; }
-
         //maybe a list of subcategories 
     }
 }

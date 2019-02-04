@@ -7,15 +7,19 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { CheckoutGuard } from './guards/checkout.guard';
 import { AddProductComponent } from './admin/add-product/add-product.component';
 import { AdminGuard } from './guards/admin-guard.guard';
+import { ProductDetailsComponent } from './product/product-details/product-details.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
   { path: 'sign-in', component: SignInUpComponent },
+  { path: 'product/:slug', component: ProductDetailsComponent },
   { path: 'cart', component: ShoppingCartComponent },
 
   { path: 'checkout', component: CheckoutComponent, canActivate: [CheckoutGuard] },
 
   { path: 'add-product', component: AddProductComponent, canActivate: [AdminGuard] },
+
+  { path: '', component: HomeComponent },
+  { path: '**', component: HomeComponent } // Redirect to a 404
 ];
 
 @NgModule({

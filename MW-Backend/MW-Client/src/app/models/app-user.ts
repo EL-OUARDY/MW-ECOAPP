@@ -1,7 +1,6 @@
 
-
 export interface AppUser {
     name: string;
     email: string;
-    isAdmin: boolean;
+    isAdmin: boolean; // Caution
 }

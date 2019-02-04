@@ -19,6 +19,7 @@
 .card-title, .card-text {
     margin-bottom: 5px;
     text-align: center;
+    color: black;
 }
 
 .card-text {
@@ -28,4 +29,8 @@
 
 .card-footer {
     padding: 0;
+}
+
+a{
+    color: black !important
 }

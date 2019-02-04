@@ -17,8 +17,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductService } from './services/product.service';
 import { CartService } from './services/cart.service';
 
-import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { AdminProductService } from './services/admin/product/admin-product.service';
+import { ProductDetailsComponent } from './product/product-details/product-details.component';
+
+import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
+import { CommonModule } from '@angular/common';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -31,17 +38,23 @@ import { AdminProductService } from './services/admin/product/admin-product.serv
     ScSummaryComponent,
     AddProductComponent,
     ProductCardComponent,
-    ProductQuantityComponent
+    ProductQuantityComponent,
+    ProductDetailsComponent
   ],
   imports: [
+    CommonModule,
+    
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
 
-
     NgbDropdownModule,
+
+
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
 
   ],
   providers: [

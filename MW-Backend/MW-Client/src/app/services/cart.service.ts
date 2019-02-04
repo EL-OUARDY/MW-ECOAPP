@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ShoppingCart } from '../models/shoppingCart';
-import { Product } from '../models/product';
+import { MiniProduct } from '../models/miniProduct';
 import { CartItem } from '../models/cartItem';
 
 
@@ -11,7 +11,7 @@ export class CartService {
   Cart = new ShoppingCart();
   constructor() { }
 
-  addToCart(p: Product) {
+  addToCart(p: MiniProduct) {
     const item = this.Cart.items.find(x => x.product.Id === p.Id);
     if (item) {
       item.quantity++;
@@ -40,6 +40,13 @@ export class CartService {
   clearCart() {
     this.Cart.items = [];
     // console.log(this.Cart.totalCartItems);
+  }
+
+  loadCart() {
+
+  } 
+  postCart() {
+
   }
 
 }

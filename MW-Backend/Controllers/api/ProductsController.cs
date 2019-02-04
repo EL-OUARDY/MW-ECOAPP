@@ -7,6 +7,8 @@ using System.Linq;
 using System.Net;
 using System.Web.Http;
 using System.Web.Http.Description;
+using AutoMapper;
+using MW_Backend.DTOs;
 using MW_Backend.Models;
 using MW_Backend.Models.Data;
 
@@ -23,22 +25,26 @@ namespace MW_Backend.Controllers.api
 
         // GET: api/Products
         [HttpGet]
-        public IQueryable<Product> GetProducts()
+        public IHttpActionResult GetProducts()
         {
-            return db.Products;
+            var products = db.Products
+                    .ToList()
+                    .Select(Mapper.Map<Product, mProductDTO>);
+
+            return Ok(products);
         }
 
         // GET: api/Products/5
         [ResponseType(typeof(Product))]
-        public IHttpActionResult GetProduct(int id)
+        public IHttpActionResult GetProduct(string slug)
         {
-            Product product = db.Products.Find(id);
-            if (product == null)
+            var model = db.Products.Where(x => x.Slug == slug).Include("SubCategory").SingleOrDefault();
+            if (model == null)
             {
                 return NotFound();
             }
 
-            return Ok(product);
+            return Ok( Mapper.Map<Product, ProductDTO>(model) );
         }
 
         // PUT: api/Products/5

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using MW_Backend.DTOs;
 using MW_Backend.Models.Data;
 using System;
 using System.Collections.Generic;
@@ -11,9 +12,11 @@ namespace MW_Backend.App_Start
     {
         public MappingProfile()
         {
-           // Mapper.CreateMap<Product, ProductDTO>();
-           // Mapper.CreateMap<ProductDTO, Product>();
+            Mapper.CreateMap<Product, mProductDTO>();
+            Mapper.CreateMap<mProductDTO, Product>();
 
+            Mapper.CreateMap<Product, ProductDTO>();
+            Mapper.CreateMap<ProductDTO, Product>();
         }
     }
 }

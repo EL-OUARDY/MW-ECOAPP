@@ -16,11 +16,6 @@ namespace MW_Backend.Models.Data
         [Display(Name = "Category")]
         public string Name { get; set; }
 
-        [Required]
-        [MaxLength(30)]
-        public string Slug { get; set; }
-
-
         public Category Category { get; set; }
 
         [Required]

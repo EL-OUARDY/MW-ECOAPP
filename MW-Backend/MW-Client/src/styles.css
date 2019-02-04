@@ -3,7 +3,7 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
 @font-face {
     font-family: OpenSans;
-    src: url(../src/assets/agency_fb.ttf);
+    src: url(~/Content/agency_fb.ttf);
 }
 
 body {

@@ -16,7 +16,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let item of cart.items">
-        <th><img [src]="item.product.image" class=" img-responsive table-img"></th>
+        <th><img [src]=" '/Content/Images/' + item.product.image" class=" img-responsive table-img"></th>
         <td>{{item.product.title}}</td>
         <td>{{item.product.price | currency: 'USD':'symbol'}}</td>
         <td style="width: 200px;">

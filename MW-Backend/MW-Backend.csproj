@@ -251,6 +251,8 @@
     <Compile Include="Controllers\api\ProductsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="DTOs\mProductDTO.cs" />
+    <Compile Include="DTOs\ProductDTO.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -277,6 +279,14 @@
     <Compile Include="Migrations\201902012140307_addOrders-OrderItems.cs" />
     <Compile Include="Migrations\201902012140307_addOrders-OrderItems.Designer.cs">
       <DependentUpon>201902012140307_addOrders-OrderItems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902031828532_removeCouponSiblingFromProd.cs" />
+    <Compile Include="Migrations\201902031828532_removeCouponSiblingFromProd.Designer.cs">
+      <DependentUpon>201902031828532_removeCouponSiblingFromProd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902041510077_removeSlugFromCatSub.cs" />
+    <Compile Include="Migrations\201902041510077_removeSlugFromCatSub.Designer.cs">
+      <DependentUpon>201902041510077_removeSlugFromCatSub.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
@@ -417,6 +427,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902012140307_addOrders-OrderItems.resx">
       <DependentUpon>201902012140307_addOrders-OrderItems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902031828532_removeCouponSiblingFromProd.resx">
+      <DependentUpon>201902031828532_removeCouponSiblingFromProd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902041510077_removeSlugFromCatSub.resx">
+      <DependentUpon>201902041510077_removeSlugFromCatSub.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

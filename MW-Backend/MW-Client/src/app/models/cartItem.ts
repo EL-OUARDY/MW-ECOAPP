@@ -1,11 +1,11 @@
-import { Product } from './product';
+import { MiniProduct } from './miniProduct';
 
 
 export class CartItem {
-    constructor(public product: Product, public quantity: number) {
+    constructor(public product: MiniProduct, public quantity: number) {
     }
 
     get totalPrice() {
-        return this.product.price * this.quantity;
+        return this.product.Price * this.quantity;
     }
 }

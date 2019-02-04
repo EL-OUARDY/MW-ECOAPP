@@ -14,7 +14,7 @@ export class ShoppingCart {
 
     get grandPrice() {
         let sum = 0;
-        this.items.forEach(x => sum += (x.product.price * x.quantity));
+        this.items.forEach(x => sum += (x.product.Price * x.quantity));
         return sum;
     }
 }
