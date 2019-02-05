@@ -312,6 +312,20 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\Products\1.jpg" />
+    <Content Include="Content\Images\Products\12\Main\87.jpg" />
+    <Content Include="Content\Images\Products\13\Main\1.jpg" />
+    <Content Include="Content\Images\Products\14.jfif" />
+    <Content Include="Content\Images\Products\15\Main\7.jpg" />
+    <Content Include="Content\Images\Products\19.jpg" />
+    <Content Include="Content\Images\Products\7.jpg" />
+    <Content Include="Content\Images\Products\87.jpg" />
+    <Content Include="Content\Images\Products\88.jpg" />
+    <Content Include="Content\Images\Products\99.jpg" />
+    <Content Include="Content\Images\Products\9\Main\99.jpg" />
+    <Content Include="Content\Images\Products\bb.png" />
+    <Content Include="Content\Images\Products\pc.jpg" />
+    <Content Include="Content\Images\Products\tv.jfif" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -379,7 +393,14 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\Images\" />
+    <Folder Include="Content\Images\Products\12\Desc\" />
+    <Folder Include="Content\Images\Products\12\Gallery\" />
+    <Folder Include="Content\Images\Products\13\Desc\" />
+    <Folder Include="Content\Images\Products\13\Gallery\" />
+    <Folder Include="Content\Images\Products\15\Desc\" />
+    <Folder Include="Content\Images\Products\15\Gallery\" />
+    <Folder Include="Content\Images\Products\9\Desc\" />
+    <Folder Include="Content\Images\Products\9\Gallery\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

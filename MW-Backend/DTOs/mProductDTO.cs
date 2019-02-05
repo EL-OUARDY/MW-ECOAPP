@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.IO;
 using System.Linq;
 using System.Web;
+
 
 namespace MW_Backend.DTOs
 {
@@ -16,5 +18,15 @@ namespace MW_Backend.DTOs
 
         public decimal Price { get; set; }
 
+        public string Image
+        {
+            get
+            {
+                //Exceptions !!
+                string myPath = HttpContext.Current.Server.MapPath("~/Content/Images/Products/" + Id.ToString() + "/Main");
+                return Directory.EnumerateFiles(myPath).Select(x => Path.GetFileName(x)).FirstOrDefault();
+            }
+
+        }
     }
 }

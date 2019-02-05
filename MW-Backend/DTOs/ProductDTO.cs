@@ -1,6 +1,7 @@
 ﻿using MW_Backend.Models.Data;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 
@@ -25,6 +26,36 @@ namespace MW_Backend.DTOs
         public decimal? OldPrice { get; set; }
 
         public byte Discount { get; set; }
+
+        public string mainImg
+        {
+            get
+            {
+                string myPath = HttpContext.Current.Server.MapPath("~/Content/Images/Products/" + Id.ToString() + "/Main");
+                return Directory.EnumerateFiles(myPath).Select(x => Path.GetFileName(x)).FirstOrDefault();
+            }
+
+        }
+
+        public IEnumerable<string> galleryImgs
+        {
+            get
+            {
+                string myPath = HttpContext.Current.Server.MapPath("~/Content/Images/Products/" + Id.ToString() + "/Gallery");
+                return Directory.EnumerateFiles(myPath).Select(fn => Path.GetFileName(fn));
+            }
+
+        }
+
+        public IEnumerable<string> descImgs
+        {
+            get
+            {
+                string myPath = HttpContext.Current.Server.MapPath("~/Content/Images/Products/" + Id.ToString() + "/Desc");
+                return Directory.EnumerateFiles(myPath).Select(fn => Path.GetFileName(fn));
+            }
+
+        }
 
     }
 }

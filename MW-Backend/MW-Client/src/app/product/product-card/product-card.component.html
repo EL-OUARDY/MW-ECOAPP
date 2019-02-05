@@ -1,5 +1,5 @@
 <div class="card ">
-  <img class="card-img-top" [src]=" '/Content/Images/' + product.Id" alt="Card image cap">
+  <img class="card-img-top" [src]="'/Content/Images/Products/' + product.Id + '/Main/' + product.Image" alt="Card image cap">
   <div class="card-body">
     <h5 class="card-title"><a routerLink="/product/{{product.Slug}}">{{product.Name}}</a></h5>
     <p class="card-text">{{product.Price | currency: 'USD':'symbol'}}</p>

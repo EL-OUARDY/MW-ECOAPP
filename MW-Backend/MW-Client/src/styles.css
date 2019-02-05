@@ -12,3 +12,7 @@ body {
     overflow-y: scroll;
     font-size: 24px;
 }
+
+.alert.justForTesting {
+    font-size: 18px;
+}

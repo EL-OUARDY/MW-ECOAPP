@@ -10,4 +10,7 @@ export interface Product {
     OldPrice: number;
     Description: string;
     Discount: number;
+    MainImg: string;
+    galleryImgs: string[];
+    descImgs: string[];
 }

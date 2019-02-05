@@ -5,5 +5,5 @@ export interface MiniProduct {
     Name: string;
     Price: number;
     Slug: string;
-    // main Img
+    Image: string;
 }
