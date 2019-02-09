@@ -328,7 +328,14 @@ namespace MW_Backend.Controllers
                 return BadRequest(ModelState);
             }
 
-            var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
+            var user = new ApplicationUser() { FullName = model.FullName , UserName = model.Email, Email = model.Email };
+
+            var _user =  await UserManager.FindByEmailAsync(model.Email);
+
+            if (_user != null )
+            {
+                return BadRequest("Email is already Taken");
+            }
 
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);
 

@@ -8,9 +8,11 @@ import { CheckoutGuard } from './guards/checkout.guard';
 import { AddProductComponent } from './admin/add-product/add-product.component';
 import { AdminGuard } from './guards/admin-guard.guard';
 import { ProductDetailsComponent } from './product/product-details/product-details.component';
+import { SignUpComponent } from './sign-in-up/sign-up/sign-up.component';
 
 const routes: Routes = [
   { path: 'sign-in', component: SignInUpComponent },
+  { path: 'sign-up', component: SignInUpComponent },
   { path: 'product/:slug', component: ProductDetailsComponent },
   { path: 'cart', component: ShoppingCartComponent },
 

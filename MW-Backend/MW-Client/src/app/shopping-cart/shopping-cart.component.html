@@ -22,7 +22,7 @@
         <td style="width: 200px;">
           <product-quantity [product]="item.product"></product-quantity>
         </td>
-        <td class="text-center">{{item.totalPrice | currency: 'USD':'symbol'}}</td>
+        <td class="text-center">{{(item.quantity * item.product.Price) | currency: 'USD':'symbol'}}</td>
         <td>
           <a (click)="removeCompleteItem(item.product.Id)" class="btn btn-secondary">Remove</a>
         </td>

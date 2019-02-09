@@ -22,7 +22,7 @@ namespace MW_Backend.DTOs
         {
             get
             {
-                //Exceptions !!
+                //Handling Exceptions !!
                 string myPath = HttpContext.Current.Server.MapPath("~/Content/Images/Products/" + Id.ToString() + "/Main");
                 return Directory.EnumerateFiles(myPath).Select(x => Path.GetFileName(x)).FirstOrDefault();
             }

@@ -1,0 +1,17 @@
+form {
+    margin: 10px auto;
+}
+
+.alert {
+    padding: 5px;
+    margin-top: 2px;
+    font-size: 20px;
+}
+
+label {
+    font-size: 22px;
+}
+
+img {
+    height: 30px;
+}

@@ -251,7 +251,6 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\api\ProductsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="DTOs\mProductDTO.cs" />
     <Compile Include="DTOs\ProductDTO.cs" />
     <Compile Include="Global.asax.cs">
@@ -288,6 +287,14 @@
     <Compile Include="Migrations\201902041510077_removeSlugFromCatSub.cs" />
     <Compile Include="Migrations\201902041510077_removeSlugFromCatSub.Designer.cs">
       <DependentUpon>201902041510077_removeSlugFromCatSub.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902081647237_addFullNameToUser.cs" />
+    <Compile Include="Migrations\201902081647237_addFullNameToUser.Designer.cs">
+      <DependentUpon>201902081647237_addFullNameToUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902081713576_addFullNameToUser1.cs" />
+    <Compile Include="Migrations\201902081713576_addFullNameToUser1.Designer.cs">
+      <DependentUpon>201902081713576_addFullNameToUser1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
@@ -455,6 +462,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902041510077_removeSlugFromCatSub.resx">
       <DependentUpon>201902041510077_removeSlugFromCatSub.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902081647237_addFullNameToUser.resx">
+      <DependentUpon>201902081647237_addFullNameToUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902081713576_addFullNameToUser1.resx">
+      <DependentUpon>201902081713576_addFullNameToUser1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

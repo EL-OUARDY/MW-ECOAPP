@@ -13,6 +13,15 @@ body {
     font-size: 24px;
 }
 
-.alert.justForTesting {
-    font-size: 18px;
+.alert{
+    font-size: 18px !important;
+    text-align: center;
+   
+}
+
+#toast-container .toast {
+    padding: 5px 5px 5px 50px !important;
+    width: 250px !important;
+    font-size: 16px !important;
+    letter-spacing: 1.5px;
 }

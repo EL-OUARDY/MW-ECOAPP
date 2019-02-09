@@ -1,0 +1,25 @@
+<form #f="ngForm" (ngSubmit)=onSubmit(f) class="col-8">
+<div class="form-group">
+  <label for="FullName">Full Name :</label>
+<input name="FullName" ngModel #FullName="ngModel" type="text" class="form-control" minlength="2" maxlength="30">
+  <div class="alert alert-dark" *ngIf="FullName.touched && !FullName.valid">
+    <div *ngIf="FullName.errors.required"> FullName must be between 2 and 30 characters !</div>
+  </div>
+</div>
+  <div class="form-group">
+    <label for="Email">Email :</label>
+    <input name="Email" ngModel #Email="ngModel" type="text" class="form-control" required>
+    <div class="alert alert-dark" *ngIf="Email.touched && !Email.valid">
+      <div *ngIf="Email.errors.required"> Email Is Required !</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="Password">Password :</label>
+    <input name="Password" ngModel #Password="ngModel" type="text" class="form-control">
+  </div>
+  <button class="btn btn-primary col-4" type="submit">Register</button>
+</form>
+
+<div class="formData alert alert-success">
+  {{ f.value | json }}
+</div>

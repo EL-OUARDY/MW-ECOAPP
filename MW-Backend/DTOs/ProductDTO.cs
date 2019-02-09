@@ -27,6 +27,7 @@ namespace MW_Backend.DTOs
 
         public byte Discount { get; set; }
 
+        //Handling Exceptions !!
         public string mainImg
         {
             get
@@ -34,7 +35,6 @@ namespace MW_Backend.DTOs
                 string myPath = HttpContext.Current.Server.MapPath("~/Content/Images/Products/" + Id.ToString() + "/Main");
                 return Directory.EnumerateFiles(myPath).Select(x => Path.GetFileName(x)).FirstOrDefault();
             }
-
         }
 
         public IEnumerable<string> galleryImgs
@@ -44,7 +44,6 @@ namespace MW_Backend.DTOs
                 string myPath = HttpContext.Current.Server.MapPath("~/Content/Images/Products/" + Id.ToString() + "/Gallery");
                 return Directory.EnumerateFiles(myPath).Select(fn => Path.GetFileName(fn));
             }
-
         }
 
         public IEnumerable<string> descImgs

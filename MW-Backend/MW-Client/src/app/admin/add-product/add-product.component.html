@@ -1,9 +1,5 @@
 <form #f="ngForm" (ngSubmit)=onSubmit(f.value)>
   <div class="row">
-    <button type="submit" class="btn col-12 ">Submit Form</button>
-  </div>
-  <br>
-  <div class="row">
     <div class=" form-group col-9">
       <label>Title :</label>
       <input required minlength="6" type="text" ngModel name="title" #title="ngModel" class=" form-control">

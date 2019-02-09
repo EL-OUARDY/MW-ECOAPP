@@ -5,7 +5,7 @@ export class CartItem {
     constructor(public product: MiniProduct, public quantity: number) {
     }
 
-    get totalPrice() {
-        return this.product.Price * this.quantity;
-    }
+    // get totalPrice() {
+    //     return this.product.Price * this.quantity;
+    // }
 }
