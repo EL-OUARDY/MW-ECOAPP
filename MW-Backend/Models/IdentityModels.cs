@@ -12,11 +12,6 @@ namespace MW_Backend.Models
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit https://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
     {
-        //extended propreties
-        [Required]
-        [StringLength(50)]
-        public string FullName { get; set; }
-
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager, string authenticationType)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
@@ -28,6 +23,8 @@ namespace MW_Backend.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<UserProfile> Users_Profiles { get; set; }
+
         public DbSet<Address_Book> Addresses_Book { get; set; }
 
         public DbSet<Category> Categories { get; set; }
@@ -39,6 +36,7 @@ namespace MW_Backend.Models
 
         public DbSet<Order> Orders { get; set; }
         public DbSet<Order_Item> Order_Items { get; set; }
+
 
 
 

@@ -296,6 +296,14 @@
     <Compile Include="Migrations\201902081713576_addFullNameToUser1.Designer.cs">
       <DependentUpon>201902081713576_addFullNameToUser1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902101338129_moveFullNameToUserTable.cs" />
+    <Compile Include="Migrations\201902101338129_moveFullNameToUserTable.Designer.cs">
+      <DependentUpon>201902101338129_moveFullNameToUserTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902101718323_fixProfileTable.cs" />
+    <Compile Include="Migrations\201902101718323_fixProfileTable.Designer.cs">
+      <DependentUpon>201902101718323_fixProfileTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -307,6 +315,7 @@
     <Compile Include="Models\Data\Product.cs" />
     <Compile Include="Models\Data\Product_Sibling.cs" />
     <Compile Include="Models\Data\SubCategory.cs" />
+    <Compile Include="Models\Data\UserProfile.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
@@ -468,6 +477,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902081713576_addFullNameToUser1.resx">
       <DependentUpon>201902081713576_addFullNameToUser1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902101338129_moveFullNameToUserTable.resx">
+      <DependentUpon>201902101338129_moveFullNameToUserTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902101718323_fixProfileTable.resx">
+      <DependentUpon>201902101718323_fixProfileTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

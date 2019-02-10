@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ProductValidators } from 'src/app/common/validators/product.validators';
+import { UserAuthService } from 'src/app/services/user/user-auth.service';
+import { ToastrService } from 'ngx-toastr';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'sign-in',
@@ -9,19 +12,19 @@ import { ProductValidators } from 'src/app/common/validators/product.validators'
 })
 export class SignInComponent {
 
-  constructor() {
+  constructor(private userAuth: UserAuthService, private toaster: ToastrService) {
   }
   form = new FormGroup({
-    username: new FormControl('', [Validators.required, Validators.minLength(6), ProductValidators.cannotContainSpace]),
-    password: new FormControl('', Validators.required)
+    Email: new FormControl('', [Validators.required, Validators.minLength(6), ProductValidators.cannotContainSpace]),
+    Password: new FormControl('', Validators.required)
   });
 
-  get username() {
-    return this.form.get('username');
+  get Email() {
+    return this.form.get('Email');
   }
 
-  get password() {
-    return this.form.get('password');
+  get Password() {
+    return this.form.get('Password');
   }
 
   googleLogin() {
@@ -32,7 +35,7 @@ export class SignInComponent {
   }
 
   submit(form) {
-    // console.log(form);
+    this.userAuth.Login(form.value);
   }
 
 }

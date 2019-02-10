@@ -28,6 +28,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { SignInComponent } from './sign-in-up/sign-in/sign-in.component';
 import { SignUpComponent } from './sign-in-up/sign-up/sign-up.component';
+import { UserProfileComponent } from './user/user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { SignUpComponent } from './sign-in-up/sign-up/sign-up.component';
     ProductQuantityComponent,
     ProductDetailsComponent,
     SignInComponent,
-    SignUpComponent
+    SignUpComponent,
+    UserProfileComponent
   ],
   imports: [
     CommonModule,

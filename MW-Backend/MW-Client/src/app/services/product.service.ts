@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { MiniProduct } from '../models/miniProduct';
 
@@ -15,7 +15,8 @@ export class ProductService {
   }
 
   getProduct(slug: string) {
-    return this.http.get('/api/products/' + slug);
+    const header = new HttpHeaders({ 'Authorization': 'Bearer ' + localStorage.getItem('MW-AccessToken')});
+    return this.http.get('/api/products/' + slug , {headers: header});
   }
 
 }

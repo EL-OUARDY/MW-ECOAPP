@@ -205,6 +205,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _admin_add_product_add_product_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./admin/add-product/add-product.component */ "./src/app/admin/add-product/add-product.component.ts");
 /* harmony import */ var _guards_admin_guard_guard__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./guards/admin-guard.guard */ "./src/app/guards/admin-guard.guard.ts");
 /* harmony import */ var _product_product_details_product_details_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./product/product-details/product-details.component */ "./src/app/product/product-details/product-details.component.ts");
+/* harmony import */ var _guards_user_auth_guard__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./guards/user-auth.guard */ "./src/app/guards/user-auth.guard.ts");
+/* harmony import */ var _user_user_profile_user_profile_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./user/user-profile/user-profile.component */ "./src/app/user/user-profile/user-profile.component.ts");
+
+
 
 
 
@@ -221,10 +225,11 @@ var routes = [
     { path: 'sign-up', component: _sign_in_up_sign_in_up_component__WEBPACK_IMPORTED_MODULE_4__["SignInUpComponent"] },
     { path: 'product/:slug', component: _product_product_details_product_details_component__WEBPACK_IMPORTED_MODULE_10__["ProductDetailsComponent"] },
     { path: 'cart', component: _shopping_cart_shopping_cart_component__WEBPACK_IMPORTED_MODULE_5__["ShoppingCartComponent"] },
+    { path: 'dashboard', component: _user_user_profile_user_profile_component__WEBPACK_IMPORTED_MODULE_12__["UserProfileComponent"], canActivate: [_guards_user_auth_guard__WEBPACK_IMPORTED_MODULE_11__["UserAuthGuard"]] },
     { path: 'checkout', component: _checkout_checkout_component__WEBPACK_IMPORTED_MODULE_6__["CheckoutComponent"], canActivate: [_guards_checkout_guard__WEBPACK_IMPORTED_MODULE_7__["CheckoutGuard"]] },
     { path: 'add-product', component: _admin_add_product_add_product_component__WEBPACK_IMPORTED_MODULE_8__["AddProductComponent"], canActivate: [_guards_admin_guard_guard__WEBPACK_IMPORTED_MODULE_9__["AdminGuard"]] },
     { path: '', component: _home_home_component__WEBPACK_IMPORTED_MODULE_3__["HomeComponent"] },
-    { path: '**', component: _home_home_component__WEBPACK_IMPORTED_MODULE_3__["HomeComponent"] } // Redirect to a 404
+    { path: '**', component: _home_home_component__WEBPACK_IMPORTED_MODULE_3__["HomeComponent"] } // Redirect to a 404 custom page
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -338,6 +343,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm5/ngx-toastr.js");
 /* harmony import */ var _sign_in_up_sign_in_sign_in_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./sign-in-up/sign-in/sign-in.component */ "./src/app/sign-in-up/sign-in/sign-in.component.ts");
 /* harmony import */ var _sign_in_up_sign_up_sign_up_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./sign-in-up/sign-up/sign-up.component */ "./src/app/sign-in-up/sign-up/sign-up.component.ts");
+/* harmony import */ var _user_user_profile_user_profile_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./user/user-profile/user-profile.component */ "./src/app/user/user-profile/user-profile.component.ts");
+
 
 
 
@@ -382,7 +389,8 @@ var AppModule = /** @class */ (function () {
                 _product_product_quantity_product_quantity_component__WEBPACK_IMPORTED_MODULE_13__["ProductQuantityComponent"],
                 _product_product_details_product_details_component__WEBPACK_IMPORTED_MODULE_19__["ProductDetailsComponent"],
                 _sign_in_up_sign_in_sign_in_component__WEBPACK_IMPORTED_MODULE_24__["SignInComponent"],
-                _sign_in_up_sign_up_sign_up_component__WEBPACK_IMPORTED_MODULE_25__["SignUpComponent"]
+                _sign_in_up_sign_up_sign_up_component__WEBPACK_IMPORTED_MODULE_25__["SignUpComponent"],
+                _user_user_profile_user_profile_component__WEBPACK_IMPORTED_MODULE_26__["UserProfileComponent"]
             ],
             imports: [
                 _angular_common__WEBPACK_IMPORTED_MODULE_21__["CommonModule"],
@@ -578,6 +586,45 @@ var CheckoutGuard = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/guards/user-auth.guard.ts":
+/*!*******************************************!*\
+  !*** ./src/app/guards/user-auth.guard.ts ***!
+  \*******************************************/
+/*! exports provided: UserAuthGuard */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserAuthGuard", function() { return UserAuthGuard; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+
+
+
+var UserAuthGuard = /** @class */ (function () {
+    function UserAuthGuard(router) {
+        this.router = router;
+    }
+    UserAuthGuard.prototype.canActivate = function (next, state) {
+        if (localStorage.getItem('MW-AccessToken')) {
+            return true;
+        }
+        this.router.navigate(['/sign-in']);
+    };
+    UserAuthGuard = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+            providedIn: 'root'
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
+    ], UserAuthGuard);
+    return UserAuthGuard;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/header/header.component.css":
 /*!*********************************************!*\
   !*** ./src/app/header/header.component.css ***!
@@ -596,7 +643,7 @@ module.exports = "a {\r\n    text-decoration: none;\r\n    color: #eee !importan
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav>\n  <a routerLink=\"/\"><span>You-Better</span></a>\n  <ul>\n    <li>\n      <a routerLink=\"add-product\">Product</a>\n    </li>\n    <li>\n      <a routerLink=\"cart\">Cart ({{getCartCount()}})\n      </a>\n    </li>\n    <li>\n      <a routerLink=\"sign-in\">login\n      </a>\n    </li>\n    <li ngbDropdown class=\"nav-item dropdown\">\n      <a ngbDropdownToggle class=\"dropdown-toggle\" id=\"dropdown01\" data-toggle=\"dropdown\" aria-haspopup=\"true\"\n        aria-expanded=\"false\">EL-Ouardy</a>\n      <div ngbDropdownMenu class=\"dropdown-menu\" aria-labelledby=\"dropdown01\">\n        <a class=\"dropdown-item\" routerLink=\"/\">My Orders</a>\n        <a class=\"dropdown-item\" routerLink=\"add-product\">Manage Orders</a>\n        <a class=\"dropdown-item\" routerLink=\"add-product\">Manage Products</a>\n        <a class=\"dropdown-item\" (click)=\"Logout()\">Log Out</a>\n      </div>\n    </li>\n    <!-- *ngIf=\"auth.user$ | async as user ; else anonumousUser\"-->\n    <!-- <ng-template #anonumousUser>\n      <li>\n        <a routerLink=\"sign-in\">Login</a>\n      </li>\n    </ng-template> -->\n  </ul>\n</nav>"
+module.exports = "<nav>\n  <a routerLink=\"/\"><span>You-Better</span></a>\n  <ul>\n    <li>\n      <a routerLink=\"add-product\">Product</a>\n    </li>\n    <li>\n      <a routerLink=\"cart\">Cart ({{getCartCount()}})\n      </a>\n    </li>\n    <li>\n      <a routerLink=\"sign-in\">login\n      </a>\n    </li>\n    <li ngbDropdown class=\"nav-item dropdown\">\n      <a ngbDropdownToggle class=\"dropdown-toggle\" id=\"dropdown01\" data-toggle=\"dropdown\" aria-haspopup=\"true\"\n        aria-expanded=\"false\">EL-Ouardy</a>\n      <div ngbDropdownMenu class=\"dropdown-menu\" aria-labelledby=\"dropdown01\">\n        <a class=\"dropdown-item\" routerLink=\"/dashboard\">My Profile</a>\n        <a class=\"dropdown-item\" routerLink=\"/\">My Orders</a>\n        <a class=\"dropdown-item\" routerLink=\"add-product\">Manage Orders</a>\n        <a class=\"dropdown-item\" (click)=\"Logout()\">Log Out</a>\n      </div>\n    </li>\n    <!-- *ngIf=\"auth.user$ | async as user ; else anonumousUser\"-->\n    <!-- <ng-template #anonumousUser>\n      <li>\n        <a routerLink=\"sign-in\">Login</a>\n      </li>\n    </ng-template> -->\n  </ul>\n</nav>"
 
 /***/ }),
 
@@ -1132,7 +1179,8 @@ var ProductService = /** @class */ (function () {
         return this.http.get('/api/products');
     };
     ProductService.prototype.getProduct = function (slug) {
-        return this.http.get('/api/products/' + slug);
+        var header = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({ 'Authorization': 'Bearer ' + localStorage.getItem('MW-AccessToken') });
+        return this.http.get('/api/products/' + slug, { headers: header });
     };
     ProductService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
@@ -1160,21 +1208,34 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm5/ngx-toastr.js");
+
 
 
 
 var UserAuthService = /** @class */ (function () {
-    function UserAuthService(http) {
+    function UserAuthService(http, toaster) {
         this.http = http;
+        this.toaster = toaster;
     }
     UserAuthService.prototype.Register = function (f) {
         return this.http.post('api/Account/Register', f);
+    };
+    UserAuthService.prototype.Login = function (f) {
+        var _this = this;
+        var data = 'username=' + f.Email + '&password=' + f.Password + '&grant_type=password';
+        var reqHeader = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({ 'Content-Type': 'application/x-www-urlencoded' });
+        this.http.post('token', data, { headers: reqHeader }).subscribe(function (res) {
+            _this.toaster.success('Logged-in', 'Success');
+            localStorage.setItem('MW-AccessToken', res.access_token);
+            console.log(res);
+        });
     };
     UserAuthService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
             providedIn: 'root'
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"], ngx_toastr__WEBPACK_IMPORTED_MODULE_3__["ToastrService"]])
     ], UserAuthService);
     return UserAuthService;
 }());
@@ -1383,7 +1444,7 @@ module.exports = "form {\r\n    margin: 10px auto;\r\n}\r\n\r\n.alert {\r\n    p
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form [formGroup]=\"form\" (ngSubmit)=submit(form) class=\"col-8\">\n  <div class=\"form-group\">\n    <label for=\"username\">Username :</label>\n    <input formControlName=\"username\" type=\"text\" class=\"form-control\">\n    <ng-container *ngIf=\"username.touched && username.invalid\">\n      <div *ngIf=\"username.errors.required\" class=\"alert alert-dark text-center\">this field is\n        required !</div>\n      <div *ngIf=\" username.errors.minlength\" class=\"alert alert-dark text-center\">At least\n        {{username.errors.minlength.requiredLength}} characters</div>\n\n      <div *ngIf=\" username.errors.cannotContainSpace\" class=\"alert alert-dark text-center\">This field cannot contain\n        spaces ..\n\n      </div>\n    </ng-container>\n  </div>\n  <div class=\"form-group\">\n    <label for=\"password\">Password :</label>\n    <input formControlName=\"password\" type=\"password\" class=\"form-control\">\n    <div *ngIf=\"password.touched && password.invalid\" class=\" alert alert-dark text-center\">this field is required !</div>\n  </div>\n  <button class=\"btn btn-primary col-4\" type=\"submit\">Sign In</button>\n  <div class=\"btn offset-2 col-2 \" (click)='facebookLogin()'><img src=\"Content/Images/Other/f.png\"></div>\n  <div class=\"btn col-2 \" (click)='googleLogin()'><img src=\"Content/Images/Other/g.png\"></div>\n  <div class=\"btn col-2 \" (click)='twitterLogin()'><img src=\"/Content/Images/Other/t.png\"></div>\n</form>\n<br><br>\n<div class=\"alert alert-success text-center\">\n  {{ form.value | json }}\n</div>"
+module.exports = "<form [formGroup]=\"form\" (ngSubmit)=submit(form) class=\"col-8\">\n  <div class=\"form-group\">\n    <label for=\"Email\">Email :</label>\n    <input formControlName=\"Email\" type=\"text\" class=\"form-control\">\n    <ng-container *ngIf=\"Email.touched && Email.invalid\">\n      <div *ngIf=\"Email.errors.required\" class=\"alert alert-dark text-center\">this field is\n        required !</div>\n      <div *ngIf=\" Email.errors.minlength\" class=\"alert alert-dark text-center\">At least\n        {{Email.errors.minlength.requiredLength}} characters</div>\n\n      <div *ngIf=\" Email.errors.cannotContainSpace\" class=\"alert alert-dark text-center\">This field cannot contain\n        spaces ..\n\n      </div>\n    </ng-container>\n  </div>\n  <div class=\"form-group\">\n    <label for=\"Password\">Password :</label>\n    <input formControlName=\"Password\" type=\"Password\" class=\"form-control\">\n    <div *ngIf=\"Password.touched && Password.invalid\" class=\" alert alert-dark text-center\">this field is required !</div>\n  </div>\n  <button class=\"btn btn-primary col-4\" type=\"submit\">Sign In</button>\n  <div class=\"btn offset-2 col-2 \" (click)='facebookLogin()'><img src=\"Content/Images/Other/f.png\"></div>\n  <div class=\"btn col-2 \" (click)='googleLogin()'><img src=\"Content/Images/Other/g.png\"></div>\n  <div class=\"btn col-2 \" (click)='twitterLogin()'><img src=\"/Content/Images/Other/t.png\"></div>\n</form>\n<br><br>\n<div class=\"alert alert-success text-center\">\n  {{ form.value | json }}\n</div>"
 
 /***/ }),
 
@@ -1401,27 +1462,33 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var src_app_common_validators_product_validators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/common/validators/product.validators */ "./src/app/common/validators/product.validators.ts");
+/* harmony import */ var src_app_services_user_user_auth_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/services/user/user-auth.service */ "./src/app/services/user/user-auth.service.ts");
+/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm5/ngx-toastr.js");
+
+
 
 
 
 
 var SignInComponent = /** @class */ (function () {
-    function SignInComponent() {
+    function SignInComponent(userAuth, toaster) {
+        this.userAuth = userAuth;
+        this.toaster = toaster;
         this.form = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormGroup"]({
-            username: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(6), src_app_common_validators_product_validators__WEBPACK_IMPORTED_MODULE_3__["ProductValidators"].cannotContainSpace]),
-            password: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required)
+            Email: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(6), src_app_common_validators_product_validators__WEBPACK_IMPORTED_MODULE_3__["ProductValidators"].cannotContainSpace]),
+            Password: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required)
         });
     }
-    Object.defineProperty(SignInComponent.prototype, "username", {
+    Object.defineProperty(SignInComponent.prototype, "Email", {
         get: function () {
-            return this.form.get('username');
+            return this.form.get('Email');
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(SignInComponent.prototype, "password", {
+    Object.defineProperty(SignInComponent.prototype, "Password", {
         get: function () {
-            return this.form.get('password');
+            return this.form.get('Password');
         },
         enumerable: true,
         configurable: true
@@ -1433,7 +1500,7 @@ var SignInComponent = /** @class */ (function () {
     SignInComponent.prototype.twitterLogin = function () {
     };
     SignInComponent.prototype.submit = function (form) {
-        // console.log(form);
+        this.userAuth.Login(form.value);
     };
     SignInComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1441,7 +1508,7 @@ var SignInComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./sign-in.component.html */ "./src/app/sign-in-up/sign-in/sign-in.component.html"),
             styles: [__webpack_require__(/*! ./sign-in.component.css */ "./src/app/sign-in-up/sign-in/sign-in.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_services_user_user_auth_service__WEBPACK_IMPORTED_MODULE_4__["UserAuthService"], ngx_toastr__WEBPACK_IMPORTED_MODULE_5__["ToastrService"]])
     ], SignInComponent);
     return SignInComponent;
 }());
@@ -1500,8 +1567,10 @@ var SignUpComponent = /** @class */ (function () {
     SignUpComponent.prototype.onSubmit = function (f) {
         var _this = this;
         this.userAuth.Register(f.value).subscribe(function (data) {
-            console.log(data);
             _this.toaster.success('Registred', 'Success');
+            _this.userAuth.Login(f.value);
+        }, function (error) {
+            console.log(error.error.Message);
         });
     };
     SignUpComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -1513,6 +1582,62 @@ var SignUpComponent = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_services_user_user_auth_service__WEBPACK_IMPORTED_MODULE_2__["UserAuthService"], ngx_toastr__WEBPACK_IMPORTED_MODULE_3__["ToastrService"]])
     ], SignUpComponent);
     return SignUpComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/user/user-profile/user-profile.component.css":
+/*!**************************************************************!*\
+  !*** ./src/app/user/user-profile/user-profile.component.css ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3VzZXIvdXNlci1wcm9maWxlL3VzZXItcHJvZmlsZS5jb21wb25lbnQuY3NzIn0= */"
+
+/***/ }),
+
+/***/ "./src/app/user/user-profile/user-profile.component.html":
+/*!***************************************************************!*\
+  !*** ./src/app/user/user-profile/user-profile.component.html ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  user-profile works!\n</p>\n"
+
+/***/ }),
+
+/***/ "./src/app/user/user-profile/user-profile.component.ts":
+/*!*************************************************************!*\
+  !*** ./src/app/user/user-profile/user-profile.component.ts ***!
+  \*************************************************************/
+/*! exports provided: UserProfileComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserProfileComponent", function() { return UserProfileComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var UserProfileComponent = /** @class */ (function () {
+    function UserProfileComponent() {
+    }
+    UserProfileComponent.prototype.ngOnInit = function () {
+    };
+    UserProfileComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'user-profile',
+            template: __webpack_require__(/*! ./user-profile.component.html */ "./src/app/user/user-profile/user-profile.component.html"),
+            styles: [__webpack_require__(/*! ./user-profile.component.css */ "./src/app/user/user-profile/user-profile.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], UserProfileComponent);
+    return UserProfileComponent;
 }());
 
 

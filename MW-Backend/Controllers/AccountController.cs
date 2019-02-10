@@ -14,6 +14,7 @@ using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
 using MW_Backend.Models;
+using MW_Backend.Models.Data;
 using MW_Backend.Providers;
 using MW_Backend.Results;
 
@@ -25,7 +26,7 @@ namespace MW_Backend.Controllers
     {
         private const string LocalLoginProvider = "Local";
         private ApplicationUserManager _userManager;
-
+    
         public AccountController()
         {
         }
@@ -327,21 +328,28 @@ namespace MW_Backend.Controllers
             {
                 return BadRequest(ModelState);
             }
-
-            var user = new ApplicationUser() { FullName = model.FullName , UserName = model.Email, Email = model.Email };
-
+            /**/
             var _user =  await UserManager.FindByEmailAsync(model.Email);
 
             if (_user != null )
             {
                 return BadRequest("Email is already Taken");
             }
+            /**/
 
-            IdentityResult result = await UserManager.CreateAsync(user, model.Password);
+            var newUser = new ApplicationUser() { UserName = model.Email, Email = model.Email };
+            IdentityResult result = await UserManager.CreateAsync(newUser, model.Password);
 
             if (!result.Succeeded)
             {
                 return GetErrorResult(result);
+            }
+
+            using (var db = new ApplicationDbContext())
+            {
+                var Profile = new UserProfile { FullName = model.FullName , ApplicationUserId = newUser.Id};
+                db.Users_Profiles.Add(Profile);
+                db.SaveChanges();
             }
 
             return Ok();
