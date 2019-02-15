@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../services/cart.service';
+import { UserAuthService } from '../services/user/user-auth.service';
+import { UserProfile } from '../models/userProfile';
 
 @Component({
   selector: 'app-header',
@@ -8,18 +10,18 @@ import { CartService } from '../services/cart.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private cartService: CartService) {
+  get cartCount() {
+    return this.cartService.Cart.totalCartItems;
+  }
+
+  constructor(private cartService: CartService, private userAuth: UserAuthService) {
   }
 
   ngOnInit() {
   }
 
-  getCartCount() {
-    return this.cartService.Cart.totalCartItems;
-  }
-
   Logout() {
-    // this.auth.Logout();
+    this.userAuth.Logout();
   }
 
 }

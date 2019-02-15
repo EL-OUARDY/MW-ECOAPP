@@ -1,11 +1,14 @@
-<form #f="ngForm" (ngSubmit)=onSubmit(f) class="col-8">
-<div class="form-group">
-  <label for="FullName">Full Name :</label>
-<input name="FullName" ngModel #FullName="ngModel" type="text" class="form-control" minlength="2" maxlength="30">
-  <div class="alert alert-dark" *ngIf="FullName.touched && !FullName.valid">
-    <div *ngIf="FullName.errors.required"> FullName must be between 2 and 30 characters !</div>
+<form #f="ngForm" (ngSubmit)=Register(f) class="col-8">
+  <div class="form-group">
+    <label for="FullName">Full Name :</label>
+    <input name="FullName" ngModel #FullName="ngModel" type="text" class="form-control" required minlength="2"
+      maxlength="30">
+    <div class="alert alert-dark" *ngIf="FullName.touched && !FullName.valid">
+      <div *ngIf="FullName.errors.required"> FullName Is Required !</div>
+      <div *ngIf="FullName.errors.minlength || FullName.errors.maxlength"> FullName must be between 2 and 30 characters
+        !</div>
+    </div>
   </div>
-</div>
   <div class="form-group">
     <label for="Email">Email :</label>
     <input name="Email" ngModel #Email="ngModel" type="text" class="form-control" required>
@@ -15,11 +18,16 @@
   </div>
   <div class="form-group">
     <label for="Password">Password :</label>
-    <input name="Password" ngModel #Password="ngModel" type="text" class="form-control">
+    <input name="Password" ngModel #Password="ngModel" type="password" required minlength="6" class="form-control">
+    <div class="alert alert-dark" *ngIf="Password.touched && !Password.valid">
+      <div *ngIf="Password.errors.required"> Password Is Required !</div>
+      <div *ngIf="Password.errors.minlength"> At least 6 characters !</div>
+    </div>
   </div>
   <button class="btn btn-primary col-4" type="submit">Register</button>
 </form>
-
-<div class="formData alert alert-success">
-  {{ f.value | json }}
+<div>
+  <div class="alert alert-warning" *ngIf="serverError">
+    {{serverError}}
+  </div>
 </div>

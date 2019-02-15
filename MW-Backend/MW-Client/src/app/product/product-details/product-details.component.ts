@@ -15,7 +15,6 @@ export class ProductDetailsComponent implements OnInit {
     const slug: string = this.route.snapshot.params['slug'];
     this.productService.getProduct(slug).subscribe(res => {
         this.product = res as Product;
-        console.log(res);
     });
   }
 

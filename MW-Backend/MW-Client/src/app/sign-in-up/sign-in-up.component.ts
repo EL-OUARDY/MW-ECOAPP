@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { ProductValidators } from '../common/validators/product.validators';
+import { UserAuthService } from '../services/user/user-auth.service';
 
 @Component({
   selector: 'sign-in-up',
@@ -8,5 +7,6 @@ import { ProductValidators } from '../common/validators/product.validators';
   styleUrls: ['./sign-in-up.component.css']
 })
 export class SignInUpComponent {
-  
+  constructor() {
+  }
 }

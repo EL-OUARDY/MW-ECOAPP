@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,7 +13,7 @@ import { AddProductComponent } from './admin/add-product/add-product.component';
 import { ProductCardComponent } from './product/product-card/product-card.component';
 import { ProductQuantityComponent } from './product/product-quantity/product-quantity.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ProductService } from './services/product.service';
 import { CartService } from './services/cart.service';
 
@@ -29,6 +29,10 @@ import { ToastrModule } from 'ngx-toastr';
 import { SignInComponent } from './sign-in-up/sign-in/sign-in.component';
 import { SignUpComponent } from './sign-in-up/sign-up/sign-up.component';
 import { UserProfileComponent } from './user/user-profile/user-profile.component';
+import { NotFoundComponent } from './error-pages/not-found/not-found.component';
+import { AppErrorHandler } from './common/errors/app-error-handler';
+import { UnexpectedErrorComponent } from './error-pages/unexpected-error/unexpected-error.component';
+import { AuthInterceptor } from './common/auth-interceptor';
 
 @NgModule({
   declarations: [
@@ -45,7 +49,9 @@ import { UserProfileComponent } from './user/user-profile/user-profile.component
     ProductDetailsComponent,
     SignInComponent,
     SignUpComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    NotFoundComponent,
+    UnexpectedErrorComponent
   ],
   imports: [
     CommonModule,
@@ -68,6 +74,10 @@ import { UserProfileComponent } from './user/user-profile/user-profile.component
 
     ProductService,
     CartService,
+    
+    { provide: ErrorHandler, useClass: AppErrorHandler },
+    
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })

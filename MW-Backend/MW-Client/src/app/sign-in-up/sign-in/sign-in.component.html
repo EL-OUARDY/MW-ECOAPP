@@ -1,13 +1,10 @@
-<form [formGroup]="form" (ngSubmit)=submit(form) class="col-8">
+<form [formGroup]="form" (ngSubmit)=login(form) class="col-8">
   <div class="form-group">
     <label for="Email">Email :</label>
     <input formControlName="Email" type="text" class="form-control">
     <ng-container *ngIf="Email.touched && Email.invalid">
       <div *ngIf="Email.errors.required" class="alert alert-dark text-center">this field is
         required !</div>
-      <div *ngIf=" Email.errors.minlength" class="alert alert-dark text-center">At least
-        {{Email.errors.minlength.requiredLength}} characters</div>
-
       <div *ngIf=" Email.errors.cannotContainSpace" class="alert alert-dark text-center">This field cannot contain
         spaces ..
 
@@ -24,7 +21,9 @@
   <div class="btn col-2 " (click)='googleLogin()'><img src="Content/Images/Other/g.png"></div>
   <div class="btn col-2 " (click)='twitterLogin()'><img src="/Content/Images/Other/t.png"></div>
 </form>
-<br><br>
-<div class="alert alert-success text-center">
-  {{ form.value | json }}
+<br>
+<div>
+  <div class="alert alert-warning" *ngIf="serverError">
+    {{serverError}}
+  </div>
 </div>

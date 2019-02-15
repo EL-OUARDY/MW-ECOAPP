@@ -29,13 +29,5 @@ namespace MW_Backend.Models.Data
 
         public ApplicationUser ApplicationUser { get; set; }
         public string ApplicationUserId { get; set; }
-
-        //public string Avatar
-        //{
-        //    get
-        //    {
-        //        return "";
-        //    }
-        //}
     }
 }

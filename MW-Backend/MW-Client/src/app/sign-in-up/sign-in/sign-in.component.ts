@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, NgForm } from '@angular/forms';
 import { ProductValidators } from 'src/app/common/validators/product.validators';
 import { UserAuthService } from 'src/app/services/user/user-auth.service';
 import { ToastrService } from 'ngx-toastr';
-import { HttpErrorResponse } from '@angular/common/http';
+import { AppError } from 'src/app/common/errors/app-error';
+import { BadInput } from 'src/app/common/errors/http-errors';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'sign-in',
@@ -11,11 +13,11 @@ import { HttpErrorResponse } from '@angular/common/http';
   styleUrls: ['./sign-in.component.css']
 })
 export class SignInComponent {
-
-  constructor(private userAuth: UserAuthService, private toaster: ToastrService) {
+  serverError: string;
+  constructor(private userAuth: UserAuthService, private toaster: ToastrService, private router: Router) {
   }
   form = new FormGroup({
-    Email: new FormControl('', [Validators.required, Validators.minLength(6), ProductValidators.cannotContainSpace]),
+    Email: new FormControl('', [Validators.required, ProductValidators.cannotContainSpace]),
     Password: new FormControl('', Validators.required)
   });
 
@@ -34,8 +36,22 @@ export class SignInComponent {
   twitterLogin() {
   }
 
-  submit(form) {
-    this.userAuth.Login(form.value);
+  login(form: NgForm) {
+    if (form.invalid) {
+      this.serverError = 'Fill all fields with valid data';
+      return;
+    }
+    this.userAuth.Login(form.value).subscribe(
+      (response: any) => {
+        localStorage.setItem('MW-AccessToken', response.access_token);
+        this.userAuth.getProfile();
+        this.router.navigate(['/']); // Redirect to a return url
+      },
+      (err: AppError) => {
+        if (err instanceof BadInput) {
+          this.serverError = 'Email or Password is Incorect ..'; // Display the error within Form errors
+        } else throw err;
+      });
   }
 
 }

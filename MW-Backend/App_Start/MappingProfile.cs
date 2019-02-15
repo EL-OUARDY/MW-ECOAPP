@@ -17,6 +17,9 @@ namespace MW_Backend.App_Start
 
             Mapper.CreateMap<Product, ProductDTO>();
             Mapper.CreateMap<ProductDTO, Product>();
+
+            Mapper.CreateMap<UserProfile, UserProfileDTO>();
+            Mapper.CreateMap<UserProfileDTO, UserProfile>();
         }
     }
 }

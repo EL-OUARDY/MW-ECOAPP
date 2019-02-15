@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Net.Http;
 using System.Security.Claims;
 using System.Security.Cryptography;
@@ -29,6 +30,7 @@ namespace MW_Backend.Controllers
     
         public AccountController()
         {
+            
         }
 
         public AccountController(ApplicationUserManager userManager,
@@ -326,14 +328,14 @@ namespace MW_Backend.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                return BadRequest( "Fill all fields with valid data" );
             }
             /**/
             var _user =  await UserManager.FindByEmailAsync(model.Email);
 
             if (_user != null )
             {
-                return BadRequest("Email is already Taken");
+                return BadRequest("Email is already taken");
             }
             /**/
 

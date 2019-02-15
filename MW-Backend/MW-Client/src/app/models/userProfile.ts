@@ -1,6 +1,9 @@
 
 export interface UserProfile {
-    name: string;
-    email: string;
-    isAdmin: boolean; // Caution
+    FullName: string;
+    Gender: string;
+    Phone: string;
+    Country: string;
+    City: string;
+    Avatar: string;
 }

@@ -1,22 +1,20 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { MiniProduct } from '../models/miniProduct';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
-
+  noAuth = new HttpHeaders({ 'NoAuth': 'true' });
   constructor(private http: HttpClient) { }
 
   getProductList() {
-    return this.http.get('/api/products');
+    return this.http.get('/api/products', {headers: this.noAuth});
   }
 
   getProduct(slug: string) {
-    const header = new HttpHeaders({ 'Authorization': 'Bearer ' + localStorage.getItem('MW-AccessToken')});
-    return this.http.get('/api/products/' + slug , {headers: header});
+    return this.http.get('/api/products/' + slug, { headers: this.noAuth });
   }
 
 }

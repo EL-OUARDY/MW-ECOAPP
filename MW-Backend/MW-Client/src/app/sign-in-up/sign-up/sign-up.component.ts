@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { NgForm, FormGroup, Validators } from '@angular/forms';
 import { UserAuthService } from 'src/app/services/user/user-auth.service';
-import { ToastrService } from 'ngx-toastr';
-import { HttpErrorResponse } from '@angular/common/http';
+import { AppError } from 'src/app/common/errors/app-error';
+import { BadInput } from 'src/app/common/errors/http-errors';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'sign-up',
@@ -10,20 +11,30 @@ import { HttpErrorResponse } from '@angular/common/http';
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent implements OnInit {
-
-  constructor(private userAuth: UserAuthService, private toaster: ToastrService) { }
+  serverError: string;
+  constructor(private userAuth: UserAuthService, private router: Router) { }
 
   ngOnInit() {
   }
 
-  onSubmit(f: NgForm) {
-    this.userAuth.Register(f.value).subscribe((data: Response) => {
-      this.toaster.success('Registred', 'Success');
-
-      this.userAuth.Login(f.value);
-      
-    }, (error: HttpErrorResponse) => {
-        console.log(error.error.Message );
-    });
+  Register(form: NgForm) {
+    if (form.invalid) {
+      this.serverError = 'Fill all fields with valid data';
+      return;
+    }
+    this.userAuth.Register(form.value).subscribe(
+      response => {
+        this.userAuth.Login(form.value).subscribe(
+          (res: any) => {
+            localStorage.setItem('MW-AccessToken', res.access_token);
+            this.userAuth.getProfile();
+            this.router.navigate(['/']); // Redirect to a return url
+          });
+      },
+      (err: AppError) => {
+        if (err instanceof BadInput ) {
+          this.serverError = err.originalError.error.Message; // Display the error within Form errors
+        } else throw err;
+      });
   }
 }
