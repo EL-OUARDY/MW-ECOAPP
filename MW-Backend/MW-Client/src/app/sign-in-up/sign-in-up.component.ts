@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { UserAuthService } from '../services/user/user-auth.service';
 
 @Component({
   selector: 'sign-in-up',

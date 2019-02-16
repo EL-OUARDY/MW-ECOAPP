@@ -17,7 +17,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ProductService } from './services/product.service';
 import { CartService } from './services/cart.service';
 
-import { AdminProductService } from './services/admin/product/admin-product.service';
 import { ProductDetailsComponent } from './product/product-details/product-details.component';
 
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
@@ -33,6 +32,7 @@ import { NotFoundComponent } from './error-pages/not-found/not-found.component';
 import { AppErrorHandler } from './common/errors/app-error-handler';
 import { UnexpectedErrorComponent } from './error-pages/unexpected-error/unexpected-error.component';
 import { AuthInterceptor } from './common/auth-interceptor';
+import { AdminProductService } from './admin/services/admin-product.service';
 
 @NgModule({
   declarations: [

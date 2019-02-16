@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators, NgForm } from '@angular/forms';
 import { ProductValidators } from 'src/app/common/validators/product.validators';
-import { UserAuthService } from 'src/app/services/user/user-auth.service';
 import { ToastrService } from 'ngx-toastr';
 import { AppError } from 'src/app/common/errors/app-error';
 import { BadInput } from 'src/app/common/errors/http-errors';
 import { Router } from '@angular/router';
+import { UserAuthService } from 'src/app/services/user-auth.service';
 
 @Component({
   selector: 'sign-in',

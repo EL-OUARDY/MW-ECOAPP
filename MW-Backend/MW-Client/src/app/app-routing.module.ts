@@ -24,10 +24,10 @@ const routes: Routes = [
 
   { path: 'checkout', component: CheckoutComponent, canActivate: [CheckoutGuard] },
 
-  { path: 'add-product', component: AddProductComponent, canActivate: [AdminGuard] },
-
   { path: '404', component: NotFoundComponent },
   { path: 'error', component: UnexpectedErrorComponent },
+
+  { path: 'add-product', component: AddProductComponent, canActivate: [AdminGuard] },
 
   { path: '', component: HomeComponent },
   { path: '**', component: HomeComponent } // Redirect to a 404 custom page
