@@ -5,7 +5,6 @@ import { SignInUpComponent } from './sign-in-up/sign-in-up.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { CheckoutGuard } from './guards/checkout.guard';
-import { AddProductComponent } from './admin/add-product/add-product.component';
 import { AdminGuard } from './guards/admin-guard.guard';
 import { ProductDetailsComponent } from './product/product-details/product-details.component';
 import { UserAuthGuard } from './guards/user-auth.guard';
@@ -13,6 +12,7 @@ import { UserProfileComponent } from './user/user-profile/user-profile.component
 import { SigninGuard } from './guards/signin.guard';
 import { NotFoundComponent } from './error-pages/not-found/not-found.component';
 import { UnexpectedErrorComponent } from './error-pages/unexpected-error/unexpected-error.component';
+import { ProductFromComponent } from './admin/product-from/product-from.component';
 
 const routes: Routes = [
   { path: 'sign-in', component: SignInUpComponent, canActivate: [SigninGuard]  },
@@ -27,7 +27,7 @@ const routes: Routes = [
   { path: '404', component: NotFoundComponent },
   { path: 'error', component: UnexpectedErrorComponent },
 
-  { path: 'add-product', component: AddProductComponent, canActivate: [AdminGuard] },
+  { path: 'add-product', component: ProductFromComponent, canActivate: [AdminGuard] },
 
   { path: '', component: HomeComponent },
   { path: '**', component: HomeComponent } // Redirect to a 404 custom page

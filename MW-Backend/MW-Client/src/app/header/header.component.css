@@ -1,3 +1,11 @@
+header {
+  background: #6c757d;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+
 a {
     text-decoration: none;
     color: #eee !important

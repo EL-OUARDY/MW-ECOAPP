@@ -9,7 +9,6 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { SignInUpComponent } from './sign-in-up/sign-in-up.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { ScSummaryComponent } from './shopping-cart/sc-summary/sc-summary.component';
-import { AddProductComponent } from './admin/add-product/add-product.component';
 import { ProductCardComponent } from './product/product-card/product-card.component';
 import { ProductQuantityComponent } from './product/product-quantity/product-quantity.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -33,6 +32,8 @@ import { AppErrorHandler } from './common/errors/app-error-handler';
 import { UnexpectedErrorComponent } from './error-pages/unexpected-error/unexpected-error.component';
 import { AuthInterceptor } from './common/auth-interceptor';
 import { AdminProductService } from './admin/services/admin-product.service';
+import { ProductFromComponent } from './admin/product-from/product-from.component';
+import { ProductHistoryComponent } from './admin/product-history/product-history.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,6 @@ import { AdminProductService } from './admin/services/admin-product.service';
     SignInUpComponent,
     CheckoutComponent,
     ScSummaryComponent,
-    AddProductComponent,
     ProductCardComponent,
     ProductQuantityComponent,
     ProductDetailsComponent,
@@ -51,7 +51,9 @@ import { AdminProductService } from './admin/services/admin-product.service';
     SignUpComponent,
     UserProfileComponent,
     NotFoundComponent,
-    UnexpectedErrorComponent
+    UnexpectedErrorComponent,
+    ProductFromComponent,
+    ProductHistoryComponent
   ],
   imports: [
     CommonModule,

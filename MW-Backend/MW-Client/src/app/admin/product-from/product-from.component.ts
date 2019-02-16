@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { AdminProductService } from '../services/admin-product.service';
 
 @Component({
-  selector: 'add-product',
-  templateUrl: './add-product.component.html',
-  styleUrls: ['./add-product.component.css']
+  selector: 'app-product-from',
+  templateUrl: './product-from.component.html',
+  styleUrls: ['./product-from.component.css']
 })
-export class AddProductComponent implements OnInit {
+export class ProductFromComponent implements OnInit {
   categories;
   subCategories;
   shipping;
@@ -54,7 +54,7 @@ export class AddProductComponent implements OnInit {
             data: (<FileReader>e.target).result.toString()
           };
 
-          if (this.PImages.length < 10) { this.PImages.push(item); }
+          if (this.PImages.length < 8) { this.PImages.push(item); }
         };
         reader.readAsDataURL(files[i]);
       }
@@ -72,7 +72,7 @@ export class AddProductComponent implements OnInit {
             data: (<FileReader>e.target).result.toString()
           };
 
-          if (this.DesImages.length < 10) { this.DesImages.push(item); }
+          if (this.DesImages.length < 8) { this.DesImages.push(item); }
         };
         reader.readAsDataURL(files[i]);
       }
@@ -106,7 +106,7 @@ export class AddProductComponent implements OnInit {
   onSubmit(f) {
     const n = new FormData();
     const product = {
-      'Na//me': 'xxx xxxxxx', 'Slug': 'xxx-xxxxxx', 'Price': 10,
+      'Na//me': 'xxx xxxxxx', 'Slug': 'xxx-xxxxxx', 'Price': 8,
       'Description': 'xxx xxxxxx xxx xxxxxx xxx xxxxxx', 'Date_Added': null, 'OldPrice': null,
       'Discount': 0, 'SubCategory': null, 'SubCategoryId': 1, 'MainImg': null
     };
@@ -119,3 +119,4 @@ interface IPath {
   name: string;
   data: string;
 }
+

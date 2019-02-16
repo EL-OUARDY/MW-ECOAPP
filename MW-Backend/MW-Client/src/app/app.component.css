@@ -1,13 +1,7 @@
-header {
-    background: #6c757d;
-    position: sticky;
-    top: 0;
-    z-index: 999;
-}
 
-router-outlet {
+/* router-outlet {
     display: none;
-}
+} */
 
 #content {
     width: 1070px;

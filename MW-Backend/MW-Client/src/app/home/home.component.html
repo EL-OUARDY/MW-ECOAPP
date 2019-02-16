@@ -1,3 +1,4 @@
+<div class="container">
 <div class="products row ">
   <div *ngFor="let p of products$ | async" class="col-3">
     <product-card [product]="p"></product-card>
@@ -7,4 +8,5 @@
   </div>
 </div>
 
-<div><button class="btn btn-dark" (click)="n()" >click</button></div>
+<div><button class="btn btn-dark" (click)="n()">click</button></div>
+</div>

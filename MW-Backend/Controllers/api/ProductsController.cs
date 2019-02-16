@@ -47,6 +47,24 @@ namespace MW_Backend.Controllers.api
             return Ok( Mapper.Map<Product, ProductDTO>(model) );
         }
 
+
+        // POST: api/Products
+        [HttpPost]
+        [ResponseType(typeof(Product))]
+        public IHttpActionResult PostProduct(Product product)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            db.Products.Add(product);
+            db.SaveChanges();
+
+            return CreatedAtRoute("DefaultApi", new { id = product.Id }, product);
+        }
+
+
         // PUT: api/Products/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutProduct(int id, Product product)
@@ -80,22 +98,6 @@ namespace MW_Backend.Controllers.api
             }
 
             return StatusCode(HttpStatusCode.NoContent);
-        }
-
-        // POST: api/Products
-        [HttpPost]
-        [ResponseType(typeof(Product))]
-        public IHttpActionResult PostProduct(Product product)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            db.Products.Add(product);
-            db.SaveChanges();
-
-            return CreatedAtRoute("DefaultApi", new { id = product.Id }, product);
         }
 
         // DELETE: api/Products/5
