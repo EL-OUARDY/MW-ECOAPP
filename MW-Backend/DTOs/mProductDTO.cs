@@ -23,8 +23,16 @@ namespace MW_Backend.DTOs
             get
             {
                 //Handling Exceptions !!
-                string myPath = HttpContext.Current.Server.MapPath("~/Content/Images/Products/" + Id.ToString() + "/Main");
-                return Directory.EnumerateFiles(myPath).Select(x => Path.GetFileName(x)).FirstOrDefault();
+                try
+                {
+                    string myPath = HttpContext.Current.Server.MapPath("~/Content/Images/Products/" + Id.ToString() + "/Main");
+                    return Directory.EnumerateFiles(myPath).Select(x => Path.GetFileName(x)).FirstOrDefault();
+                }
+                catch (Exception)
+                {
+                    return null;
+                }
+                
             }
 
         }

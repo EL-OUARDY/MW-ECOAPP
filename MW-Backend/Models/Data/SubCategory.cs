@@ -20,5 +20,6 @@ namespace MW_Backend.Models.Data
 
         [Required]
         public int CategoryId { get; set; }
+
     }
 }

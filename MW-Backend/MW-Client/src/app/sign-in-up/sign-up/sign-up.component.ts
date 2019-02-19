@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm, FormGroup, Validators } from '@angular/forms';
+import { NgForm} from '@angular/forms';
 import { AppError } from 'src/app/common/errors/app-error';
 import { BadInput } from 'src/app/common/errors/http-errors';
 import { Router } from '@angular/router';

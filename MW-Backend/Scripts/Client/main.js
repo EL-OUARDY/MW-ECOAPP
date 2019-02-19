@@ -23,63 +23,115 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 
 /***/ }),
 
-/***/ "./src/app/admin/product-from/product-from.component.css":
-/*!***************************************************************!*\
-  !*** ./src/app/admin/product-from/product-from.component.css ***!
-  \***************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "label {\r\n  font-size: 20px;\r\n}\r\nlabel.shipping {\r\n  font-size: 15px;\r\n}\r\n.alert.alert-dark {\r\n  font-size: 16px !important;\r\n  padding: 5px;\r\n  margin-top: 2px;\r\n}\r\n.form-control.ng-touched.ng-invalid {\r\n  border-left: 6px solid #d6d8d9;\r\n}\r\n.formData {\r\n  margin-top: 20px;\r\n  text-align: center;\r\n}\r\n.browse {\r\n  border-bottom: 1px solid #ced4da;\r\n  text-align: right;\r\n  width: 100%;\r\n}\r\nimg {\r\n  width: 100%;\r\n  height: 100%;\r\n}\r\n.image {\r\n  display: block;\r\n  margin: 0 auto\r\n}\r\n.block {\r\n  border: 1px solid #eee;\r\n  margin: 10px auto;\r\n  padding: 10px;\r\n  height: 220px;\r\n}\r\n.scroll {\r\n  overflow-y: scroll\r\n}\r\n.small {\r\n  height: 90px;\r\n  padding: 5px 11px;\r\n  border: 1px solid #eee;\r\n  margin: 5px 8px;\r\n  text-align: center;\r\n  position: relative;\r\n}\r\n.remove {\r\n  background: #dc3545;\r\n  padding: 0px 5px;\r\n  color: #fff;\r\n  border-radius: 50%;\r\n  position: absolute;\r\n  top: -8px;\r\n  right: -8px;\r\n  cursor: pointer;\r\n}\r\n.c {\r\n  height: 120px;\r\n}\r\n.color {\r\n  border: 2px solid #eee;\r\n  padding: 5px;\r\n  cursor: pointer;\r\n  text-align: center\r\n}\r\n.color input[type=radio] {\r\n  visibility: hidden;\r\n}\r\n.color input[type=radio]:checked {\r\n  visibility: visible;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRtaW4vcHJvZHVjdC1mcm9tL3Byb2R1Y3QtZnJvbS5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsZUFBZTtBQUNqQjtBQUNBO0VBQ0UsZUFBZTtBQUNqQjtBQUNBO0VBQ0UsMEJBQTBCO0VBQzFCLFlBQVk7RUFDWixlQUFlO0FBQ2pCO0FBRUE7RUFDRSw4QkFBOEI7QUFDaEM7QUFFQTtFQUNFLGdCQUFnQjtFQUNoQixrQkFBa0I7QUFDcEI7QUFFQTtFQUNFLGdDQUFnQztFQUNoQyxpQkFBaUI7RUFDakIsV0FBVztBQUNiO0FBRUE7RUFDRSxXQUFXO0VBQ1gsWUFBWTtBQUNkO0FBRUE7RUFDRSxjQUFjO0VBQ2Q7QUFDRjtBQUVBO0VBQ0Usc0JBQXNCO0VBQ3RCLGlCQUFpQjtFQUNqQixhQUFhO0VBQ2IsYUFBYTtBQUNmO0FBRUE7RUFDRTtBQUNGO0FBRUE7RUFDRSxZQUFZO0VBQ1osaUJBQWlCO0VBQ2pCLHNCQUFzQjtFQUN0QixlQUFlO0VBQ2Ysa0JBQWtCO0VBQ2xCLGtCQUFrQjtBQUNwQjtBQUVBO0VBQ0UsbUJBQW1CO0VBQ25CLGdCQUFnQjtFQUNoQixXQUFXO0VBQ1gsa0JBQWtCO0VBQ2xCLGtCQUFrQjtFQUNsQixTQUFTO0VBQ1QsV0FBVztFQUNYLGVBQWU7QUFDakI7QUFFQTtFQUNFLGFBQWE7QUFDZjtBQUVBO0VBQ0Usc0JBQXNCO0VBQ3RCLFlBQVk7RUFDWixlQUFlO0VBQ2Y7QUFDRjtBQUVBO0VBQ0Usa0JBQWtCO0FBQ3BCO0FBRUE7RUFDRSxtQkFBbUI7QUFDckIiLCJmaWxlIjoic3JjL2FwcC9hZG1pbi9wcm9kdWN0LWZyb20vcHJvZHVjdC1mcm9tLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJsYWJlbCB7XHJcbiAgZm9udC1zaXplOiAyMHB4O1xyXG59XHJcbmxhYmVsLnNoaXBwaW5nIHtcclxuICBmb250LXNpemU6IDE1cHg7XHJcbn1cclxuLmFsZXJ0LmFsZXJ0LWRhcmsge1xyXG4gIGZvbnQtc2l6ZTogMTZweCAhaW1wb3J0YW50O1xyXG4gIHBhZGRpbmc6IDVweDtcclxuICBtYXJnaW4tdG9wOiAycHg7XHJcbn1cclxuXHJcbi5mb3JtLWNvbnRyb2wubmctdG91Y2hlZC5uZy1pbnZhbGlkIHtcclxuICBib3JkZXItbGVmdDogNnB4IHNvbGlkICNkNmQ4ZDk7XHJcbn1cclxuXHJcbi5mb3JtRGF0YSB7XHJcbiAgbWFyZ2luLXRvcDogMjBweDtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbn1cclxuXHJcbi5icm93c2Uge1xyXG4gIGJvcmRlci1ib3R0b206IDFweCBzb2xpZCAjY2VkNGRhO1xyXG4gIHRleHQtYWxpZ246IHJpZ2h0O1xyXG4gIHdpZHRoOiAxMDAlO1xyXG59XHJcblxyXG5pbWcge1xyXG4gIHdpZHRoOiAxMDAlO1xyXG4gIGhlaWdodDogMTAwJTtcclxufVxyXG5cclxuLmltYWdlIHtcclxuICBkaXNwbGF5OiBibG9jaztcclxuICBtYXJnaW46IDAgYXV0b1xyXG59XHJcblxyXG4uYmxvY2sge1xyXG4gIGJvcmRlcjogMXB4IHNvbGlkICNlZWU7XHJcbiAgbWFyZ2luOiAxMHB4IGF1dG87XHJcbiAgcGFkZGluZzogMTBweDtcclxuICBoZWlnaHQ6IDIyMHB4O1xyXG59XHJcblxyXG4uc2Nyb2xsIHtcclxuICBvdmVyZmxvdy15OiBzY3JvbGxcclxufVxyXG5cclxuLnNtYWxsIHtcclxuICBoZWlnaHQ6IDkwcHg7XHJcbiAgcGFkZGluZzogNXB4IDExcHg7XHJcbiAgYm9yZGVyOiAxcHggc29saWQgI2VlZTtcclxuICBtYXJnaW46IDVweCA4cHg7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxufVxyXG5cclxuLnJlbW92ZSB7XHJcbiAgYmFja2dyb3VuZDogI2RjMzU0NTtcclxuICBwYWRkaW5nOiAwcHggNXB4O1xyXG4gIGNvbG9yOiAjZmZmO1xyXG4gIGJvcmRlci1yYWRpdXM6IDUwJTtcclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgdG9wOiAtOHB4O1xyXG4gIHJpZ2h0OiAtOHB4O1xyXG4gIGN1cnNvcjogcG9pbnRlcjtcclxufVxyXG5cclxuLmMge1xyXG4gIGhlaWdodDogMTIwcHg7XHJcbn1cclxuXHJcbi5jb2xvciB7XHJcbiAgYm9yZGVyOiAycHggc29saWQgI2VlZTtcclxuICBwYWRkaW5nOiA1cHg7XHJcbiAgY3Vyc29yOiBwb2ludGVyO1xyXG4gIHRleHQtYWxpZ246IGNlbnRlclxyXG59XHJcblxyXG4uY29sb3IgaW5wdXRbdHlwZT1yYWRpb10ge1xyXG4gIHZpc2liaWxpdHk6IGhpZGRlbjtcclxufVxyXG5cclxuLmNvbG9yIGlucHV0W3R5cGU9cmFkaW9dOmNoZWNrZWQge1xyXG4gIHZpc2liaWxpdHk6IHZpc2libGU7XHJcbn1cclxuIl19 */"
-
-/***/ }),
-
-/***/ "./src/app/admin/product-from/product-from.component.html":
-/*!****************************************************************!*\
-  !*** ./src/app/admin/product-from/product-from.component.html ***!
-  \****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-3\">\n      <product-history></product-history>\n    </div>\n    <div class=\"col-9\">\n      <form #f=\"ngForm\" (ngSubmit)=onSubmit(f.value)>\n        <div class=\"row\">\n          <div class=\" form-group col-9\">\n            <label>Title :</label>\n            <input required minlength=\"6\" type=\"text\" ngModel name=\"title\" #title=\"ngModel\" class=\" form-control\">\n            <div class=\"alert alert-dark\" *ngIf=\"title.touched && !title.valid\">\n              <div *ngIf=\"title.errors.required\"> Title Is Required !</div>\n              <div *ngIf=\"title.errors.minlength\"> Title Must Be More Then 6 Characters </div>\n            </div>\n\n          </div>\n          <div class=\" form-group col-3\">\n            <label>Price :</label>\n            <input required maxlength=\"7\" type=\"text\" ngModel name=\"price\" #price=\"ngModel\" number class=\"form-control\">\n            <div class=\"alert alert-dark\" *ngIf=\"price.touched && !price.valid\">\n              <div *ngIf=\"price.errors?.required\"> Price Is Required !</div>\n              <div *ngIf=\"price.errors?.number\"> Price Must Be A Number !</div>\n            </div>\n          </div>\n        </div>\n        <div class=\"row\">\n          <div class=\"col-7 form-group\">\n            <label>Description :</label>\n            <textarea required ngModel name=\"description\" #des=\"ngModel\" cols=\"30\" rows=\"8\" class=\" form-control\"></textarea>\n            <div class=\"alert alert-dark\" *ngIf=\"des.touched && des.errors?.required\">Fill The Description !</div>\n          </div>\n          <div class=\"col-5\">\n            <div class=\"form-group\">\n              <label>Category :</label>\n              <select name=\"Category\" ngModel #Category=\"ngModel\" (change)=\"showSub(Category.value)\" class=\"form-control\">\n                <option value=\"\"></option>\n                <option *ngFor=\"let item of categories\" [value]=\"item.id\">{{item.name}}</option>\n              </select>\n            </div>\n            <div class=\"form-group\">\n              <label>subCategory :</label>\n              <select name=\"subCategory\" ngModel class=\"form-control\">\n                <option value=\"\"></option>\n                <option *ngFor=\"let item of subCategories\" [value]=\"item.id\">{{item.name}}</option>\n              </select>\n            </div>\n            <div class=\"form-group\">\n              <label>Shipping :</label>\n              <div class=\"form-control\">\n                <label *ngFor=\"let item of shipping\" class=\"col-4 shipping\">\n                  <input type=\"radio\" ngModel name=\"shippingMethod\" [value]=\"item\">\n                  {{item}}\n                </label>\n              </div>\n            </div>\n          </div>\n        </div>\n        <div class=\"row\">\n          <div class=\"form-group col-3\">\n            <label>Main Image :</label>\n            <div class=\" form-control \">\n              <label class=\"browse\">Browse&hellip; <input type=\"file\" name=\"mainImg\" (change)=\"setMainImage($event.target.files)\"\n                  style=\"display: none;\"></label>\n            </div>\n\n            <div class=\"block \">\n              <img *ngIf=\"imgPath\" [src]=\"imgPath\" class=\"image\">\n            </div>\n\n          </div>\n\n          <div class=\"form-group col-6\">\n            <label>Other Images :</label>\n            <div class=\"form-control\">\n              <label class=\"browse\">Browse&hellip; <input type=\"file\" accept=\"image/*\" multiple (change)=\"addProductImages($event.target.files)\"\n                  style=\"display: none;\"></label>\n            </div>\n            <div class=\"block row\">\n              <div *ngFor=\"let item of PImages\" class=\"small col-2\">\n                <img [src]=\"item.data\">\n                <span (click)=\"removeImage(item.name)\" class=\"remove\">X</span>\n              </div>\n            </div>\n          </div>\n          <div class=\"form-group col-3\">\n            <label>Color :</label>\n            <div class=\"block\">\n              <label class=\"color col-3\" *ngFor=\"let item of colors\" [ngStyle]=\"{'background': item}\">\n                <input type=\"radio\" ngModel name=\"color\" [value]=\"item\">\n              </label>\n            </div>\n          </div>\n        </div>\n        <div class=\"form-group\">\n          <label>Description Images :</label>\n          <div class=\"form-control\">\n            <label class=\"browse\">Browse&hellip; <input type=\"file\" accept=\"image/*\" multiple (change)=\"addDescImages($event.target.files)\"\n                style=\"display: none;\"></label>\n          </div>\n          <div class=\"block c row\">\n            <div *ngFor=\"let item of DesImages\" class=\"small col-1\">\n              <img [src]=\"item.data\">\n              <span (click)=\"removeDescImage(item.name)\" class=\"remove\">X</span>\n            </div>\n          </div>\n        </div>\n        <button [disabled]=\"f.invalid\" class=\"btn \">Submit</button>\n      </form>\n\n      <p class=\"formData alert alert-success\">\n        {{ f.value | json }}\n      </p>\n    </div>\n  </div>\n</div>\n"
-
-/***/ }),
-
-/***/ "./src/app/admin/product-from/product-from.component.ts":
-/*!**************************************************************!*\
-  !*** ./src/app/admin/product-from/product-from.component.ts ***!
-  \**************************************************************/
-/*! exports provided: ProductFromComponent */
+/***/ "./src/app/admin/models/adminProduct.ts":
+/*!**********************************************!*\
+  !*** ./src/app/admin/models/adminProduct.ts ***!
+  \**********************************************/
+/*! exports provided: AdminProduct */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProductFromComponent", function() { return ProductFromComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminProduct", function() { return AdminProduct; });
+var AdminProduct = /** @class */ (function () {
+    function AdminProduct() {
+        this.Color = 'white';
+        this.Status = 'on-sale';
+    }
+    return AdminProduct;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/admin/product-form/product-form.component.css":
+/*!***************************************************************!*\
+  !*** ./src/app/admin/product-form/product-form.component.css ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "label {\r\n  font-size: 20px;\r\n}\r\nlabel.radio {\r\n  font-size: 15px;\r\n}\r\n.alert.alert-dark {\r\n  font-size: 16px !important;\r\n  padding: 5px;\r\n  margin-top: 2px;\r\n}\r\n.form-control.ng-touched.ng-invalid {\r\n  border-left: 6px solid #d6d8d9;\r\n}\r\n.formData {\r\n  margin-top: 20px;\r\n  text-align: center;\r\n}\r\n.browse {\r\n  border-bottom: 1px solid #ced4da;\r\n  text-align: right;\r\n  width: 100%;\r\n}\r\nimg {\r\n  width: 100%;\r\n  height: 100%;\r\n}\r\n.image {\r\n  display: block;\r\n  margin: 0 auto\r\n}\r\n.block {\r\n  border: 1px solid #eee;\r\n  margin: 10px auto;\r\n  padding: 10px;\r\n  height: 220px;\r\n}\r\n.scroll {\r\n  overflow-y: scroll\r\n}\r\n.small {\r\n  height: 90px;\r\n  padding: 5px 11px;\r\n  border: 1px solid #eee;\r\n  margin: 5px 8px;\r\n  text-align: center;\r\n  position: relative;\r\n}\r\n.remove {\r\n  background: #dc3545;\r\n  padding: 0px 5px;\r\n  color: #fff;\r\n  border-radius: 50%;\r\n  position: absolute;\r\n  top: -8px;\r\n  right: -8px;\r\n  cursor: pointer;\r\n}\r\n.c {\r\n  height: 120px;\r\n}\r\n.color {\r\n  border: 2px solid #eee;\r\n  padding: 5px;\r\n  cursor: pointer;\r\n  text-align: center\r\n}\r\n.color input[type=radio] {\r\n  visibility: hidden;\r\n}\r\n.color input[type=radio]:checked {\r\n  visibility: visible;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRtaW4vcHJvZHVjdC1mb3JtL3Byb2R1Y3QtZm9ybS5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsZUFBZTtBQUNqQjtBQUNBO0VBQ0UsZUFBZTtBQUNqQjtBQUNBO0VBQ0UsMEJBQTBCO0VBQzFCLFlBQVk7RUFDWixlQUFlO0FBQ2pCO0FBRUE7RUFDRSw4QkFBOEI7QUFDaEM7QUFFQTtFQUNFLGdCQUFnQjtFQUNoQixrQkFBa0I7QUFDcEI7QUFFQTtFQUNFLGdDQUFnQztFQUNoQyxpQkFBaUI7RUFDakIsV0FBVztBQUNiO0FBRUE7RUFDRSxXQUFXO0VBQ1gsWUFBWTtBQUNkO0FBRUE7RUFDRSxjQUFjO0VBQ2Q7QUFDRjtBQUVBO0VBQ0Usc0JBQXNCO0VBQ3RCLGlCQUFpQjtFQUNqQixhQUFhO0VBQ2IsYUFBYTtBQUNmO0FBRUE7RUFDRTtBQUNGO0FBRUE7RUFDRSxZQUFZO0VBQ1osaUJBQWlCO0VBQ2pCLHNCQUFzQjtFQUN0QixlQUFlO0VBQ2Ysa0JBQWtCO0VBQ2xCLGtCQUFrQjtBQUNwQjtBQUVBO0VBQ0UsbUJBQW1CO0VBQ25CLGdCQUFnQjtFQUNoQixXQUFXO0VBQ1gsa0JBQWtCO0VBQ2xCLGtCQUFrQjtFQUNsQixTQUFTO0VBQ1QsV0FBVztFQUNYLGVBQWU7QUFDakI7QUFFQTtFQUNFLGFBQWE7QUFDZjtBQUVBO0VBQ0Usc0JBQXNCO0VBQ3RCLFlBQVk7RUFDWixlQUFlO0VBQ2Y7QUFDRjtBQUVBO0VBQ0Usa0JBQWtCO0FBQ3BCO0FBRUE7RUFDRSxtQkFBbUI7QUFDckIiLCJmaWxlIjoic3JjL2FwcC9hZG1pbi9wcm9kdWN0LWZvcm0vcHJvZHVjdC1mb3JtLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJsYWJlbCB7XHJcbiAgZm9udC1zaXplOiAyMHB4O1xyXG59XHJcbmxhYmVsLnJhZGlvIHtcclxuICBmb250LXNpemU6IDE1cHg7XHJcbn1cclxuLmFsZXJ0LmFsZXJ0LWRhcmsge1xyXG4gIGZvbnQtc2l6ZTogMTZweCAhaW1wb3J0YW50O1xyXG4gIHBhZGRpbmc6IDVweDtcclxuICBtYXJnaW4tdG9wOiAycHg7XHJcbn1cclxuXHJcbi5mb3JtLWNvbnRyb2wubmctdG91Y2hlZC5uZy1pbnZhbGlkIHtcclxuICBib3JkZXItbGVmdDogNnB4IHNvbGlkICNkNmQ4ZDk7XHJcbn1cclxuXHJcbi5mb3JtRGF0YSB7XHJcbiAgbWFyZ2luLXRvcDogMjBweDtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbn1cclxuXHJcbi5icm93c2Uge1xyXG4gIGJvcmRlci1ib3R0b206IDFweCBzb2xpZCAjY2VkNGRhO1xyXG4gIHRleHQtYWxpZ246IHJpZ2h0O1xyXG4gIHdpZHRoOiAxMDAlO1xyXG59XHJcblxyXG5pbWcge1xyXG4gIHdpZHRoOiAxMDAlO1xyXG4gIGhlaWdodDogMTAwJTtcclxufVxyXG5cclxuLmltYWdlIHtcclxuICBkaXNwbGF5OiBibG9jaztcclxuICBtYXJnaW46IDAgYXV0b1xyXG59XHJcblxyXG4uYmxvY2sge1xyXG4gIGJvcmRlcjogMXB4IHNvbGlkICNlZWU7XHJcbiAgbWFyZ2luOiAxMHB4IGF1dG87XHJcbiAgcGFkZGluZzogMTBweDtcclxuICBoZWlnaHQ6IDIyMHB4O1xyXG59XHJcblxyXG4uc2Nyb2xsIHtcclxuICBvdmVyZmxvdy15OiBzY3JvbGxcclxufVxyXG5cclxuLnNtYWxsIHtcclxuICBoZWlnaHQ6IDkwcHg7XHJcbiAgcGFkZGluZzogNXB4IDExcHg7XHJcbiAgYm9yZGVyOiAxcHggc29saWQgI2VlZTtcclxuICBtYXJnaW46IDVweCA4cHg7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxufVxyXG5cclxuLnJlbW92ZSB7XHJcbiAgYmFja2dyb3VuZDogI2RjMzU0NTtcclxuICBwYWRkaW5nOiAwcHggNXB4O1xyXG4gIGNvbG9yOiAjZmZmO1xyXG4gIGJvcmRlci1yYWRpdXM6IDUwJTtcclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgdG9wOiAtOHB4O1xyXG4gIHJpZ2h0OiAtOHB4O1xyXG4gIGN1cnNvcjogcG9pbnRlcjtcclxufVxyXG5cclxuLmMge1xyXG4gIGhlaWdodDogMTIwcHg7XHJcbn1cclxuXHJcbi5jb2xvciB7XHJcbiAgYm9yZGVyOiAycHggc29saWQgI2VlZTtcclxuICBwYWRkaW5nOiA1cHg7XHJcbiAgY3Vyc29yOiBwb2ludGVyO1xyXG4gIHRleHQtYWxpZ246IGNlbnRlclxyXG59XHJcblxyXG4uY29sb3IgaW5wdXRbdHlwZT1yYWRpb10ge1xyXG4gIHZpc2liaWxpdHk6IGhpZGRlbjtcclxufVxyXG5cclxuLmNvbG9yIGlucHV0W3R5cGU9cmFkaW9dOmNoZWNrZWQge1xyXG4gIHZpc2liaWxpdHk6IHZpc2libGU7XHJcbn1cclxuIl19 */"
+
+/***/ }),
+
+/***/ "./src/app/admin/product-form/product-form.component.html":
+/*!****************************************************************!*\
+  !*** ./src/app/admin/product-form/product-form.component.html ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-3\">\n      <product-history></product-history>\n    </div>\n    <div class=\"col-9\">\n      <form #f=\"ngForm\" (ngSubmit)=onSubmit() autocomplete=\"off\">\n        <input type=\"hidden\" [(ngModel)]=\"_Product.Id\" name=\"Id\" #Id=\"ngModel\" class=\" form-control\">\n        <div class=\"row\">\n          <div class=\" form-group col-6 \">\n            <label>Name :</label>\n            <input required minlength=\"6\" type=\"text\" [(ngModel)]=\"_Product.Name\" name=\"Name\" #Name=\"ngModel\" class=\" form-control\">\n            <div class=\"alert alert-dark\" *ngIf=\"Name.touched && !Name.valid\">\n              <div *ngIf=\"Name.errors.required\"> Name Is Required !</div>\n              <!-- Custom Validation => Name Must Be Unique -->\n              <div *ngIf=\"Name.errors.minlength\"> Name Must Be More Then 6 Characters </div>\n            </div>\n\n          </div>\n          <div class=\" form-group col-2\">\n            <label>Price :</label>\n            <input required maxlength=\"7\" type=\"number\" [(ngModel)]=\"_Product.Price\" name=\"Price\" #Price=\"ngModel\"\n              class=\"form-control\">\n            <div class=\"alert alert-dark\" *ngIf=\"Price.touched && !Price.valid\">\n              <div *ngIf=\"Price.errors?.required\"> Price Is Required !</div>\n            </div>\n          </div>\n          <div class=\" form-group col-4\">\n            <label>Status :</label>\n            <div class=\"form-control \">\n              <label class=\"col-6 radio\">\n                <input type=\"radio\" [(ngModel)]=\"_Product.Status\" name=\"Status\" value=\"on-sale\">\n                On Sale\n              </label>\n              <label class=\"col-6 radio\">\n                <input type=\"radio\" [(ngModel)]=\"_Product.Status\" name=\"Status\" value=\"out-of-stock\">\n                Out Of Stock\n              </label>\n            </div>\n          </div>\n        </div>\n        <div class=\"row\">\n          <div class=\"col-7 form-group\">\n            <label>Description :</label>\n            <textarea required [(ngModel)]=\"_Product.Description\" name=\"Description\" #des=\"ngModel\" cols=\"30\" rows=\"8\"\n              class=\" form-control\"></textarea>\n            <div class=\"alert alert-dark\" *ngIf=\"des.touched && des.errors?.required\">Fill The Description !</div>\n          </div>\n          <div class=\"col-5\">\n            <div class=\"form-group\">\n              <label>Category :</label>\n              <select #Category (change)=\"getSub(Category.value)\" class=\"form-control\">\n                <option value=\"\"></option>\n                <option *ngFor=\"let item of categories\" [value]=\"item.Id\">{{item.Name}}</option>\n              </select>\n            </div>\n            <div class=\"form-group\">\n              <label>subCategory :</label>\n              <select name=\"SubCategory\" required [(ngModel)]=\"_Product.SubCategoryId\" class=\"form-control\">\n                <option *ngFor=\"let item of subCategories\" [value]=\"item.Id\">{{item.Name}}</option>\n              </select>\n            </div>\n            <!-- <div class=\"form-group\">\n              <label>Shipping :</label>\n              <div class=\"form-control\">\n                <label *ngFor=\"let item of shipping\" class=\"col-4 radio\">\n                  <input type=\"radio\" ngModel name=\"shippingMethod\" [value]=\"item\">\n                  {{item}}\n                </label>\n              </div>\n            </div> -->\n          </div>\n        </div>\n        <div class=\"row\">\n          <div class=\"form-group col-3\">\n            <label>Main Image :</label>\n            <div class=\" form-control \">\n              <label class=\"browse\">Browse&hellip; <input type=\"file\" name=\"mainImg\" (change)=\"setMainImage($event.target.files)\"\n                  style=\"display: none;\"></label>\n            </div>\n\n            <div class=\"block \">\n              <img *ngIf=\"imgPath\" [src]=\"imgPath\" class=\"image\">\n            </div>\n\n          </div>\n\n          <div class=\"form-group col-6\">\n            <label>Other Images :</label>\n            <div class=\"form-control\">\n              <label class=\"browse\">Browse&hellip; <input type=\"file\" accept=\"image/*\" multiple (change)=\"addProductImages($event.target.files)\"\n                  style=\"display: none;\"></label>\n            </div>\n            <div class=\"block row\">\n              <div *ngFor=\"let item of PImages\" class=\"small col-2\">\n                <img [src]=\"item.data\">\n                <span (click)=\"removeImage(item.name)\" class=\"remove\">X</span>\n              </div>\n            </div>\n          </div>\n          <div class=\"form-group col-3\">\n            <label>Color :</label>\n            <div class=\"block\">\n              <label class=\"color col-3\" *ngFor=\"let item of colors\" [ngStyle]=\"{'background': item}\">\n                <input type=\"radio\" [(ngModel)]=\"_Product.Color\" name=\"Color\" [value]=\"item\">\n              </label>\n            </div>\n          </div>\n        </div>\n        <div class=\"form-group\">\n          <label>Description Images :</label>\n          <div class=\"form-control\">\n            <label class=\"browse\">Browse&hellip; <input type=\"file\" accept=\"image/*\" multiple (change)=\"addDescImages($event.target.files)\"\n                style=\"display: none;\"></label>\n          </div>\n          <div class=\"block c row\">\n            <div *ngFor=\"let item of DesImages\" class=\"small col-1\">\n              <img [src]=\"item.data\">\n              <span (click)=\"removeDescImage(item.name)\" class=\"remove\">X</span>\n            </div>\n          </div>\n        </div>\n        <button [disabled]=\"f.invalid\" class=\"btn \">Submit</button>\n        <!-- <button class=\"btn \">Submit</button> -->\n      </form>\n\n      <p class=\"formData alert alert-success\">\n        {{ f.value | json }}\n      </p>\n    </div>\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/admin/product-form/product-form.component.ts":
+/*!**************************************************************!*\
+  !*** ./src/app/admin/product-form/product-form.component.ts ***!
+  \**************************************************************/
+/*! exports provided: ProductFormComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProductFormComponent", function() { return ProductFormComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _services_admin_product_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/admin-product.service */ "./src/app/admin/services/admin-product.service.ts");
+/* harmony import */ var _models_adminProduct__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../models/adminProduct */ "./src/app/admin/models/adminProduct.ts");
+/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm5/ngx-toastr.js");
+/* harmony import */ var src_app_common_errors_http_errors__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/common/errors/http-errors */ "./src/app/common/errors/http-errors.ts");
 
 
 
-var ProductFromComponent = /** @class */ (function () {
-    function ProductFromComponent(aps) {
+
+
+
+var ProductFormComponent = /** @class */ (function () {
+    function ProductFormComponent(aps, toaster) {
         this.aps = aps;
-        this.colors = ['white', 'red', 'pink', 'grey', 'yellow', 'blue', 'orange', 'green', 'black'];
+        this.toaster = toaster;
         this.PImages = new Array();
         this.DesImages = new Array();
+        this.colors = ['white', 'red', 'pink', 'grey', 'yellow', 'blue', 'orange', 'green', 'black'];
+        this.lastProducts = [];
+        this._Product = new _models_adminProduct__WEBPACK_IMPORTED_MODULE_3__["AdminProduct"]();
     }
-    ProductFromComponent.prototype.ngOnInit = function () {
-        this.categories = this.aps.getCategories();
+    ProductFormComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.aps.getCategories().subscribe(function (res) {
+            _this.categories = res;
+        });
         this.shipping = this.aps.getShippings();
     };
-    ProductFromComponent.prototype.showSub = function (c) {
-        this.subCategories = this.categories.find(function (x) { return x.id === Number(c); }).subCategories;
+    // Posting The Product
+    ProductFormComponent.prototype.onSubmit = function () {
+        var _this = this;
+        this._Product.Slug = this._Product.Name.replace(/\s+/g, '-');
+        this.aps.PostProduct(this._Product)
+            .subscribe(function (data) {
+            _this.toaster.success('Product Added', 'Success');
+            _this.lastProducts.push(data);
+            console.log(_this.lastProducts);
+        }, function (error) {
+            if (error instanceof src_app_common_errors_http_errors__WEBPACK_IMPORTED_MODULE_5__["BadInput"]) {
+                _this.serverError = 'Email or Password is Incorect ..'; // Display the error within Form errors
+            }
+            else
+                throw error;
+        });
     };
-    ProductFromComponent.prototype.setMainImage = function (files) {
+    ProductFormComponent.prototype.getSub = function (c) {
+        this.subCategories = this.categories.find(function (x) { return x.Id === Number(c); }).SubCategories;
+    };
+    /* Images Functions */
+    ProductFormComponent.prototype.setMainImage = function (files) {
         this.MainImage = files[0];
         this.previewMainImg();
     };
-    ProductFromComponent.prototype.previewMainImg = function () {
+    ProductFormComponent.prototype.previewMainImg = function () {
         var _this = this;
         if (this.MainImage) { // image exist
             var reader = new FileReader();
@@ -89,7 +141,7 @@ var ProductFromComponent = /** @class */ (function () {
             reader.readAsDataURL(this.MainImage);
         }
     };
-    ProductFromComponent.prototype.addProductImages = function (files) {
+    ProductFormComponent.prototype.addProductImages = function (files) {
         var _this = this;
         var _loop_1 = function (i) {
             var exist = (this_1.PImages.find(function (x) { return x.name === files[i].name; })) ? true : false;
@@ -113,7 +165,7 @@ var ProductFromComponent = /** @class */ (function () {
             _loop_1(i);
         }
     };
-    ProductFromComponent.prototype.addDescImages = function (files) {
+    ProductFormComponent.prototype.addDescImages = function (files) {
         var _this = this;
         var _loop_2 = function (i) {
             var exist = (this_2.DesImages.find(function (x) { return x.name === files[i].name; })) ? true : false;
@@ -137,47 +189,37 @@ var ProductFromComponent = /** @class */ (function () {
             _loop_2(i);
         }
     };
-    ProductFromComponent.prototype.removeImage = function (name) {
+    ProductFormComponent.prototype.removeImage = function (name) {
         var elem = this.PImages.find(function (x) { return x.name === name; });
         this.PImages.splice(this.PImages.indexOf(elem), 1);
     };
-    ProductFromComponent.prototype.removeDescImage = function (name) {
+    ProductFormComponent.prototype.removeDescImage = function (name) {
         var elem = this.DesImages.find(function (x) { return x.name === name; });
         this.DesImages.splice(this.DesImages.indexOf(elem), 1);
     };
-    ProductFromComponent.prototype.getProductPhotos = function () {
+    ProductFormComponent.prototype.getProductPhotos = function () {
         var array = [];
         this.PImages.forEach(function (e) {
             array.push(e.img);
         });
         return array;
     };
-    ProductFromComponent.prototype.getDescriptionPhotos = function () {
+    ProductFormComponent.prototype.getDescriptionPhotos = function () {
         var array = [];
         this.DesImages.forEach(function (e) {
             array.push(e.img);
         });
         return array;
     };
-    // Posting The Product
-    ProductFromComponent.prototype.onSubmit = function (f) {
-        var n = new FormData();
-        var product = {
-            'Na//me': 'xxx xxxxxx', 'Slug': 'xxx-xxxxxx', 'Price': 8,
-            'Description': 'xxx xxxxxx xxx xxxxxx xxx xxxxxx', 'Date_Added': null, 'OldPrice': null,
-            'Discount': 0, 'SubCategory': null, 'SubCategoryId': 1, 'MainImg': null
-        };
-        this.aps.PostProduct(product);
-    };
-    ProductFromComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    ProductFormComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-            selector: 'app-product-from',
-            template: __webpack_require__(/*! ./product-from.component.html */ "./src/app/admin/product-from/product-from.component.html"),
-            styles: [__webpack_require__(/*! ./product-from.component.css */ "./src/app/admin/product-from/product-from.component.css")]
+            selector: 'product-form',
+            template: __webpack_require__(/*! ./product-form.component.html */ "./src/app/admin/product-form/product-form.component.html"),
+            styles: [__webpack_require__(/*! ./product-form.component.css */ "./src/app/admin/product-form/product-form.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_admin_product_service__WEBPACK_IMPORTED_MODULE_2__["AdminProductService"]])
-    ], ProductFromComponent);
-    return ProductFromComponent;
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_admin_product_service__WEBPACK_IMPORTED_MODULE_2__["AdminProductService"], ngx_toastr__WEBPACK_IMPORTED_MODULE_4__["ToastrService"]])
+    ], ProductFormComponent);
+    return ProductFormComponent;
 }());
 
 
@@ -191,7 +233,7 @@ var ProductFromComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "h4 {\r\n    text-align: center;\r\n    text-decoration: underline;\r\n    margin: 15px 0;\r\n}\r\n.table-img {\r\n  height: 40px;\r\n  width: 40px;\r\n  border-radius: 50%;\r\n}\r\ntr td:first-of-type{\r\n    padding: 5px;\r\n    width: 52px;\r\n}\r\ntr {\r\n    text-align: left;\r\n    margin: 5px 0 10px 0;\r\n}\r\na {\r\n    color: black;\r\n    font-weight: bold;\r\n    text-decoration: underline\r\n}\r\ntd.col-4 {\r\n    padding-top: 0 !important;\r\n    padding-bottom: 0 !important;\r\n}\r\n.alert.alert-info {\r\n    position: -webkit-sticky;\r\n    position: sticky;\r\n    top: 100px;\r\n    padding: 5px 2px !important;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRtaW4vcHJvZHVjdC1oaXN0b3J5L3Byb2R1Y3QtaGlzdG9yeS5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksa0JBQWtCO0lBQ2xCLDBCQUEwQjtJQUMxQixjQUFjO0FBQ2xCO0FBQ0E7RUFDRSxZQUFZO0VBQ1osV0FBVztFQUNYLGtCQUFrQjtBQUNwQjtBQUVBO0lBQ0ksWUFBWTtJQUNaLFdBQVc7QUFDZjtBQUVBO0lBQ0ksZ0JBQWdCO0lBQ2hCLG9CQUFvQjtBQUN4QjtBQUNBO0lBQ0ksWUFBWTtJQUNaLGlCQUFpQjtJQUNqQjtBQUNKO0FBRUE7SUFDSSx5QkFBeUI7SUFDekIsNEJBQTRCO0FBQ2hDO0FBRUE7SUFDSSx3QkFBZ0I7SUFBaEIsZ0JBQWdCO0lBQ2hCLFVBQVU7SUFDViwyQkFBMkI7QUFDL0IiLCJmaWxlIjoic3JjL2FwcC9hZG1pbi9wcm9kdWN0LWhpc3RvcnkvcHJvZHVjdC1oaXN0b3J5LmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJoNCB7XHJcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgICB0ZXh0LWRlY29yYXRpb246IHVuZGVybGluZTtcclxuICAgIG1hcmdpbjogMTVweCAwO1xyXG59XHJcbi50YWJsZS1pbWcge1xyXG4gIGhlaWdodDogNDBweDtcclxuICB3aWR0aDogNDBweDtcclxuICBib3JkZXItcmFkaXVzOiA1MCU7XHJcbn1cclxuXHJcbnRyIHRkOmZpcnN0LW9mLXR5cGV7XHJcbiAgICBwYWRkaW5nOiA1cHg7XHJcbiAgICB3aWR0aDogNTJweDtcclxufVxyXG5cclxudHIge1xyXG4gICAgdGV4dC1hbGlnbjogbGVmdDtcclxuICAgIG1hcmdpbjogNXB4IDAgMTBweCAwO1xyXG59XHJcbmEge1xyXG4gICAgY29sb3I6IGJsYWNrO1xyXG4gICAgZm9udC13ZWlnaHQ6IGJvbGQ7XHJcbiAgICB0ZXh0LWRlY29yYXRpb246IHVuZGVybGluZVxyXG59XHJcblxyXG50ZC5jb2wtNCB7XHJcbiAgICBwYWRkaW5nLXRvcDogMCAhaW1wb3J0YW50O1xyXG4gICAgcGFkZGluZy1ib3R0b206IDAgIWltcG9ydGFudDtcclxufVxyXG5cclxuLmFsZXJ0LmFsZXJ0LWluZm8ge1xyXG4gICAgcG9zaXRpb246IHN0aWNreTtcclxuICAgIHRvcDogMTAwcHg7XHJcbiAgICBwYWRkaW5nOiA1cHggMnB4ICFpbXBvcnRhbnQ7XHJcbn0iXX0= */"
+module.exports = "h4 {\r\n  text-align: center;\r\n  text-decoration: underline;\r\n  margin: 15px 0;\r\n}\r\n\r\n.table-img {\r\n  height: 40px;\r\n  width: 40px;\r\n  border-radius: 50%;\r\n}\r\n\r\ntr td:first-of-type {\r\n  padding: 5px;\r\n  width: 52px;\r\n}\r\n\r\ntr {\r\n  text-align: left;\r\n  margin: 5px 0 10px 0;\r\n}\r\n\r\na {\r\n  color: black;\r\n  text-decoration: underline\r\n}\r\n\r\ntd.col-4 {\r\n  padding-top: 0 !important;\r\n  padding-bottom: 0 !important;\r\n}\r\n\r\n.history {\r\n  position: -webkit-sticky;\r\n  position: sticky;\r\n  top: 85px;\r\n  padding: 5px 2px !important;\r\n  font-size: 18px\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRtaW4vcHJvZHVjdC1oaXN0b3J5L3Byb2R1Y3QtaGlzdG9yeS5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0Usa0JBQWtCO0VBQ2xCLDBCQUEwQjtFQUMxQixjQUFjO0FBQ2hCOztBQUVBO0VBQ0UsWUFBWTtFQUNaLFdBQVc7RUFDWCxrQkFBa0I7QUFDcEI7O0FBRUE7RUFDRSxZQUFZO0VBQ1osV0FBVztBQUNiOztBQUVBO0VBQ0UsZ0JBQWdCO0VBQ2hCLG9CQUFvQjtBQUN0Qjs7QUFFQTtFQUNFLFlBQVk7RUFDWjtBQUNGOztBQUVBO0VBQ0UseUJBQXlCO0VBQ3pCLDRCQUE0QjtBQUM5Qjs7QUFFQTtFQUNFLHdCQUFnQjtFQUFoQixnQkFBZ0I7RUFDaEIsU0FBUztFQUNULDJCQUEyQjtFQUMzQjtBQUNGIiwiZmlsZSI6InNyYy9hcHAvYWRtaW4vcHJvZHVjdC1oaXN0b3J5L3Byb2R1Y3QtaGlzdG9yeS5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiaDQge1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICB0ZXh0LWRlY29yYXRpb246IHVuZGVybGluZTtcclxuICBtYXJnaW46IDE1cHggMDtcclxufVxyXG5cclxuLnRhYmxlLWltZyB7XHJcbiAgaGVpZ2h0OiA0MHB4O1xyXG4gIHdpZHRoOiA0MHB4O1xyXG4gIGJvcmRlci1yYWRpdXM6IDUwJTtcclxufVxyXG5cclxudHIgdGQ6Zmlyc3Qtb2YtdHlwZSB7XHJcbiAgcGFkZGluZzogNXB4O1xyXG4gIHdpZHRoOiA1MnB4O1xyXG59XHJcblxyXG50ciB7XHJcbiAgdGV4dC1hbGlnbjogbGVmdDtcclxuICBtYXJnaW46IDVweCAwIDEwcHggMDtcclxufVxyXG5cclxuYSB7XHJcbiAgY29sb3I6IGJsYWNrO1xyXG4gIHRleHQtZGVjb3JhdGlvbjogdW5kZXJsaW5lXHJcbn1cclxuXHJcbnRkLmNvbC00IHtcclxuICBwYWRkaW5nLXRvcDogMCAhaW1wb3J0YW50O1xyXG4gIHBhZGRpbmctYm90dG9tOiAwICFpbXBvcnRhbnQ7XHJcbn1cclxuXHJcbi5oaXN0b3J5IHtcclxuICBwb3NpdGlvbjogc3RpY2t5O1xyXG4gIHRvcDogODVweDtcclxuICBwYWRkaW5nOiA1cHggMnB4ICFpbXBvcnRhbnQ7XHJcbiAgZm9udC1zaXplOiAxOHB4XHJcbn0iXX0= */"
 
 /***/ }),
 
@@ -202,7 +244,7 @@ module.exports = "h4 {\r\n    text-align: center;\r\n    text-decoration: underl
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"alert alert-info\">\n<h4>Last Added Product</h4>\n<table class=\"table table-hover text-center\">\n  <tr class=\"row\">\n    <td class=\"col-3\"><img src=\"/Content/Images/test.jpg\" class=\"img-responsive table-img\"></td>\n    <td class=\"col-9\">iPhone X Gold</td>\n    <td class=\"col-4\"><a routerLink=\"/add-product\">Edit</a></td>\n    <td class=\"col-4\"><a routerLink=\"/add-product\">Copy</a></td>\n    <td class=\"col-4\"><a routerLink=\"/add-product\">Delete</a></td>\n  </tr>\n  <tr class=\"row\">\n    <td class=\"col-3\"><img src=\"/Content/Images/test.jpg\" class=\"img-responsive table-img\"></td>\n    <td class=\"col-9\">iPhone X Gold</td>\n    <td class=\"col-4\"><a routerLink=\"/add-product\">Edit</a></td>\n    <td class=\"col-4\"><a routerLink=\"/add-product\">Copy</a></td>\n    <td class=\"col-4\"><a routerLink=\"/add-product\">Delete</a></td>\n  </tr>\n  <tr class=\"row\">\n    <td class=\"col-3\"><img src=\"/Content/Images/test.jpg\" class=\"img-responsive table-img\"></td>\n    <td class=\"col-9\">iPhone X Gold</td>\n    <td class=\"col-4\"><a routerLink=\"/add-product\">Edit</a></td>\n    <td class=\"col-4\"><a routerLink=\"/add-product\">Copy</a></td>\n    <td class=\"col-4\"><a routerLink=\"/add-product\">Delete</a></td>\n  </tr>\n</table>\n</div>"
+module.exports = "<div class=\"history\">\n<h4>Last Added Product</h4>\n<table class=\"table table-hover text-center\">\n  <tr class=\"row\">\n    <td class=\"col-3\"><img src=\"/Content/Images/test.jpg\" class=\"img-responsive table-img\"></td>\n    <td class=\"col-9\">iPhone X Gold</td>\n    <td class=\"col-4\"><a routerLink=\"/add-product\">Edit</a></td>\n    <td class=\"col-4\"><a routerLink=\"/add-product\">Copy</a></td>\n    <td class=\"col-4\"><a routerLink=\"/add-product\">Delete</a></td>\n  </tr>\n  <tr class=\"row\">\n    <td class=\"col-3\"><img src=\"/Content/Images/test.jpg\" class=\"img-responsive table-img\"></td>\n    <td class=\"col-9\">iPhone X Gold</td>\n    <td class=\"col-4\"><a routerLink=\"/add-product\">Edit</a></td>\n    <td class=\"col-4\"><a routerLink=\"/add-product\">Copy</a></td>\n    <td class=\"col-4\"><a routerLink=\"/add-product\">Delete</a></td>\n  </tr>\n  <tr class=\"row\">\n    <td class=\"col-3\"><img src=\"/Content/Images/test.jpg\" class=\"img-responsive table-img\"></td>\n    <td class=\"col-9\">iPhone X Gold</td>\n    <td class=\"col-4\"><a routerLink=\"/add-product\">Edit</a></td>\n    <td class=\"col-4\"><a routerLink=\"/add-product\">Copy</a></td>\n    <td class=\"col-4\"><a routerLink=\"/add-product\">Delete</a></td>\n  </tr>\n</table>\n</div>"
 
 /***/ }),
 
@@ -253,28 +295,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var src_app_common_errors_http_errors__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/common/errors/http-errors */ "./src/app/common/errors/http-errors.ts");
+
+
 
 
 
 var AdminProductService = /** @class */ (function () {
-    // private readonly rootUrl = 'http://localhost:1394/api';
     function AdminProductService(http) {
         this.http = http;
+        this.noAuth = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({ 'NoAuth': 'true' }); // only for testing
     }
     AdminProductService.prototype.getCategories = function () {
-        return [{ id: 1, name: 'Sport', subCategories: [{ id: 1, name: 'Bicycle' }, { id: 2, name: 'Shoes' }] },
-            { id: 2, name: 'Women', subCategories: [{ id: 1, name: 'Jewelery' }, { id: 2, name: 'Bracelet' }] },
-            { id: 3, name: 'Phones', subCategories: [{ id: 1, name: 'Android' }, { id: 2, name: 'iOS' }] },
-        ];
+        return this.http.get('api/Categories', { headers: this.noAuth });
     };
     AdminProductService.prototype.getShippings = function () {
         return ['GearBest', 'Ali Express', 'Other']; // available shipping methods
     };
     // calling the server
     AdminProductService.prototype.PostProduct = function (p) {
-        this.http.post('/api/Products', p).subscribe(function (res) {
-            console.log(res);
-        });
+        return this.http.post('api/Products', p, { headers: this.noAuth }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(src_app_common_errors_http_errors__WEBPACK_IMPORTED_MODULE_4__["handleExpectedErrors"]));
     };
     AdminProductService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
@@ -314,7 +355,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _guards_signin_guard__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./guards/signin.guard */ "./src/app/guards/signin.guard.ts");
 /* harmony import */ var _error_pages_not_found_not_found_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./error-pages/not-found/not-found.component */ "./src/app/error-pages/not-found/not-found.component.ts");
 /* harmony import */ var _error_pages_unexpected_error_unexpected_error_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./error-pages/unexpected-error/unexpected-error.component */ "./src/app/error-pages/unexpected-error/unexpected-error.component.ts");
-/* harmony import */ var _admin_product_from_product_from_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./admin/product-from/product-from.component */ "./src/app/admin/product-from/product-from.component.ts");
+/* harmony import */ var _admin_product_form_product_form_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./admin/product-form/product-form.component */ "./src/app/admin/product-form/product-form.component.ts");
 
 
 
@@ -340,7 +381,7 @@ var routes = [
     { path: 'checkout', component: _checkout_checkout_component__WEBPACK_IMPORTED_MODULE_6__["CheckoutComponent"], canActivate: [_guards_checkout_guard__WEBPACK_IMPORTED_MODULE_7__["CheckoutGuard"]] },
     { path: '404', component: _error_pages_not_found_not_found_component__WEBPACK_IMPORTED_MODULE_13__["NotFoundComponent"] },
     { path: 'error', component: _error_pages_unexpected_error_unexpected_error_component__WEBPACK_IMPORTED_MODULE_14__["UnexpectedErrorComponent"] },
-    { path: 'add-product', component: _admin_product_from_product_from_component__WEBPACK_IMPORTED_MODULE_15__["ProductFromComponent"], canActivate: [_guards_admin_guard_guard__WEBPACK_IMPORTED_MODULE_8__["AdminGuard"]] },
+    { path: 'add-product', component: _admin_product_form_product_form_component__WEBPACK_IMPORTED_MODULE_15__["ProductFormComponent"], canActivate: [_guards_admin_guard_guard__WEBPACK_IMPORTED_MODULE_8__["AdminGuard"]] },
     { path: '', component: _home_home_component__WEBPACK_IMPORTED_MODULE_3__["HomeComponent"] },
     { path: '**', component: _home_home_component__WEBPACK_IMPORTED_MODULE_3__["HomeComponent"] } // Redirect to a 404 custom page
 ];
@@ -460,13 +501,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _sign_in_up_sign_up_sign_up_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./sign-in-up/sign-up/sign-up.component */ "./src/app/sign-in-up/sign-up/sign-up.component.ts");
 /* harmony import */ var _user_user_profile_user_profile_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./user/user-profile/user-profile.component */ "./src/app/user/user-profile/user-profile.component.ts");
 /* harmony import */ var _error_pages_not_found_not_found_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./error-pages/not-found/not-found.component */ "./src/app/error-pages/not-found/not-found.component.ts");
-/* harmony import */ var _common_errors_app_error_handler__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./common/errors/app-error-handler */ "./src/app/common/errors/app-error-handler.ts");
-/* harmony import */ var _error_pages_unexpected_error_unexpected_error_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./error-pages/unexpected-error/unexpected-error.component */ "./src/app/error-pages/unexpected-error/unexpected-error.component.ts");
-/* harmony import */ var _common_auth_interceptor__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./common/auth-interceptor */ "./src/app/common/auth-interceptor.ts");
-/* harmony import */ var _admin_services_admin_product_service__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./admin/services/admin-product.service */ "./src/app/admin/services/admin-product.service.ts");
-/* harmony import */ var _admin_product_from_product_from_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./admin/product-from/product-from.component */ "./src/app/admin/product-from/product-from.component.ts");
-/* harmony import */ var _admin_product_history_product_history_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./admin/product-history/product-history.component */ "./src/app/admin/product-history/product-history.component.ts");
-
+/* harmony import */ var _error_pages_unexpected_error_unexpected_error_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./error-pages/unexpected-error/unexpected-error.component */ "./src/app/error-pages/unexpected-error/unexpected-error.component.ts");
+/* harmony import */ var _common_auth_interceptor__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./common/auth-interceptor */ "./src/app/common/auth-interceptor.ts");
+/* harmony import */ var _admin_services_admin_product_service__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./admin/services/admin-product.service */ "./src/app/admin/services/admin-product.service.ts");
+/* harmony import */ var _admin_product_history_product_history_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./admin/product-history/product-history.component */ "./src/app/admin/product-history/product-history.component.ts");
+/* harmony import */ var _admin_product_form_product_form_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./admin/product-form/product-form.component */ "./src/app/admin/product-form/product-form.component.ts");
 
 
 
@@ -518,9 +557,9 @@ var AppModule = /** @class */ (function () {
                 _sign_in_up_sign_up_sign_up_component__WEBPACK_IMPORTED_MODULE_23__["SignUpComponent"],
                 _user_user_profile_user_profile_component__WEBPACK_IMPORTED_MODULE_24__["UserProfileComponent"],
                 _error_pages_not_found_not_found_component__WEBPACK_IMPORTED_MODULE_25__["NotFoundComponent"],
-                _error_pages_unexpected_error_unexpected_error_component__WEBPACK_IMPORTED_MODULE_27__["UnexpectedErrorComponent"],
-                _admin_product_from_product_from_component__WEBPACK_IMPORTED_MODULE_30__["ProductFromComponent"],
-                _admin_product_history_product_history_component__WEBPACK_IMPORTED_MODULE_31__["ProductHistoryComponent"]
+                _error_pages_unexpected_error_unexpected_error_component__WEBPACK_IMPORTED_MODULE_26__["UnexpectedErrorComponent"],
+                _admin_product_form_product_form_component__WEBPACK_IMPORTED_MODULE_30__["ProductFormComponent"],
+                _admin_product_history_product_history_component__WEBPACK_IMPORTED_MODULE_29__["ProductHistoryComponent"]
             ],
             imports: [
                 _angular_common__WEBPACK_IMPORTED_MODULE_19__["CommonModule"],
@@ -534,11 +573,11 @@ var AppModule = /** @class */ (function () {
                 ngx_toastr__WEBPACK_IMPORTED_MODULE_21__["ToastrModule"].forRoot()
             ],
             providers: [
-                _admin_services_admin_product_service__WEBPACK_IMPORTED_MODULE_29__["AdminProductService"],
+                _admin_services_admin_product_service__WEBPACK_IMPORTED_MODULE_28__["AdminProductService"],
                 _services_product_service__WEBPACK_IMPORTED_MODULE_15__["ProductService"],
                 _services_cart_service__WEBPACK_IMPORTED_MODULE_16__["CartService"],
-                { provide: _angular_core__WEBPACK_IMPORTED_MODULE_2__["ErrorHandler"], useClass: _common_errors_app_error_handler__WEBPACK_IMPORTED_MODULE_26__["AppErrorHandler"] },
-                { provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_14__["HTTP_INTERCEPTORS"], useClass: _common_auth_interceptor__WEBPACK_IMPORTED_MODULE_28__["AuthInterceptor"], multi: true }
+                // { provide: ErrorHandler, useClass: AppErrorHandler },
+                { provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_14__["HTTP_INTERCEPTORS"], useClass: _common_auth_interceptor__WEBPACK_IMPORTED_MODULE_27__["AuthInterceptor"], multi: true }
             ],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]]
         })
@@ -659,46 +698,6 @@ var AuthInterceptor = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/common/errors/app-error-handler.ts":
-/*!****************************************************!*\
-  !*** ./src/app/common/errors/app-error-handler.ts ***!
-  \****************************************************/
-/*! exports provided: AppErrorHandler */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppErrorHandler", function() { return AppErrorHandler; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-
-
-var AppErrorHandler = /** @class */ (function () {
-    function AppErrorHandler() {
-    }
-    AppErrorHandler.prototype.handleError = function (error) {
-        if (error.status === 401) { // either unRegistred or Token has Expired
-            localStorage.removeItem('MW-AccessToken');
-            window.location.href = '/sign-in';
-            return;
-        }
-        if (error.status === 404) {
-            window.location.href = '/404';
-            return;
-        }
-        window.location.href = '/error';
-    };
-    AppErrorHandler = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
-    ], AppErrorHandler);
-    return AppErrorHandler;
-}());
-
-
-
-/***/ }),
-
 /***/ "./src/app/common/errors/app-error.ts":
 /*!********************************************!*\
   !*** ./src/app/common/errors/app-error.ts ***!
@@ -724,7 +723,7 @@ var AppError = /** @class */ (function () {
 /*!**********************************************!*\
   !*** ./src/app/common/errors/http-errors.ts ***!
   \**********************************************/
-/*! exports provided: NotFound, BadInput, UnAuthorized, InternalError */
+/*! exports provided: NotFound, BadInput, UnAuthorized, InternalError, handleExpectedErrors */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -733,8 +732,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BadInput", function() { return BadInput; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UnAuthorized", function() { return UnAuthorized; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InternalError", function() { return InternalError; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "handleExpectedErrors", function() { return handleExpectedErrors; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _app_error__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./app-error */ "./src/app/common/errors/app-error.ts");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+
 
 
 var NotFound = /** @class */ (function (_super) {
@@ -769,6 +771,14 @@ var InternalError = /** @class */ (function (_super) {
     return InternalError;
 }(_app_error__WEBPACK_IMPORTED_MODULE_1__["AppError"]));
 
+function handleExpectedErrors(err) {
+    if (err.status === 400) {
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["throwError"])(new BadInput(err));
+    }
+    if (err.status === 404) {
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["throwError"])(new NotFound(err));
+    }
+}
 
 
 /***/ }),
@@ -1356,7 +1366,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p class=\"formData alert alert-success justForTesting\">\n  {{ product | json }}\n</p>\n"
+module.exports = "<div class=\"container\">\n<p class=\"formData alert alert-success justForTesting\">\n  {{ product | json }}\n</p>\n</div>\n"
 
 /***/ }),
 
@@ -1613,9 +1623,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm5/ngx-toastr.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
-/* harmony import */ var src_app_common_errors_http_errors__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/common/errors/http-errors */ "./src/app/common/errors/http-errors.ts");
-
+/* harmony import */ var src_app_common_errors_http_errors__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/common/errors/http-errors */ "./src/app/common/errors/http-errors.ts");
 
 
 
@@ -1631,12 +1639,12 @@ var UserAuthService = /** @class */ (function () {
     }
     UserAuthService.prototype.Register = function (f) {
         var noAuth = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({ 'NoAuth': 'true' });
-        return this.http.post('api/Account/Register', f, { headers: noAuth }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["catchError"])(this.handleError));
+        return this.http.post('api/Account/Register', f, { headers: noAuth }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["catchError"])(src_app_common_errors_http_errors__WEBPACK_IMPORTED_MODULE_6__["handleExpectedErrors"]));
     };
     UserAuthService.prototype.Login = function (f) {
         var data = 'username=' + f.Email + '&password=' + f.Password + '&grant_type=password';
         var reqHeader = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({ 'Content-Type': 'application/x-www-urlencoded', 'NoAuth': 'true' });
-        return this.http.post('login', data, { headers: reqHeader }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["catchError"])(this.handleError));
+        return this.http.post('login', data, { headers: reqHeader }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["catchError"])(src_app_common_errors_http_errors__WEBPACK_IMPORTED_MODULE_6__["handleExpectedErrors"]));
     };
     UserAuthService.prototype.getProfile = function () {
         var _this = this;
@@ -1659,14 +1667,6 @@ var UserAuthService = /** @class */ (function () {
         localStorage.removeItem('MW-AccessToken');
         this.user = null;
         this.router.navigate(['/']);
-    };
-    UserAuthService.prototype.handleError = function (err) {
-        if (err.status === 400) {
-            return Object(rxjs__WEBPACK_IMPORTED_MODULE_6__["throwError"])(new src_app_common_errors_http_errors__WEBPACK_IMPORTED_MODULE_7__["BadInput"](err));
-        }
-        if (err.status === 404) {
-            return Object(rxjs__WEBPACK_IMPORTED_MODULE_6__["throwError"])(new src_app_common_errors_http_errors__WEBPACK_IMPORTED_MODULE_7__["NotFound"](err));
-        }
     };
     UserAuthService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
@@ -1787,7 +1787,6 @@ var ShoppingCartComponent = /** @class */ (function () {
     }
     ShoppingCartComponent.prototype.ngOnInit = function () {
         this.cart = this.cartService.Cart;
-        console.log(this.cartService.Cart);
     };
     ShoppingCartComponent.prototype.removeCompleteItem = function (id) {
         this.cartService.removeCompleteItem(id);
@@ -2077,7 +2076,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p class=\"formData alert alert-success justForTesting\">\n{{ userAuth.user | json }}\n</p>\n"
+module.exports = "<div class=\"container\">\n<p class=\"formData alert alert-success justForTesting\">\n  {{ userAuth.user | json }}\n</p>\n</div>"
 
 /***/ }),
 

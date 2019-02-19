@@ -11,9 +11,7 @@ export class ShoppingCartComponent implements OnInit {
   constructor(private cartService: CartService) { }
 
   ngOnInit() {
-    this.cart = this.cartService.Cart;
-    console.log(this.cartService.Cart);
-    
+    this.cart = this.cartService.Cart;    
   }
 
   removeCompleteItem(id) {

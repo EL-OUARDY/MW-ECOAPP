@@ -28,12 +28,12 @@ import { SignInComponent } from './sign-in-up/sign-in/sign-in.component';
 import { SignUpComponent } from './sign-in-up/sign-up/sign-up.component';
 import { UserProfileComponent } from './user/user-profile/user-profile.component';
 import { NotFoundComponent } from './error-pages/not-found/not-found.component';
-import { AppErrorHandler } from './common/errors/app-error-handler';
+import { AppErrorHandler } from './common/errors/global-error-handler';
 import { UnexpectedErrorComponent } from './error-pages/unexpected-error/unexpected-error.component';
 import { AuthInterceptor } from './common/auth-interceptor';
 import { AdminProductService } from './admin/services/admin-product.service';
-import { ProductFromComponent } from './admin/product-from/product-from.component';
 import { ProductHistoryComponent } from './admin/product-history/product-history.component';
+import { ProductFormComponent } from './admin/product-form/product-form.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +52,7 @@ import { ProductHistoryComponent } from './admin/product-history/product-history
     UserProfileComponent,
     NotFoundComponent,
     UnexpectedErrorComponent,
-    ProductFromComponent,
+    ProductFormComponent,
     ProductHistoryComponent
   ],
   imports: [
@@ -77,7 +77,7 @@ import { ProductHistoryComponent } from './admin/product-history/product-history
     ProductService,
     CartService,
     
-    { provide: ErrorHandler, useClass: AppErrorHandler },
+    // { provide: ErrorHandler, useClass: AppErrorHandler },
     
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
   ],

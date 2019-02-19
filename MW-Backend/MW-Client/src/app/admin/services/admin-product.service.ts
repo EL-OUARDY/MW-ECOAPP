@@ -1,20 +1,21 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { AdminProduct } from '../models/adminProduct';
+import { catchError } from 'rxjs/operators';
+import { handleExpectedErrors } from 'src/app/common/errors/http-errors';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AdminProductService {
-  // private readonly rootUrl = 'http://localhost:1394/api';
+
+  noAuth = new HttpHeaders({ 'NoAuth': 'true' }); // only for testing
 
   constructor(private http: HttpClient) { }
 
-
   getCategories() {
-    return [{ id: 1, name: 'Sport', subCategories: [{ id: 1, name: 'Bicycle' }, { id: 2, name: 'Shoes' }] },
-    { id: 2, name: 'Women', subCategories: [{ id: 1, name: 'Jewelery' }, { id: 2, name: 'Bracelet' }] },
-    { id: 3, name: 'Phones', subCategories: [{ id: 1, name: 'Android' }, { id: 2, name: 'iOS' }] },
-    ];
+    
+    return this.http.get('api/Categories', { headers: this.noAuth });
   }
 
   getShippings() {
@@ -23,10 +24,9 @@ export class AdminProductService {
 
   // calling the server
 
-
-  PostProduct(p) {
-    this.http.post('/api/Products', p).subscribe(res => {
-      console.log(res);
-    });
+  PostProduct(p: AdminProduct) {
+    return this.http.post('api/Products', p , { headers: this.noAuth }).pipe(
+      catchError(handleExpectedErrors)
+    );
   }
 }

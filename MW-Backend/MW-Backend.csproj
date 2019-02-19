@@ -249,9 +249,11 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\api\CategoriesController.cs" />
     <Compile Include="Controllers\api\ProductsController.cs" />
     <Compile Include="Controllers\api\UserProfileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="DTOs\CategoryDTO.cs" />
     <Compile Include="DTOs\mProductDTO.cs" />
     <Compile Include="DTOs\ProductDTO.cs" />
     <Compile Include="DTOs\UserProfileDTO.cs" />
@@ -305,6 +307,14 @@
     <Compile Include="Migrations\201902101718323_fixProfileTable.cs" />
     <Compile Include="Migrations\201902101718323_fixProfileTable.Designer.cs">
       <DependentUpon>201902101718323_fixProfileTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902181352047_addStatusProduct.cs" />
+    <Compile Include="Migrations\201902181352047_addStatusProduct.Designer.cs">
+      <DependentUpon>201902181352047_addStatusProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902191615402_SizeIsNotRequired.cs" />
+    <Compile Include="Migrations\201902191615402_SizeIsNotRequired.Designer.cs">
+      <DependentUpon>201902191615402_SizeIsNotRequired.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
@@ -485,6 +495,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902101718323_fixProfileTable.resx">
       <DependentUpon>201902101718323_fixProfileTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902181352047_addStatusProduct.resx">
+      <DependentUpon>201902181352047_addStatusProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902191615402_SizeIsNotRequired.resx">
+      <DependentUpon>201902191615402_SizeIsNotRequired.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -14,6 +14,7 @@ using MW_Backend.Models.Data;
 
 namespace MW_Backend.Controllers.api
 {
+    // [Authorize] //Admin Role
     public class ProductsController : ApiController
     {
         private ApplicationDbContext db;
@@ -50,20 +51,34 @@ namespace MW_Backend.Controllers.api
 
         // POST: api/Products
         [HttpPost]
-        [ResponseType(typeof(Product))]
-        public IHttpActionResult PostProduct(Product product)
+        // [ResponseType(typeof(Product))]
+        public IHttpActionResult PostProduct(ProductDTO productDto)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
+            var product = Mapper.Map<ProductDTO, Product>(productDto);
             db.Products.Add(product);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = product.Id }, product);
+            return Ok( Mapper.Map<mProductDTO>(product) );
+            // return CreatedAtRoute("DefaultApi", new { id = productDto.Id }, productDto);
         }
 
+        // GET: api/last10
+        [HttpGet]
+        [Route("api/last10")]
+        public IHttpActionResult Last10()
+        {
+            var products = db.Products.OrderByDescending(x => x.Id)
+                                .Take(10)
+                                .ToList()
+                                .Select(Mapper.Map<Product, mProductDTO>);
+
+            return Ok(products);
+        }
 
         // PUT: api/Products/5
         [ResponseType(typeof(void))]

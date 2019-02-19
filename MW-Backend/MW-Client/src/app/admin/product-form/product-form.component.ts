@@ -1,33 +1,57 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminProductService } from '../services/admin-product.service';
+import { AdminProduct } from '../models/adminProduct';
+import { ToastrService } from 'ngx-toastr';
+import { MiniProduct } from 'src/app/models/miniProduct';
+import { BadInput } from 'src/app/common/errors/http-errors';
 
 @Component({
-  selector: 'app-product-from',
-  templateUrl: './product-from.component.html',
-  styleUrls: ['./product-from.component.css']
+  selector: 'product-form',
+  templateUrl: './product-form.component.html',
+  styleUrls: ['./product-form.component.css']
 })
-export class ProductFromComponent implements OnInit {
-  categories;
-  subCategories;
-  shipping;
+export class ProductFormComponent implements OnInit {
+  categories; subCategories; shipping; MainImage: File;
+  imgPath: string; PImages = new Array<IPath>(); DesImages = new Array<IPath>(); 
   colors = ['white', 'red', 'pink', 'grey', 'yellow', 'blue', 'orange', 'green', 'black'];
-  MainImage: File;
-  imgPath: string;
 
-  PImages = new Array<IPath>();
+  lastProducts: MiniProduct[] = [];
+  _Product = new AdminProduct();
+  serverError: string;
 
-  DesImages = new Array<IPath>();
-
-  constructor(private aps: AdminProductService) {
+  constructor(private aps: AdminProductService, private toaster: ToastrService) {
   }
+
   ngOnInit() {
-    this.categories = this.aps.getCategories();
+    this.aps.getCategories().subscribe(res => {
+          this.categories = res;
+    });
+
     this.shipping = this.aps.getShippings();
   }
 
-  showSub(c) {
-    this.subCategories = this.categories.find(x => x.id === Number(c)).subCategories;
+
+  // Posting The Product
+  onSubmit() {
+    this._Product.Slug = this._Product.Name.replace(/\s+/g, '-');
+    this.aps.PostProduct(this._Product)
+    .subscribe(data => {
+        this.toaster.success('Product Added', 'Success');
+        this.lastProducts.push(<MiniProduct>data);
+        console.log(this.lastProducts);
+    }, error => {
+        if (error instanceof BadInput) {
+          this.serverError = 'Incorrect Passed Data ..'; // Display the error within Form errors
+        } else throw error;
+    });
   }
+
+  getSub(c) {
+    this.subCategories = this.categories.find(x => x.Id === Number(c)).SubCategories;
+  }
+
+
+  /* Images Functions */
   setMainImage(files) {
     this.MainImage = files[0];
     this.previewMainImg();
@@ -86,6 +110,8 @@ export class ProductFromComponent implements OnInit {
     const elem = this.DesImages.find(x => x.name === name);
     this.DesImages.splice(this.DesImages.indexOf(elem), 1);
   }
+
+
   getProductPhotos() {
     const array = [];
     this.PImages.forEach(e => {
@@ -99,18 +125,6 @@ export class ProductFromComponent implements OnInit {
       array.push(e.img);
     });
     return array;
-  }
-
-  // Posting The Product
-
-  onSubmit(f) {
-    const n = new FormData();
-    const product = {
-      'Na//me': 'xxx xxxxxx', 'Slug': 'xxx-xxxxxx', 'Price': 8,
-      'Description': 'xxx xxxxxx xxx xxxxxx xxx xxxxxx', 'Date_Added': null, 'OldPrice': null,
-      'Discount': 0, 'SubCategory': null, 'SubCategoryId': 1, 'MainImg': null
-    };
-    this.aps.PostProduct(product);
   }
 }
 

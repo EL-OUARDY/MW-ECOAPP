@@ -12,7 +12,7 @@ import { UserProfileComponent } from './user/user-profile/user-profile.component
 import { SigninGuard } from './guards/signin.guard';
 import { NotFoundComponent } from './error-pages/not-found/not-found.component';
 import { UnexpectedErrorComponent } from './error-pages/unexpected-error/unexpected-error.component';
-import { ProductFromComponent } from './admin/product-from/product-from.component';
+import { ProductFormComponent } from './admin/product-form/product-form.component';
 
 const routes: Routes = [
   { path: 'sign-in', component: SignInUpComponent, canActivate: [SigninGuard]  },
@@ -27,7 +27,7 @@ const routes: Routes = [
   { path: '404', component: NotFoundComponent },
   { path: 'error', component: UnexpectedErrorComponent },
 
-  { path: 'add-product', component: ProductFromComponent, canActivate: [AdminGuard] },
+  { path: 'add-product', component: ProductFormComponent, canActivate: [AdminGuard] },
 
   { path: '', component: HomeComponent },
   { path: '**', component: HomeComponent } // Redirect to a 404 custom page

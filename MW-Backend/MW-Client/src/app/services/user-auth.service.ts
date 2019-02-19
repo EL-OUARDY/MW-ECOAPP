@@ -5,9 +5,8 @@ import { UserProfile } from 'src/app/models/userProfile';
 import { Router } from '@angular/router';
 
 import { catchError } from 'rxjs/operators';
-import { throwError } from 'rxjs';
 
-import { BadInput, NotFound } from 'src/app/common/errors/http-errors';
+import {handleExpectedErrors } from 'src/app/common/errors/http-errors';
 
 @Injectable({
   providedIn: 'root'
@@ -17,9 +16,9 @@ export class UserAuthService {
   constructor(private http: HttpClient, private toaster: ToastrService, private router: Router) { }
 
   Register(f) {
-    const noAuth = new HttpHeaders({'NoAuth': 'true'});
+    const noAuth = new HttpHeaders({'NoAuth': 'true'}); 
     return this.http.post('api/Account/Register', f, {headers : noAuth}).pipe(
-      catchError(this.handleError)
+      catchError(handleExpectedErrors)
     );
   }
 
@@ -28,7 +27,7 @@ export class UserAuthService {
     const reqHeader = new HttpHeaders({'Content-Type': 'application/x-www-urlencoded', 'NoAuth': 'true'});
 
     return this.http.post('login', data, { headers: reqHeader }).pipe(
-          catchError(this.handleError)
+          catchError(handleExpectedErrors)
         );
   }
 
@@ -52,14 +51,5 @@ export class UserAuthService {
     localStorage.removeItem('MW-AccessToken');
     this.user = null;
     this.router.navigate(['/']);
-  }
-
-  private handleError(err: Response) {
-    if (err.status === 400) {
-      return throwError(new BadInput(err));
-    } 
-    if (err.status === 404) {
-      return throwError(new NotFound(err));
-    }
   }
 }
