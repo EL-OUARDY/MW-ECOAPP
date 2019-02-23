@@ -13,16 +13,18 @@ import { SigninGuard } from './guards/signin.guard';
 import { NotFoundComponent } from './error-pages/not-found/not-found.component';
 import { UnexpectedErrorComponent } from './error-pages/unexpected-error/unexpected-error.component';
 import { ProductFormComponent } from './admin/product-form/product-form.component';
+import { PaymentComponent } from './payment/payment.component';
 
 const routes: Routes = [
-  { path: 'sign-in', component: SignInUpComponent, canActivate: [SigninGuard]  },
-  { path: 'sign-up', component: SignInUpComponent, canActivate: [SigninGuard]  },
-  { path: 'product/:slug', component: ProductDetailsComponent},
+  { path: 'sign-in', component: SignInUpComponent, canActivate: [SigninGuard] },
+  { path: 'sign-up', component: SignInUpComponent, canActivate: [SigninGuard] },
+  { path: 'product/:slug', component: ProductDetailsComponent },
   { path: 'cart', component: ShoppingCartComponent },
 
   { path: 'dashboard', component: UserProfileComponent, canActivate: [UserAuthGuard] },
 
-  { path: 'checkout', component: CheckoutComponent, canActivate: [CheckoutGuard] },
+  { path: 'checkout', component: CheckoutComponent, canActivate: [CheckoutGuard, UserAuthGuard] },
+  { path: 'payment', component: PaymentComponent, canActivate: [CheckoutGuard, UserAuthGuard] },
 
   { path: '404', component: NotFoundComponent },
   { path: 'error', component: UnexpectedErrorComponent },

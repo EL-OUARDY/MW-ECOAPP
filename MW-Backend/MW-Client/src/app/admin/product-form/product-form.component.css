@@ -4,11 +4,6 @@ label {
 label.radio {
   font-size: 15px;
 }
-.alert.alert-dark {
-  font-size: 16px !important;
-  padding: 5px;
-  margin-top: 2px;
-}
 
 .form-control.ng-touched.ng-invalid {
   border-left: 6px solid #d6d8d9;

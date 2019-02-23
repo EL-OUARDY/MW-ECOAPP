@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MiniProduct } from '../models/miniProduct';
 import { ProductService } from '../services/product.service';
 import { ToastrService } from 'ngx-toastr';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-home',
@@ -10,8 +11,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class HomeComponent implements OnInit {
   products$;
-  constructor(private productService: ProductService , private toaster: ToastrService) {
-  }
+  constructor(private productService: ProductService, private toaster: ToastrService) { }
 
   ngOnInit() {
     this.products$ = this.productService.getProductList();

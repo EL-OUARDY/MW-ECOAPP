@@ -13,11 +13,15 @@ body {
     font-size: 24px;
 }
 
-.alert{
+.alert {
     font-size: 18px !important;
     text-align: center;
     user-select: text;
-   
+}
+
+.alert.alert-dark {
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
 #toast-container .toast {

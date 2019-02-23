@@ -249,7 +249,9 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\api\CartController.cs" />
     <Compile Include="Controllers\api\CategoriesController.cs" />
+    <Compile Include="Controllers\api\LookAtAsynController.cs" />
     <Compile Include="Controllers\api\ProductsController.cs" />
     <Compile Include="Controllers\api\UserProfileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -316,9 +318,14 @@
     <Compile Include="Migrations\201902191615402_SizeIsNotRequired.Designer.cs">
       <DependentUpon>201902191615402_SizeIsNotRequired.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902221251399_changeAdressModel.cs" />
+    <Compile Include="Migrations\201902221251399_changeAdressModel.Designer.cs">
+      <DependentUpon>201902221251399_changeAdressModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\CartItem.cs" />
     <Compile Include="Models\Data\Address-Book.cs" />
     <Compile Include="Models\Data\Category.cs" />
     <Compile Include="Models\Data\Coupon.cs" />
@@ -501,6 +508,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902191615402_SizeIsNotRequired.resx">
       <DependentUpon>201902191615402_SizeIsNotRequired.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902221251399_changeAdressModel.resx">
+      <DependentUpon>201902221251399_changeAdressModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

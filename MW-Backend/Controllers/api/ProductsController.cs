@@ -35,11 +35,11 @@ namespace MW_Backend.Controllers.api
             return Ok(products);
         }
 
-        // GET: api/Products/5
+        // GET: api/Products/slug
         [ResponseType(typeof(Product))]
         public IHttpActionResult GetProduct(string slug)
         {
-            var model = db.Products.Where(x => x.Slug == slug).SingleOrDefault();
+            var model = db.Products.Where(x => x.Slug == slug).FirstOrDefault();
             if (model == null)
             {
                 return NotFound();
@@ -67,17 +67,33 @@ namespace MW_Backend.Controllers.api
             // return CreatedAtRoute("DefaultApi", new { id = productDto.Id }, productDto);
         }
 
-        // GET: api/last10
+        // GET: api/last5
         [HttpGet]
-        [Route("api/last10")]
-        public IHttpActionResult Last10()
+        [Route("api/last5")]
+        public IHttpActionResult Last5()
         {
             var products = db.Products.OrderByDescending(x => x.Id)
-                                .Take(10)
+                                .Take(5)
                                 .ToList()
                                 .Select(Mapper.Map<Product, mProductDTO>);
 
             return Ok(products);
+        }
+
+        // DELETE: api/Products/5
+        [ResponseType(typeof(Product))]
+        public IHttpActionResult DeleteProduct(int id)
+        {
+            Product product = db.Products.Find(id);
+            if (product == null)
+            {
+                return NotFound();
+            }
+
+            db.Products.Remove(product);
+            db.SaveChanges();
+
+            return Ok(product);
         }
 
         // PUT: api/Products/5
@@ -113,22 +129,6 @@ namespace MW_Backend.Controllers.api
             }
 
             return StatusCode(HttpStatusCode.NoContent);
-        }
-
-        // DELETE: api/Products/5
-        [ResponseType(typeof(Product))]
-        public IHttpActionResult DeleteProduct(int id)
-        {
-            Product product = db.Products.Find(id);
-            if (product == null)
-            {
-                return NotFound();
-            }
-
-            db.Products.Remove(product);
-            db.SaveChanges();
-
-            return Ok(product);
         }
 
         protected override void Dispose(bool disposing)

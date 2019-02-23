@@ -34,6 +34,8 @@ import { AuthInterceptor } from './common/auth-interceptor';
 import { AdminProductService } from './admin/services/admin-product.service';
 import { ProductHistoryComponent } from './admin/product-history/product-history.component';
 import { ProductFormComponent } from './admin/product-form/product-form.component';
+import { PaymentComponent } from './payment/payment.component';
+import { CouponComponent } from './coupon/coupon.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +55,9 @@ import { ProductFormComponent } from './admin/product-form/product-form.componen
     NotFoundComponent,
     UnexpectedErrorComponent,
     ProductFormComponent,
-    ProductHistoryComponent
+    ProductHistoryComponent,
+    PaymentComponent,
+    CouponComponent
   ],
   imports: [
     CommonModule,

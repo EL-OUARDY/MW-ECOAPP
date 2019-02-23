@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../services/cart.service';
+import { ShippingAdress } from '../models/shippingAdress';
+import { UserService } from '../services/user.service';
+import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-checkout',
@@ -7,25 +11,16 @@ import { CartService } from '../services/cart.service';
   styleUrls: ['./checkout.component.css']
 })
 export class CheckoutComponent implements OnInit {
-  shipping: IShipping = { name: '', addressLine1: '', addressLine2: '', phone: '', city: '' };
   shoppingCart;
-  constructor(private cartService: CartService) {
+  constructor(private cartService: CartService, private router: Router, private userService: UserService) {
   }
 
   ngOnInit() {
     this.shoppingCart = this.cartService.Cart;
   }
 
-  placeOrder() {
-    console.log(this.shipping);
+  Proceed(f: NgForm) {
+    this.userService.adress = <ShippingAdress>f.value;
+    this.router.navigate(['/payment']);
   }
-}
-
-export interface IShipping {
-  name: string;
-  addressLine1: string;
-  addressLine2: string;
-  city: string;
-  phone: string;
-
 }

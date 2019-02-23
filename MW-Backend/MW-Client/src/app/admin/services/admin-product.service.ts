@@ -24,9 +24,13 @@ export class AdminProductService {
 
   // calling the server
 
-  PostProduct(p: AdminProduct) {
+  PostProduct(p) {
     return this.http.post('api/Products', p , { headers: this.noAuth }).pipe(
       catchError(handleExpectedErrors)
     );
+  }
+
+  GetLastProducts() {
+    return this.http.get('api/last5', { headers: this.noAuth });
   }
 }

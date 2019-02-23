@@ -1,0 +1,40 @@
+<div class="container">
+  <div *ngIf="userService.adress " class=" alert alert-info justForTesting ">
+    <u>Ship To :</u> {{userService.adress | json }}
+  </div>
+  <br>
+  <u>
+    <h3 class="text-center">Choose Your Favourite Payment Method:</h3>
+  </u>
+  <div class="row col-10 centerBlock">
+    <div class="col-5">
+      <form>
+        <div class=" form-group">
+          <label for="">Card Number</label>
+          <input type="text" name="cardNumber" class="form-control">
+        </div>
+        <div class="row">
+          <div class=" form-group col-8">
+            <label for="">Expiration Date</label>
+            <input type="text" name="expDate" class="form-control">
+          </div>
+          <div class=" form-group col-4">
+            <label for="">CSC</label>
+            <input type="text" name="csc" class="form-control">
+          </div>
+        </div>
+        <button type="submit" class="col-4 btn btn-info">Place Order</button>
+      </form>
+    </div>
+    <div class="col-2 text-center"><span class="or">Or</span></div>
+    <div class="col-5">
+      <div for="">Safer & Faster</div>
+      <p>
+        NB: By clicking the button below you will redirct to your PayPal account to complete the order
+      </p>
+      <div class="text-center"><button type="button" (click)="PayPal()" class="btn btn-info">Pay With PayPal</button></div>
+
+    </div>
+  </div>
+
+</div>

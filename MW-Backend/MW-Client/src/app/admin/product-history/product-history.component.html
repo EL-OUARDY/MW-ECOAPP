@@ -1,26 +1,12 @@
 <div class="history">
-<h4>Last Added Product</h4>
-<table class="table table-hover text-center">
-  <tr class="row">
-    <td class="col-3"><img src="/Content/Images/test.jpg" class="img-responsive table-img"></td>
-    <td class="col-9">iPhone X Gold</td>
-    <td class="col-4"><a routerLink="/add-product">Edit</a></td>
-    <td class="col-4"><a routerLink="/add-product">Copy</a></td>
-    <td class="col-4"><a routerLink="/add-product">Delete</a></td>
-  </tr>
-  <tr class="row">
-    <td class="col-3"><img src="/Content/Images/test.jpg" class="img-responsive table-img"></td>
-    <td class="col-9">iPhone X Gold</td>
-    <td class="col-4"><a routerLink="/add-product">Edit</a></td>
-    <td class="col-4"><a routerLink="/add-product">Copy</a></td>
-    <td class="col-4"><a routerLink="/add-product">Delete</a></td>
-  </tr>
-  <tr class="row">
-    <td class="col-3"><img src="/Content/Images/test.jpg" class="img-responsive table-img"></td>
-    <td class="col-9">iPhone X Gold</td>
-    <td class="col-4"><a routerLink="/add-product">Edit</a></td>
-    <td class="col-4"><a routerLink="/add-product">Copy</a></td>
-    <td class="col-4"><a routerLink="/add-product">Delete</a></td>
-  </tr>
-</table>
+  <h4>Last Added Product</h4>
+  <table class="table table-hover text-center">
+    <tr *ngFor="let p of Products" class="row">
+      <td class="col-3"><img [src]="'/Content/Images/Products/' + p.Id + '/Main/' + p.Image" class="img-responsive table-img"></td>
+      <td class="col-9"><a target="blank" routerLink="/product/{{p.Slug}}">{{p.Name}}</a></td>
+      <td class="col-4"><a routerLink="/add-product">Edit</a></td>
+      <td class="col-4"><a routerLink="/add-product">Copy</a></td>
+      <td class="col-4"><a routerLink="/add-product">Delete</a></td>
+    </tr>
+  </table>
 </div>

@@ -1,0 +1,14 @@
+<div class="form-group">
+  <label for="">Coupon</label>
+  <div class="row">
+    <div class="col-8">
+      <input #c="ngModel" name="c" [(ngModel)]="coupon" type="text" class="form-control">
+    </div>
+    <div class="col-4">
+      <input class="btn btn-info form-control" type="button" value="APPLY">
+    </div>
+  </div>
+  <div class="alert alert-dark" *ngIf="c.touched && c.invalid">
+    <!-- <div *ngIf="coupon.errors.CouponValidator"> Invalid Format </div> -->
+  </div>
+</div>

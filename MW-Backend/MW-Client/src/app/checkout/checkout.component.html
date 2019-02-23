@@ -1,50 +1,74 @@
 <div class="container">
-<h2>Shipping</h2>
-<div class="row">
-  <div class="col-6">
-    <form #f="ngForm">
-      <div class="form-group">
-        <label for="">Name</label>
-        <input #name="ngModel" name="name" [(ngModel)]="shipping.name" type="text" class="form-control" required>
-        <div class="alert alert-dark" *ngIf="name.touched && name.invalid">
-          <div *ngIf="name.errors.required">Name is required.</div>
+  <h2>Shipping Adress :</h2>
+  <br>
+  <div class="row">
+    <div class="col-5">
+      <form #f="ngForm" (ngSubmit)="Proceed(f)">
+        <div class="form-group">
+          <label for="">FullName</label>
+          <input #FullName="ngModel" ngModel name="FullName" type="text" class="form-control" required>
+          <div class="alert alert-dark" *ngIf="FullName.touched && FullName.invalid">
+            <div *ngIf="FullName.errors.required">FullName is required.</div>
+          </div>
         </div>
-      </div>
-      <div class="form-group">
-        <label for="">Phone</label>
-        <input #name="ngModel" name="phone" [(ngModel)]="shipping.phone" type="text" class="form-control" required>
-        <div class="alert alert-dark" *ngIf="name.touched && name.invalid">
-          <div *ngIf="name.errors.required">Phone is required.</div>
+        <div class="form-group">
+          <label for="">Phone</label>
+          <input #Phone="ngModel" ngModel name="Phone" type="text" class="form-control" required>
+          <div class="alert alert-dark" *ngIf="Phone.touched && Phone.invalid">
+            <div *ngIf="Phone.errors.required">Phone is required.</div>
+          </div>
         </div>
-      </div>
-      <div class="form-group">
-        <label for="">Address</label>
-        <input #addressLine1="ngModel" name="addressLine1" [(ngModel)]="shipping.addressLine1" type="text" class="form-control"
-          placeholder="Line 1" required>
-        <div class="alert alert-dark" *ngIf="addressLine1.touched && addressLine1.invalid">
-          <div *ngIf="addressLine1.errors.required">Address Line 1 is required.</div>
+        <div class="form-group">
+          <label for="">Addresses</label>
+          <input #Line1="ngModel" ngModel name="Line1" type="text" class="form-control" placeholder="Line 1" required>
+          <div class="alert alert-dark" *ngIf="Line1.touched && Line1.invalid">
+            <div *ngIf="Line1.errors.required">Address Line 1 is required.</div>
+          </div>
         </div>
-      </div>
-      <div class="form-group">
-        <label for=""></label>
-        <input #addressLine2="ngModel" name="addressLine2" [(ngModel)]="shipping.addressLine2" type="text" class="form-control"
-          placeholder="Line 2" required>
-        <div class="alert alert-dark" *ngIf="addressLine2.touched && addressLine2.invalid">
-          <div *ngIf="addressLine2.errors.required">Address Line 2 is required.</div>
+        <div class="form-group">
+          <input #Line2="ngModel" ngModel name="Line2" type="text" class="form-control" placeholder="Line 2 (Optional)">
         </div>
-      </div>
-      <div class="form-group">
-        <label for="">City</label>
-        <input #city="ngModel" name="city" [(ngModel)]="shipping.city" type="text" class="form-control" required>
-        <div class="alert alert-dark" *ngIf="city.touched && city.invalid">
-          <div *ngIf="city.errors.required">City is required.</div>
+
+        <div class="row">
+          <div class="form-group col-6">
+            <label for="">Country</label>
+            <select name="Country" required ngModel class="form-control">
+              <option value="USA">United States</option>
+              <option value="Canada">Canada</option>
+              <option value="Morocco">Morocco</option>
+            </select>
+          </div>
+          <div class="form-group col-6">
+            <label for="">State</label>
+            <input #State="ngModel" ngModel name="State" type="text" class="form-control">
+            <div class="alert alert-dark" *ngIf="State.touched && State.invalid">
+              <div *ngIf="State.errors.required">State is required.</div>
+            </div>
+          </div>
         </div>
-      </div>
-      <button [disabled]="f.invalid" (click)="placeOrder()" class="btn btn-primary">Place Order</button>
-    </form>
+        <div class="row">
+          <div class="form-group col-6">
+            <label for="">City</label>
+            <input #City="ngModel" ngModel name="City" type="text" class="form-control" required>
+            <div class="alert alert-dark" *ngIf="City.touched && City.invalid">
+              <div *ngIf="City.errors.required">City is required.</div>
+            </div>
+          </div>
+          <div class="form-group col-6">
+            <label for="">Zip</label>
+            <input #Zip="ngModel" ngModel name="Zip" type="text" class="form-control">
+            <div class="alert alert-dark" *ngIf="Zip.touched && Zip.invalid">
+              <div *ngIf="Zip.errors.required">Zip is required.</div>
+            </div>
+          </div>
+        </div>
+
+        <button [disabled]="f.invalid" class="btn btn-info">Procecced</button>
+      </form>
+    </div>
+    <div class=" offset-2 col-5">
+      <coupon></coupon>
+      <sc-summary [cart]="shoppingCart"></sc-summary>
+    </div>
   </div>
-  <div class="col-6">
-    <sc-summary [cart]="shoppingCart"></sc-summary>
-  </div>
-</div>
 </div>

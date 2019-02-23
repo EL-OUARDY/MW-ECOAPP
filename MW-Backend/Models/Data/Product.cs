@@ -28,7 +28,6 @@ namespace MW_Backend.Models.Data
         public string Size { get; set; }
 
         [Required]
-
         public string Status { get; set; }
 
         [Required]

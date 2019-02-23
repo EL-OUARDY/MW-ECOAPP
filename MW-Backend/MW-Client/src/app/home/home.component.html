@@ -1,12 +1,10 @@
 <div class="container">
-<div class="products row ">
-  <div *ngFor="let p of products$ | async" class="col-3">
-    <product-card [product]="p"></product-card>
-    <div class=" alert alert-danger justForTesting ">
-      {{p | json }}
+  <div class="products row ">
+    <div *ngFor="let p of products$ | async" class="col-3">
+      <product-card [product]="p"></product-card>
+      <div class=" alert alert-danger justForTesting ">
+        {{p | json }}
+      </div>
     </div>
   </div>
-</div>
-
-<div><button class="btn btn-dark" (click)="n()">click</button></div>
 </div>

@@ -4,6 +4,7 @@ import { AdminProduct } from '../models/adminProduct';
 import { ToastrService } from 'ngx-toastr';
 import { MiniProduct } from 'src/app/models/miniProduct';
 import { BadInput } from 'src/app/common/errors/http-errors';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'product-form',
@@ -15,9 +16,9 @@ export class ProductFormComponent implements OnInit {
   imgPath: string; PImages = new Array<IPath>(); DesImages = new Array<IPath>(); 
   colors = ['white', 'red', 'pink', 'grey', 'yellow', 'blue', 'orange', 'green', 'black'];
 
-  lastProducts: MiniProduct[] = [];
+  lastProducts: MiniProduct[];
   _Product = new AdminProduct();
-  serverError: string;
+  serverError;
 
   constructor(private aps: AdminProductService, private toaster: ToastrService) {
   }
@@ -26,32 +27,45 @@ export class ProductFormComponent implements OnInit {
     this.aps.getCategories().subscribe(res => {
           this.categories = res;
     });
+    this.aps.GetLastProducts().subscribe(data => {
+      this.lastProducts = <MiniProduct[]> data;
+    });
 
     this.shipping = this.aps.getShippings();
   }
 
 
   // Posting The Product
-  onSubmit() {
+  onSubmit(f: NgForm) {
     this._Product.Slug = this._Product.Name.replace(/\s+/g, '-');
-    this.aps.PostProduct(this._Product)
-    .subscribe(data => {
-        this.toaster.success('Product Added', 'Success');
-        this.lastProducts.push(<MiniProduct>data);
-        console.log(this.lastProducts);
+
+    this.aps.PostProduct(this._Product).subscribe(
+      data => {
+        this.addToHistory(<MiniProduct>data);
+        f.resetForm( new AdminProduct() );
     }, error => {
         if (error instanceof BadInput) {
-          this.serverError = 'Incorrect Passed Data ..'; // Display the error within Form errors
+          this.serverError = error.originalError ; // Display the error within Form errors and Wrap it with JSON pipe
+          console.log(this.serverError);
         } else throw error;
     });
   }
 
+  addToHistory(data: MiniProduct) {
+    const array = this.lastProducts;
+
+    array.pop(); // Remove The Last
+    array.unshift(data); // Insert at The start
+  }
+
   getSub(c) {
-    this.subCategories = this.categories.find(x => x.Id === Number(c)).SubCategories;
+    if (c)
+      this.subCategories = this.categories.find(x => x.Id === Number(c)).SubCategories;
   }
 
 
   /* Images Functions */
+
   setMainImage(files) {
     this.MainImage = files[0];
     this.previewMainImg();
@@ -113,18 +127,24 @@ export class ProductFormComponent implements OnInit {
 
 
   getProductPhotos() {
-    const array = [];
+    const array: File[] = [];
     this.PImages.forEach(e => {
       array.push(e.img);
     });
     return array;
   }
   getDescriptionPhotos() {
-    const array = [];
+    const array: File[] = [];
     this.DesImages.forEach(e => {
       array.push(e.img);
     });
     return array;
+  }
+
+  logImgs() {
+    console.log(this.MainImage);
+    console.log(this.getProductPhotos());
+    console.log(this.getDescriptionPhotos());
   }
 }
 
@@ -132,5 +152,12 @@ interface IPath {
   img: File;
   name: string;
   data: string;
+}
+
+interface IProductData {
+  Product: AdminProduct;
+  mainImg: File;
+  productImgs: File[];
+  descImgs: File[];
 }
 

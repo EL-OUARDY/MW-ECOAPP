@@ -13,11 +13,8 @@ namespace MW_Backend.Models.Data
 
         [Required]
         [StringLength(20)]
-        public string FirstName { get; set; }
+        public string FullName { get; set; }
 
-        [Required]
-        [StringLength(20)]
-        public string LastName { get; set; }
 
         [Required]
         [StringLength(20)]
@@ -26,6 +23,10 @@ namespace MW_Backend.Models.Data
         [Required]
         [StringLength(20)]
         public string Country { get; set; }
+
+        [Required]
+        [StringLength(20)]
+        public string State { get; set; }
 
         [Required]
         [StringLength(20)]
@@ -40,9 +41,6 @@ namespace MW_Backend.Models.Data
 
         [StringLength(100)]
         public string Line2 { get; set; }
-
-        [StringLength(100)]
-        public string Line3 { get; set; }
 
         public ApplicationUser ApplicationUser { get; set; }
         public string ApplicationUserId { get; set; }

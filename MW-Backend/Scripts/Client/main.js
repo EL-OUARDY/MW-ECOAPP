@@ -35,6 +35,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminProduct", function() { return AdminProduct; });
 var AdminProduct = /** @class */ (function () {
     function AdminProduct() {
+        this.Id = -1;
         this.Color = 'white';
         this.Status = 'on-sale';
     }
@@ -52,7 +53,7 @@ var AdminProduct = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "label {\r\n  font-size: 20px;\r\n}\r\nlabel.radio {\r\n  font-size: 15px;\r\n}\r\n.alert.alert-dark {\r\n  font-size: 16px !important;\r\n  padding: 5px;\r\n  margin-top: 2px;\r\n}\r\n.form-control.ng-touched.ng-invalid {\r\n  border-left: 6px solid #d6d8d9;\r\n}\r\n.formData {\r\n  margin-top: 20px;\r\n  text-align: center;\r\n}\r\n.browse {\r\n  border-bottom: 1px solid #ced4da;\r\n  text-align: right;\r\n  width: 100%;\r\n}\r\nimg {\r\n  width: 100%;\r\n  height: 100%;\r\n}\r\n.image {\r\n  display: block;\r\n  margin: 0 auto\r\n}\r\n.block {\r\n  border: 1px solid #eee;\r\n  margin: 10px auto;\r\n  padding: 10px;\r\n  height: 220px;\r\n}\r\n.scroll {\r\n  overflow-y: scroll\r\n}\r\n.small {\r\n  height: 90px;\r\n  padding: 5px 11px;\r\n  border: 1px solid #eee;\r\n  margin: 5px 8px;\r\n  text-align: center;\r\n  position: relative;\r\n}\r\n.remove {\r\n  background: #dc3545;\r\n  padding: 0px 5px;\r\n  color: #fff;\r\n  border-radius: 50%;\r\n  position: absolute;\r\n  top: -8px;\r\n  right: -8px;\r\n  cursor: pointer;\r\n}\r\n.c {\r\n  height: 120px;\r\n}\r\n.color {\r\n  border: 2px solid #eee;\r\n  padding: 5px;\r\n  cursor: pointer;\r\n  text-align: center\r\n}\r\n.color input[type=radio] {\r\n  visibility: hidden;\r\n}\r\n.color input[type=radio]:checked {\r\n  visibility: visible;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRtaW4vcHJvZHVjdC1mb3JtL3Byb2R1Y3QtZm9ybS5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsZUFBZTtBQUNqQjtBQUNBO0VBQ0UsZUFBZTtBQUNqQjtBQUNBO0VBQ0UsMEJBQTBCO0VBQzFCLFlBQVk7RUFDWixlQUFlO0FBQ2pCO0FBRUE7RUFDRSw4QkFBOEI7QUFDaEM7QUFFQTtFQUNFLGdCQUFnQjtFQUNoQixrQkFBa0I7QUFDcEI7QUFFQTtFQUNFLGdDQUFnQztFQUNoQyxpQkFBaUI7RUFDakIsV0FBVztBQUNiO0FBRUE7RUFDRSxXQUFXO0VBQ1gsWUFBWTtBQUNkO0FBRUE7RUFDRSxjQUFjO0VBQ2Q7QUFDRjtBQUVBO0VBQ0Usc0JBQXNCO0VBQ3RCLGlCQUFpQjtFQUNqQixhQUFhO0VBQ2IsYUFBYTtBQUNmO0FBRUE7RUFDRTtBQUNGO0FBRUE7RUFDRSxZQUFZO0VBQ1osaUJBQWlCO0VBQ2pCLHNCQUFzQjtFQUN0QixlQUFlO0VBQ2Ysa0JBQWtCO0VBQ2xCLGtCQUFrQjtBQUNwQjtBQUVBO0VBQ0UsbUJBQW1CO0VBQ25CLGdCQUFnQjtFQUNoQixXQUFXO0VBQ1gsa0JBQWtCO0VBQ2xCLGtCQUFrQjtFQUNsQixTQUFTO0VBQ1QsV0FBVztFQUNYLGVBQWU7QUFDakI7QUFFQTtFQUNFLGFBQWE7QUFDZjtBQUVBO0VBQ0Usc0JBQXNCO0VBQ3RCLFlBQVk7RUFDWixlQUFlO0VBQ2Y7QUFDRjtBQUVBO0VBQ0Usa0JBQWtCO0FBQ3BCO0FBRUE7RUFDRSxtQkFBbUI7QUFDckIiLCJmaWxlIjoic3JjL2FwcC9hZG1pbi9wcm9kdWN0LWZvcm0vcHJvZHVjdC1mb3JtLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJsYWJlbCB7XHJcbiAgZm9udC1zaXplOiAyMHB4O1xyXG59XHJcbmxhYmVsLnJhZGlvIHtcclxuICBmb250LXNpemU6IDE1cHg7XHJcbn1cclxuLmFsZXJ0LmFsZXJ0LWRhcmsge1xyXG4gIGZvbnQtc2l6ZTogMTZweCAhaW1wb3J0YW50O1xyXG4gIHBhZGRpbmc6IDVweDtcclxuICBtYXJnaW4tdG9wOiAycHg7XHJcbn1cclxuXHJcbi5mb3JtLWNvbnRyb2wubmctdG91Y2hlZC5uZy1pbnZhbGlkIHtcclxuICBib3JkZXItbGVmdDogNnB4IHNvbGlkICNkNmQ4ZDk7XHJcbn1cclxuXHJcbi5mb3JtRGF0YSB7XHJcbiAgbWFyZ2luLXRvcDogMjBweDtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbn1cclxuXHJcbi5icm93c2Uge1xyXG4gIGJvcmRlci1ib3R0b206IDFweCBzb2xpZCAjY2VkNGRhO1xyXG4gIHRleHQtYWxpZ246IHJpZ2h0O1xyXG4gIHdpZHRoOiAxMDAlO1xyXG59XHJcblxyXG5pbWcge1xyXG4gIHdpZHRoOiAxMDAlO1xyXG4gIGhlaWdodDogMTAwJTtcclxufVxyXG5cclxuLmltYWdlIHtcclxuICBkaXNwbGF5OiBibG9jaztcclxuICBtYXJnaW46IDAgYXV0b1xyXG59XHJcblxyXG4uYmxvY2sge1xyXG4gIGJvcmRlcjogMXB4IHNvbGlkICNlZWU7XHJcbiAgbWFyZ2luOiAxMHB4IGF1dG87XHJcbiAgcGFkZGluZzogMTBweDtcclxuICBoZWlnaHQ6IDIyMHB4O1xyXG59XHJcblxyXG4uc2Nyb2xsIHtcclxuICBvdmVyZmxvdy15OiBzY3JvbGxcclxufVxyXG5cclxuLnNtYWxsIHtcclxuICBoZWlnaHQ6IDkwcHg7XHJcbiAgcGFkZGluZzogNXB4IDExcHg7XHJcbiAgYm9yZGVyOiAxcHggc29saWQgI2VlZTtcclxuICBtYXJnaW46IDVweCA4cHg7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxufVxyXG5cclxuLnJlbW92ZSB7XHJcbiAgYmFja2dyb3VuZDogI2RjMzU0NTtcclxuICBwYWRkaW5nOiAwcHggNXB4O1xyXG4gIGNvbG9yOiAjZmZmO1xyXG4gIGJvcmRlci1yYWRpdXM6IDUwJTtcclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgdG9wOiAtOHB4O1xyXG4gIHJpZ2h0OiAtOHB4O1xyXG4gIGN1cnNvcjogcG9pbnRlcjtcclxufVxyXG5cclxuLmMge1xyXG4gIGhlaWdodDogMTIwcHg7XHJcbn1cclxuXHJcbi5jb2xvciB7XHJcbiAgYm9yZGVyOiAycHggc29saWQgI2VlZTtcclxuICBwYWRkaW5nOiA1cHg7XHJcbiAgY3Vyc29yOiBwb2ludGVyO1xyXG4gIHRleHQtYWxpZ246IGNlbnRlclxyXG59XHJcblxyXG4uY29sb3IgaW5wdXRbdHlwZT1yYWRpb10ge1xyXG4gIHZpc2liaWxpdHk6IGhpZGRlbjtcclxufVxyXG5cclxuLmNvbG9yIGlucHV0W3R5cGU9cmFkaW9dOmNoZWNrZWQge1xyXG4gIHZpc2liaWxpdHk6IHZpc2libGU7XHJcbn1cclxuIl19 */"
+module.exports = "label {\r\n  font-size: 20px;\r\n}\r\nlabel.radio {\r\n  font-size: 15px;\r\n}\r\n.form-control.ng-touched.ng-invalid {\r\n  border-left: 6px solid #d6d8d9;\r\n}\r\n.formData {\r\n  margin-top: 20px;\r\n  text-align: center;\r\n}\r\n.browse {\r\n  border-bottom: 1px solid #ced4da;\r\n  text-align: right;\r\n  width: 100%;\r\n}\r\nimg {\r\n  width: 100%;\r\n  height: 100%;\r\n}\r\n.image {\r\n  display: block;\r\n  margin: 0 auto\r\n}\r\n.block {\r\n  border: 1px solid #eee;\r\n  margin: 10px auto;\r\n  padding: 10px;\r\n  height: 220px;\r\n}\r\n.scroll {\r\n  overflow-y: scroll\r\n}\r\n.small {\r\n  height: 90px;\r\n  padding: 5px 11px;\r\n  border: 1px solid #eee;\r\n  margin: 5px 8px;\r\n  text-align: center;\r\n  position: relative;\r\n}\r\n.remove {\r\n  background: #dc3545;\r\n  padding: 0px 5px;\r\n  color: #fff;\r\n  border-radius: 50%;\r\n  position: absolute;\r\n  top: -8px;\r\n  right: -8px;\r\n  cursor: pointer;\r\n}\r\n.c {\r\n  height: 120px;\r\n}\r\n.color {\r\n  border: 2px solid #eee;\r\n  padding: 5px;\r\n  cursor: pointer;\r\n  text-align: center\r\n}\r\n.color input[type=radio] {\r\n  visibility: hidden;\r\n}\r\n.color input[type=radio]:checked {\r\n  visibility: visible;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRtaW4vcHJvZHVjdC1mb3JtL3Byb2R1Y3QtZm9ybS5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsZUFBZTtBQUNqQjtBQUNBO0VBQ0UsZUFBZTtBQUNqQjtBQUVBO0VBQ0UsOEJBQThCO0FBQ2hDO0FBRUE7RUFDRSxnQkFBZ0I7RUFDaEIsa0JBQWtCO0FBQ3BCO0FBRUE7RUFDRSxnQ0FBZ0M7RUFDaEMsaUJBQWlCO0VBQ2pCLFdBQVc7QUFDYjtBQUVBO0VBQ0UsV0FBVztFQUNYLFlBQVk7QUFDZDtBQUVBO0VBQ0UsY0FBYztFQUNkO0FBQ0Y7QUFFQTtFQUNFLHNCQUFzQjtFQUN0QixpQkFBaUI7RUFDakIsYUFBYTtFQUNiLGFBQWE7QUFDZjtBQUVBO0VBQ0U7QUFDRjtBQUVBO0VBQ0UsWUFBWTtFQUNaLGlCQUFpQjtFQUNqQixzQkFBc0I7RUFDdEIsZUFBZTtFQUNmLGtCQUFrQjtFQUNsQixrQkFBa0I7QUFDcEI7QUFFQTtFQUNFLG1CQUFtQjtFQUNuQixnQkFBZ0I7RUFDaEIsV0FBVztFQUNYLGtCQUFrQjtFQUNsQixrQkFBa0I7RUFDbEIsU0FBUztFQUNULFdBQVc7RUFDWCxlQUFlO0FBQ2pCO0FBRUE7RUFDRSxhQUFhO0FBQ2Y7QUFFQTtFQUNFLHNCQUFzQjtFQUN0QixZQUFZO0VBQ1osZUFBZTtFQUNmO0FBQ0Y7QUFFQTtFQUNFLGtCQUFrQjtBQUNwQjtBQUVBO0VBQ0UsbUJBQW1CO0FBQ3JCIiwiZmlsZSI6InNyYy9hcHAvYWRtaW4vcHJvZHVjdC1mb3JtL3Byb2R1Y3QtZm9ybS5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsibGFiZWwge1xyXG4gIGZvbnQtc2l6ZTogMjBweDtcclxufVxyXG5sYWJlbC5yYWRpbyB7XHJcbiAgZm9udC1zaXplOiAxNXB4O1xyXG59XHJcblxyXG4uZm9ybS1jb250cm9sLm5nLXRvdWNoZWQubmctaW52YWxpZCB7XHJcbiAgYm9yZGVyLWxlZnQ6IDZweCBzb2xpZCAjZDZkOGQ5O1xyXG59XHJcblxyXG4uZm9ybURhdGEge1xyXG4gIG1hcmdpbi10b3A6IDIwcHg7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG59XHJcblxyXG4uYnJvd3NlIHtcclxuICBib3JkZXItYm90dG9tOiAxcHggc29saWQgI2NlZDRkYTtcclxuICB0ZXh0LWFsaWduOiByaWdodDtcclxuICB3aWR0aDogMTAwJTtcclxufVxyXG5cclxuaW1nIHtcclxuICB3aWR0aDogMTAwJTtcclxuICBoZWlnaHQ6IDEwMCU7XHJcbn1cclxuXHJcbi5pbWFnZSB7XHJcbiAgZGlzcGxheTogYmxvY2s7XHJcbiAgbWFyZ2luOiAwIGF1dG9cclxufVxyXG5cclxuLmJsb2NrIHtcclxuICBib3JkZXI6IDFweCBzb2xpZCAjZWVlO1xyXG4gIG1hcmdpbjogMTBweCBhdXRvO1xyXG4gIHBhZGRpbmc6IDEwcHg7XHJcbiAgaGVpZ2h0OiAyMjBweDtcclxufVxyXG5cclxuLnNjcm9sbCB7XHJcbiAgb3ZlcmZsb3cteTogc2Nyb2xsXHJcbn1cclxuXHJcbi5zbWFsbCB7XHJcbiAgaGVpZ2h0OiA5MHB4O1xyXG4gIHBhZGRpbmc6IDVweCAxMXB4O1xyXG4gIGJvcmRlcjogMXB4IHNvbGlkICNlZWU7XHJcbiAgbWFyZ2luOiA1cHggOHB4O1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICBwb3NpdGlvbjogcmVsYXRpdmU7XHJcbn1cclxuXHJcbi5yZW1vdmUge1xyXG4gIGJhY2tncm91bmQ6ICNkYzM1NDU7XHJcbiAgcGFkZGluZzogMHB4IDVweDtcclxuICBjb2xvcjogI2ZmZjtcclxuICBib3JkZXItcmFkaXVzOiA1MCU7XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIHRvcDogLThweDtcclxuICByaWdodDogLThweDtcclxuICBjdXJzb3I6IHBvaW50ZXI7XHJcbn1cclxuXHJcbi5jIHtcclxuICBoZWlnaHQ6IDEyMHB4O1xyXG59XHJcblxyXG4uY29sb3Ige1xyXG4gIGJvcmRlcjogMnB4IHNvbGlkICNlZWU7XHJcbiAgcGFkZGluZzogNXB4O1xyXG4gIGN1cnNvcjogcG9pbnRlcjtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXJcclxufVxyXG5cclxuLmNvbG9yIGlucHV0W3R5cGU9cmFkaW9dIHtcclxuICB2aXNpYmlsaXR5OiBoaWRkZW47XHJcbn1cclxuXHJcbi5jb2xvciBpbnB1dFt0eXBlPXJhZGlvXTpjaGVja2VkIHtcclxuICB2aXNpYmlsaXR5OiB2aXNpYmxlO1xyXG59XHJcbiJdfQ== */"
 
 /***/ }),
 
@@ -63,7 +64,7 @@ module.exports = "label {\r\n  font-size: 20px;\r\n}\r\nlabel.radio {\r\n  font-
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-3\">\n      <product-history></product-history>\n    </div>\n    <div class=\"col-9\">\n      <form #f=\"ngForm\" (ngSubmit)=onSubmit() autocomplete=\"off\">\n        <input type=\"hidden\" [(ngModel)]=\"_Product.Id\" name=\"Id\" #Id=\"ngModel\" class=\" form-control\">\n        <div class=\"row\">\n          <div class=\" form-group col-6 \">\n            <label>Name :</label>\n            <input required minlength=\"6\" type=\"text\" [(ngModel)]=\"_Product.Name\" name=\"Name\" #Name=\"ngModel\" class=\" form-control\">\n            <div class=\"alert alert-dark\" *ngIf=\"Name.touched && !Name.valid\">\n              <div *ngIf=\"Name.errors.required\"> Name Is Required !</div>\n              <!-- Custom Validation => Name Must Be Unique -->\n              <div *ngIf=\"Name.errors.minlength\"> Name Must Be More Then 6 Characters </div>\n            </div>\n\n          </div>\n          <div class=\" form-group col-2\">\n            <label>Price :</label>\n            <input required maxlength=\"7\" type=\"number\" [(ngModel)]=\"_Product.Price\" name=\"Price\" #Price=\"ngModel\"\n              class=\"form-control\">\n            <div class=\"alert alert-dark\" *ngIf=\"Price.touched && !Price.valid\">\n              <div *ngIf=\"Price.errors?.required\"> Price Is Required !</div>\n            </div>\n          </div>\n          <div class=\" form-group col-4\">\n            <label>Status :</label>\n            <div class=\"form-control \">\n              <label class=\"col-6 radio\">\n                <input type=\"radio\" [(ngModel)]=\"_Product.Status\" name=\"Status\" value=\"on-sale\">\n                On Sale\n              </label>\n              <label class=\"col-6 radio\">\n                <input type=\"radio\" [(ngModel)]=\"_Product.Status\" name=\"Status\" value=\"out-of-stock\">\n                Out Of Stock\n              </label>\n            </div>\n          </div>\n        </div>\n        <div class=\"row\">\n          <div class=\"col-7 form-group\">\n            <label>Description :</label>\n            <textarea required [(ngModel)]=\"_Product.Description\" name=\"Description\" #des=\"ngModel\" cols=\"30\" rows=\"8\"\n              class=\" form-control\"></textarea>\n            <div class=\"alert alert-dark\" *ngIf=\"des.touched && des.errors?.required\">Fill The Description !</div>\n          </div>\n          <div class=\"col-5\">\n            <div class=\"form-group\">\n              <label>Category :</label>\n              <select #Category (change)=\"getSub(Category.value)\" class=\"form-control\">\n                <option value=\"\"></option>\n                <option *ngFor=\"let item of categories\" [value]=\"item.Id\">{{item.Name}}</option>\n              </select>\n            </div>\n            <div class=\"form-group\">\n              <label>subCategory :</label>\n              <select name=\"SubCategory\" required [(ngModel)]=\"_Product.SubCategoryId\" class=\"form-control\">\n                <option *ngFor=\"let item of subCategories\" [value]=\"item.Id\">{{item.Name}}</option>\n              </select>\n            </div>\n            <!-- <div class=\"form-group\">\n              <label>Shipping :</label>\n              <div class=\"form-control\">\n                <label *ngFor=\"let item of shipping\" class=\"col-4 radio\">\n                  <input type=\"radio\" ngModel name=\"shippingMethod\" [value]=\"item\">\n                  {{item}}\n                </label>\n              </div>\n            </div> -->\n          </div>\n        </div>\n        <div class=\"row\">\n          <div class=\"form-group col-3\">\n            <label>Main Image :</label>\n            <div class=\" form-control \">\n              <label class=\"browse\">Browse&hellip; <input type=\"file\" name=\"mainImg\" (change)=\"setMainImage($event.target.files)\"\n                  style=\"display: none;\"></label>\n            </div>\n\n            <div class=\"block \">\n              <img *ngIf=\"imgPath\" [src]=\"imgPath\" class=\"image\">\n            </div>\n\n          </div>\n\n          <div class=\"form-group col-6\">\n            <label>Other Images :</label>\n            <div class=\"form-control\">\n              <label class=\"browse\">Browse&hellip; <input type=\"file\" accept=\"image/*\" multiple (change)=\"addProductImages($event.target.files)\"\n                  style=\"display: none;\"></label>\n            </div>\n            <div class=\"block row\">\n              <div *ngFor=\"let item of PImages\" class=\"small col-2\">\n                <img [src]=\"item.data\">\n                <span (click)=\"removeImage(item.name)\" class=\"remove\">X</span>\n              </div>\n            </div>\n          </div>\n          <div class=\"form-group col-3\">\n            <label>Color :</label>\n            <div class=\"block\">\n              <label class=\"color col-3\" *ngFor=\"let item of colors\" [ngStyle]=\"{'background': item}\">\n                <input type=\"radio\" [(ngModel)]=\"_Product.Color\" name=\"Color\" [value]=\"item\">\n              </label>\n            </div>\n          </div>\n        </div>\n        <div class=\"form-group\">\n          <label>Description Images :</label>\n          <div class=\"form-control\">\n            <label class=\"browse\">Browse&hellip; <input type=\"file\" accept=\"image/*\" multiple (change)=\"addDescImages($event.target.files)\"\n                style=\"display: none;\"></label>\n          </div>\n          <div class=\"block c row\">\n            <div *ngFor=\"let item of DesImages\" class=\"small col-1\">\n              <img [src]=\"item.data\">\n              <span (click)=\"removeDescImage(item.name)\" class=\"remove\">X</span>\n            </div>\n          </div>\n        </div>\n        <button [disabled]=\"f.invalid\" class=\"btn \">Submit</button>\n        <!-- <button class=\"btn \">Submit</button> -->\n      </form>\n\n      <p class=\"formData alert alert-success\">\n        {{ f.value | json }}\n      </p>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-3\">\n      <product-history [Products]=\"lastProducts\"></product-history>\n    </div>\n    <div class=\"col-9\">\n      <form #f=\"ngForm\" (ngSubmit) = \"onSubmit(f)\" autocomplete=\"off\">\n        <input type=\"hidden\" [(ngModel)]=\"_Product.Id\" name=\"Id\" #Id=\"ngModel\" class=\" form-control\">\n        <div class=\"row\">\n          <div class=\" form-group col-6 \">\n            <label>Name :</label>\n            <input required minlength=\"6\" type=\"text\" [(ngModel)]=\"_Product.Name\" name=\"Name\" #Name=\"ngModel\" class=\" form-control\">\n            <div class=\"alert alert-dark\" *ngIf=\"Name.touched && !Name.valid\">\n              <div *ngIf=\"Name.errors.required\"> Name Is Required !</div>\n              <!-- Custom Validation => Name Must Be Unique -->\n              <div *ngIf=\"Name.errors.minlength\"> Name Must Be More Then 6 Characters </div>\n            </div>\n\n          </div>\n          <div class=\" form-group col-2\">\n            <label>Price :</label>\n            <input required maxlength=\"7\" type=\"number\" [(ngModel)]=\"_Product.Price\" name=\"Price\" #Price=\"ngModel\"\n              class=\"form-control\">\n            <div class=\"alert alert-dark\" *ngIf=\"Price.touched && !Price.valid\">\n              <div *ngIf=\"Price.errors?.required\"> Price Is Required !</div>\n            </div>\n          </div>\n          <div class=\" form-group col-4\">\n            <label>Status :</label>\n            <div class=\"form-control \">\n              <label class=\"col-6 radio\">\n                <input type=\"radio\" [(ngModel)]=\"_Product.Status\" name=\"Status\" value=\"on-sale\">\n                On Sale\n              </label>\n              <label class=\"col-6 radio\">\n                <input type=\"radio\" [(ngModel)]=\"_Product.Status\" name=\"Status\" value=\"out-of-stock\">\n                Out Of Stock\n              </label>\n            </div>\n          </div>\n        </div>\n        <div class=\"row\">\n          <div class=\"col-7 form-group\">\n            <label>Description :</label>\n            <textarea required [(ngModel)]=\"_Product.Description\" name=\"Description\" #des=\"ngModel\" cols=\"30\" rows=\"8\"\n              class=\" form-control\"></textarea>\n            <div class=\"alert alert-dark\" *ngIf=\"des.touched && des.errors?.required\">Fill The Description !</div>\n          </div>\n          <div class=\"col-5\">\n            <div class=\"form-group\">\n              <label>Category :</label>\n              <select #Category (change)=\"getSub(Category.value)\" class=\"form-control\">\n                <option value=\"\"></option>\n                <option *ngFor=\"let item of categories\" [value]=\"item.Id\">{{item.Name}}</option>\n              </select>\n            </div>\n            <div class=\"form-group\">\n              <label>subCategory :</label>\n              <select name=\"SubCategory\" required [(ngModel)]=\"_Product.SubCategoryId\" class=\"form-control\">\n                <option *ngFor=\"let item of subCategories\" [value]=\"item.Id\">{{item.Name}}</option>\n              </select>\n            </div>\n            <!-- <div class=\"form-group\">\n              <label>Shipping :</label>\n              <div class=\"form-control\">\n                <label *ngFor=\"let item of shipping\" class=\"col-4 radio\">\n                  <input type=\"radio\" ngModel name=\"shippingMethod\" [value]=\"item\">\n                  {{item}}\n                </label>\n              </div>\n            </div> -->\n          </div>\n        </div>\n        <div class=\"row\">\n          <div class=\"form-group col-3\">\n            <label>Main Image :</label>\n            <div class=\" form-control \">\n              <label class=\"browse\">Browse&hellip; <input type=\"file\" name=\"mainImg\" (change)=\"setMainImage($event.target.files)\"\n                  style=\"display: none;\"></label>\n            </div>\n\n            <div class=\"block \">\n              <img *ngIf=\"imgPath\" [src]=\"imgPath\" class=\"image\">\n            </div>\n\n          </div>\n\n          <div class=\"form-group col-6\">\n            <label>Other Images :</label>\n            <div class=\"form-control\">\n              <label class=\"browse\">Browse&hellip; <input type=\"file\" accept=\"image/*\" multiple (change)=\"addProductImages($event.target.files)\"\n                  style=\"display: none;\"></label>\n            </div>\n            <div class=\"block row\">\n              <div *ngFor=\"let item of PImages\" class=\"small col-2\">\n                <img [src]=\"item.data\">\n                <span (click)=\"removeImage(item.name)\" class=\"remove\">X</span>\n              </div>\n            </div>\n          </div>\n          <div class=\"form-group col-3\">\n            <label>Color :</label>\n            <div class=\"block\">\n              <label class=\"color col-3\" *ngFor=\"let item of colors\" [ngStyle]=\"{'background': item}\">\n                <input type=\"radio\" [(ngModel)]=\"_Product.Color\" name=\"Color\" [value]=\"item\">\n              </label>\n            </div>\n          </div>\n        </div>\n        <div class=\"form-group\">\n          <label>Description Images :</label>\n          <div class=\"form-control\">\n            <label class=\"browse\">Browse&hellip; <input type=\"file\" accept=\"image/*\" multiple (change)=\"addDescImages($event.target.files)\"\n                style=\"display: none;\"></label>\n          </div>\n          <div class=\"block c row\">\n            <div *ngFor=\"let item of DesImages\" class=\"small col-1\">\n              <img [src]=\"item.data\">\n              <span (click)=\"removeDescImage(item.name)\" class=\"remove\">X</span>\n            </div>\n          </div>\n        </div>\n        <button [disabled]=\"f.invalid\" class=\"btn \">Submit</button>\n        <!-- <button class=\"btn \">Submit</button> -->\n      </form>\n\n      <p class=\"formData alert alert-success\">\n        {{ f.value | json }}\n      </p>\n      <div class=\"alert alert-warning\" *ngIf=\"serverError\">\n        {{serverError}}\n      </div>\n      <input class=\"btn\" type=\"button\" value=\"logImgs\" (click)=\"logImgs()\">\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -96,7 +97,6 @@ var ProductFormComponent = /** @class */ (function () {
         this.PImages = new Array();
         this.DesImages = new Array();
         this.colors = ['white', 'red', 'pink', 'grey', 'yellow', 'blue', 'orange', 'green', 'black'];
-        this.lastProducts = [];
         this._Product = new _models_adminProduct__WEBPACK_IMPORTED_MODULE_3__["AdminProduct"]();
     }
     ProductFormComponent.prototype.ngOnInit = function () {
@@ -104,27 +104,35 @@ var ProductFormComponent = /** @class */ (function () {
         this.aps.getCategories().subscribe(function (res) {
             _this.categories = res;
         });
+        this.aps.GetLastProducts().subscribe(function (data) {
+            _this.lastProducts = data;
+        });
         this.shipping = this.aps.getShippings();
     };
     // Posting The Product
-    ProductFormComponent.prototype.onSubmit = function () {
+    ProductFormComponent.prototype.onSubmit = function (f) {
         var _this = this;
         this._Product.Slug = this._Product.Name.replace(/\s+/g, '-');
-        this.aps.PostProduct(this._Product)
-            .subscribe(function (data) {
-            _this.toaster.success('Product Added', 'Success');
-            _this.lastProducts.push(data);
-            console.log(_this.lastProducts);
+        this.aps.PostProduct(this._Product).subscribe(function (data) {
+            _this.addToHistory(data);
+            f.resetForm(new _models_adminProduct__WEBPACK_IMPORTED_MODULE_3__["AdminProduct"]());
         }, function (error) {
             if (error instanceof src_app_common_errors_http_errors__WEBPACK_IMPORTED_MODULE_5__["BadInput"]) {
-                _this.serverError = 'Email or Password is Incorect ..'; // Display the error within Form errors
+                _this.serverError = error.originalError; // Display the error within Form errors and Wrap it with JSON pipe
+                console.log(_this.serverError);
             }
             else
                 throw error;
         });
     };
+    ProductFormComponent.prototype.addToHistory = function (data) {
+        var array = this.lastProducts;
+        array.pop(); // Remove The Last
+        array.unshift(data); // Insert at The start
+    };
     ProductFormComponent.prototype.getSub = function (c) {
-        this.subCategories = this.categories.find(function (x) { return x.Id === Number(c); }).SubCategories;
+        if (c)
+            this.subCategories = this.categories.find(function (x) { return x.Id === Number(c); }).SubCategories;
     };
     /* Images Functions */
     ProductFormComponent.prototype.setMainImage = function (files) {
@@ -211,6 +219,11 @@ var ProductFormComponent = /** @class */ (function () {
         });
         return array;
     };
+    ProductFormComponent.prototype.logImgs = function () {
+        console.log(this.MainImage);
+        console.log(this.getProductPhotos());
+        console.log(this.getDescriptionPhotos());
+    };
     ProductFormComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'product-form',
@@ -244,7 +257,7 @@ module.exports = "h4 {\r\n  text-align: center;\r\n  text-decoration: underline;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"history\">\n<h4>Last Added Product</h4>\n<table class=\"table table-hover text-center\">\n  <tr class=\"row\">\n    <td class=\"col-3\"><img src=\"/Content/Images/test.jpg\" class=\"img-responsive table-img\"></td>\n    <td class=\"col-9\">iPhone X Gold</td>\n    <td class=\"col-4\"><a routerLink=\"/add-product\">Edit</a></td>\n    <td class=\"col-4\"><a routerLink=\"/add-product\">Copy</a></td>\n    <td class=\"col-4\"><a routerLink=\"/add-product\">Delete</a></td>\n  </tr>\n  <tr class=\"row\">\n    <td class=\"col-3\"><img src=\"/Content/Images/test.jpg\" class=\"img-responsive table-img\"></td>\n    <td class=\"col-9\">iPhone X Gold</td>\n    <td class=\"col-4\"><a routerLink=\"/add-product\">Edit</a></td>\n    <td class=\"col-4\"><a routerLink=\"/add-product\">Copy</a></td>\n    <td class=\"col-4\"><a routerLink=\"/add-product\">Delete</a></td>\n  </tr>\n  <tr class=\"row\">\n    <td class=\"col-3\"><img src=\"/Content/Images/test.jpg\" class=\"img-responsive table-img\"></td>\n    <td class=\"col-9\">iPhone X Gold</td>\n    <td class=\"col-4\"><a routerLink=\"/add-product\">Edit</a></td>\n    <td class=\"col-4\"><a routerLink=\"/add-product\">Copy</a></td>\n    <td class=\"col-4\"><a routerLink=\"/add-product\">Delete</a></td>\n  </tr>\n</table>\n</div>"
+module.exports = "<div class=\"history\">\n  <h4>Last Added Product</h4>\n  <table class=\"table table-hover text-center\">\n    <tr *ngFor=\"let p of Products\" class=\"row\">\n      <td class=\"col-3\"><img [src]=\"'/Content/Images/Products/' + p.Id + '/Main/' + p.Image\" class=\"img-responsive table-img\"></td>\n      <td class=\"col-9\"><a target=\"blank\" routerLink=\"/product/{{p.Slug}}\">{{p.Name}}</a></td>\n      <td class=\"col-4\"><a routerLink=\"/add-product\">Edit</a></td>\n      <td class=\"col-4\"><a routerLink=\"/add-product\">Copy</a></td>\n      <td class=\"col-4\"><a routerLink=\"/add-product\">Delete</a></td>\n    </tr>\n  </table>\n</div>"
 
 /***/ }),
 
@@ -260,20 +273,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProductHistoryComponent", function() { return ProductHistoryComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_admin_product_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/admin-product.service */ "./src/app/admin/services/admin-product.service.ts");
+
 
 
 var ProductHistoryComponent = /** @class */ (function () {
-    function ProductHistoryComponent() {
+    function ProductHistoryComponent(aps) {
+        this.aps = aps;
     }
     ProductHistoryComponent.prototype.ngOnInit = function () {
     };
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])('Products'),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Array)
+    ], ProductHistoryComponent.prototype, "Products", void 0);
     ProductHistoryComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'product-history',
             template: __webpack_require__(/*! ./product-history.component.html */ "./src/app/admin/product-history/product-history.component.html"),
             styles: [__webpack_require__(/*! ./product-history.component.css */ "./src/app/admin/product-history/product-history.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_admin_product_service__WEBPACK_IMPORTED_MODULE_2__["AdminProductService"]])
     ], ProductHistoryComponent);
     return ProductHistoryComponent;
 }());
@@ -317,6 +337,9 @@ var AdminProductService = /** @class */ (function () {
     AdminProductService.prototype.PostProduct = function (p) {
         return this.http.post('api/Products', p, { headers: this.noAuth }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(src_app_common_errors_http_errors__WEBPACK_IMPORTED_MODULE_4__["handleExpectedErrors"]));
     };
+    AdminProductService.prototype.GetLastProducts = function () {
+        return this.http.get('api/last5', { headers: this.noAuth });
+    };
     AdminProductService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
             providedIn: 'root'
@@ -356,6 +379,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _error_pages_not_found_not_found_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./error-pages/not-found/not-found.component */ "./src/app/error-pages/not-found/not-found.component.ts");
 /* harmony import */ var _error_pages_unexpected_error_unexpected_error_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./error-pages/unexpected-error/unexpected-error.component */ "./src/app/error-pages/unexpected-error/unexpected-error.component.ts");
 /* harmony import */ var _admin_product_form_product_form_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./admin/product-form/product-form.component */ "./src/app/admin/product-form/product-form.component.ts");
+/* harmony import */ var _payment_payment_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./payment/payment.component */ "./src/app/payment/payment.component.ts");
+
 
 
 
@@ -378,7 +403,8 @@ var routes = [
     { path: 'product/:slug', component: _product_product_details_product_details_component__WEBPACK_IMPORTED_MODULE_9__["ProductDetailsComponent"] },
     { path: 'cart', component: _shopping_cart_shopping_cart_component__WEBPACK_IMPORTED_MODULE_5__["ShoppingCartComponent"] },
     { path: 'dashboard', component: _user_user_profile_user_profile_component__WEBPACK_IMPORTED_MODULE_11__["UserProfileComponent"], canActivate: [_guards_user_auth_guard__WEBPACK_IMPORTED_MODULE_10__["UserAuthGuard"]] },
-    { path: 'checkout', component: _checkout_checkout_component__WEBPACK_IMPORTED_MODULE_6__["CheckoutComponent"], canActivate: [_guards_checkout_guard__WEBPACK_IMPORTED_MODULE_7__["CheckoutGuard"]] },
+    { path: 'checkout', component: _checkout_checkout_component__WEBPACK_IMPORTED_MODULE_6__["CheckoutComponent"], canActivate: [_guards_checkout_guard__WEBPACK_IMPORTED_MODULE_7__["CheckoutGuard"], _guards_user_auth_guard__WEBPACK_IMPORTED_MODULE_10__["UserAuthGuard"]] },
+    { path: 'payment', component: _payment_payment_component__WEBPACK_IMPORTED_MODULE_16__["PaymentComponent"], canActivate: [_guards_checkout_guard__WEBPACK_IMPORTED_MODULE_7__["CheckoutGuard"], _guards_user_auth_guard__WEBPACK_IMPORTED_MODULE_10__["UserAuthGuard"]] },
     { path: '404', component: _error_pages_not_found_not_found_component__WEBPACK_IMPORTED_MODULE_13__["NotFoundComponent"] },
     { path: 'error', component: _error_pages_unexpected_error_unexpected_error_component__WEBPACK_IMPORTED_MODULE_14__["UnexpectedErrorComponent"] },
     { path: 'add-product', component: _admin_product_form_product_form_component__WEBPACK_IMPORTED_MODULE_15__["ProductFormComponent"], canActivate: [_guards_admin_guard_guard__WEBPACK_IMPORTED_MODULE_8__["AdminGuard"]] },
@@ -506,6 +532,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _admin_services_admin_product_service__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./admin/services/admin-product.service */ "./src/app/admin/services/admin-product.service.ts");
 /* harmony import */ var _admin_product_history_product_history_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./admin/product-history/product-history.component */ "./src/app/admin/product-history/product-history.component.ts");
 /* harmony import */ var _admin_product_form_product_form_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./admin/product-form/product-form.component */ "./src/app/admin/product-form/product-form.component.ts");
+/* harmony import */ var _payment_payment_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./payment/payment.component */ "./src/app/payment/payment.component.ts");
+/* harmony import */ var _coupon_coupon_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./coupon/coupon.component */ "./src/app/coupon/coupon.component.ts");
+
+
 
 
 
@@ -559,7 +589,9 @@ var AppModule = /** @class */ (function () {
                 _error_pages_not_found_not_found_component__WEBPACK_IMPORTED_MODULE_25__["NotFoundComponent"],
                 _error_pages_unexpected_error_unexpected_error_component__WEBPACK_IMPORTED_MODULE_26__["UnexpectedErrorComponent"],
                 _admin_product_form_product_form_component__WEBPACK_IMPORTED_MODULE_30__["ProductFormComponent"],
-                _admin_product_history_product_history_component__WEBPACK_IMPORTED_MODULE_29__["ProductHistoryComponent"]
+                _admin_product_history_product_history_component__WEBPACK_IMPORTED_MODULE_29__["ProductHistoryComponent"],
+                _payment_payment_component__WEBPACK_IMPORTED_MODULE_31__["PaymentComponent"],
+                _coupon_coupon_component__WEBPACK_IMPORTED_MODULE_32__["CouponComponent"]
             ],
             imports: [
                 _angular_common__WEBPACK_IMPORTED_MODULE_19__["CommonModule"],
@@ -596,7 +628,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".alert.alert-dark {\r\n    font-size: 18px !important;\r\n    padding: 5px;\r\n    margin-top: 2px;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY2hlY2tvdXQvY2hlY2tvdXQuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJLDBCQUEwQjtJQUMxQixZQUFZO0lBQ1osZUFBZTtBQUNuQiIsImZpbGUiOiJzcmMvYXBwL2NoZWNrb3V0L2NoZWNrb3V0LmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuYWxlcnQuYWxlcnQtZGFyayB7XHJcbiAgICBmb250LXNpemU6IDE4cHggIWltcG9ydGFudDtcclxuICAgIHBhZGRpbmc6IDVweDtcclxuICAgIG1hcmdpbi10b3A6IDJweDtcclxufSJdfQ== */"
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NoZWNrb3V0L2NoZWNrb3V0LmNvbXBvbmVudC5jc3MifQ== */"
 
 /***/ }),
 
@@ -607,7 +639,7 @@ module.exports = ".alert.alert-dark {\r\n    font-size: 18px !important;\r\n    
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n<h2>Shipping</h2>\n<div class=\"row\">\n  <div class=\"col-6\">\n    <form #f=\"ngForm\">\n      <div class=\"form-group\">\n        <label for=\"\">Name</label>\n        <input #name=\"ngModel\" name=\"name\" [(ngModel)]=\"shipping.name\" type=\"text\" class=\"form-control\" required>\n        <div class=\"alert alert-dark\" *ngIf=\"name.touched && name.invalid\">\n          <div *ngIf=\"name.errors.required\">Name is required.</div>\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"\">Phone</label>\n        <input #name=\"ngModel\" name=\"phone\" [(ngModel)]=\"shipping.phone\" type=\"text\" class=\"form-control\" required>\n        <div class=\"alert alert-dark\" *ngIf=\"name.touched && name.invalid\">\n          <div *ngIf=\"name.errors.required\">Phone is required.</div>\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"\">Address</label>\n        <input #addressLine1=\"ngModel\" name=\"addressLine1\" [(ngModel)]=\"shipping.addressLine1\" type=\"text\" class=\"form-control\"\n          placeholder=\"Line 1\" required>\n        <div class=\"alert alert-dark\" *ngIf=\"addressLine1.touched && addressLine1.invalid\">\n          <div *ngIf=\"addressLine1.errors.required\">Address Line 1 is required.</div>\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"\"></label>\n        <input #addressLine2=\"ngModel\" name=\"addressLine2\" [(ngModel)]=\"shipping.addressLine2\" type=\"text\" class=\"form-control\"\n          placeholder=\"Line 2\" required>\n        <div class=\"alert alert-dark\" *ngIf=\"addressLine2.touched && addressLine2.invalid\">\n          <div *ngIf=\"addressLine2.errors.required\">Address Line 2 is required.</div>\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"\">City</label>\n        <input #city=\"ngModel\" name=\"city\" [(ngModel)]=\"shipping.city\" type=\"text\" class=\"form-control\" required>\n        <div class=\"alert alert-dark\" *ngIf=\"city.touched && city.invalid\">\n          <div *ngIf=\"city.errors.required\">City is required.</div>\n        </div>\n      </div>\n      <button [disabled]=\"f.invalid\" (click)=\"placeOrder()\" class=\"btn btn-primary\">Place Order</button>\n    </form>\n  </div>\n  <div class=\"col-6\">\n    <sc-summary [cart]=\"shoppingCart\"></sc-summary>\n  </div>\n</div>\n</div>"
+module.exports = "<div class=\"container\">\n  <h2>Shipping Adress :</h2>\n  <br>\n  <div class=\"row\">\n    <div class=\"col-5\">\n      <form #f=\"ngForm\" (ngSubmit)=\"Proceed(f)\">\n        <div class=\"form-group\">\n          <label for=\"\">FullName</label>\n          <input #FullName=\"ngModel\" ngModel name=\"FullName\" type=\"text\" class=\"form-control\" required>\n          <div class=\"alert alert-dark\" *ngIf=\"FullName.touched && FullName.invalid\">\n            <div *ngIf=\"FullName.errors.required\">FullName is required.</div>\n          </div>\n        </div>\n        <div class=\"form-group\">\n          <label for=\"\">Phone</label>\n          <input #Phone=\"ngModel\" ngModel name=\"Phone\" type=\"text\" class=\"form-control\" required>\n          <div class=\"alert alert-dark\" *ngIf=\"Phone.touched && Phone.invalid\">\n            <div *ngIf=\"Phone.errors.required\">Phone is required.</div>\n          </div>\n        </div>\n        <div class=\"form-group\">\n          <label for=\"\">Addresses</label>\n          <input #Line1=\"ngModel\" ngModel name=\"Line1\" type=\"text\" class=\"form-control\" placeholder=\"Line 1\" required>\n          <div class=\"alert alert-dark\" *ngIf=\"Line1.touched && Line1.invalid\">\n            <div *ngIf=\"Line1.errors.required\">Address Line 1 is required.</div>\n          </div>\n        </div>\n        <div class=\"form-group\">\n          <input #Line2=\"ngModel\" ngModel name=\"Line2\" type=\"text\" class=\"form-control\" placeholder=\"Line 2 (Optional)\">\n        </div>\n\n        <div class=\"row\">\n          <div class=\"form-group col-6\">\n            <label for=\"\">Country</label>\n            <select name=\"Country\" required ngModel class=\"form-control\">\n              <option value=\"USA\">United States</option>\n              <option value=\"Canada\">Canada</option>\n              <option value=\"Morocco\">Morocco</option>\n            </select>\n          </div>\n          <div class=\"form-group col-6\">\n            <label for=\"\">State</label>\n            <input #State=\"ngModel\" ngModel name=\"State\" type=\"text\" class=\"form-control\">\n            <div class=\"alert alert-dark\" *ngIf=\"State.touched && State.invalid\">\n              <div *ngIf=\"State.errors.required\">State is required.</div>\n            </div>\n          </div>\n        </div>\n        <div class=\"row\">\n          <div class=\"form-group col-6\">\n            <label for=\"\">City</label>\n            <input #City=\"ngModel\" ngModel name=\"City\" type=\"text\" class=\"form-control\" required>\n            <div class=\"alert alert-dark\" *ngIf=\"City.touched && City.invalid\">\n              <div *ngIf=\"City.errors.required\">City is required.</div>\n            </div>\n          </div>\n          <div class=\"form-group col-6\">\n            <label for=\"\">Zip</label>\n            <input #Zip=\"ngModel\" ngModel name=\"Zip\" type=\"text\" class=\"form-control\">\n            <div class=\"alert alert-dark\" *ngIf=\"Zip.touched && Zip.invalid\">\n              <div *ngIf=\"Zip.errors.required\">Zip is required.</div>\n            </div>\n          </div>\n        </div>\n\n        <button [disabled]=\"f.invalid\" class=\"btn btn-info\">Procecced</button>\n      </form>\n    </div>\n    <div class=\" offset-2 col-5\">\n      <coupon></coupon>\n      <sc-summary [cart]=\"shoppingCart\"></sc-summary>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -624,19 +656,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _services_cart_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/cart.service */ "./src/app/services/cart.service.ts");
+/* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services/user.service */ "./src/app/services/user.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+
+
 
 
 
 var CheckoutComponent = /** @class */ (function () {
-    function CheckoutComponent(cartService) {
+    function CheckoutComponent(cartService, router, userService) {
         this.cartService = cartService;
-        this.shipping = { name: '', addressLine1: '', addressLine2: '', phone: '', city: '' };
+        this.router = router;
+        this.userService = userService;
     }
     CheckoutComponent.prototype.ngOnInit = function () {
         this.shoppingCart = this.cartService.Cart;
     };
-    CheckoutComponent.prototype.placeOrder = function () {
-        console.log(this.shipping);
+    CheckoutComponent.prototype.Proceed = function (f) {
+        this.userService.adress = f.value;
+        this.router.navigate(['/payment']);
     };
     CheckoutComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -644,7 +682,7 @@ var CheckoutComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./checkout.component.html */ "./src/app/checkout/checkout.component.html"),
             styles: [__webpack_require__(/*! ./checkout.component.css */ "./src/app/checkout/checkout.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_cart_service__WEBPACK_IMPORTED_MODULE_2__["CartService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_cart_service__WEBPACK_IMPORTED_MODULE_2__["CartService"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"], _services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"]])
     ], CheckoutComponent);
     return CheckoutComponent;
 }());
@@ -806,6 +844,62 @@ var ProductValidators = /** @class */ (function () {
         // Check if the username is already taken ..
     };
     return ProductValidators;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/coupon/coupon.component.css":
+/*!*********************************************!*\
+  !*** ./src/app/coupon/coupon.component.css ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvdXBvbi9jb3Vwb24uY29tcG9uZW50LmNzcyJ9 */"
+
+/***/ }),
+
+/***/ "./src/app/coupon/coupon.component.html":
+/*!**********************************************!*\
+  !*** ./src/app/coupon/coupon.component.html ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"form-group\">\n  <label for=\"\">Coupon</label>\n  <div class=\"row\">\n    <div class=\"col-8\">\n      <input #c=\"ngModel\" name=\"c\" [(ngModel)]=\"coupon\" type=\"text\" class=\"form-control\">\n    </div>\n    <div class=\"col-4\">\n      <input class=\"btn btn-info form-control\" type=\"button\" value=\"APPLY\">\n    </div>\n  </div>\n  <div class=\"alert alert-dark\" *ngIf=\"c.touched && c.invalid\">\n    <!-- <div *ngIf=\"coupon.errors.CouponValidator\"> Invalid Format </div> -->\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/coupon/coupon.component.ts":
+/*!********************************************!*\
+  !*** ./src/app/coupon/coupon.component.ts ***!
+  \********************************************/
+/*! exports provided: CouponComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CouponComponent", function() { return CouponComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var CouponComponent = /** @class */ (function () {
+    function CouponComponent() {
+    }
+    CouponComponent.prototype.ngOnInit = function () {
+    };
+    CouponComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'coupon',
+            template: __webpack_require__(/*! ./coupon.component.html */ "./src/app/coupon/coupon.component.html"),
+            styles: [__webpack_require__(/*! ./coupon.component.css */ "./src/app/coupon/coupon.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], CouponComponent);
+    return CouponComponent;
 }());
 
 
@@ -1098,7 +1192,7 @@ module.exports = "header {\r\n  background: #6c757d;\r\n  position: -webkit-stic
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<header>\n<nav>\n  <a routerLink=\"/\"><span>You-Better</span></a>\n  <ul>\n    <li>\n      <a routerLink=\"sign-in\">Login</a>\n    </li>\n    <li>\n      <a routerLink=\"add-product\">Product</a>\n    </li>\n    <li>\n      <a routerLink=\"cart\">Cart ({{cartCount}})\n      </a>\n    </li>\n    <li *ngIf=\"userAuth.user ; else anonumousUser\" ngbDropdown class=\"nav-item dropdown\">\n      <a ngbDropdownToggle class=\"dropdown-toggle\" id=\"dropdown01\" data-toggle=\"dropdown\" aria-haspopup=\"true\"\n        aria-expanded=\"false\">{{ userAuth.user.FullName }}</a>\n      <div ngbDropdownMenu class=\"dropdown-menu\" aria-labelledby=\"dropdown01\">\n        <a class=\"dropdown-item\" routerLink=\"/dashboard\">My Profile</a>\n        <a class=\"dropdown-item\" routerLink=\"/\">My Orders</a>\n        <a class=\"dropdown-item\" routerLink=\"add-product\">Manage Orders</a>\n        <a class=\"dropdown-item\" (click)=\"Logout()\">Log Out</a>\n      </div>\n    </li>\n    <ng-template #anonumousUser>\n      <li>\n        <a routerLink=\"sign-in\">Login</a>\n      </li>\n    </ng-template>\n  </ul>\n</nav>\n</header>"
+module.exports = "<header>\n<nav>\n  <a routerLink=\"/\"><span>You-Better</span></a>\n  <ul>\n    <li>\n      <a routerLink=\"add-product\">Product</a>\n    </li>\n    <li>\n      <a routerLink=\"cart\">Cart ({{cartCount}})\n      </a>\n    </li>\n    <li *ngIf=\"userAuth.user ; else anonumousUser\" ngbDropdown class=\"nav-item dropdown\">\n      <a ngbDropdownToggle class=\"dropdown-toggle\" id=\"dropdown01\" data-toggle=\"dropdown\" aria-haspopup=\"true\"\n        aria-expanded=\"false\">{{ userAuth.user.FullName }}</a>\n      <div ngbDropdownMenu class=\"dropdown-menu\" aria-labelledby=\"dropdown01\">\n        <a class=\"dropdown-item\" routerLink=\"/dashboard\">My Profile</a>\n        <a class=\"dropdown-item\" routerLink=\"/\">My Orders</a>\n        <a class=\"dropdown-item\" routerLink=\"add-product\">Manage Orders</a>\n        <a class=\"dropdown-item\" (click)=\"Logout()\">Log Out</a>\n      </div>\n    </li>\n    <ng-template #anonumousUser>\n      <li>\n        <a routerLink=\"sign-in\">Login</a>\n      </li>\n    </ng-template>\n  </ul>\n</nav>\n</header>"
 
 /***/ }),
 
@@ -1170,7 +1264,7 @@ module.exports = ".col-3 {\r\n    margin-bottom: 20px;\r\n}\r\n/*# sourceMapping
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n<div class=\"products row \">\n  <div *ngFor=\"let p of products$ | async\" class=\"col-3\">\n    <product-card [product]=\"p\"></product-card>\n    <div class=\" alert alert-danger justForTesting \">\n      {{p | json }}\n    </div>\n  </div>\n</div>\n\n<div><button class=\"btn btn-dark\" (click)=\"n()\">click</button></div>\n</div>"
+module.exports = "<div class=\"container\">\n  <div class=\"products row \">\n    <div *ngFor=\"let p of products$ | async\" class=\"col-3\">\n      <product-card [product]=\"p\"></product-card>\n      <div class=\" alert alert-danger justForTesting \">\n        {{p | json }}\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -1273,6 +1367,71 @@ var ShoppingCart = /** @class */ (function () {
         configurable: true
     });
     return ShoppingCart;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/payment/payment.component.css":
+/*!***********************************************!*\
+  !*** ./src/app/payment/payment.component.css ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".centerBlock {\r\n  margin: 30px auto;\r\n}\r\n\r\np {\r\n  font-size: 16px\r\n}\r\n\r\n.or {\r\n  background: #17caed;\r\n  border-radius: 50%;\r\n  padding: 10px 13px;\r\n  display: block;\r\n  width: 50%;\r\n  margin: 40px auto;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGF5bWVudC9wYXltZW50LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxpQkFBaUI7QUFDbkI7O0FBRUE7RUFDRTtBQUNGOztBQUVBO0VBQ0UsbUJBQW1CO0VBQ25CLGtCQUFrQjtFQUNsQixrQkFBa0I7RUFDbEIsY0FBYztFQUNkLFVBQVU7RUFDVixpQkFBaUI7QUFDbkIiLCJmaWxlIjoic3JjL2FwcC9wYXltZW50L3BheW1lbnQuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5jZW50ZXJCbG9jayB7XHJcbiAgbWFyZ2luOiAzMHB4IGF1dG87XHJcbn1cclxuXHJcbnAge1xyXG4gIGZvbnQtc2l6ZTogMTZweFxyXG59XHJcblxyXG4ub3Ige1xyXG4gIGJhY2tncm91bmQ6ICMxN2NhZWQ7XHJcbiAgYm9yZGVyLXJhZGl1czogNTAlO1xyXG4gIHBhZGRpbmc6IDEwcHggMTNweDtcclxuICBkaXNwbGF5OiBibG9jaztcclxuICB3aWR0aDogNTAlO1xyXG4gIG1hcmdpbjogNDBweCBhdXRvO1xyXG59XHJcbiJdfQ== */"
+
+/***/ }),
+
+/***/ "./src/app/payment/payment.component.html":
+/*!************************************************!*\
+  !*** ./src/app/payment/payment.component.html ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container\">\n  <div *ngIf=\"userService.adress \" class=\" alert alert-info justForTesting \">\n    <u>Ship To :</u> {{userService.adress | json }}\n  </div>\n  <br>\n  <u>\n    <h3 class=\"text-center\">Choose Your Favourite Payment Method:</h3>\n  </u>\n  <div class=\"row col-10 centerBlock\">\n    <div class=\"col-5\">\n      <form>\n        <div class=\" form-group\">\n          <label for=\"\">Card Number</label>\n          <input type=\"text\" name=\"cardNumber\" class=\"form-control\">\n        </div>\n        <div class=\"row\">\n          <div class=\" form-group col-8\">\n            <label for=\"\">Expiration Date</label>\n            <input type=\"text\" name=\"expDate\" class=\"form-control\">\n          </div>\n          <div class=\" form-group col-4\">\n            <label for=\"\">CSC</label>\n            <input type=\"text\" name=\"csc\" class=\"form-control\">\n          </div>\n        </div>\n        <button type=\"submit\" class=\"col-4 btn btn-info\">Place Order</button>\n      </form>\n    </div>\n    <div class=\"col-2 text-center\"><span class=\"or\">Or</span></div>\n    <div class=\"col-5\">\n      <div for=\"\">Safer & Faster</div>\n      <p>\n        NB: By clicking the button below you will redirct to your PayPal account to complete the order\n      </p>\n      <div class=\"text-center\"><button type=\"button\" (click)=\"PayPal()\" class=\"btn btn-info\">Pay With PayPal</button></div>\n\n    </div>\n  </div>\n\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/payment/payment.component.ts":
+/*!**********************************************!*\
+  !*** ./src/app/payment/payment.component.ts ***!
+  \**********************************************/
+/*! exports provided: PaymentComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PaymentComponent", function() { return PaymentComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/user.service */ "./src/app/services/user.service.ts");
+/* harmony import */ var _services_cart_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services/cart.service */ "./src/app/services/cart.service.ts");
+
+
+
+
+var PaymentComponent = /** @class */ (function () {
+    function PaymentComponent(userService, cartService) {
+        this.userService = userService;
+        this.cartService = cartService;
+    }
+    PaymentComponent.prototype.ngOnInit = function () {
+    };
+    PaymentComponent.prototype.PayPal = function () {
+        this.cartService.postCart();
+    };
+    PaymentComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-payment',
+            template: __webpack_require__(/*! ./payment.component.html */ "./src/app/payment/payment.component.html"),
+            styles: [__webpack_require__(/*! ./payment.component.css */ "./src/app/payment/payment.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"], _services_cart_service__WEBPACK_IMPORTED_MODULE_3__["CartService"]])
+    ], PaymentComponent);
+    return PaymentComponent;
 }());
 
 
@@ -1553,6 +1712,7 @@ var CartService = /** @class */ (function () {
         }
     };
     CartService.prototype.postCart = function () {
+        console.log(JSON.stringify(this.Cart.items));
     };
     CartService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
@@ -1681,6 +1841,38 @@ var UserAuthService = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/services/user.service.ts":
+/*!******************************************!*\
+  !*** ./src/app/services/user.service.ts ***!
+  \******************************************/
+/*! exports provided: UserService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserService", function() { return UserService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var UserService = /** @class */ (function () {
+    function UserService() {
+    }
+    UserService.prototype.ngOnInit = function () {
+    };
+    UserService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+            providedIn: 'root'
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], UserService);
+    return UserService;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/shopping-cart/sc-summary/sc-summary.component.css":
 /*!*******************************************************************!*\
   !*** ./src/app/shopping-cart/sc-summary/sc-summary.component.css ***!
@@ -1761,7 +1953,7 @@ module.exports = ".table-img {\r\n    height: 45px;\r\n    width: 60px;\r\n    b
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n<ng-container *ngIf=\"cart.totalCartItems > 0; else cartEmpty\">\n  <h2>Shopping Cart</h2>\n  <p>\n    You have {{cart.totalCartItems}} item(s) in your shopping cart !\n  </p>\n  <table class=\"table table-striped\">\n    <thead>\n      <tr>\n        <th></th>\n        <th>Title</th>\n        <th>Price</th>\n        <th class=\"text-center\">Quantity</th>\n        <th class=\"text-center\">Total</th>\n        <th></th>\n      </tr>\n    </thead>\n    <tbody>\n      <tr *ngFor=\"let item of cart.items\">\n        <th><img [src]=\"'/Content/Images/Products/' + item.product.Id + '/Main/' + item.product.Image\" class=\" img-responsive table-img\"></th>\n        <td>{{item.product.Name}}</td>\n        <td>{{item.product.Price | currency: 'USD':'symbol'}}</td>\n        <td style=\"width: 200px;\">\n          <product-quantity [product]=\"item.product\"></product-quantity>\n        </td>\n        <td class=\"text-center\">{{(item.quantity * item.product.Price) | currency: 'USD':'symbol'}}</td>\n        <td>\n          <a (click)=\"removeCompleteItem(item.product.Id)\" class=\"btn btn-secondary\">Remove</a>\n        </td>\n      </tr>\n    </tbody>\n    <tfoot>\n      <tr>\n        <th><a (click)=\"clearCart()\" class=\"btn btn-danger\">Clear All</a></th>\n        <th></th>\n        <th></th>\n        <th class=\"text-right\">Grand Price:</th>\n        <th class=\"text-center\">{{cart.grandPrice | currency: 'USD':'symbol'}}</th>\n        <th><a routerLink=\"/checkout\" class=\"btn btn-primary\">Checkout</a></th>\n      </tr>\n    </tfoot>\n  </table>\n\n</ng-container>\n<ng-template #cartEmpty>\n  <div class=\"empty-cart\">\n    <svg viewBox=\"656 573 264 182\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n      <rect id=\"bg-line\" stroke=\"none\" fill-opacity=\"0.2\" fill=\"#FFE100\" fill-rule=\"evenodd\" x=\"656\" y=\"624\" width=\"206\"\n        height=\"38\" rx=\"19\"></rect>\n      <rect id=\"bg-line\" stroke=\"none\" fill-opacity=\"0.2\" fill=\"#FFE100\" fill-rule=\"evenodd\" x=\"692\" y=\"665\" width=\"192\"\n        height=\"29\" rx=\"14.5\"></rect>\n      <rect id=\"bg-line\" stroke=\"none\" fill-opacity=\"0.2\" fill=\"#FFE100\" fill-rule=\"evenodd\" x=\"678\" y=\"696\" width=\"192\"\n        height=\"33\" rx=\"16.5\"></rect>\n      <g id=\"shopping-bag\" stroke=\"none\" stroke-width=\"1\" fill=\"none\" fill-rule=\"evenodd\" transform=\"translate(721.000000, 630.000000)\">\n        <polygon id=\"Fill-10\" fill=\"#FFA800\" points=\"4 29 120 29 120 0 4 0\"></polygon>\n        <polygon id=\"Fill-14\" fill=\"#FFE100\" points=\"120 29 120 0 115.75 0 103 12.4285714 115.75 29\"></polygon>\n        <polygon id=\"Fill-15\" fill=\"#FFE100\" points=\"4 29 4 0 8.25 0 21 12.4285714 8.25 29\"></polygon>\n        <polygon id=\"Fill-33\" fill=\"#FFA800\" points=\"110 112 121.573723 109.059187 122 29 110 29\"></polygon>\n        <polygon id=\"Fill-35\" fill-opacity=\"0.5\" fill=\"#FFFFFF\" points=\"2 107.846154 10 112 10 31 2 31\"></polygon>\n        <path d=\"M107.709596,112 L15.2883462,112 C11.2635,112 8,108.70905 8,104.648275 L8,29 L115,29 L115,104.648275 C115,108.70905 111.7365,112 107.709596,112\"\n          id=\"Fill-36\" fill=\"#FFE100\"></path>\n        <path d=\"M122,97.4615385 L122,104.230231 C122,108.521154 118.534483,112 114.257931,112 L9.74206897,112 C5.46551724,112 2,108.521154 2,104.230231 L2,58\"\n          id=\"Stroke-4916\" stroke=\"#000000\" stroke-width=\"3\" stroke-linecap=\"round\"></path>\n        <polyline id=\"Stroke-4917\" stroke=\"#000000\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"\n          points=\"2 41.5 2 29 122 29 122 79\"></polyline>\n        <path d=\"M4,50 C4,51.104 3.104,52 2,52 C0.896,52 0,51.104 0,50 C0,48.896 0.896,48 2,48 C3.104,48 4,48.896 4,50\"\n          id=\"Fill-4918\" fill=\"#000000\"></path>\n        <path d=\"M122,87 L122,89\" id=\"Stroke-4919\" stroke=\"#000000\" stroke-width=\"3\" stroke-linecap=\"round\"></path>\n        <polygon id=\"Stroke-4922\" stroke=\"#000000\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"\n          points=\"4 29 120 29 120 0 4 0\"></polygon>\n        <path d=\"M87,46 L87,58.3333333 C87,71.9 75.75,83 62,83 L62,83 C48.25,83 37,71.9 37,58.3333333 L37,46\" id=\"Stroke-4923\"\n          stroke=\"#000000\" stroke-width=\"3\" stroke-linecap=\"round\"></path>\n        <path d=\"M31,45 C31,41.686 33.686,39 37,39 C40.314,39 43,41.686 43,45\" id=\"Stroke-4924\" stroke=\"#000000\"\n          stroke-width=\"3\" stroke-linecap=\"round\"></path>\n        <path d=\"M81,45 C81,41.686 83.686,39 87,39 C90.314,39 93,41.686 93,45\" id=\"Stroke-4925\" stroke=\"#000000\"\n          stroke-width=\"3\" stroke-linecap=\"round\"></path>\n        <path d=\"M8,0 L20,12\" id=\"Stroke-4928\" stroke=\"#000000\" stroke-width=\"3\" stroke-linecap=\"round\"></path>\n        <path d=\"M20,12 L8,29\" id=\"Stroke-4929\" stroke=\"#000000\" stroke-width=\"3\" stroke-linecap=\"round\"></path>\n        <path d=\"M20,12 L20,29\" id=\"Stroke-4930\" stroke=\"#000000\" stroke-width=\"3\" stroke-linecap=\"round\"></path>\n        <path d=\"M115,0 L103,12\" id=\"Stroke-4931\" stroke=\"#000000\" stroke-width=\"3\" stroke-linecap=\"round\"></path>\n        <path d=\"M103,12 L115,29\" id=\"Stroke-4932\" stroke=\"#000000\" stroke-width=\"3\" stroke-linecap=\"round\"></path>\n        <path d=\"M103,12 L103,29\" id=\"Stroke-4933\" stroke=\"#000000\" stroke-width=\"3\" stroke-linecap=\"round\"></path>\n      </g>\n      <g id=\"glow\" stroke=\"none\" stroke-width=\"1\" fill=\"none\" fill-rule=\"evenodd\" transform=\"translate(768.000000, 615.000000)\">\n        <rect id=\"Rectangle-2\" fill=\"#000000\" x=\"14\" y=\"0\" width=\"2\" height=\"9\" rx=\"1\"></rect>\n        <rect fill=\"#000000\" transform=\"translate(7.601883, 6.142354) rotate(-12.000000) translate(-7.601883, -6.142354) \"\n          x=\"6.60188267\" y=\"3.14235449\" width=\"2\" height=\"6\" rx=\"1\"></rect>\n        <rect fill=\"#000000\" transform=\"translate(1.540235, 7.782080) rotate(-25.000000) translate(-1.540235, -7.782080) \"\n          x=\"0.54023518\" y=\"6.28207994\" width=\"2\" height=\"3\" rx=\"1\"></rect>\n        <rect fill=\"#000000\" transform=\"translate(29.540235, 7.782080) scale(-1, 1) rotate(-25.000000) translate(-29.540235, -7.782080) \"\n          x=\"28.5402352\" y=\"6.28207994\" width=\"2\" height=\"3\" rx=\"1\"></rect>\n        <rect fill=\"#000000\" transform=\"translate(22.601883, 6.142354) scale(-1, 1) rotate(-12.000000) translate(-22.601883, -6.142354) \"\n          x=\"21.6018827\" y=\"3.14235449\" width=\"2\" height=\"6\" rx=\"1\"></rect>\n      </g>\n      <polygon id=\"plus\" stroke=\"none\" fill=\"#7DBFEB\" fill-rule=\"evenodd\" points=\"689.681239 597.614697 689.681239 596 690.771974 596 690.771974 597.614697 692.408077 597.614697 692.408077 598.691161 690.771974 598.691161 690.771974 600.350404 689.681239 600.350404 689.681239 598.691161 688 598.691161 688 597.614697\"></polygon>\n      <polygon id=\"plus\" stroke=\"none\" fill=\"#EEE332\" fill-rule=\"evenodd\" points=\"913.288398 701.226961 913.288398 699 914.773039 699 914.773039 701.226961 917 701.226961 917 702.711602 914.773039 702.711602 914.773039 705 913.288398 705 913.288398 702.711602 911 702.711602 911 701.226961\"></polygon>\n      <polygon id=\"plus\" stroke=\"none\" fill=\"#FFA800\" fill-rule=\"evenodd\" points=\"662.288398 736.226961 662.288398 734 663.773039 734 663.773039 736.226961 666 736.226961 666 737.711602 663.773039 737.711602 663.773039 740 662.288398 740 662.288398 737.711602 660 737.711602 660 736.226961\"></polygon>\n      <circle id=\"oval\" stroke=\"none\" fill=\"#A5D6D3\" fill-rule=\"evenodd\" cx=\"699.5\" cy=\"579.5\" r=\"1.5\"></circle>\n      <circle id=\"oval\" stroke=\"none\" fill=\"#CFC94E\" fill-rule=\"evenodd\" cx=\"712.5\" cy=\"617.5\" r=\"1.5\"></circle>\n      <circle id=\"oval\" stroke=\"none\" fill=\"#8CC8C8\" fill-rule=\"evenodd\" cx=\"692.5\" cy=\"738.5\" r=\"1.5\"></circle>\n      <circle id=\"oval\" stroke=\"none\" fill=\"#3EC08D\" fill-rule=\"evenodd\" cx=\"884.5\" cy=\"657.5\" r=\"1.5\"></circle>\n      <circle id=\"oval\" stroke=\"none\" fill=\"#66739F\" fill-rule=\"evenodd\" cx=\"918.5\" cy=\"681.5\" r=\"1.5\"></circle>\n      <circle id=\"oval\" stroke=\"none\" fill=\"#C48C47\" fill-rule=\"evenodd\" cx=\"903.5\" cy=\"723.5\" r=\"1.5\"></circle>\n      <circle id=\"oval\" stroke=\"none\" fill=\"#A24C65\" fill-rule=\"evenodd\" cx=\"760.5\" cy=\"587.5\" r=\"1.5\"></circle>\n      <circle id=\"oval\" stroke=\"#66739F\" stroke-width=\"2\" fill=\"none\" cx=\"745\" cy=\"603\" r=\"3\"></circle>\n      <circle id=\"oval\" stroke=\"#EFB549\" stroke-width=\"2\" fill=\"none\" cx=\"716\" cy=\"597\" r=\"3\"></circle>\n      <circle id=\"oval\" stroke=\"#FFE100\" stroke-width=\"2\" fill=\"none\" cx=\"681\" cy=\"751\" r=\"3\"></circle>\n      <circle id=\"oval\" stroke=\"#3CBC83\" stroke-width=\"2\" fill=\"none\" cx=\"896\" cy=\"680\" r=\"3\"></circle>\n      <polygon id=\"diamond\" stroke=\"#C46F82\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"\n        points=\"886 705 889 708 886 711 883 708\"></polygon>\n      <path d=\"M736,577 C737.65825,577 739,578.34175 739,580 C739,578.34175 740.34175,577 742,577 C740.34175,577 739,575.65825 739,574 C739,575.65825 737.65825,577 736,577 Z\"\n        id=\"bubble-rounded\" stroke=\"#3CBC83\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"></path>\n    </svg>\n\n    <h3>Your Cart Is Empty ..</h3>\n    <h3><a routerLink=\"/\">Go Shop ..</a></h3>\n  </div>\n</ng-template>\n</div>"
+module.exports = "<div class=\"container\">\n<ng-container *ngIf=\"cart.totalCartItems > 0; else cartEmpty\">\n  <h2>Shopping Cart</h2>\n  <p>\n    You have {{cart.totalCartItems}} item(s) in your shopping cart !\n  </p>\n  <table class=\"table table-striped\">\n    <thead>\n      <tr>\n        <th></th>\n        <th>Title</th>\n        <th>Price</th>\n        <th class=\"text-center\">Quantity</th>\n        <th class=\"text-center\">Total</th>\n        <th></th>\n      </tr>\n    </thead>\n    <tbody>\n      <tr *ngFor=\"let item of cart.items\">\n        <th><img [src]=\"'/Content/Images/Products/' + item.product.Id + '/Main/' + item.product.Image\" class=\" img-responsive table-img\"></th>\n        <td>{{item.product.Name}}</td>\n        <td>{{item.product.Price | currency: 'USD':'symbol'}}</td>\n        <td style=\"width: 200px;\">\n          <product-quantity [product]=\"item.product\"></product-quantity>\n        </td>\n        <td class=\"text-center\">{{(item.quantity * item.product.Price) | currency: 'USD':'symbol'}}</td>\n        <td>\n          <a (click)=\"removeCompleteItem(item.product.Id)\" class=\"btn btn-secondary\">Remove</a>\n        </td>\n      </tr>\n    </tbody>\n    <tfoot>\n      <tr>\n        <th><a (click)=\"clearCart()\" class=\"btn btn-danger\">Clear All</a></th>\n        <th></th>\n        <th></th>\n        <th class=\"text-right\">Grand Price:</th>\n        <th class=\"text-center\">{{cart.grandPrice | currency: 'USD':'symbol'}}</th>\n        <th><a routerLink=\"/checkout\" class=\"btn btn-primary\">Checkout</a></th>\n      </tr>\n    </tfoot>\n  </table>\n  <div class=\"alert alert-success \"> {{cart | json}} </div>\n</ng-container>\n<ng-template #cartEmpty>\n  <div class=\"empty-cart\">\n    <svg viewBox=\"656 573 264 182\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n      <rect id=\"bg-line\" stroke=\"none\" fill-opacity=\"0.2\" fill=\"#FFE100\" fill-rule=\"evenodd\" x=\"656\" y=\"624\" width=\"206\"\n        height=\"38\" rx=\"19\"></rect>\n      <rect id=\"bg-line\" stroke=\"none\" fill-opacity=\"0.2\" fill=\"#FFE100\" fill-rule=\"evenodd\" x=\"692\" y=\"665\" width=\"192\"\n        height=\"29\" rx=\"14.5\"></rect>\n      <rect id=\"bg-line\" stroke=\"none\" fill-opacity=\"0.2\" fill=\"#FFE100\" fill-rule=\"evenodd\" x=\"678\" y=\"696\" width=\"192\"\n        height=\"33\" rx=\"16.5\"></rect>\n      <g id=\"shopping-bag\" stroke=\"none\" stroke-width=\"1\" fill=\"none\" fill-rule=\"evenodd\" transform=\"translate(721.000000, 630.000000)\">\n        <polygon id=\"Fill-10\" fill=\"#FFA800\" points=\"4 29 120 29 120 0 4 0\"></polygon>\n        <polygon id=\"Fill-14\" fill=\"#FFE100\" points=\"120 29 120 0 115.75 0 103 12.4285714 115.75 29\"></polygon>\n        <polygon id=\"Fill-15\" fill=\"#FFE100\" points=\"4 29 4 0 8.25 0 21 12.4285714 8.25 29\"></polygon>\n        <polygon id=\"Fill-33\" fill=\"#FFA800\" points=\"110 112 121.573723 109.059187 122 29 110 29\"></polygon>\n        <polygon id=\"Fill-35\" fill-opacity=\"0.5\" fill=\"#FFFFFF\" points=\"2 107.846154 10 112 10 31 2 31\"></polygon>\n        <path d=\"M107.709596,112 L15.2883462,112 C11.2635,112 8,108.70905 8,104.648275 L8,29 L115,29 L115,104.648275 C115,108.70905 111.7365,112 107.709596,112\"\n          id=\"Fill-36\" fill=\"#FFE100\"></path>\n        <path d=\"M122,97.4615385 L122,104.230231 C122,108.521154 118.534483,112 114.257931,112 L9.74206897,112 C5.46551724,112 2,108.521154 2,104.230231 L2,58\"\n          id=\"Stroke-4916\" stroke=\"#000000\" stroke-width=\"3\" stroke-linecap=\"round\"></path>\n        <polyline id=\"Stroke-4917\" stroke=\"#000000\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"\n          points=\"2 41.5 2 29 122 29 122 79\"></polyline>\n        <path d=\"M4,50 C4,51.104 3.104,52 2,52 C0.896,52 0,51.104 0,50 C0,48.896 0.896,48 2,48 C3.104,48 4,48.896 4,50\"\n          id=\"Fill-4918\" fill=\"#000000\"></path>\n        <path d=\"M122,87 L122,89\" id=\"Stroke-4919\" stroke=\"#000000\" stroke-width=\"3\" stroke-linecap=\"round\"></path>\n        <polygon id=\"Stroke-4922\" stroke=\"#000000\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"\n          points=\"4 29 120 29 120 0 4 0\"></polygon>\n        <path d=\"M87,46 L87,58.3333333 C87,71.9 75.75,83 62,83 L62,83 C48.25,83 37,71.9 37,58.3333333 L37,46\" id=\"Stroke-4923\"\n          stroke=\"#000000\" stroke-width=\"3\" stroke-linecap=\"round\"></path>\n        <path d=\"M31,45 C31,41.686 33.686,39 37,39 C40.314,39 43,41.686 43,45\" id=\"Stroke-4924\" stroke=\"#000000\"\n          stroke-width=\"3\" stroke-linecap=\"round\"></path>\n        <path d=\"M81,45 C81,41.686 83.686,39 87,39 C90.314,39 93,41.686 93,45\" id=\"Stroke-4925\" stroke=\"#000000\"\n          stroke-width=\"3\" stroke-linecap=\"round\"></path>\n        <path d=\"M8,0 L20,12\" id=\"Stroke-4928\" stroke=\"#000000\" stroke-width=\"3\" stroke-linecap=\"round\"></path>\n        <path d=\"M20,12 L8,29\" id=\"Stroke-4929\" stroke=\"#000000\" stroke-width=\"3\" stroke-linecap=\"round\"></path>\n        <path d=\"M20,12 L20,29\" id=\"Stroke-4930\" stroke=\"#000000\" stroke-width=\"3\" stroke-linecap=\"round\"></path>\n        <path d=\"M115,0 L103,12\" id=\"Stroke-4931\" stroke=\"#000000\" stroke-width=\"3\" stroke-linecap=\"round\"></path>\n        <path d=\"M103,12 L115,29\" id=\"Stroke-4932\" stroke=\"#000000\" stroke-width=\"3\" stroke-linecap=\"round\"></path>\n        <path d=\"M103,12 L103,29\" id=\"Stroke-4933\" stroke=\"#000000\" stroke-width=\"3\" stroke-linecap=\"round\"></path>\n      </g>\n      <g id=\"glow\" stroke=\"none\" stroke-width=\"1\" fill=\"none\" fill-rule=\"evenodd\" transform=\"translate(768.000000, 615.000000)\">\n        <rect id=\"Rectangle-2\" fill=\"#000000\" x=\"14\" y=\"0\" width=\"2\" height=\"9\" rx=\"1\"></rect>\n        <rect fill=\"#000000\" transform=\"translate(7.601883, 6.142354) rotate(-12.000000) translate(-7.601883, -6.142354) \"\n          x=\"6.60188267\" y=\"3.14235449\" width=\"2\" height=\"6\" rx=\"1\"></rect>\n        <rect fill=\"#000000\" transform=\"translate(1.540235, 7.782080) rotate(-25.000000) translate(-1.540235, -7.782080) \"\n          x=\"0.54023518\" y=\"6.28207994\" width=\"2\" height=\"3\" rx=\"1\"></rect>\n        <rect fill=\"#000000\" transform=\"translate(29.540235, 7.782080) scale(-1, 1) rotate(-25.000000) translate(-29.540235, -7.782080) \"\n          x=\"28.5402352\" y=\"6.28207994\" width=\"2\" height=\"3\" rx=\"1\"></rect>\n        <rect fill=\"#000000\" transform=\"translate(22.601883, 6.142354) scale(-1, 1) rotate(-12.000000) translate(-22.601883, -6.142354) \"\n          x=\"21.6018827\" y=\"3.14235449\" width=\"2\" height=\"6\" rx=\"1\"></rect>\n      </g>\n      <polygon id=\"plus\" stroke=\"none\" fill=\"#7DBFEB\" fill-rule=\"evenodd\" points=\"689.681239 597.614697 689.681239 596 690.771974 596 690.771974 597.614697 692.408077 597.614697 692.408077 598.691161 690.771974 598.691161 690.771974 600.350404 689.681239 600.350404 689.681239 598.691161 688 598.691161 688 597.614697\"></polygon>\n      <polygon id=\"plus\" stroke=\"none\" fill=\"#EEE332\" fill-rule=\"evenodd\" points=\"913.288398 701.226961 913.288398 699 914.773039 699 914.773039 701.226961 917 701.226961 917 702.711602 914.773039 702.711602 914.773039 705 913.288398 705 913.288398 702.711602 911 702.711602 911 701.226961\"></polygon>\n      <polygon id=\"plus\" stroke=\"none\" fill=\"#FFA800\" fill-rule=\"evenodd\" points=\"662.288398 736.226961 662.288398 734 663.773039 734 663.773039 736.226961 666 736.226961 666 737.711602 663.773039 737.711602 663.773039 740 662.288398 740 662.288398 737.711602 660 737.711602 660 736.226961\"></polygon>\n      <circle id=\"oval\" stroke=\"none\" fill=\"#A5D6D3\" fill-rule=\"evenodd\" cx=\"699.5\" cy=\"579.5\" r=\"1.5\"></circle>\n      <circle id=\"oval\" stroke=\"none\" fill=\"#CFC94E\" fill-rule=\"evenodd\" cx=\"712.5\" cy=\"617.5\" r=\"1.5\"></circle>\n      <circle id=\"oval\" stroke=\"none\" fill=\"#8CC8C8\" fill-rule=\"evenodd\" cx=\"692.5\" cy=\"738.5\" r=\"1.5\"></circle>\n      <circle id=\"oval\" stroke=\"none\" fill=\"#3EC08D\" fill-rule=\"evenodd\" cx=\"884.5\" cy=\"657.5\" r=\"1.5\"></circle>\n      <circle id=\"oval\" stroke=\"none\" fill=\"#66739F\" fill-rule=\"evenodd\" cx=\"918.5\" cy=\"681.5\" r=\"1.5\"></circle>\n      <circle id=\"oval\" stroke=\"none\" fill=\"#C48C47\" fill-rule=\"evenodd\" cx=\"903.5\" cy=\"723.5\" r=\"1.5\"></circle>\n      <circle id=\"oval\" stroke=\"none\" fill=\"#A24C65\" fill-rule=\"evenodd\" cx=\"760.5\" cy=\"587.5\" r=\"1.5\"></circle>\n      <circle id=\"oval\" stroke=\"#66739F\" stroke-width=\"2\" fill=\"none\" cx=\"745\" cy=\"603\" r=\"3\"></circle>\n      <circle id=\"oval\" stroke=\"#EFB549\" stroke-width=\"2\" fill=\"none\" cx=\"716\" cy=\"597\" r=\"3\"></circle>\n      <circle id=\"oval\" stroke=\"#FFE100\" stroke-width=\"2\" fill=\"none\" cx=\"681\" cy=\"751\" r=\"3\"></circle>\n      <circle id=\"oval\" stroke=\"#3CBC83\" stroke-width=\"2\" fill=\"none\" cx=\"896\" cy=\"680\" r=\"3\"></circle>\n      <polygon id=\"diamond\" stroke=\"#C46F82\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"\n        points=\"886 705 889 708 886 711 883 708\"></polygon>\n      <path d=\"M736,577 C737.65825,577 739,578.34175 739,580 C739,578.34175 740.34175,577 742,577 C740.34175,577 739,575.65825 739,574 C739,575.65825 737.65825,577 736,577 Z\"\n        id=\"bubble-rounded\" stroke=\"#3CBC83\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"></path>\n    </svg>\n\n    <h3>Your Cart Is Empty ..</h3>\n    <h3><a routerLink=\"/\">Go Shop ..</a></h3>\n  </div>\n</ng-template>\n</div>"
 
 /***/ }),
 
@@ -1992,7 +2184,7 @@ module.exports = "form {\r\n  margin: 10px auto;\r\n}\r\n\r\n.alert {\r\n  paddi
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form #f=\"ngForm\" (ngSubmit)=Register(f) class=\"col-8\">\n  <div class=\"form-group\">\n    <label for=\"FullName\">Full Name :</label>\n    <input name=\"FullName\" ngModel #FullName=\"ngModel\" type=\"text\" class=\"form-control\" required minlength=\"2\"\n      maxlength=\"30\">\n    <div class=\"alert alert-dark\" *ngIf=\"FullName.touched && !FullName.valid\">\n      <div *ngIf=\"FullName.errors.required\"> FullName Is Required !</div>\n      <div *ngIf=\"FullName.errors.minlength || FullName.errors.maxlength\"> FullName must be between 2 and 30 characters\n        !</div>\n    </div>\n  </div>\n  <div class=\"form-group\">\n    <label for=\"Email\">Email :</label>\n    <input name=\"Email\" ngModel #Email=\"ngModel\" type=\"text\" class=\"form-control\" required>\n    <div class=\"alert alert-dark\" *ngIf=\"Email.touched && !Email.valid\">\n      <div *ngIf=\"Email.errors.required\"> Email Is Required !</div>\n    </div>\n  </div>\n  <div class=\"form-group\">\n    <label for=\"Password\">Password :</label>\n    <input name=\"Password\" ngModel #Password=\"ngModel\" type=\"password\" required minlength=\"6\" class=\"form-control\">\n    <div class=\"alert alert-dark\" *ngIf=\"Password.touched && !Password.valid\">\n      <div *ngIf=\"Password.errors.required\"> Password Is Required !</div>\n      <div *ngIf=\"Password.errors.minlength\"> At least 6 characters !</div>\n    </div>\n  </div>\n  <button class=\"btn btn-primary col-4\" type=\"submit\">Register</button>\n</form>\n<div>\n  <div class=\"alert alert-warning\" *ngIf=\"serverError\">\n    {{serverError}}\n  </div>\n</div>"
+module.exports = "<form #f=\"ngForm\" (ngSubmit)=Register(f) class=\"col-8\">\n  <div class=\"form-group\">\n    <label for=\"FullName\">Full Name :</label>\n    <input name=\"FullName\" ngModel #FullName=\"ngModel\" type=\"text\" class=\"form-control\" required minlength=\"2\"\n      maxlength=\"30\">\n    <div class=\"alert alert-dark\" *ngIf=\"FullName.touched && !FullName.valid\">\n      <div *ngIf=\"FullName.errors.required\"> FullName Is Required !</div>\n      <div *ngIf=\"FullName.errors.minlength || FullName.errors.maxlength\"> FullName must be between 2 and 30 characters\n        !</div>\n    </div>\n  </div>\n  <div class=\"form-group\">\n    <label for=\"Email\">Email :</label>\n    <input name=\"Email\" ngModel #Email=\"ngModel\" type=\"text\" class=\"form-control\" required>\n    <div class=\"alert alert-dark\" *ngIf=\"Email.touched && !Email.valid\">\n      <div *ngIf=\"Email.errors.required\"> Email Is Required !</div>\n    </div>\n  </div>\n  <div class=\"form-group\">\n    <label for=\"Password\">Password :</label>\n    <input name=\"Password\" ngModel #Password=\"ngModel\" type=\"password\" required minlength=\"6\" class=\"form-control\">\n    <div class=\"alert alert-dark\" *ngIf=\"Password.touched && !Password.valid\">\n      <div *ngIf=\"Password.errors.required\"> Password Is Required !</div>\n      <div *ngIf=\"Password.errors.minlength\"> At least 6 characters !</div>\n    </div>\n  </div>\n  <button class=\"btn btn-primary col-4\" type=\"submit\">Register</button>\n</form>\n\n<div class=\"alert alert-warning\" *ngIf=\"serverError\">\n  {{serverError}}\n</div>"
 
 /***/ }),
 

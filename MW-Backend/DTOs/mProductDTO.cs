@@ -10,6 +10,7 @@ namespace MW_Backend.DTOs
 {
     public class mProductDTO
     {
+        [Required]
         public int Id { get; set; }
 
         public string Name { get; set; }

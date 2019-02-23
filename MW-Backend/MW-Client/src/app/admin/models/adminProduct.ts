@@ -12,6 +12,7 @@ export class AdminProduct {
     SubCategoryId: number;
     
     constructor() {
+        this.Id = -1;
         this.Color = 'white';
         this.Status = 'on-sale';
     }
