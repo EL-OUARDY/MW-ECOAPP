@@ -1,66 +1,61 @@
-<div class="container">
-  <div class="row">
-    <div class="col-3">
-      <product-history [Products]="lastProducts"></product-history>
-    </div>
-    <div class="col-9">
-      <form #f="ngForm" (ngSubmit) = "onSubmit(f)" autocomplete="off">
-        <input type="hidden" [(ngModel)]="_Product.Id" name="Id" #Id="ngModel" class=" form-control">
-        <div class="row">
-          <div class=" form-group col-6 ">
-            <label>Name :</label>
-            <input required minlength="6" type="text" [(ngModel)]="_Product.Name" name="Name" #Name="ngModel" class=" form-control">
-            <div class="alert alert-dark" *ngIf="Name.touched && !Name.valid">
-              <div *ngIf="Name.errors.required"> Name Is Required !</div>
-              <!-- Custom Validation => Name Must Be Unique -->
-              <div *ngIf="Name.errors.minlength"> Name Must Be More Then 6 Characters </div>
-            </div>
+<div class="row no-gutters">
+  <div class="col-9">
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)" autocomplete="off">
+      <input type="hidden" [(ngModel)]="_Product.Id" name="Id" #Id="ngModel" class=" form-control">
+      <div class="row">
+        <div class=" form-group col-6 ">
+          <label>Name :</label>
+          <input required minlength="6" type="text" [(ngModel)]="_Product.Name" name="Name" #Name="ngModel" class=" form-control">
+          <div class="alert alert-dark" *ngIf="Name.touched && !Name.valid">
+            <div *ngIf="Name.errors.required"> Name Is Required !</div>
+            <!-- Custom Validation => Name Must Be Unique -->
+            <div *ngIf="Name.errors.minlength"> Name Must Be More Then 6 Characters </div>
+          </div>
 
-          </div>
-          <div class=" form-group col-2">
-            <label>Price :</label>
-            <input required maxlength="7" type="number" [(ngModel)]="_Product.Price" name="Price" #Price="ngModel"
-              class="form-control">
-            <div class="alert alert-dark" *ngIf="Price.touched && !Price.valid">
-              <div *ngIf="Price.errors?.required"> Price Is Required !</div>
-            </div>
-          </div>
-          <div class=" form-group col-4">
-            <label>Status :</label>
-            <div class="form-control ">
-              <label class="col-6 radio">
-                <input type="radio" [(ngModel)]="_Product.Status" name="Status" value="on-sale">
-                On Sale
-              </label>
-              <label class="col-6 radio">
-                <input type="radio" [(ngModel)]="_Product.Status" name="Status" value="out-of-stock">
-                Out Of Stock
-              </label>
-            </div>
+        </div>
+        <div class=" form-group col-2">
+          <label>Price :</label>
+          <input required maxlength="7" type="number" [(ngModel)]="_Product.Price" name="Price" #Price="ngModel" class="form-control">
+          <div class="alert alert-dark" *ngIf="Price.touched && !Price.valid">
+            <div *ngIf="Price.errors?.required"> Price Is Required !</div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-7 form-group">
-            <label>Description :</label>
-            <textarea required [(ngModel)]="_Product.Description" name="Description" #des="ngModel" cols="30" rows="8"
-              class=" form-control"></textarea>
-            <div class="alert alert-dark" *ngIf="des.touched && des.errors?.required">Fill The Description !</div>
+        <div class=" form-group col-4">
+          <label>Status :</label>
+          <div class="form-control ">
+            <label class="col-6 radio">
+              <input type="radio" [(ngModel)]="_Product.Status" name="Status" value="on-sale">
+              On Sale
+            </label>
+            <label class="col-6 radio">
+              <input type="radio" [(ngModel)]="_Product.Status" name="Status" value="out-of-stock">
+              Out Of Stock
+            </label>
           </div>
-          <div class="col-5">
-            <div class="form-group">
-              <label>Category :</label>
-              <select #Category (change)="getSub(Category.value)" class="form-control">
-                <option value=""></option>
-                <option *ngFor="let item of categories" [value]="item.Id">{{item.Name}}</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label>subCategory :</label>
-              <select name="SubCategory" required [(ngModel)]="_Product.SubCategoryId" class="form-control">
-                <option *ngFor="let item of subCategories" [value]="item.Id">{{item.Name}}</option>
-              </select>
-            </div>
-            <!-- <div class="form-group">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-7 form-group">
+          <label>Description :</label>
+          <textarea required [(ngModel)]="_Product.Description" name="Description" #des="ngModel" cols="30" rows="8"
+            class=" form-control"></textarea>
+          <div class="alert alert-dark" *ngIf="des.touched && des.errors?.required">Fill The Description !</div>
+        </div>
+        <div class="col-5">
+          <div class="form-group">
+            <label>Category :</label>
+            <select #Category (change)="getSub(Category.value)" class="form-control">
+              <option value=""></option>
+              <option *ngFor="let item of categories" [value]="item.Id">{{item.Name}}</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>subCategory :</label>
+            <select name="SubCategory" required [(ngModel)]="_Product.SubCategoryId" class="form-control">
+              <option *ngFor="let item of subCategories" [value]="item.Id">{{item.Name}}</option>
+            </select>
+          </div>
+          <!-- <div class="form-group">
               <label>Shipping :</label>
               <div class="form-control">
                 <label *ngFor="let item of shipping" class="col-4 radio">
@@ -69,68 +64,70 @@
                 </label>
               </div>
             </div> -->
-          </div>
         </div>
-        <div class="row">
-          <div class="form-group col-3">
-            <label>Main Image :</label>
-            <div class=" form-control ">
-              <label class="browse">Browse&hellip; <input type="file" name="mainImg" (change)="setMainImage($event.target.files)"
-                  style="display: none;"></label>
-            </div>
-
-            <div class="block ">
-              <img *ngIf="imgPath" [src]="imgPath" class="image">
-            </div>
-
-          </div>
-
-          <div class="form-group col-6">
-            <label>Other Images :</label>
-            <div class="form-control">
-              <label class="browse">Browse&hellip; <input type="file" accept="image/*" multiple (change)="addProductImages($event.target.files)"
-                  style="display: none;"></label>
-            </div>
-            <div class="block row">
-              <div *ngFor="let item of PImages" class="small col-2">
-                <img [src]="item.data">
-                <span (click)="removeImage(item.name)" class="remove">X</span>
-              </div>
-            </div>
-          </div>
-          <div class="form-group col-3">
-            <label>Color :</label>
-            <div class="block">
-              <label class="color col-3" *ngFor="let item of colors" [ngStyle]="{'background': item}">
-                <input type="radio" [(ngModel)]="_Product.Color" name="Color" [value]="item">
-              </label>
-            </div>
-          </div>
-        </div>
-        <div class="form-group">
-          <label>Description Images :</label>
-          <div class="form-control">
-            <label class="browse">Browse&hellip; <input type="file" accept="image/*" multiple (change)="addDescImages($event.target.files)"
+      </div>
+      <div class="row">
+        <div class="form-group col-3">
+          <label>Main Image :</label>
+          <div class=" form-control ">
+            <label class="browse">Browse&hellip; <input type="file" name="mainImg" (change)="setMainImage($event.target.files)"
                 style="display: none;"></label>
           </div>
-          <div class="block c row">
-            <div *ngFor="let item of DesImages" class="small col-1">
+
+          <div class="block ">
+            <img *ngIf="imgPath" [src]="imgPath" class="image">
+          </div>
+
+        </div>
+
+        <div class="form-group col-6">
+          <label>Other Images :</label>
+          <div class="form-control">
+            <label class="browse">Browse&hellip; <input type="file" accept="image/*" multiple (change)="addProductImages($event.target.files)"
+                style="display: none;"></label>
+          </div>
+          <div class="block row">
+            <div *ngFor="let item of PImages" class="small col-2">
               <img [src]="item.data">
-              <span (click)="removeDescImage(item.name)" class="remove">X</span>
+              <span (click)="removeImage(item.name)" class="remove">X</span>
             </div>
           </div>
         </div>
-        <button [disabled]="f.invalid" class="btn ">Submit</button>
-        <!-- <button class="btn ">Submit</button> -->
-      </form>
-
-      <p class="formData alert alert-success">
-        {{ f.value | json }}
-      </p>
-      <div class="alert alert-warning" *ngIf="serverError">
-        {{serverError}}
+        <div class="form-group col-3">
+          <label>Color :</label>
+          <div class="block">
+            <label class="color col-3" *ngFor="let item of colors" [ngStyle]="{'background': item}">
+              <input type="radio" [(ngModel)]="_Product.Color" name="Color" [value]="item">
+            </label>
+          </div>
+        </div>
       </div>
-      <input class="btn" type="button" value="logImgs" (click)="logImgs()">
+      <div class="form-group">
+        <label>Description Images :</label>
+        <div class="form-control">
+          <label class="browse">Browse&hellip; <input type="file" accept="image/*" multiple (change)="addDescImages($event.target.files)"
+              style="display: none;"></label>
+        </div>
+        <div class="block c row">
+          <div *ngFor="let item of DesImages" class="small col-1">
+            <img [src]="item.data">
+            <span (click)="removeDescImage(item.name)" class="remove">X</span>
+          </div>
+        </div>
+      </div>
+      <button [disabled]="f.invalid" class="btn ">Submit</button>
+      <!-- <button class="btn ">Submit</button> -->
+    </form>
+
+    <p class="formData alert alert-success">
+      {{ f.value | json }}
+    </p>
+    <div class="alert alert-warning" *ngIf="serverError">
+      {{serverError}}
     </div>
+    <input class="btn" type="button" value="logImgs" (click)="logImgs()">
+  </div>
+  <div class="col-3">
+    <product-history [Products]="lastProducts"></product-history>
   </div>
 </div>

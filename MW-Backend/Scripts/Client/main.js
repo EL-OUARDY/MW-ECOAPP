@@ -23,6 +23,62 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 
 /***/ }),
 
+/***/ "./src/app/admin/admin-area/admin-area.component.css":
+/*!***********************************************************!*\
+  !*** ./src/app/admin/admin-area/admin-area.component.css ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "a {\r\n  color: #eee !important\r\n}\r\n\r\na:hover {\r\n  text-decoration: none\r\n}\r\n\r\n.holder {\r\n  padding: 20px 10px 0px 30px\r\n}\r\n\r\n.sidenav {\r\n  height: 100%;\r\n  position: fixed;\r\n  z-index: 1;\r\n  top: 0;\r\n  left: 0;\r\n  background-color: #6c757d;\r\n  overflow-x: hidden;\r\n  padding-top: 20px;\r\n  background-color: #6c757d;\r\n}\r\n\r\n.icon-bar {\r\n  background-color: #6c757d;\r\n}\r\n\r\n.sidenav a {\r\n  text-align: center !important;\r\n  transition: all 0.3s ease;\r\n  display: block;\r\n  font-size: 20px !important;\r\n  margin-top: 30px;\r\n  padding: 4px\r\n}\r\n\r\n.fa {\r\n  display: block !important;\r\n  font-size: 30px;\r\n}\r\n\r\n.sidenav a:hover {\r\n  background-color: #98a7b3;\r\n}\r\n\r\n.active {\r\n  background-color: rgb(56, 172, 160);\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRtaW4vYWRtaW4tYXJlYS9hZG1pbi1hcmVhLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRTtBQUNGOztBQUVBO0VBQ0U7QUFDRjs7QUFFQTtFQUNFO0FBQ0Y7O0FBRUE7RUFDRSxZQUFZO0VBQ1osZUFBZTtFQUNmLFVBQVU7RUFDVixNQUFNO0VBQ04sT0FBTztFQUNQLHlCQUF5QjtFQUN6QixrQkFBa0I7RUFDbEIsaUJBQWlCO0VBQ2pCLHlCQUF5QjtBQUMzQjs7QUFFQTtFQUNFLHlCQUF5QjtBQUMzQjs7QUFFQTtFQUNFLDZCQUE2QjtFQUM3Qix5QkFBeUI7RUFDekIsY0FBYztFQUNkLDBCQUEwQjtFQUMxQixnQkFBZ0I7RUFDaEI7QUFDRjs7QUFFQTtFQUNFLHlCQUF5QjtFQUN6QixlQUFlO0FBQ2pCOztBQUVBO0VBQ0UseUJBQXlCO0FBQzNCOztBQUVBO0VBQ0UsbUNBQW1DO0FBQ3JDIiwiZmlsZSI6InNyYy9hcHAvYWRtaW4vYWRtaW4tYXJlYS9hZG1pbi1hcmVhLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJhIHtcclxuICBjb2xvcjogI2VlZSAhaW1wb3J0YW50XHJcbn1cclxuXHJcbmE6aG92ZXIge1xyXG4gIHRleHQtZGVjb3JhdGlvbjogbm9uZVxyXG59XHJcblxyXG4uaG9sZGVyIHtcclxuICBwYWRkaW5nOiAyMHB4IDEwcHggMHB4IDMwcHhcclxufVxyXG5cclxuLnNpZGVuYXYge1xyXG4gIGhlaWdodDogMTAwJTtcclxuICBwb3NpdGlvbjogZml4ZWQ7XHJcbiAgei1pbmRleDogMTtcclxuICB0b3A6IDA7XHJcbiAgbGVmdDogMDtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjNmM3NTdkO1xyXG4gIG92ZXJmbG93LXg6IGhpZGRlbjtcclxuICBwYWRkaW5nLXRvcDogMjBweDtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjNmM3NTdkO1xyXG59XHJcblxyXG4uaWNvbi1iYXIge1xyXG4gIGJhY2tncm91bmQtY29sb3I6ICM2Yzc1N2Q7XHJcbn1cclxuXHJcbi5zaWRlbmF2IGEge1xyXG4gIHRleHQtYWxpZ246IGNlbnRlciAhaW1wb3J0YW50O1xyXG4gIHRyYW5zaXRpb246IGFsbCAwLjNzIGVhc2U7XHJcbiAgZGlzcGxheTogYmxvY2s7XHJcbiAgZm9udC1zaXplOiAyMHB4ICFpbXBvcnRhbnQ7XHJcbiAgbWFyZ2luLXRvcDogMzBweDtcclxuICBwYWRkaW5nOiA0cHhcclxufVxyXG5cclxuLmZhIHtcclxuICBkaXNwbGF5OiBibG9jayAhaW1wb3J0YW50O1xyXG4gIGZvbnQtc2l6ZTogMzBweDtcclxufVxyXG5cclxuLnNpZGVuYXYgYTpob3ZlciB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogIzk4YTdiMztcclxufVxyXG5cclxuLmFjdGl2ZSB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogcmdiKDU2LCAxNzIsIDE2MCk7XHJcbn1cclxuIl19 */"
+
+/***/ }),
+
+/***/ "./src/app/admin/admin-area/admin-area.component.html":
+/*!************************************************************!*\
+  !*** ./src/app/admin/admin-area/admin-area.component.html ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container-fluid\">\n  <div class=\"row\">\n    <div class=\"col-1 no-gutters\">\n      <div class=\"sidenav col-1 text-center\">\n        <a routerLink=\"/admin\"><i class=\"fa fa-dashboard\"></i>Dashboard</a>\n        <a routerLink=\"/admin\"><i class=\"fa fa-gears\"></i>Products</a>\n        <a routerLink=\"/admin\"><i class=\"fa fa-flag\"></i>Orders</a>\n        <a routerLink=\"/admin\"><i class=\"fa fa-users\"></i>Users</a>\n        <a routerLink=\"/admin\"><i class=\"fa fa-support\"></i>Support</a>\n        <a routerLink=\"/admin\"><i class=\"fa fa-pie-chart\"></i>Analytics</a>\n        <a routerLink=\"/admin\"><i class=\"fa fa-files-o\"></i>CMS</a>\n      </div>\n    </div>\n    <div class=\"col-11 holder\">\n      <router-outlet></router-outlet>\n    </div>\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/admin/admin-area/admin-area.component.ts":
+/*!**********************************************************!*\
+  !*** ./src/app/admin/admin-area/admin-area.component.ts ***!
+  \**********************************************************/
+/*! exports provided: AdminAreaComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminAreaComponent", function() { return AdminAreaComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var AdminAreaComponent = /** @class */ (function () {
+    function AdminAreaComponent() {
+    }
+    AdminAreaComponent.prototype.ngOnInit = function () {
+    };
+    AdminAreaComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-admin-area',
+            template: __webpack_require__(/*! ./admin-area.component.html */ "./src/app/admin/admin-area/admin-area.component.html"),
+            styles: [__webpack_require__(/*! ./admin-area.component.css */ "./src/app/admin/admin-area/admin-area.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], AdminAreaComponent);
+    return AdminAreaComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/admin/models/adminProduct.ts":
 /*!**********************************************!*\
   !*** ./src/app/admin/models/adminProduct.ts ***!
@@ -64,7 +120,7 @@ module.exports = "label {\r\n  font-size: 20px;\r\n}\r\nlabel.radio {\r\n  font-
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-3\">\n      <product-history [Products]=\"lastProducts\"></product-history>\n    </div>\n    <div class=\"col-9\">\n      <form #f=\"ngForm\" (ngSubmit) = \"onSubmit(f)\" autocomplete=\"off\">\n        <input type=\"hidden\" [(ngModel)]=\"_Product.Id\" name=\"Id\" #Id=\"ngModel\" class=\" form-control\">\n        <div class=\"row\">\n          <div class=\" form-group col-6 \">\n            <label>Name :</label>\n            <input required minlength=\"6\" type=\"text\" [(ngModel)]=\"_Product.Name\" name=\"Name\" #Name=\"ngModel\" class=\" form-control\">\n            <div class=\"alert alert-dark\" *ngIf=\"Name.touched && !Name.valid\">\n              <div *ngIf=\"Name.errors.required\"> Name Is Required !</div>\n              <!-- Custom Validation => Name Must Be Unique -->\n              <div *ngIf=\"Name.errors.minlength\"> Name Must Be More Then 6 Characters </div>\n            </div>\n\n          </div>\n          <div class=\" form-group col-2\">\n            <label>Price :</label>\n            <input required maxlength=\"7\" type=\"number\" [(ngModel)]=\"_Product.Price\" name=\"Price\" #Price=\"ngModel\"\n              class=\"form-control\">\n            <div class=\"alert alert-dark\" *ngIf=\"Price.touched && !Price.valid\">\n              <div *ngIf=\"Price.errors?.required\"> Price Is Required !</div>\n            </div>\n          </div>\n          <div class=\" form-group col-4\">\n            <label>Status :</label>\n            <div class=\"form-control \">\n              <label class=\"col-6 radio\">\n                <input type=\"radio\" [(ngModel)]=\"_Product.Status\" name=\"Status\" value=\"on-sale\">\n                On Sale\n              </label>\n              <label class=\"col-6 radio\">\n                <input type=\"radio\" [(ngModel)]=\"_Product.Status\" name=\"Status\" value=\"out-of-stock\">\n                Out Of Stock\n              </label>\n            </div>\n          </div>\n        </div>\n        <div class=\"row\">\n          <div class=\"col-7 form-group\">\n            <label>Description :</label>\n            <textarea required [(ngModel)]=\"_Product.Description\" name=\"Description\" #des=\"ngModel\" cols=\"30\" rows=\"8\"\n              class=\" form-control\"></textarea>\n            <div class=\"alert alert-dark\" *ngIf=\"des.touched && des.errors?.required\">Fill The Description !</div>\n          </div>\n          <div class=\"col-5\">\n            <div class=\"form-group\">\n              <label>Category :</label>\n              <select #Category (change)=\"getSub(Category.value)\" class=\"form-control\">\n                <option value=\"\"></option>\n                <option *ngFor=\"let item of categories\" [value]=\"item.Id\">{{item.Name}}</option>\n              </select>\n            </div>\n            <div class=\"form-group\">\n              <label>subCategory :</label>\n              <select name=\"SubCategory\" required [(ngModel)]=\"_Product.SubCategoryId\" class=\"form-control\">\n                <option *ngFor=\"let item of subCategories\" [value]=\"item.Id\">{{item.Name}}</option>\n              </select>\n            </div>\n            <!-- <div class=\"form-group\">\n              <label>Shipping :</label>\n              <div class=\"form-control\">\n                <label *ngFor=\"let item of shipping\" class=\"col-4 radio\">\n                  <input type=\"radio\" ngModel name=\"shippingMethod\" [value]=\"item\">\n                  {{item}}\n                </label>\n              </div>\n            </div> -->\n          </div>\n        </div>\n        <div class=\"row\">\n          <div class=\"form-group col-3\">\n            <label>Main Image :</label>\n            <div class=\" form-control \">\n              <label class=\"browse\">Browse&hellip; <input type=\"file\" name=\"mainImg\" (change)=\"setMainImage($event.target.files)\"\n                  style=\"display: none;\"></label>\n            </div>\n\n            <div class=\"block \">\n              <img *ngIf=\"imgPath\" [src]=\"imgPath\" class=\"image\">\n            </div>\n\n          </div>\n\n          <div class=\"form-group col-6\">\n            <label>Other Images :</label>\n            <div class=\"form-control\">\n              <label class=\"browse\">Browse&hellip; <input type=\"file\" accept=\"image/*\" multiple (change)=\"addProductImages($event.target.files)\"\n                  style=\"display: none;\"></label>\n            </div>\n            <div class=\"block row\">\n              <div *ngFor=\"let item of PImages\" class=\"small col-2\">\n                <img [src]=\"item.data\">\n                <span (click)=\"removeImage(item.name)\" class=\"remove\">X</span>\n              </div>\n            </div>\n          </div>\n          <div class=\"form-group col-3\">\n            <label>Color :</label>\n            <div class=\"block\">\n              <label class=\"color col-3\" *ngFor=\"let item of colors\" [ngStyle]=\"{'background': item}\">\n                <input type=\"radio\" [(ngModel)]=\"_Product.Color\" name=\"Color\" [value]=\"item\">\n              </label>\n            </div>\n          </div>\n        </div>\n        <div class=\"form-group\">\n          <label>Description Images :</label>\n          <div class=\"form-control\">\n            <label class=\"browse\">Browse&hellip; <input type=\"file\" accept=\"image/*\" multiple (change)=\"addDescImages($event.target.files)\"\n                style=\"display: none;\"></label>\n          </div>\n          <div class=\"block c row\">\n            <div *ngFor=\"let item of DesImages\" class=\"small col-1\">\n              <img [src]=\"item.data\">\n              <span (click)=\"removeDescImage(item.name)\" class=\"remove\">X</span>\n            </div>\n          </div>\n        </div>\n        <button [disabled]=\"f.invalid\" class=\"btn \">Submit</button>\n        <!-- <button class=\"btn \">Submit</button> -->\n      </form>\n\n      <p class=\"formData alert alert-success\">\n        {{ f.value | json }}\n      </p>\n      <div class=\"alert alert-warning\" *ngIf=\"serverError\">\n        {{serverError}}\n      </div>\n      <input class=\"btn\" type=\"button\" value=\"logImgs\" (click)=\"logImgs()\">\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"row no-gutters\">\n  <div class=\"col-9\">\n    <form #f=\"ngForm\" (ngSubmit)=\"onSubmit(f)\" autocomplete=\"off\">\n      <input type=\"hidden\" [(ngModel)]=\"_Product.Id\" name=\"Id\" #Id=\"ngModel\" class=\" form-control\">\n      <div class=\"row\">\n        <div class=\" form-group col-6 \">\n          <label>Name :</label>\n          <input required minlength=\"6\" type=\"text\" [(ngModel)]=\"_Product.Name\" name=\"Name\" #Name=\"ngModel\" class=\" form-control\">\n          <div class=\"alert alert-dark\" *ngIf=\"Name.touched && !Name.valid\">\n            <div *ngIf=\"Name.errors.required\"> Name Is Required !</div>\n            <!-- Custom Validation => Name Must Be Unique -->\n            <div *ngIf=\"Name.errors.minlength\"> Name Must Be More Then 6 Characters </div>\n          </div>\n\n        </div>\n        <div class=\" form-group col-2\">\n          <label>Price :</label>\n          <input required maxlength=\"7\" type=\"number\" [(ngModel)]=\"_Product.Price\" name=\"Price\" #Price=\"ngModel\" class=\"form-control\">\n          <div class=\"alert alert-dark\" *ngIf=\"Price.touched && !Price.valid\">\n            <div *ngIf=\"Price.errors?.required\"> Price Is Required !</div>\n          </div>\n        </div>\n        <div class=\" form-group col-4\">\n          <label>Status :</label>\n          <div class=\"form-control \">\n            <label class=\"col-6 radio\">\n              <input type=\"radio\" [(ngModel)]=\"_Product.Status\" name=\"Status\" value=\"on-sale\">\n              On Sale\n            </label>\n            <label class=\"col-6 radio\">\n              <input type=\"radio\" [(ngModel)]=\"_Product.Status\" name=\"Status\" value=\"out-of-stock\">\n              Out Of Stock\n            </label>\n          </div>\n        </div>\n      </div>\n      <div class=\"row\">\n        <div class=\"col-7 form-group\">\n          <label>Description :</label>\n          <textarea required [(ngModel)]=\"_Product.Description\" name=\"Description\" #des=\"ngModel\" cols=\"30\" rows=\"8\"\n            class=\" form-control\"></textarea>\n          <div class=\"alert alert-dark\" *ngIf=\"des.touched && des.errors?.required\">Fill The Description !</div>\n        </div>\n        <div class=\"col-5\">\n          <div class=\"form-group\">\n            <label>Category :</label>\n            <select #Category (change)=\"getSub(Category.value)\" class=\"form-control\">\n              <option value=\"\"></option>\n              <option *ngFor=\"let item of categories\" [value]=\"item.Id\">{{item.Name}}</option>\n            </select>\n          </div>\n          <div class=\"form-group\">\n            <label>subCategory :</label>\n            <select name=\"SubCategory\" required [(ngModel)]=\"_Product.SubCategoryId\" class=\"form-control\">\n              <option *ngFor=\"let item of subCategories\" [value]=\"item.Id\">{{item.Name}}</option>\n            </select>\n          </div>\n          <!-- <div class=\"form-group\">\n              <label>Shipping :</label>\n              <div class=\"form-control\">\n                <label *ngFor=\"let item of shipping\" class=\"col-4 radio\">\n                  <input type=\"radio\" ngModel name=\"shippingMethod\" [value]=\"item\">\n                  {{item}}\n                </label>\n              </div>\n            </div> -->\n        </div>\n      </div>\n      <div class=\"row\">\n        <div class=\"form-group col-3\">\n          <label>Main Image :</label>\n          <div class=\" form-control \">\n            <label class=\"browse\">Browse&hellip; <input type=\"file\" name=\"mainImg\" (change)=\"setMainImage($event.target.files)\"\n                style=\"display: none;\"></label>\n          </div>\n\n          <div class=\"block \">\n            <img *ngIf=\"imgPath\" [src]=\"imgPath\" class=\"image\">\n          </div>\n\n        </div>\n\n        <div class=\"form-group col-6\">\n          <label>Other Images :</label>\n          <div class=\"form-control\">\n            <label class=\"browse\">Browse&hellip; <input type=\"file\" accept=\"image/*\" multiple (change)=\"addProductImages($event.target.files)\"\n                style=\"display: none;\"></label>\n          </div>\n          <div class=\"block row\">\n            <div *ngFor=\"let item of PImages\" class=\"small col-2\">\n              <img [src]=\"item.data\">\n              <span (click)=\"removeImage(item.name)\" class=\"remove\">X</span>\n            </div>\n          </div>\n        </div>\n        <div class=\"form-group col-3\">\n          <label>Color :</label>\n          <div class=\"block\">\n            <label class=\"color col-3\" *ngFor=\"let item of colors\" [ngStyle]=\"{'background': item}\">\n              <input type=\"radio\" [(ngModel)]=\"_Product.Color\" name=\"Color\" [value]=\"item\">\n            </label>\n          </div>\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <label>Description Images :</label>\n        <div class=\"form-control\">\n          <label class=\"browse\">Browse&hellip; <input type=\"file\" accept=\"image/*\" multiple (change)=\"addDescImages($event.target.files)\"\n              style=\"display: none;\"></label>\n        </div>\n        <div class=\"block c row\">\n          <div *ngFor=\"let item of DesImages\" class=\"small col-1\">\n            <img [src]=\"item.data\">\n            <span (click)=\"removeDescImage(item.name)\" class=\"remove\">X</span>\n          </div>\n        </div>\n      </div>\n      <button [disabled]=\"f.invalid\" class=\"btn \">Submit</button>\n      <!-- <button class=\"btn \">Submit</button> -->\n    </form>\n\n    <p class=\"formData alert alert-success\">\n      {{ f.value | json }}\n    </p>\n    <div class=\"alert alert-warning\" *ngIf=\"serverError\">\n      {{serverError}}\n    </div>\n    <input class=\"btn\" type=\"button\" value=\"logImgs\" (click)=\"logImgs()\">\n  </div>\n  <div class=\"col-3\">\n    <product-history [Products]=\"lastProducts\"></product-history>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -246,7 +302,7 @@ var ProductFormComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "h4 {\r\n  text-align: center;\r\n  text-decoration: underline;\r\n  margin: 15px 0;\r\n}\r\n\r\n.table-img {\r\n  height: 40px;\r\n  width: 40px;\r\n  border-radius: 50%;\r\n}\r\n\r\ntr td:first-of-type {\r\n  padding: 5px;\r\n  width: 52px;\r\n}\r\n\r\ntr {\r\n  text-align: left;\r\n  margin: 5px 0 10px 0;\r\n}\r\n\r\na {\r\n  color: black;\r\n  text-decoration: underline\r\n}\r\n\r\ntd.col-4 {\r\n  padding-top: 0 !important;\r\n  padding-bottom: 0 !important;\r\n}\r\n\r\n.history {\r\n  position: -webkit-sticky;\r\n  position: sticky;\r\n  top: 85px;\r\n  padding: 5px 2px !important;\r\n  font-size: 18px\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRtaW4vcHJvZHVjdC1oaXN0b3J5L3Byb2R1Y3QtaGlzdG9yeS5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0Usa0JBQWtCO0VBQ2xCLDBCQUEwQjtFQUMxQixjQUFjO0FBQ2hCOztBQUVBO0VBQ0UsWUFBWTtFQUNaLFdBQVc7RUFDWCxrQkFBa0I7QUFDcEI7O0FBRUE7RUFDRSxZQUFZO0VBQ1osV0FBVztBQUNiOztBQUVBO0VBQ0UsZ0JBQWdCO0VBQ2hCLG9CQUFvQjtBQUN0Qjs7QUFFQTtFQUNFLFlBQVk7RUFDWjtBQUNGOztBQUVBO0VBQ0UseUJBQXlCO0VBQ3pCLDRCQUE0QjtBQUM5Qjs7QUFFQTtFQUNFLHdCQUFnQjtFQUFoQixnQkFBZ0I7RUFDaEIsU0FBUztFQUNULDJCQUEyQjtFQUMzQjtBQUNGIiwiZmlsZSI6InNyYy9hcHAvYWRtaW4vcHJvZHVjdC1oaXN0b3J5L3Byb2R1Y3QtaGlzdG9yeS5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiaDQge1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICB0ZXh0LWRlY29yYXRpb246IHVuZGVybGluZTtcclxuICBtYXJnaW46IDE1cHggMDtcclxufVxyXG5cclxuLnRhYmxlLWltZyB7XHJcbiAgaGVpZ2h0OiA0MHB4O1xyXG4gIHdpZHRoOiA0MHB4O1xyXG4gIGJvcmRlci1yYWRpdXM6IDUwJTtcclxufVxyXG5cclxudHIgdGQ6Zmlyc3Qtb2YtdHlwZSB7XHJcbiAgcGFkZGluZzogNXB4O1xyXG4gIHdpZHRoOiA1MnB4O1xyXG59XHJcblxyXG50ciB7XHJcbiAgdGV4dC1hbGlnbjogbGVmdDtcclxuICBtYXJnaW46IDVweCAwIDEwcHggMDtcclxufVxyXG5cclxuYSB7XHJcbiAgY29sb3I6IGJsYWNrO1xyXG4gIHRleHQtZGVjb3JhdGlvbjogdW5kZXJsaW5lXHJcbn1cclxuXHJcbnRkLmNvbC00IHtcclxuICBwYWRkaW5nLXRvcDogMCAhaW1wb3J0YW50O1xyXG4gIHBhZGRpbmctYm90dG9tOiAwICFpbXBvcnRhbnQ7XHJcbn1cclxuXHJcbi5oaXN0b3J5IHtcclxuICBwb3NpdGlvbjogc3RpY2t5O1xyXG4gIHRvcDogODVweDtcclxuICBwYWRkaW5nOiA1cHggMnB4ICFpbXBvcnRhbnQ7XHJcbiAgZm9udC1zaXplOiAxOHB4XHJcbn0iXX0= */"
+module.exports = "h4 {\r\n  text-align: center;\r\n  text-decoration: underline;\r\n  margin: 15px 0;\r\n}\r\n\r\n.table-img {\r\n  height: 40px;\r\n  width: 40px;\r\n  border-radius: 50%;\r\n}\r\n\r\ntr td:first-of-type {\r\n  padding: 5px;\r\n  width: 52px;\r\n}\r\n\r\ntr {\r\n  text-align: left;\r\n  margin: 5px 0 10px 0;\r\n}\r\n\r\na {\r\n  color: black;\r\n  text-decoration: underline\r\n}\r\n\r\ntd.col-4 {\r\n  padding-top: 0 !important;\r\n  padding-bottom: 0 !important;\r\n}\r\n\r\n.history {\r\n  position: -webkit-sticky;\r\n  position: sticky;\r\n  top: 20px;\r\n  padding: 5px 22px !important;\r\n  font-size: 18px\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRtaW4vcHJvZHVjdC1oaXN0b3J5L3Byb2R1Y3QtaGlzdG9yeS5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0Usa0JBQWtCO0VBQ2xCLDBCQUEwQjtFQUMxQixjQUFjO0FBQ2hCOztBQUVBO0VBQ0UsWUFBWTtFQUNaLFdBQVc7RUFDWCxrQkFBa0I7QUFDcEI7O0FBRUE7RUFDRSxZQUFZO0VBQ1osV0FBVztBQUNiOztBQUVBO0VBQ0UsZ0JBQWdCO0VBQ2hCLG9CQUFvQjtBQUN0Qjs7QUFFQTtFQUNFLFlBQVk7RUFDWjtBQUNGOztBQUVBO0VBQ0UseUJBQXlCO0VBQ3pCLDRCQUE0QjtBQUM5Qjs7QUFFQTtFQUNFLHdCQUFnQjtFQUFoQixnQkFBZ0I7RUFDaEIsU0FBUztFQUNULDRCQUE0QjtFQUM1QjtBQUNGIiwiZmlsZSI6InNyYy9hcHAvYWRtaW4vcHJvZHVjdC1oaXN0b3J5L3Byb2R1Y3QtaGlzdG9yeS5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiaDQge1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICB0ZXh0LWRlY29yYXRpb246IHVuZGVybGluZTtcclxuICBtYXJnaW46IDE1cHggMDtcclxufVxyXG5cclxuLnRhYmxlLWltZyB7XHJcbiAgaGVpZ2h0OiA0MHB4O1xyXG4gIHdpZHRoOiA0MHB4O1xyXG4gIGJvcmRlci1yYWRpdXM6IDUwJTtcclxufVxyXG5cclxudHIgdGQ6Zmlyc3Qtb2YtdHlwZSB7XHJcbiAgcGFkZGluZzogNXB4O1xyXG4gIHdpZHRoOiA1MnB4O1xyXG59XHJcblxyXG50ciB7XHJcbiAgdGV4dC1hbGlnbjogbGVmdDtcclxuICBtYXJnaW46IDVweCAwIDEwcHggMDtcclxufVxyXG5cclxuYSB7XHJcbiAgY29sb3I6IGJsYWNrO1xyXG4gIHRleHQtZGVjb3JhdGlvbjogdW5kZXJsaW5lXHJcbn1cclxuXHJcbnRkLmNvbC00IHtcclxuICBwYWRkaW5nLXRvcDogMCAhaW1wb3J0YW50O1xyXG4gIHBhZGRpbmctYm90dG9tOiAwICFpbXBvcnRhbnQ7XHJcbn1cclxuXHJcbi5oaXN0b3J5IHtcclxuICBwb3NpdGlvbjogc3RpY2t5O1xyXG4gIHRvcDogMjBweDtcclxuICBwYWRkaW5nOiA1cHggMjJweCAhaW1wb3J0YW50O1xyXG4gIGZvbnQtc2l6ZTogMThweFxyXG59XHJcbiJdfQ== */"
 
 /***/ }),
 
@@ -380,6 +436,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _error_pages_unexpected_error_unexpected_error_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./error-pages/unexpected-error/unexpected-error.component */ "./src/app/error-pages/unexpected-error/unexpected-error.component.ts");
 /* harmony import */ var _admin_product_form_product_form_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./admin/product-form/product-form.component */ "./src/app/admin/product-form/product-form.component.ts");
 /* harmony import */ var _payment_payment_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./payment/payment.component */ "./src/app/payment/payment.component.ts");
+/* harmony import */ var _admin_admin_area_admin_area_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./admin/admin-area/admin-area.component */ "./src/app/admin/admin-area/admin-area.component.ts");
+/* harmony import */ var _navigation_navigation_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./navigation/navigation.component */ "./src/app/navigation/navigation.component.ts");
+
+
 
 
 
@@ -400,16 +460,27 @@ __webpack_require__.r(__webpack_exports__);
 var routes = [
     { path: 'sign-in', component: _sign_in_up_sign_in_up_component__WEBPACK_IMPORTED_MODULE_4__["SignInUpComponent"], canActivate: [_guards_signin_guard__WEBPACK_IMPORTED_MODULE_12__["SigninGuard"]] },
     { path: 'sign-up', component: _sign_in_up_sign_in_up_component__WEBPACK_IMPORTED_MODULE_4__["SignInUpComponent"], canActivate: [_guards_signin_guard__WEBPACK_IMPORTED_MODULE_12__["SigninGuard"]] },
-    { path: 'product/:slug', component: _product_product_details_product_details_component__WEBPACK_IMPORTED_MODULE_9__["ProductDetailsComponent"] },
-    { path: 'cart', component: _shopping_cart_shopping_cart_component__WEBPACK_IMPORTED_MODULE_5__["ShoppingCartComponent"] },
-    { path: 'dashboard', component: _user_user_profile_user_profile_component__WEBPACK_IMPORTED_MODULE_11__["UserProfileComponent"], canActivate: [_guards_user_auth_guard__WEBPACK_IMPORTED_MODULE_10__["UserAuthGuard"]] },
-    { path: 'checkout', component: _checkout_checkout_component__WEBPACK_IMPORTED_MODULE_6__["CheckoutComponent"], canActivate: [_guards_checkout_guard__WEBPACK_IMPORTED_MODULE_7__["CheckoutGuard"], _guards_user_auth_guard__WEBPACK_IMPORTED_MODULE_10__["UserAuthGuard"]] },
-    { path: 'payment', component: _payment_payment_component__WEBPACK_IMPORTED_MODULE_16__["PaymentComponent"], canActivate: [_guards_checkout_guard__WEBPACK_IMPORTED_MODULE_7__["CheckoutGuard"], _guards_user_auth_guard__WEBPACK_IMPORTED_MODULE_10__["UserAuthGuard"]] },
+    {
+        path: 'admin', component: _admin_admin_area_admin_area_component__WEBPACK_IMPORTED_MODULE_17__["AdminAreaComponent"], canActivate: [_guards_admin_guard_guard__WEBPACK_IMPORTED_MODULE_8__["AdminGuard"]],
+        children: [
+            { path: '', component: _admin_product_form_product_form_component__WEBPACK_IMPORTED_MODULE_15__["ProductFormComponent"], },
+            { path: 'add-product', component: _admin_product_form_product_form_component__WEBPACK_IMPORTED_MODULE_15__["ProductFormComponent"], canActivate: [_guards_admin_guard_guard__WEBPACK_IMPORTED_MODULE_8__["AdminGuard"]] },
+        ]
+    },
     { path: '404', component: _error_pages_not_found_not_found_component__WEBPACK_IMPORTED_MODULE_13__["NotFoundComponent"] },
     { path: 'error', component: _error_pages_unexpected_error_unexpected_error_component__WEBPACK_IMPORTED_MODULE_14__["UnexpectedErrorComponent"] },
-    { path: 'add-product', component: _admin_product_form_product_form_component__WEBPACK_IMPORTED_MODULE_15__["ProductFormComponent"], canActivate: [_guards_admin_guard_guard__WEBPACK_IMPORTED_MODULE_8__["AdminGuard"]] },
-    { path: '', component: _home_home_component__WEBPACK_IMPORTED_MODULE_3__["HomeComponent"] },
-    { path: '**', component: _home_home_component__WEBPACK_IMPORTED_MODULE_3__["HomeComponent"] } // Redirect to a 404 custom page
+    {
+        path: '', component: _navigation_navigation_component__WEBPACK_IMPORTED_MODULE_18__["NavigationComponent"],
+        children: [
+            { path: '', component: _home_home_component__WEBPACK_IMPORTED_MODULE_3__["HomeComponent"], },
+            { path: 'cart', component: _shopping_cart_shopping_cart_component__WEBPACK_IMPORTED_MODULE_5__["ShoppingCartComponent"], },
+            { path: 'product/:slug', component: _product_product_details_product_details_component__WEBPACK_IMPORTED_MODULE_9__["ProductDetailsComponent"] },
+            { path: 'checkout', component: _checkout_checkout_component__WEBPACK_IMPORTED_MODULE_6__["CheckoutComponent"], canActivate: [_guards_checkout_guard__WEBPACK_IMPORTED_MODULE_7__["CheckoutGuard"], _guards_user_auth_guard__WEBPACK_IMPORTED_MODULE_10__["UserAuthGuard"]] },
+            { path: 'payment', component: _payment_payment_component__WEBPACK_IMPORTED_MODULE_16__["PaymentComponent"], canActivate: [_guards_checkout_guard__WEBPACK_IMPORTED_MODULE_7__["CheckoutGuard"], _guards_user_auth_guard__WEBPACK_IMPORTED_MODULE_10__["UserAuthGuard"]] },
+            { path: 'dashboard', component: _user_user_profile_user_profile_component__WEBPACK_IMPORTED_MODULE_11__["UserProfileComponent"], canActivate: [_guards_user_auth_guard__WEBPACK_IMPORTED_MODULE_10__["UserAuthGuard"]] },
+            { path: '**', component: _home_home_component__WEBPACK_IMPORTED_MODULE_3__["HomeComponent"] }
+        ]
+    }
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -445,7 +516,7 @@ module.exports = "\r\n/* router-outlet {\r\n    display: none;\r\n} */\r\n\r\n#c
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-header></app-header>\n<br>\n<router-outlet #myOutlet=\"outlet\"></router-outlet>"
+module.exports = "<router-outlet #myOutlet=\"outlet\"></router-outlet>\n"
 
 /***/ }),
 
@@ -534,6 +605,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _admin_product_form_product_form_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./admin/product-form/product-form.component */ "./src/app/admin/product-form/product-form.component.ts");
 /* harmony import */ var _payment_payment_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./payment/payment.component */ "./src/app/payment/payment.component.ts");
 /* harmony import */ var _coupon_coupon_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./coupon/coupon.component */ "./src/app/coupon/coupon.component.ts");
+/* harmony import */ var _admin_admin_area_admin_area_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./admin/admin-area/admin-area.component */ "./src/app/admin/admin-area/admin-area.component.ts");
+/* harmony import */ var _navigation_navigation_component__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./navigation/navigation.component */ "./src/app/navigation/navigation.component.ts");
+
+
 
 
 
@@ -591,7 +666,9 @@ var AppModule = /** @class */ (function () {
                 _admin_product_form_product_form_component__WEBPACK_IMPORTED_MODULE_30__["ProductFormComponent"],
                 _admin_product_history_product_history_component__WEBPACK_IMPORTED_MODULE_29__["ProductHistoryComponent"],
                 _payment_payment_component__WEBPACK_IMPORTED_MODULE_31__["PaymentComponent"],
-                _coupon_coupon_component__WEBPACK_IMPORTED_MODULE_32__["CouponComponent"]
+                _coupon_coupon_component__WEBPACK_IMPORTED_MODULE_32__["CouponComponent"],
+                _admin_admin_area_admin_area_component__WEBPACK_IMPORTED_MODULE_33__["AdminAreaComponent"],
+                _navigation_navigation_component__WEBPACK_IMPORTED_MODULE_34__["NavigationComponent"]
             ],
             imports: [
                 _angular_common__WEBPACK_IMPORTED_MODULE_19__["CommonModule"],
@@ -868,7 +945,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"form-group\">\n  <label for=\"\">Coupon</label>\n  <div class=\"row\">\n    <div class=\"col-8\">\n      <input #c=\"ngModel\" name=\"c\" [(ngModel)]=\"coupon\" type=\"text\" class=\"form-control\">\n    </div>\n    <div class=\"col-4\">\n      <input class=\"btn btn-info form-control\" type=\"button\" value=\"APPLY\">\n    </div>\n  </div>\n  <div class=\"alert alert-dark\" *ngIf=\"c.touched && c.invalid\">\n    <!-- <div *ngIf=\"coupon.errors.CouponValidator\"> Invalid Format </div> -->\n  </div>\n</div>\n"
+module.exports = "<div class=\"form-group\">\n  <label for=\"\">Coupon</label>\n  <div class=\"row\">\n    <div class=\"col-8\">\n      <input #c=\"ngModel\" name=\"c\" [(ngModel)]=\"coupon\" type=\"text\" class=\"form-control\">\n    </div>\n    <div class=\"col-4\">\n      <input class=\"btn btn-info form-control\" type=\"button\" value=\"REDEEM\">\n    </div>\n  </div>\n  <div class=\"alert alert-dark\" *ngIf=\"c.touched && c.invalid\">\n    <!-- <div *ngIf=\"coupon.errors.CouponValidator\"> Invalid Format </div> -->\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -1192,7 +1269,7 @@ module.exports = "header {\r\n  background: #6c757d;\r\n  position: -webkit-stic
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<header>\n<nav>\n  <a routerLink=\"/\"><span>You-Better</span></a>\n  <ul>\n    <li>\n      <a routerLink=\"add-product\">Product</a>\n    </li>\n    <li>\n      <a routerLink=\"cart\">Cart ({{cartCount}})\n      </a>\n    </li>\n    <li *ngIf=\"userAuth.user ; else anonumousUser\" ngbDropdown class=\"nav-item dropdown\">\n      <a ngbDropdownToggle class=\"dropdown-toggle\" id=\"dropdown01\" data-toggle=\"dropdown\" aria-haspopup=\"true\"\n        aria-expanded=\"false\">{{ userAuth.user.FullName }}</a>\n      <div ngbDropdownMenu class=\"dropdown-menu\" aria-labelledby=\"dropdown01\">\n        <a class=\"dropdown-item\" routerLink=\"/dashboard\">My Profile</a>\n        <a class=\"dropdown-item\" routerLink=\"/\">My Orders</a>\n        <a class=\"dropdown-item\" routerLink=\"add-product\">Manage Orders</a>\n        <a class=\"dropdown-item\" (click)=\"Logout()\">Log Out</a>\n      </div>\n    </li>\n    <ng-template #anonumousUser>\n      <li>\n        <a routerLink=\"sign-in\">Login</a>\n      </li>\n    </ng-template>\n  </ul>\n</nav>\n</header>"
+module.exports = "<header>\n  <nav>\n    <a routerLink=\"/\"><span>You-Better</span></a>\n    <ul>\n      <li>\n        <a routerLink=\"/admin\">GoAdmin</a>\n      </li>\n      <li>\n        <a routerLink=\"/cart\">Cart ({{cartCount}})\n        </a>\n      </li>\n      <li *ngIf=\"userAuth.user ; else anonumousUser\" ngbDropdown class=\"nav-item dropdown\">\n        <a ngbDropdownToggle class=\"dropdown-toggle\" id=\"dropdown01\" data-toggle=\"dropdown\" aria-haspopup=\"true\"\n          aria-expanded=\"false\">{{ userAuth.user.FullName }}</a>\n        <div ngbDropdownMenu class=\"dropdown-menu\" aria-labelledby=\"dropdown01\">\n          <a class=\"dropdown-item\" routerLink=\"/dashboard\">My Profile</a>\n          <a class=\"dropdown-item\" routerLink=\"/\">My Orders</a>\n          <a class=\"dropdown-item\" (click)=\"Logout()\">Log Out</a>\n        </div>\n      </li>\n      <ng-template #anonumousUser>\n        <li>\n          <a routerLink=\"/sign-in\">Login</a>\n        </li>\n      </ng-template>\n    </ul>\n  </nav>\n</header>\n"
 
 /***/ }),
 
@@ -1264,7 +1341,7 @@ module.exports = ".col-3 {\r\n    margin-bottom: 20px;\r\n}\r\n/*# sourceMapping
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div class=\"products row \">\n    <div *ngFor=\"let p of products$ | async\" class=\"col-3\">\n      <product-card [product]=\"p\"></product-card>\n      <div class=\" alert alert-danger justForTesting \">\n        {{p | json }}\n      </div>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"container\">\n  <div class=\"products row \">\n    <div *ngFor=\"let p of products$ | async\" class=\"col-3\">\n      <product-card [product]=\"p\"></product-card>\n      <div class=\" alert alert-danger justForTesting \">\n        {{ p | json }}\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -1367,6 +1444,62 @@ var ShoppingCart = /** @class */ (function () {
         configurable: true
     });
     return ShoppingCart;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/navigation/navigation.component.css":
+/*!*****************************************************!*\
+  !*** ./src/app/navigation/navigation.component.css ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL25hdmlnYXRpb24vbmF2aWdhdGlvbi5jb21wb25lbnQuY3NzIn0= */"
+
+/***/ }),
+
+/***/ "./src/app/navigation/navigation.component.html":
+/*!******************************************************!*\
+  !*** ./src/app/navigation/navigation.component.html ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<app-header></app-header>\n<br>\n\n<router-outlet></router-outlet>\n"
+
+/***/ }),
+
+/***/ "./src/app/navigation/navigation.component.ts":
+/*!****************************************************!*\
+  !*** ./src/app/navigation/navigation.component.ts ***!
+  \****************************************************/
+/*! exports provided: NavigationComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NavigationComponent", function() { return NavigationComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var NavigationComponent = /** @class */ (function () {
+    function NavigationComponent() {
+    }
+    NavigationComponent.prototype.ngOnInit = function () {
+    };
+    NavigationComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-navigation',
+            template: __webpack_require__(/*! ./navigation.component.html */ "./src/app/navigation/navigation.component.html"),
+            styles: [__webpack_require__(/*! ./navigation.component.css */ "./src/app/navigation/navigation.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], NavigationComponent);
+    return NavigationComponent;
 }());
 
 
@@ -2019,7 +2152,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\r\n<div class=\"row\" style=\"margin-top: 30px;\">\r\n  <div class=\"col-6\">\r\n    <sign-in></sign-in>\r\n  </div>\r\n\r\n  <div class=\"col-6\">\r\n    <sign-up></sign-up>\r\n  </div>\r\n</div>\r\n\r\n</div>"
+module.exports = "<br>\r\n<br>\r\n<div class=\"container\">\r\n  <div class=\"row\" style=\"margin-top: 30px;\">\r\n    <div class=\"col-6\">\r\n      <sign-in></sign-in>\r\n    </div>\r\n\r\n    <div class=\"col-6\">\r\n      <sign-up></sign-up>\r\n    </div>\r\n  </div>\r\n\r\n</div>\r\n"
 
 /***/ }),
 

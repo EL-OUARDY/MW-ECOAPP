@@ -36,6 +36,8 @@ import { ProductHistoryComponent } from './admin/product-history/product-history
 import { ProductFormComponent } from './admin/product-form/product-form.component';
 import { PaymentComponent } from './payment/payment.component';
 import { CouponComponent } from './coupon/coupon.component';
+import { AdminAreaComponent } from './admin/admin-area/admin-area.component';
+import { NavigationComponent } from './navigation/navigation.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +59,9 @@ import { CouponComponent } from './coupon/coupon.component';
     ProductFormComponent,
     ProductHistoryComponent,
     PaymentComponent,
-    CouponComponent
+    CouponComponent,
+    AdminAreaComponent,
+    NavigationComponent
   ],
   imports: [
     CommonModule,

@@ -1,29 +1,28 @@
 <header>
-<nav>
-  <a routerLink="/"><span>You-Better</span></a>
-  <ul>
-    <li>
-      <a routerLink="add-product">Product</a>
-    </li>
-    <li>
-      <a routerLink="cart">Cart ({{cartCount}})
-      </a>
-    </li>
-    <li *ngIf="userAuth.user ; else anonumousUser" ngbDropdown class="nav-item dropdown">
-      <a ngbDropdownToggle class="dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
-        aria-expanded="false">{{ userAuth.user.FullName }}</a>
-      <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
-        <a class="dropdown-item" routerLink="/dashboard">My Profile</a>
-        <a class="dropdown-item" routerLink="/">My Orders</a>
-        <a class="dropdown-item" routerLink="add-product">Manage Orders</a>
-        <a class="dropdown-item" (click)="Logout()">Log Out</a>
-      </div>
-    </li>
-    <ng-template #anonumousUser>
+  <nav>
+    <a routerLink="/"><span>You-Better</span></a>
+    <ul>
       <li>
-        <a routerLink="sign-in">Login</a>
+        <a routerLink="/admin">GoAdmin</a>
       </li>
-    </ng-template>
-  </ul>
-</nav>
+      <li>
+        <a routerLink="/cart">Cart ({{cartCount}})
+        </a>
+      </li>
+      <li *ngIf="userAuth.user ; else anonumousUser" ngbDropdown class="nav-item dropdown">
+        <a ngbDropdownToggle class="dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">{{ userAuth.user.FullName }}</a>
+        <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
+          <a class="dropdown-item" routerLink="/dashboard">My Profile</a>
+          <a class="dropdown-item" routerLink="/">My Orders</a>
+          <a class="dropdown-item" (click)="Logout()">Log Out</a>
+        </div>
+      </li>
+      <ng-template #anonumousUser>
+        <li>
+          <a routerLink="/sign-in">Login</a>
+        </li>
+      </ng-template>
+    </ul>
+  </nav>
 </header>

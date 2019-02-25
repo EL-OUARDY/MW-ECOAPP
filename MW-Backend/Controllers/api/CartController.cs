@@ -29,9 +29,7 @@ namespace MW_Backend.Controllers.api
             {
                 return BadRequest(ModelState);
             }
-
             
-
             return Ok( getValidCart(PostedCart) );
         }
 
@@ -49,8 +47,7 @@ namespace MW_Backend.Controllers.api
                     cartItem = new CartItem
                     {
                         Product = Mapper.Map<mProductDTO>(p),
-                        Quantity = item.Quantity,
-
+                        Quantity = item.Quantity
                     };
 
                     if (!Cart.Exists(x => x.Product.Id == cartItem.Product.Id))

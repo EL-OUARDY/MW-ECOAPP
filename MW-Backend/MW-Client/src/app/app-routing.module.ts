@@ -14,25 +14,36 @@ import { NotFoundComponent } from './error-pages/not-found/not-found.component';
 import { UnexpectedErrorComponent } from './error-pages/unexpected-error/unexpected-error.component';
 import { ProductFormComponent } from './admin/product-form/product-form.component';
 import { PaymentComponent } from './payment/payment.component';
+import { AdminAreaComponent } from './admin/admin-area/admin-area.component';
+import { NavigationComponent } from './navigation/navigation.component';
 
 const routes: Routes = [
   { path: 'sign-in', component: SignInUpComponent, canActivate: [SigninGuard] },
   { path: 'sign-up', component: SignInUpComponent, canActivate: [SigninGuard] },
-  { path: 'product/:slug', component: ProductDetailsComponent },
-  { path: 'cart', component: ShoppingCartComponent },
 
-  { path: 'dashboard', component: UserProfileComponent, canActivate: [UserAuthGuard] },
-
-  { path: 'checkout', component: CheckoutComponent, canActivate: [CheckoutGuard, UserAuthGuard] },
-  { path: 'payment', component: PaymentComponent, canActivate: [CheckoutGuard, UserAuthGuard] },
+  {
+    path: 'admin', component: AdminAreaComponent, canActivate: [AdminGuard],
+    children: [
+      { path: '', component: ProductFormComponent, },
+      { path: 'add-product', component: ProductFormComponent, canActivate: [AdminGuard] },
+    ]
+  },
 
   { path: '404', component: NotFoundComponent },
   { path: 'error', component: UnexpectedErrorComponent },
 
-  { path: 'add-product', component: ProductFormComponent, canActivate: [AdminGuard] },
-
-  { path: '', component: HomeComponent },
-  { path: '**', component: HomeComponent } // Redirect to a 404 custom page
+  {
+    path: '', component: NavigationComponent,
+    children: [
+      { path: '', component: HomeComponent, },
+      { path: 'cart', component: ShoppingCartComponent, },
+      { path: 'product/:slug', component: ProductDetailsComponent },
+      { path: 'checkout', component: CheckoutComponent, canActivate: [CheckoutGuard, UserAuthGuard] },
+      { path: 'payment', component: PaymentComponent, canActivate: [CheckoutGuard, UserAuthGuard] },
+      { path: 'dashboard', component: UserProfileComponent, canActivate: [UserAuthGuard] },
+      { path: '**', component: HomeComponent }
+    ]
+  }
 ];
 
 @NgModule({

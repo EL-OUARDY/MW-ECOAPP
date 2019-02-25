@@ -3,7 +3,7 @@
     <div *ngFor="let p of products$ | async" class="col-3">
       <product-card [product]="p"></product-card>
       <div class=" alert alert-danger justForTesting ">
-        {{p | json }}
+        {{ p | json }}
       </div>
     </div>
   </div>
