@@ -339,6 +339,10 @@
     <Compile Include="Migrations\201902281235279_fixIssueOrderItemTab.Designer.cs">
       <DependentUpon>201902281235279_fixIssueOrderItemTab.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902281308296_ApplicationUserIdToOrder.cs" />
+    <Compile Include="Migrations\201902281308296_ApplicationUserIdToOrder.Designer.cs">
+      <DependentUpon>201902281308296_ApplicationUserIdToOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -545,6 +549,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902281235279_fixIssueOrderItemTab.resx">
       <DependentUpon>201902281235279_fixIssueOrderItemTab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902281308296_ApplicationUserIdToOrder.resx">
+      <DependentUpon>201902281308296_ApplicationUserIdToOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

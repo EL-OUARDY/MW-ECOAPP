@@ -10,8 +10,6 @@ namespace MW_Backend.Models.Data
     {
         public int Id { get; set; }
 
-        public ApplicationUser User { get; set; }
-
         public DateTime Date_Placed { get; set; }
 
         [Required]
@@ -23,5 +21,8 @@ namespace MW_Backend.Models.Data
         public string Payment { get; set; }
 
         public decimal GrandTotal { get; set; }
+
+        public ApplicationUser User { get; set; }
+        public string ApplicationUserId { get; set; }
     }
 }

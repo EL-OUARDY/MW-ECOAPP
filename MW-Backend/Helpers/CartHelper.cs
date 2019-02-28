@@ -38,5 +38,16 @@ namespace MW_Backend.Helpers
                 return Cart;
             }
         }
+
+        public static decimal getGrandTotal(List<CartItem> cart)
+        {
+            decimal grandTotal = 0;
+            foreach (var item in cart)
+            {
+                grandTotal += (item.Product.Price * item.Quantity);
+            }
+
+            return grandTotal;
+        }
     }
 }

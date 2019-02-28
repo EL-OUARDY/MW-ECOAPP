@@ -8,6 +8,8 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
+using Microsoft.AspNet.Identity;
+using MW_Backend.Helpers;
 using MW_Backend.Models;
 using MW_Backend.Models.Data;
 
@@ -18,18 +20,52 @@ namespace MW_Backend.Controllers.api
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // POST: api/Orders
-        [ResponseType(typeof(Order))]
-        public IHttpActionResult PostOrder(Order order)
+        public IHttpActionResult PostOrder(CartItem[] PostedCart)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
+            // get the valid cart
+            var cart = CartHelper.getValidCart(PostedCart);
 
+            if (cart.Count == 0)
+            {
+                return Conflict(); // handle it on client side
+            }
+
+            // create an order object
+            var order = new Order
+            {
+                Date_Placed = DateTime.Now,
+                Status = "pending", // avoid magic strings
+                Payment = "paypal",
+                GrandTotal = CartHelper.getGrandTotal(cart),
+                ApplicationUserId = User.Identity.GetUserId()
+            };
+            
             db.Orders.Add(order);
-            db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = order.Id }, order);
+            // loop to the cart and add each item to the Order_Items
+
+            Order_Item orderItem;
+            foreach (var item in cart)
+            {
+                orderItem = new Order_Item
+                {
+                    Quantity = Convert.ToByte(item.Quantity),
+                    Status = "pending",
+                    Shipping = "free",
+                    OrderId = order.Id,
+                    ProductId = item.Product.Id
+                };
+
+                db.Order_Items.Add(orderItem);
+            }
+
+            db.SaveChanges();
+            return Ok(order.Id);
+
         }
 
         // GET: api/Orders
