@@ -332,7 +332,6 @@
     <Compile Include="Models\Data\Order.cs" />
     <Compile Include="Models\Data\Order_Item.cs" />
     <Compile Include="Models\Data\Product.cs" />
-    <Compile Include="Models\Data\Product_Sibling.cs" />
     <Compile Include="Models\Data\SubCategory.cs" />
     <Compile Include="Models\Data\UserProfile.cs" />
     <Compile Include="Models\IdentityModels.cs" />

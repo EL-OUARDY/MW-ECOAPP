@@ -45,8 +45,6 @@ namespace MW_Backend.Models.Data
 
         public int SubCategoryId { get; set; }
 
-        public int ProductSiblingId { get; set; }
-
         public string CouponLibel { get; set; }
     }
 }
