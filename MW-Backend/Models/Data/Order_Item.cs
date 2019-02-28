@@ -9,11 +9,7 @@ namespace MW_Backend.Models.Data
     public class Order_Item
     {
         public int Id { get; set; }
-
-        public Order Order { get; set; }
-
-        public Product Product { get; set; }
-
+        
         public byte Quantity { get; set; }
 
         [Required]
@@ -24,5 +20,10 @@ namespace MW_Backend.Models.Data
         [MaxLength(20)]
         public string Shipping { get; set; }
 
+        public Order Order { get; set; }
+        public int OrderId { get; set; }
+
+        public Product Product { get; set; }
+        public int ProductId { get; set; }
     }
 }

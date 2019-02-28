@@ -8,6 +8,7 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
+using MW_Backend.Helpers;
 
 namespace MW_Backend.Controllers.api
 {
@@ -30,36 +31,8 @@ namespace MW_Backend.Controllers.api
                 return BadRequest(ModelState);
             }
             
-            return Ok( getValidCart(PostedCart) );
+            return Ok( CartHelper.getValidCart(PostedCart) );
         }
-
-        [NonAction]
-        private List<CartItem> getValidCart(CartItem[] PostedCart)
-        {
-            List<CartItem> Cart = new List<CartItem>();
-            CartItem cartItem;
-
-            foreach (var item in PostedCart)
-            {
-                var p = db.Products.Find(item.Product.Id);
-                if (p != null && item.Quantity > 0)
-                {
-                    cartItem = new CartItem
-                    {
-                        Product = Mapper.Map<mProductDTO>(p),
-                        Quantity = item.Quantity
-                    };
-
-                    if (!Cart.Exists(x => x.Product.Id == cartItem.Product.Id))
-                    {
-                        Cart.Add(cartItem);
-                    }
-                }
-            }
-
-            return Cart;
-        }
-
 
         protected override void Dispose(bool disposing)
         {
