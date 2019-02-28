@@ -322,6 +322,14 @@
     <Compile Include="Migrations\201902221251399_changeAdressModel.Designer.cs">
       <DependentUpon>201902221251399_changeAdressModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902281102436_dropSiblingsTable.cs" />
+    <Compile Include="Migrations\201902281102436_dropSiblingsTable.Designer.cs">
+      <DependentUpon>201902281102436_dropSiblingsTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902281105329_addVariationsTable.cs" />
+    <Compile Include="Migrations\201902281105329_addVariationsTable.Designer.cs">
+      <DependentUpon>201902281105329_addVariationsTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -332,6 +340,7 @@
     <Compile Include="Models\Data\Order.cs" />
     <Compile Include="Models\Data\Order_Item.cs" />
     <Compile Include="Models\Data\Product.cs" />
+    <Compile Include="Models\Data\Product_Variations.cs" />
     <Compile Include="Models\Data\SubCategory.cs" />
     <Compile Include="Models\Data\UserProfile.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -515,6 +524,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902221251399_changeAdressModel.resx">
       <DependentUpon>201902221251399_changeAdressModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902281102436_dropSiblingsTable.resx">
+      <DependentUpon>201902281102436_dropSiblingsTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902281105329_addVariationsTable.resx">
+      <DependentUpon>201902281105329_addVariationsTable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

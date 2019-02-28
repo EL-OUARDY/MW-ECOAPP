@@ -32,12 +32,10 @@ namespace MW_Backend.Models
         public DbSet<Coupon> Coupons { get; set; }
 
         public DbSet<Product> Products { get; set; }
+        public DbSet<Product_Variations> Product_Variations { get; set; }
 
         public DbSet<Order> Orders { get; set; }
         public DbSet<Order_Item> Order_Items { get; set; }
-
-
-
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
