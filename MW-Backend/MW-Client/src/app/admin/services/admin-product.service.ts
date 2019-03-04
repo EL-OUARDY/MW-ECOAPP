@@ -10,11 +10,10 @@ import { handleExpectedErrors } from 'src/app/common/errors/http-errors';
 export class AdminProductService {
 
   noAuth = new HttpHeaders({ 'NoAuth': 'true' }); // only for testing
-
   constructor(private http: HttpClient) { }
 
   getCategories() {
-    
+
     return this.http.get('api/Categories', { headers: this.noAuth });
   }
 
@@ -24,10 +23,15 @@ export class AdminProductService {
 
   // calling the server
 
-  PostProduct(p) {
-    return this.http.post('api/Products', p , { headers: this.noAuth }).pipe(
-      catchError(handleExpectedErrors)
-    );
+  PostProduct(form) {
+    return this.http.post('api/Products', form, { headers: this.noAuth })
+      .pipe(
+        catchError(handleExpectedErrors)
+      );
+  }
+
+  UploadImages(form: FormData) {
+    return this.http.post('api/upload-images', form, { headers: this.noAuth });
   }
 
   GetLastProducts() {

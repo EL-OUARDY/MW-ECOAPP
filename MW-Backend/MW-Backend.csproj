@@ -263,6 +263,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\CartHelper.cs" />
+    <Compile Include="Helpers\DirectoryHelper.cs" />
     <Compile Include="Migrations\201901311336117_addProductCategorieModels.cs" />
     <Compile Include="Migrations\201901311336117_addProductCategorieModels.Designer.cs">
       <DependentUpon>201901311336117_addProductCategorieModels.cs</DependentUpon>
@@ -366,6 +367,7 @@
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModel\ProductFormVM.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />

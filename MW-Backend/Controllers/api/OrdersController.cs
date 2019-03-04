@@ -65,7 +65,6 @@ namespace MW_Backend.Controllers.api
 
             db.SaveChanges();
             return Ok(order.Id);
-
         }
 
         // GET: api/Orders

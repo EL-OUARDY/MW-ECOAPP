@@ -50,8 +50,8 @@
             </select>
           </div>
           <div class="form-group">
-            <label>subCategory :</label>
-            <select name="SubCategory" required [(ngModel)]="_Product.SubCategoryId" class="form-control">
+            <label>SubCategory :</label>
+            <select name="SubCategoryId" required [(ngModel)]="_Product.SubCategoryId" class="form-control">
               <option *ngFor="let item of subCategories" [value]="item.Id">{{item.Name}}</option>
             </select>
           </div>
@@ -70,8 +70,9 @@
         <div class="form-group col-3">
           <label>Main Image :</label>
           <div class=" form-control ">
-            <label class="browse">Browse&hellip; <input type="file" name="mainImg" (change)="setMainImage($event.target.files)"
-                style="display: none;"></label>
+            <label class="browse">Browse&hellip;
+              <input type="file" name="MainImg" (change)="setMainImage($event.target.files)" style="display: none;">
+            </label>
           </div>
 
           <div class="block ">
@@ -87,7 +88,7 @@
                 style="display: none;"></label>
           </div>
           <div class="block row">
-            <div *ngFor="let item of PImages" class="small col-2">
+            <div *ngFor="let item of GalleryImgs" class="small col-2">
               <img [src]="item.data">
               <span (click)="removeImage(item.name)" class="remove">X</span>
             </div>
@@ -109,7 +110,7 @@
               style="display: none;"></label>
         </div>
         <div class="block c row">
-          <div *ngFor="let item of DesImages" class="small col-1">
+          <div *ngFor="let item of DescImgs" class="small col-1">
             <img [src]="item.data">
             <span (click)="removeDescImage(item.name)" class="remove">X</span>
           </div>
@@ -125,7 +126,6 @@
     <div class="alert alert-warning" *ngIf="serverError">
       {{serverError}}
     </div>
-    <input class="btn" type="button" value="logImgs" (click)="logImgs()">
   </div>
   <div class="col-3">
     <product-history [Products]="lastProducts"></product-history>

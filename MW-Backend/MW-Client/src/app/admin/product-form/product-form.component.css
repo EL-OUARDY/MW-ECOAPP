@@ -1,6 +1,7 @@
 label {
   font-size: 20px;
 }
+
 label.radio {
   font-size: 15px;
 }
@@ -78,4 +79,8 @@ img {
 
 .color input[type=radio]:checked {
   visibility: visible;
+}
+
+textarea {
+  height: 134px;
 }

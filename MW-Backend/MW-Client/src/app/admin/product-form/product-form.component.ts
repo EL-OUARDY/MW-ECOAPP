@@ -13,7 +13,7 @@ import { NgForm } from '@angular/forms';
 })
 export class ProductFormComponent implements OnInit {
   categories; subCategories; shipping; MainImage: File;
-  imgPath: string; PImages = new Array<IPath>(); DesImages = new Array<IPath>(); 
+  imgPath: string; GalleryImgs = new Array<IPath>(); DescImgs = new Array<IPath>();
   colors = ['white', 'red', 'pink', 'grey', 'yellow', 'blue', 'orange', 'green', 'black'];
 
   lastProducts: MiniProduct[];
@@ -25,10 +25,10 @@ export class ProductFormComponent implements OnInit {
 
   ngOnInit() {
     this.aps.getCategories().subscribe(res => {
-          this.categories = res;
+      this.categories = res;
     });
     this.aps.GetLastProducts().subscribe(data => {
-      this.lastProducts = <MiniProduct[]> data;
+      this.lastProducts = <MiniProduct[]>data;
     });
 
     this.shipping = this.aps.getShippings();
@@ -38,16 +38,38 @@ export class ProductFormComponent implements OnInit {
   // Posting The Product
   onSubmit(f: NgForm) {
     this._Product.Slug = this._Product.Name.replace(/\s+/g, '-');
-
     this.aps.PostProduct(this._Product).subscribe(
-      data => {
-        this.addToHistory(<MiniProduct>data);
-        f.resetForm( new AdminProduct() );
-    }, error => {
+      (ProductId: string) => {
+        f.resetForm(new AdminProduct());
+        this.toaster.success('Product has been added ' + ProductId, 'Success');
+
+        this.uploadProductImages(ProductId);
+
+      }, error => {
         if (error instanceof BadInput) {
-          this.serverError = error.originalError ; // Display the error within Form errors and Wrap it with JSON pipe
+          this.serverError = error.originalError; // Display the error within Form errors and Wrap it with JSON pipe
           console.log(this.serverError);
         } else throw error;
+      });
+  }
+
+  private uploadProductImages(ProductId: string) {
+    const form = new FormData();
+    form.append('ProductId', ProductId);
+
+    form.append('MainImg', this.MainImage, this.MainImage.name);
+
+    this.GalleryImgs.forEach(e => {
+      form.append('GalleryImgs', e.img, e.img.name);
+    });
+
+    this.DescImgs.forEach(e => {
+      form.append('DescImgs', e.img, e.img.name);
+    });
+
+    this.aps.UploadImages(form).subscribe((data) => {
+      this.addToHistory(<MiniProduct>data);
+      this.toaster.success('Images Uploaded !', 'Success');
     });
   }
 
@@ -82,7 +104,7 @@ export class ProductFormComponent implements OnInit {
 
   addProductImages(files: File[]) {
     for (let i = 0; i < files.length; i++) {
-      const exist = (this.PImages.find(x => x.name === files[i].name)) ? true : false;
+      const exist = (this.GalleryImgs.find(x => x.name === files[i].name)) ? true : false;
       if (files[i] && !exist) {
         const reader = new FileReader();
         reader.onload = (e: ProgressEvent) => {
@@ -92,7 +114,7 @@ export class ProductFormComponent implements OnInit {
             data: (<FileReader>e.target).result.toString()
           };
 
-          if (this.PImages.length < 8) { this.PImages.push(item); }
+          if (this.GalleryImgs.length < 8) { this.GalleryImgs.push(item); }
         };
         reader.readAsDataURL(files[i]);
       }
@@ -100,7 +122,7 @@ export class ProductFormComponent implements OnInit {
   }
   addDescImages(files: File[]) {
     for (let i = 0; i < files.length; i++) {
-      const exist = (this.DesImages.find(x => x.name === files[i].name)) ? true : false;
+      const exist = (this.DescImgs.find(x => x.name === files[i].name)) ? true : false;
       if (files[i] && !exist) {
         const reader = new FileReader();
         reader.onload = (e: ProgressEvent) => {
@@ -110,41 +132,19 @@ export class ProductFormComponent implements OnInit {
             data: (<FileReader>e.target).result.toString()
           };
 
-          if (this.DesImages.length < 8) { this.DesImages.push(item); }
+          if (this.DescImgs.length < 8) { this.DescImgs.push(item); }
         };
         reader.readAsDataURL(files[i]);
       }
     }
   }
   removeImage(name) {
-    const elem = this.PImages.find(x => x.name === name);
-    this.PImages.splice(this.PImages.indexOf(elem), 1);
+    const elem = this.GalleryImgs.find(x => x.name === name);
+    this.GalleryImgs.splice(this.GalleryImgs.indexOf(elem), 1);
   }
   removeDescImage(name) {
-    const elem = this.DesImages.find(x => x.name === name);
-    this.DesImages.splice(this.DesImages.indexOf(elem), 1);
-  }
-
-
-  getProductPhotos() {
-    const array: File[] = [];
-    this.PImages.forEach(e => {
-      array.push(e.img);
-    });
-    return array;
-  }
-  getDescriptionPhotos() {
-    const array: File[] = [];
-    this.DesImages.forEach(e => {
-      array.push(e.img);
-    });
-    return array;
-  }
-
-  logImgs() {
-    console.log(this.MainImage);
-    console.log(this.getProductPhotos());
-    console.log(this.getDescriptionPhotos());
+    const elem = this.DescImgs.find(x => x.name === name);
+    this.DescImgs.splice(this.DescImgs.indexOf(elem), 1);
   }
 }
 
@@ -153,11 +153,3 @@ interface IPath {
   name: string;
   data: string;
 }
-
-interface IProductData {
-  Product: AdminProduct;
-  mainImg: File;
-  productImgs: File[];
-  descImgs: File[];
-}
-

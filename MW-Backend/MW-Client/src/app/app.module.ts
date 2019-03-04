@@ -38,6 +38,7 @@ import { PaymentComponent } from './payment/payment.component';
 import { CouponComponent } from './coupon/coupon.component';
 import { AdminAreaComponent } from './admin/admin-area/admin-area.component';
 import { NavigationComponent } from './navigation/navigation.component';
+import { ProductImagesComponent } from './admin/product-images/product-images.component';
 
 @NgModule({
   declarations: [
@@ -61,11 +62,12 @@ import { NavigationComponent } from './navigation/navigation.component';
     PaymentComponent,
     CouponComponent,
     AdminAreaComponent,
-    NavigationComponent
+    NavigationComponent,
+    ProductImagesComponent
   ],
   imports: [
     CommonModule,
-    
+
     BrowserModule,
     AppRoutingModule,
     FormsModule,
@@ -84,9 +86,9 @@ import { NavigationComponent } from './navigation/navigation.component';
 
     ProductService,
     CartService,
-    
-    // { provide: ErrorHandler, useClass: AppErrorHandler },
-    
+
+    { provide: ErrorHandler, useClass: AppErrorHandler },
+
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]

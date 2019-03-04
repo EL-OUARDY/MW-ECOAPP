@@ -1,11 +1,11 @@
-import { ErrorHandler, Injectable} from '@angular/core';
+import { ErrorHandler, Injectable } from '@angular/core';
 
 @Injectable()
 export class AppErrorHandler implements ErrorHandler {
-    constructor() {}
+    constructor() { }
 
     handleError(error: Response) {
-        if ( error.status === 401 ) { // either unRegistred or Token has Expired
+        if (error.status === 401) { // either unRegistred or Token has Expired
             localStorage.removeItem('MW-AccessToken');
             window.location.href = '/sign-in';
             return;

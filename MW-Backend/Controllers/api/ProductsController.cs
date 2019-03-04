@@ -5,12 +5,16 @@ using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
+using System.Web;
 using System.Web.Http;
 using System.Web.Http.Description;
 using AutoMapper;
+using Microsoft.Ajax.Utilities;
 using MW_Backend.DTOs;
+using MW_Backend.Helpers;
 using MW_Backend.Models;
 using MW_Backend.Models.Data;
+using MW_Backend.ViewModel;
 
 namespace MW_Backend.Controllers.api
 {
@@ -49,9 +53,36 @@ namespace MW_Backend.Controllers.api
         }
 
 
+        [HttpPost]
+        [Route("api/upload-images")]
+        public IHttpActionResult UploadImages()
+        {
+            int ProductId = int.Parse( HttpContext.Current.Request["ProductId"] );
+            var files = HttpContext.Current.Request.Files;
+
+            // verify the Id
+            if ( ProductExists(ProductId) == false )
+            {
+                return NotFound();
+            }
+
+            // Check the existance of images .. => bad request 400
+            bool done = DirectoryHelper.SaveProductImages(files, ProductId); // should be async
+
+            if (!done)
+            {
+                return InternalServerError();
+            }
+
+            var model = db.Products.Find(ProductId);
+
+            return Ok( Mapper.Map<mProductDTO>(model) );
+        }
+
+
+
         // POST: api/Products
         [HttpPost]
-        // [ResponseType(typeof(Product))]
         public IHttpActionResult PostProduct(ProductDTO productDto)
         {
             if (!ModelState.IsValid)
@@ -63,8 +94,7 @@ namespace MW_Backend.Controllers.api
             db.Products.Add(product);
             db.SaveChanges();
 
-            return Ok( Mapper.Map<mProductDTO>(product) );
-            // return CreatedAtRoute("DefaultApi", new { id = productDto.Id }, productDto);
+            return Ok( product.Id );
         }
 
         // GET: api/last5
