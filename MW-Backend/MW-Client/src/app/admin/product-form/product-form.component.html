@@ -71,7 +71,7 @@
           <label>Main Image :</label>
           <div class=" form-control ">
             <label class="browse">Browse&hellip;
-              <input type="file" name="MainImg" (change)="setMainImage($event.target.files)" style="display: none;">
+              <input type="file" name="MainImg" ngModel (change)="setMainImage($event.target.files)" style="display: none;">
             </label>
           </div>
 
@@ -84,8 +84,10 @@
         <div class="form-group col-6">
           <label>Other Images :</label>
           <div class="form-control">
-            <label class="browse">Browse&hellip; <input type="file" accept="image/*" multiple (change)="addProductImages($event.target.files)"
-                style="display: none;"></label>
+            <label class="browse">Browse&hellip;
+              <input type="file" accept="image/*" name="GalleryImgs" ngModel multiple (change)="addProductImages($event.target.files)"
+                style="display: none;">
+            </label>
           </div>
           <div class="block row">
             <div *ngFor="let item of GalleryImgs" class="small col-2">
@@ -106,8 +108,10 @@
       <div class="form-group">
         <label>Description Images :</label>
         <div class="form-control">
-          <label class="browse">Browse&hellip; <input type="file" accept="image/*" multiple (change)="addDescImages($event.target.files)"
-              style="display: none;"></label>
+          <label class="browse">Browse&hellip;
+            <input type="file" accept="image/*" name="DescImgs" ngModel multiple (change)="addDescImages($event.target.files)"
+              style="display: none;">
+          </label>
         </div>
         <div class="block c row">
           <div *ngFor="let item of DescImgs" class="small col-1">

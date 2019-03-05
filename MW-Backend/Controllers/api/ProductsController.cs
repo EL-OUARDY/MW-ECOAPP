@@ -67,11 +67,17 @@ namespace MW_Backend.Controllers.api
             }
 
             // Check the existance of images .. => bad request 400
-            bool done = DirectoryHelper.SaveProductImages(files, ProductId); // should be async
 
-            if (!done)
+            if (files["MainImg"] == null || files.GetMultiple("GalleryImgs").Count == 0) //DescImages aren't mandatory
             {
-                return InternalServerError();
+                return BadRequest("Main Images And Gallery Images Are Required");
+            }
+
+            bool success = DirectoryHelper.SaveProductImages(files, ProductId); // should be async
+
+            if (!success)
+            {
+                return BadRequest("A Problem Has Occured While Uploading Images, You have to check it manualy !");
             }
 
             var model = db.Products.Find(ProductId);

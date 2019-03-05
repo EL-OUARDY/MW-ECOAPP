@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AdminProductService } from '../services/admin-product.service';
 import { AdminProduct } from '../models/adminProduct';
 import { ToastrService } from 'ngx-toastr';
 import { MiniProduct } from 'src/app/models/miniProduct';
 import { BadInput } from 'src/app/common/errors/http-errors';
 import { NgForm } from '@angular/forms';
+import { AppError } from 'src/app/common/errors/app-error';
 
 @Component({
   selector: 'product-form',
@@ -12,9 +13,12 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./product-form.component.css']
 })
 export class ProductFormComponent implements OnInit {
+
+  @ViewChild('f') ngForm: NgForm;
+
   categories; subCategories; shipping; MainImage: File;
   imgPath: string; GalleryImgs = new Array<IPath>(); DescImgs = new Array<IPath>();
-  colors = ['white', 'red', 'pink', 'grey', 'yellow', 'blue', 'orange', 'green', 'black'];
+  colors = ['white', 'red', 'pink', 'brown', 'grey', 'yellow', 'blue', 'orange', 'green', 'black'];
 
   lastProducts: MiniProduct[];
   _Product = new AdminProduct();
@@ -37,18 +41,20 @@ export class ProductFormComponent implements OnInit {
 
   // Posting The Product
   onSubmit(f: NgForm) {
+    if (f.invalid || !this.MainImage || this.GalleryImgs.length === 0) {
+      this.serverError = "You've to fill the required areas ..";
+      return;
+    }
+
     this._Product.Slug = this._Product.Name.replace(/\s+/g, '-');
     this.aps.PostProduct(this._Product).subscribe(
       (ProductId: string) => {
-        f.resetForm(new AdminProduct());
         this.toaster.success('Product has been added ' + ProductId, 'Success');
-
         this.uploadProductImages(ProductId);
 
-      }, error => {
+      }, (error: AppError) => {
         if (error instanceof BadInput) {
-          this.serverError = error.originalError; // Display the error within Form errors and Wrap it with JSON pipe
-          console.log(this.serverError);
+          this.serverError = 'ModelState is not valid ..'; // Display the error within Form errors and Wrap it with JSON pipe
         } else throw error;
       });
   }
@@ -67,10 +73,26 @@ export class ProductFormComponent implements OnInit {
       form.append('DescImgs', e.img, e.img.name);
     });
 
-    this.aps.UploadImages(form).subscribe((data) => {
-      this.addToHistory(<MiniProduct>data);
-      this.toaster.success('Images Uploaded !', 'Success');
-    });
+    this.aps.UploadImages(form).subscribe(
+      (Product) => {
+        this.addToHistory(<MiniProduct>Product);
+        this.toaster.success('Images Uploaded !', 'Success');
+        this.resetForm();
+      },
+      (err: AppError) => {
+        if (err instanceof BadInput) {
+          this.serverError = err.originalError.error.Message; // Display the error within Form errors
+        } else throw err;
+      });
+  }
+
+  private resetForm() {
+    this.ngForm.resetForm(new AdminProduct());
+    this.MainImage = undefined;
+    this.imgPath = undefined;
+    this.GalleryImgs = new Array<IPath>();
+    this.DescImgs = new Array<IPath>();
+    this.serverError = null;
   }
 
   addToHistory(data: MiniProduct) {

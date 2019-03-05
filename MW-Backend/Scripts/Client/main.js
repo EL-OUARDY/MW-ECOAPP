@@ -124,7 +124,7 @@ module.exports = "label {\r\n  font-size: 20px;\r\n}\r\n\r\nlabel.radio {\r\n  f
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row no-gutters\">\n  <div class=\"col-9\">\n    <form #f=\"ngForm\" (ngSubmit)=\"onSubmit(f)\" autocomplete=\"off\">\n      <input type=\"hidden\" [(ngModel)]=\"_Product.Id\" name=\"Id\" #Id=\"ngModel\" class=\" form-control\">\n      <div class=\"row\">\n        <div class=\" form-group col-6 \">\n          <label>Name :</label>\n          <input required minlength=\"6\" type=\"text\" [(ngModel)]=\"_Product.Name\" name=\"Name\" #Name=\"ngModel\" class=\" form-control\">\n          <div class=\"alert alert-dark\" *ngIf=\"Name.touched && !Name.valid\">\n            <div *ngIf=\"Name.errors.required\"> Name Is Required !</div>\n            <!-- Custom Validation => Name Must Be Unique -->\n            <div *ngIf=\"Name.errors.minlength\"> Name Must Be More Then 6 Characters </div>\n          </div>\n\n        </div>\n        <div class=\" form-group col-2\">\n          <label>Price :</label>\n          <input required maxlength=\"7\" type=\"number\" [(ngModel)]=\"_Product.Price\" name=\"Price\" #Price=\"ngModel\" class=\"form-control\">\n          <div class=\"alert alert-dark\" *ngIf=\"Price.touched && !Price.valid\">\n            <div *ngIf=\"Price.errors?.required\"> Price Is Required !</div>\n          </div>\n        </div>\n        <div class=\" form-group col-4\">\n          <label>Status :</label>\n          <div class=\"form-control \">\n            <label class=\"col-6 radio\">\n              <input type=\"radio\" [(ngModel)]=\"_Product.Status\" name=\"Status\" value=\"on-sale\">\n              On Sale\n            </label>\n            <label class=\"col-6 radio\">\n              <input type=\"radio\" [(ngModel)]=\"_Product.Status\" name=\"Status\" value=\"out-of-stock\">\n              Out Of Stock\n            </label>\n          </div>\n        </div>\n      </div>\n      <div class=\"row\">\n        <div class=\"col-7 form-group\">\n          <label>Description :</label>\n          <textarea required [(ngModel)]=\"_Product.Description\" name=\"Description\" #des=\"ngModel\" cols=\"30\" rows=\"8\"\n            class=\" form-control\"></textarea>\n          <div class=\"alert alert-dark\" *ngIf=\"des.touched && des.errors?.required\">Fill The Description !</div>\n        </div>\n        <div class=\"col-5\">\n          <div class=\"form-group\">\n            <label>Category :</label>\n            <select #Category (change)=\"getSub(Category.value)\" class=\"form-control\">\n              <option value=\"\"></option>\n              <option *ngFor=\"let item of categories\" [value]=\"item.Id\">{{item.Name}}</option>\n            </select>\n          </div>\n          <div class=\"form-group\">\n            <label>SubCategory :</label>\n            <select name=\"SubCategoryId\" required [(ngModel)]=\"_Product.SubCategoryId\" class=\"form-control\">\n              <option *ngFor=\"let item of subCategories\" [value]=\"item.Id\">{{item.Name}}</option>\n            </select>\n          </div>\n          <!-- <div class=\"form-group\">\n              <label>Shipping :</label>\n              <div class=\"form-control\">\n                <label *ngFor=\"let item of shipping\" class=\"col-4 radio\">\n                  <input type=\"radio\" ngModel name=\"shippingMethod\" [value]=\"item\">\n                  {{item}}\n                </label>\n              </div>\n            </div> -->\n        </div>\n      </div>\n      <div class=\"row\">\n        <div class=\"form-group col-3\">\n          <label>Main Image :</label>\n          <div class=\" form-control \">\n            <label class=\"browse\">Browse&hellip;\n              <input type=\"file\" name=\"MainImg\" (change)=\"setMainImage($event.target.files)\" style=\"display: none;\">\n            </label>\n          </div>\n\n          <div class=\"block \">\n            <img *ngIf=\"imgPath\" [src]=\"imgPath\" class=\"image\">\n          </div>\n\n        </div>\n\n        <div class=\"form-group col-6\">\n          <label>Other Images :</label>\n          <div class=\"form-control\">\n            <label class=\"browse\">Browse&hellip; <input type=\"file\" accept=\"image/*\" multiple (change)=\"addProductImages($event.target.files)\"\n                style=\"display: none;\"></label>\n          </div>\n          <div class=\"block row\">\n            <div *ngFor=\"let item of GalleryImgs\" class=\"small col-2\">\n              <img [src]=\"item.data\">\n              <span (click)=\"removeImage(item.name)\" class=\"remove\">X</span>\n            </div>\n          </div>\n        </div>\n        <div class=\"form-group col-3\">\n          <label>Color :</label>\n          <div class=\"block\">\n            <label class=\"color col-3\" *ngFor=\"let item of colors\" [ngStyle]=\"{'background': item}\">\n              <input type=\"radio\" [(ngModel)]=\"_Product.Color\" name=\"Color\" [value]=\"item\">\n            </label>\n          </div>\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <label>Description Images :</label>\n        <div class=\"form-control\">\n          <label class=\"browse\">Browse&hellip; <input type=\"file\" accept=\"image/*\" multiple (change)=\"addDescImages($event.target.files)\"\n              style=\"display: none;\"></label>\n        </div>\n        <div class=\"block c row\">\n          <div *ngFor=\"let item of DescImgs\" class=\"small col-1\">\n            <img [src]=\"item.data\">\n            <span (click)=\"removeDescImage(item.name)\" class=\"remove\">X</span>\n          </div>\n        </div>\n      </div>\n      <button [disabled]=\"f.invalid\" class=\"btn \">Submit</button>\n      <!-- <button class=\"btn \">Submit</button> -->\n    </form>\n\n    <p class=\"formData alert alert-success\">\n      {{ f.value | json }}\n    </p>\n    <div class=\"alert alert-warning\" *ngIf=\"serverError\">\n      {{serverError}}\n    </div>\n  </div>\n  <div class=\"col-3\">\n    <product-history [Products]=\"lastProducts\"></product-history>\n  </div>\n</div>\n"
+module.exports = "<div class=\"row no-gutters\">\n  <div class=\"col-9\">\n    <form #f=\"ngForm\" (ngSubmit)=\"onSubmit(f)\" autocomplete=\"off\">\n      <input type=\"hidden\" [(ngModel)]=\"_Product.Id\" name=\"Id\" #Id=\"ngModel\" class=\" form-control\">\n      <div class=\"row\">\n        <div class=\" form-group col-6 \">\n          <label>Name :</label>\n          <input required minlength=\"6\" type=\"text\" [(ngModel)]=\"_Product.Name\" name=\"Name\" #Name=\"ngModel\" class=\" form-control\">\n          <div class=\"alert alert-dark\" *ngIf=\"Name.touched && !Name.valid\">\n            <div *ngIf=\"Name.errors.required\"> Name Is Required !</div>\n            <!-- Custom Validation => Name Must Be Unique -->\n            <div *ngIf=\"Name.errors.minlength\"> Name Must Be More Then 6 Characters </div>\n          </div>\n\n        </div>\n        <div class=\" form-group col-2\">\n          <label>Price :</label>\n          <input required maxlength=\"7\" type=\"number\" [(ngModel)]=\"_Product.Price\" name=\"Price\" #Price=\"ngModel\" class=\"form-control\">\n          <div class=\"alert alert-dark\" *ngIf=\"Price.touched && !Price.valid\">\n            <div *ngIf=\"Price.errors?.required\"> Price Is Required !</div>\n          </div>\n        </div>\n        <div class=\" form-group col-4\">\n          <label>Status :</label>\n          <div class=\"form-control \">\n            <label class=\"col-6 radio\">\n              <input type=\"radio\" [(ngModel)]=\"_Product.Status\" name=\"Status\" value=\"on-sale\">\n              On Sale\n            </label>\n            <label class=\"col-6 radio\">\n              <input type=\"radio\" [(ngModel)]=\"_Product.Status\" name=\"Status\" value=\"out-of-stock\">\n              Out Of Stock\n            </label>\n          </div>\n        </div>\n      </div>\n      <div class=\"row\">\n        <div class=\"col-7 form-group\">\n          <label>Description :</label>\n          <textarea required [(ngModel)]=\"_Product.Description\" name=\"Description\" #des=\"ngModel\" cols=\"30\" rows=\"8\"\n            class=\" form-control\"></textarea>\n          <div class=\"alert alert-dark\" *ngIf=\"des.touched && des.errors?.required\">Fill The Description !</div>\n        </div>\n        <div class=\"col-5\">\n          <div class=\"form-group\">\n            <label>Category :</label>\n            <select #Category (change)=\"getSub(Category.value)\" class=\"form-control\">\n              <option value=\"\"></option>\n              <option *ngFor=\"let item of categories\" [value]=\"item.Id\">{{item.Name}}</option>\n            </select>\n          </div>\n          <div class=\"form-group\">\n            <label>SubCategory :</label>\n            <select name=\"SubCategoryId\" required [(ngModel)]=\"_Product.SubCategoryId\" class=\"form-control\">\n              <option *ngFor=\"let item of subCategories\" [value]=\"item.Id\">{{item.Name}}</option>\n            </select>\n          </div>\n          <!-- <div class=\"form-group\">\n              <label>Shipping :</label>\n              <div class=\"form-control\">\n                <label *ngFor=\"let item of shipping\" class=\"col-4 radio\">\n                  <input type=\"radio\" ngModel name=\"shippingMethod\" [value]=\"item\">\n                  {{item}}\n                </label>\n              </div>\n            </div> -->\n        </div>\n      </div>\n      <div class=\"row\">\n        <div class=\"form-group col-3\">\n          <label>Main Image :</label>\n          <div class=\" form-control \">\n            <label class=\"browse\">Browse&hellip;\n              <input type=\"file\" name=\"MainImg\" ngModel (change)=\"setMainImage($event.target.files)\" style=\"display: none;\">\n            </label>\n          </div>\n\n          <div class=\"block \">\n            <img *ngIf=\"imgPath\" [src]=\"imgPath\" class=\"image\">\n          </div>\n\n        </div>\n\n        <div class=\"form-group col-6\">\n          <label>Other Images :</label>\n          <div class=\"form-control\">\n            <label class=\"browse\">Browse&hellip;\n              <input type=\"file\" accept=\"image/*\" name=\"GalleryImgs\" ngModel multiple (change)=\"addProductImages($event.target.files)\"\n                style=\"display: none;\">\n            </label>\n          </div>\n          <div class=\"block row\">\n            <div *ngFor=\"let item of GalleryImgs\" class=\"small col-2\">\n              <img [src]=\"item.data\">\n              <span (click)=\"removeImage(item.name)\" class=\"remove\">X</span>\n            </div>\n          </div>\n        </div>\n        <div class=\"form-group col-3\">\n          <label>Color :</label>\n          <div class=\"block\">\n            <label class=\"color col-3\" *ngFor=\"let item of colors\" [ngStyle]=\"{'background': item}\">\n              <input type=\"radio\" [(ngModel)]=\"_Product.Color\" name=\"Color\" [value]=\"item\">\n            </label>\n          </div>\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <label>Description Images :</label>\n        <div class=\"form-control\">\n          <label class=\"browse\">Browse&hellip;\n            <input type=\"file\" accept=\"image/*\" name=\"DescImgs\" ngModel multiple (change)=\"addDescImages($event.target.files)\"\n              style=\"display: none;\">\n          </label>\n        </div>\n        <div class=\"block c row\">\n          <div *ngFor=\"let item of DescImgs\" class=\"small col-1\">\n            <img [src]=\"item.data\">\n            <span (click)=\"removeDescImage(item.name)\" class=\"remove\">X</span>\n          </div>\n        </div>\n      </div>\n      <button [disabled]=\"f.invalid\" class=\"btn \">Submit</button>\n      <!-- <button class=\"btn \">Submit</button> -->\n    </form>\n\n    <p class=\"formData alert alert-success\">\n      {{ f.value | json }}\n    </p>\n    <div class=\"alert alert-warning\" *ngIf=\"serverError\">\n      {{serverError}}\n    </div>\n  </div>\n  <div class=\"col-3\">\n    <product-history [Products]=\"lastProducts\"></product-history>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -144,6 +144,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _models_adminProduct__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../models/adminProduct */ "./src/app/admin/models/adminProduct.ts");
 /* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm5/ngx-toastr.js");
 /* harmony import */ var src_app_common_errors_http_errors__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/common/errors/http-errors */ "./src/app/common/errors/http-errors.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+
 
 
 
@@ -156,7 +158,7 @@ var ProductFormComponent = /** @class */ (function () {
         this.toaster = toaster;
         this.GalleryImgs = new Array();
         this.DescImgs = new Array();
-        this.colors = ['white', 'red', 'pink', 'grey', 'yellow', 'blue', 'orange', 'green', 'black'];
+        this.colors = ['white', 'red', 'pink', 'brown', 'grey', 'yellow', 'blue', 'orange', 'green', 'black'];
         this._Product = new _models_adminProduct__WEBPACK_IMPORTED_MODULE_3__["AdminProduct"]();
     }
     ProductFormComponent.prototype.ngOnInit = function () {
@@ -172,15 +174,17 @@ var ProductFormComponent = /** @class */ (function () {
     // Posting The Product
     ProductFormComponent.prototype.onSubmit = function (f) {
         var _this = this;
+        if (f.invalid || !this.MainImage || this.GalleryImgs.length === 0) {
+            this.serverError = "You've to fill the required areas ..";
+            return;
+        }
         this._Product.Slug = this._Product.Name.replace(/\s+/g, '-');
         this.aps.PostProduct(this._Product).subscribe(function (ProductId) {
-            f.resetForm(new _models_adminProduct__WEBPACK_IMPORTED_MODULE_3__["AdminProduct"]());
             _this.toaster.success('Product has been added ' + ProductId, 'Success');
             _this.uploadProductImages(ProductId);
         }, function (error) {
             if (error instanceof src_app_common_errors_http_errors__WEBPACK_IMPORTED_MODULE_5__["BadInput"]) {
-                _this.serverError = error.originalError; // Display the error within Form errors and Wrap it with JSON pipe
-                console.log(_this.serverError);
+                _this.serverError = 'ModelState is not valid ..'; // Display the error within Form errors and Wrap it with JSON pipe
             }
             else
                 throw error;
@@ -197,10 +201,25 @@ var ProductFormComponent = /** @class */ (function () {
         this.DescImgs.forEach(function (e) {
             form.append('DescImgs', e.img, e.img.name);
         });
-        this.aps.UploadImages(form).subscribe(function (data) {
-            _this.addToHistory(data);
+        this.aps.UploadImages(form).subscribe(function (Product) {
+            _this.addToHistory(Product);
             _this.toaster.success('Images Uploaded !', 'Success');
+            _this.resetForm();
+        }, function (err) {
+            if (err instanceof src_app_common_errors_http_errors__WEBPACK_IMPORTED_MODULE_5__["BadInput"]) {
+                _this.serverError = err.originalError.error.Message; // Display the error within Form errors
+            }
+            else
+                throw err;
         });
+    };
+    ProductFormComponent.prototype.resetForm = function () {
+        this.ngForm.resetForm(new _models_adminProduct__WEBPACK_IMPORTED_MODULE_3__["AdminProduct"]());
+        this.MainImage = undefined;
+        this.imgPath = undefined;
+        this.GalleryImgs = new Array();
+        this.DescImgs = new Array();
+        this.serverError = null;
     };
     ProductFormComponent.prototype.addToHistory = function (data) {
         var array = this.lastProducts;
@@ -282,6 +301,10 @@ var ProductFormComponent = /** @class */ (function () {
         var elem = this.DescImgs.find(function (x) { return x.name === name; });
         this.DescImgs.splice(this.DescImgs.indexOf(elem), 1);
     };
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('f'),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_forms__WEBPACK_IMPORTED_MODULE_6__["NgForm"])
+    ], ProductFormComponent.prototype, "ngForm", void 0);
     ProductFormComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'product-form',
@@ -449,11 +472,10 @@ var AdminProductService = /** @class */ (function () {
     };
     // calling the server
     AdminProductService.prototype.PostProduct = function (form) {
-        return this.http.post('api/Products', form, { headers: this.noAuth })
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(src_app_common_errors_http_errors__WEBPACK_IMPORTED_MODULE_4__["handleExpectedErrors"]));
+        return this.http.post('api/Products', form, { headers: this.noAuth }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(src_app_common_errors_http_errors__WEBPACK_IMPORTED_MODULE_4__["handleExpectedErrors"]));
     };
     AdminProductService.prototype.UploadImages = function (form) {
-        return this.http.post('api/upload-images', form, { headers: this.noAuth });
+        return this.http.post('api/upload-images', form, { headers: this.noAuth }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(src_app_common_errors_http_errors__WEBPACK_IMPORTED_MODULE_4__["handleExpectedErrors"]));
     };
     AdminProductService.prototype.GetLastProducts = function () {
         return this.http.get('api/last5', { headers: this.noAuth });

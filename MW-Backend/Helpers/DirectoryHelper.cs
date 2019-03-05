@@ -36,7 +36,7 @@ namespace MW_Backend.Helpers
                     item.SaveAs(Path2 + "/" + item.FileName);
                 }
 
-                // Gallery Images
+                // Description Images
                 string Path3 = HttpContext.Current.Server.MapPath("~/Content/Images/Products/" + ProductId.ToString() + "/Desc");
                 if (!Directory.Exists(Path3))
                     Directory.CreateDirectory(Path3);

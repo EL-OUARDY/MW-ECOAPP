@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { AdminProduct } from '../models/adminProduct';
 import { catchError } from 'rxjs/operators';
-import { handleExpectedErrors } from 'src/app/common/errors/http-errors';
+import { handleExpectedErrors, BadInput } from 'src/app/common/errors/http-errors';
+import { throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -24,14 +24,15 @@ export class AdminProductService {
   // calling the server
 
   PostProduct(form) {
-    return this.http.post('api/Products', form, { headers: this.noAuth })
-      .pipe(
-        catchError(handleExpectedErrors)
-      );
+    return this.http.post('api/Products', form, { headers: this.noAuth }).pipe(
+      catchError(handleExpectedErrors)
+    );
   }
 
   UploadImages(form: FormData) {
-    return this.http.post('api/upload-images', form, { headers: this.noAuth });
+    return this.http.post('api/upload-images', form, { headers: this.noAuth }).pipe(
+      catchError(handleExpectedErrors)
+    );
   }
 
   GetLastProducts() {
