@@ -62,15 +62,11 @@ img {
   cursor: pointer;
 }
 
-.c {
-  height: 120px;
-}
-
 .color {
-  border: 2px solid #eee;
   padding: 5px;
   cursor: pointer;
-  text-align: center
+  text-align: center;
+  opacity: 0.7;
 }
 
 .color input[type=radio] {

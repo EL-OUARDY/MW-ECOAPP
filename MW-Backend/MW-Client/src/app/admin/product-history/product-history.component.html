@@ -1,5 +1,5 @@
 <div class="history">
-  <h4>Last Added Product</h4>
+  <h4 *ngIf="Products">Last Added Product</h4>
   <table class="table table-hover text-center">
     <tr *ngFor="let p of Products" class="row">
       <td class="col-3"><img [src]="'/Content/Images/Products/' + p.Id + '/Main/' + p.Image" class="img-responsive table-img"></td>

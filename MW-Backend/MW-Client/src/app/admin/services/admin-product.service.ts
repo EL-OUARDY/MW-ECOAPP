@@ -36,6 +36,6 @@ export class AdminProductService {
   }
 
   GetLastProducts() {
-    return this.http.get('api/last5', { headers: this.noAuth });
+    return this.http.get('api/last7', { headers: this.noAuth });
   }
 }

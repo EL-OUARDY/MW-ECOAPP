@@ -19,6 +19,5 @@ export class AdminProduct {
         this.Name = 'Lorem Ipsum';
         this.Price = 9;
         this.Description = 'Some Dummy Text ..';
-        this.SubCategoryId = 3;
     }
 }

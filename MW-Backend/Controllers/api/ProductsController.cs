@@ -14,7 +14,6 @@ using MW_Backend.DTOs;
 using MW_Backend.Helpers;
 using MW_Backend.Models;
 using MW_Backend.Models.Data;
-using MW_Backend.ViewModel;
 
 namespace MW_Backend.Controllers.api
 {
@@ -66,11 +65,11 @@ namespace MW_Backend.Controllers.api
                 return NotFound();
             }
 
-            // Check the existance of images .. => bad request 400
+            // Check the existance of images within the request object..
 
             if (files["MainImg"] == null || files.GetMultiple("GalleryImgs").Count == 0) //DescImages aren't mandatory
             {
-                return BadRequest("Main Images And Gallery Images Are Required");
+                return BadRequest("Main Image And Gallery Images Are Required");
             }
 
             bool success = DirectoryHelper.SaveProductImages(files, ProductId); // should be async
@@ -105,11 +104,11 @@ namespace MW_Backend.Controllers.api
 
         // GET: api/last5
         [HttpGet]
-        [Route("api/last5")]
-        public IHttpActionResult Last5()
+        [Route("api/last7")]
+        public IHttpActionResult Last7()
         {
             var products = db.Products.OrderByDescending(x => x.Id)
-                                .Take(5)
+                                .Take(7)
                                 .ToList()
                                 .Select(Mapper.Map<Product, mProductDTO>);
 

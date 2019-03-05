@@ -367,7 +367,6 @@
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="ViewModel\ProductFormVM.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
@@ -464,6 +463,7 @@
     <Folder Include="Content\Images\Products\15\Gallery\" />
     <Folder Include="Content\Images\Products\9\Desc\" />
     <Folder Include="Content\Images\Products\9\Gallery\" />
+    <Folder Include="ViewModel\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

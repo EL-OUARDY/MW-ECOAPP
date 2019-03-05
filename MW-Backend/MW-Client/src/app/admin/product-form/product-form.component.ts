@@ -18,11 +18,10 @@ export class ProductFormComponent implements OnInit {
 
   categories; subCategories; shipping; MainImage: File;
   imgPath: string; GalleryImgs = new Array<IPath>(); DescImgs = new Array<IPath>();
-  colors = ['white', 'red', 'pink', 'brown', 'grey', 'yellow', 'blue', 'orange', 'green', 'black'];
+  colors = ['white', 'red', 'pink', 'green', 'grey', 'yellow', 'blue', 'orange', 'brown', 'black'];
 
   lastProducts: MiniProduct[];
   _Product = new AdminProduct();
-  serverError;
 
   constructor(private aps: AdminProductService, private toaster: ToastrService) {
   }
@@ -42,7 +41,7 @@ export class ProductFormComponent implements OnInit {
   // Posting The Product
   onSubmit(f: NgForm) {
     if (f.invalid || !this.MainImage || this.GalleryImgs.length === 0) {
-      this.serverError = "You've to fill the required areas ..";
+      this.toaster.warning("You've to fill the required areas ..");
       return;
     }
 
@@ -54,7 +53,7 @@ export class ProductFormComponent implements OnInit {
 
       }, (error: AppError) => {
         if (error instanceof BadInput) {
-          this.serverError = 'ModelState is not valid ..'; // Display the error within Form errors and Wrap it with JSON pipe
+          this.toaster.warning('ModelState is not valid ..'); // Display the error within Form errors and Wrap it with JSON pipe
         } else throw error;
       });
   }
@@ -81,7 +80,7 @@ export class ProductFormComponent implements OnInit {
       },
       (err: AppError) => {
         if (err instanceof BadInput) {
-          this.serverError = err.originalError.error.Message; // Display the error within Form errors
+          this.toaster.warning(err.originalError.error.Message); // Display the error within Form errors
         } else throw err;
       });
   }
@@ -92,7 +91,6 @@ export class ProductFormComponent implements OnInit {
     this.imgPath = undefined;
     this.GalleryImgs = new Array<IPath>();
     this.DescImgs = new Array<IPath>();
-    this.serverError = null;
   }
 
   addToHistory(data: MiniProduct) {
