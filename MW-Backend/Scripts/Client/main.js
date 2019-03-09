@@ -123,7 +123,7 @@ module.exports = "label {\r\n  font-size: 20px;\r\n}\r\n\r\nlabel.radio {\r\n  f
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row no-gutters\">\n  <div class=\"col-9\">\n    <form #f=\"ngForm\" (ngSubmit)=\"onSubmit(f)\" autocomplete=\"off\">\n      <input type=\"hidden\" [(ngModel)]=\"_Product.Id\" name=\"Id\" #Id=\"ngModel\" class=\" form-control\">\n      <div class=\"row\">\n        <div class=\" form-group col-6 \">\n          <label>Name :</label>\n          <input required minlength=\"6\" type=\"text\" [(ngModel)]=\"_Product.Name\" name=\"Name\" #Name=\"ngModel\" class=\" form-control\">\n          <div class=\"alert alert-dark\" *ngIf=\"Name.touched && !Name.valid\">\n            <div *ngIf=\"Name.errors.required\"> Name Is Required !</div>\n            <!-- Custom Validation => Name Must Be Unique -->\n            <div *ngIf=\"Name.errors.minlength\"> Name Must Be More Then 6 Characters </div>\n          </div>\n\n        </div>\n        <div class=\" form-group col-2\">\n          <label>Price :</label>\n          <input required maxlength=\"7\" type=\"number\" [(ngModel)]=\"_Product.Price\" name=\"Price\" #Price=\"ngModel\" class=\"form-control\">\n          <div class=\"alert alert-dark\" *ngIf=\"Price.touched && !Price.valid\">\n            <div *ngIf=\"Price.errors?.required\"> Price Is Required !</div>\n          </div>\n        </div>\n        <div class=\" form-group col-4\">\n          <label>Status :</label>\n          <div class=\"form-control \">\n            <label class=\"col-6 radio\">\n              <input type=\"radio\" [(ngModel)]=\"_Product.Status\" name=\"Status\" value=\"on-sale\">\n              On Sale\n            </label>\n            <label class=\"col-6 radio\">\n              <input type=\"radio\" [(ngModel)]=\"_Product.Status\" name=\"Status\" value=\"out-of-stock\">\n              Out Of Stock\n            </label>\n          </div>\n        </div>\n      </div>\n      <div class=\"row\">\n        <div class=\"col-6 form-group\">\n          <label>Description :</label>\n          <textarea required [(ngModel)]=\"_Product.Description\" name=\"Description\" #des=\"ngModel\" cols=\"30\" rows=\"8\"\n            class=\" form-control\"></textarea>\n          <div class=\"alert alert-dark\" *ngIf=\"des.touched && des.errors?.required\">Fill The Description !</div>\n        </div>\n        <div class=\"col-3\">\n          <div class=\"form-group\">\n            <label>Category :</label>\n            <select #Category (change)=\"getSub(Category.value)\" class=\"form-control\">\n              <option value=\"\"></option>\n              <option *ngFor=\"let item of categories\" [value]=\"item.Id\">{{item.Name}}</option>\n            </select>\n          </div>\n          <div class=\"form-group\">\n            <label>SubCategory :</label>\n            <select name=\"SubCategoryId\" required [(ngModel)]=\"_Product.SubCategoryId\" class=\"form-control\">\n              <option *ngFor=\"let item of subCategories\" [value]=\"item.Id\">{{item.Name}}</option>\n            </select>\n          </div>\n\n          <!-- <div class=\"form-group\">\n            <label>Shipping :</label>\n            <div class=\"form-control\">\n              <label *ngFor=\"let item of shipping\" class=\"col-4 radio\">\n                <input type=\"radio\" ngModel name=\"shippingMethod\" [value]=\"item\">\n                {{item}}\n              </label>\n            </div>\n          </div> -->\n        </div>\n        <div class=\"form-group col-3\">\n          <label>Color :</label>\n          <div>\n            <label class=\"color col-3\" *ngFor=\"let item of colors\" [ngStyle]=\"{'background': item}\">\n              <input type=\"radio\" [(ngModel)]=\"_Product.Color\" name=\"Color\" [value]=\"item\">\n            </label>\n          </div>\n        </div>\n      </div>\n      <div class=\"row\">\n        <div class=\"form-group col-2\">\n          <label>Main Image :</label>\n          <div class=\" form-control \">\n            <label class=\"browse\">Browse&hellip;\n              <input type=\"file\" name=\"MainImg\" ngModel (change)=\"setMainImage($event.target.files)\" style=\"display: none;\">\n            </label>\n          </div>\n\n          <div class=\"block \">\n            <img *ngIf=\"imgPath\" [src]=\"imgPath\" class=\"image\">\n          </div>\n\n        </div>\n\n        <div class=\"form-group col-5\">\n          <label>Other Images :</label>\n          <div class=\"form-control\">\n            <label class=\"browse\">Browse&hellip;\n              <input type=\"file\" accept=\"image/*\" name=\"GalleryImgs\" ngModel multiple (change)=\"addProductImages($event.target.files)\"\n                style=\"display: none;\">\n            </label>\n          </div>\n          <div class=\"block row\">\n            <div *ngFor=\"let item of GalleryImgs\" class=\"small col-2\">\n              <img [src]=\"item.data\">\n              <span (click)=\"removeImage(item.name)\" class=\"remove\">X</span>\n            </div>\n          </div>\n        </div>\n        <div class=\"form-group col-5\">\n          <label>Description Images :</label>\n          <div class=\"form-control\">\n            <label class=\"browse\">Browse&hellip;\n              <input type=\"file\" accept=\"image/*\" name=\"DescImgs\" ngModel multiple (change)=\"addDescImages($event.target.files)\"\n                style=\"display: none;\">\n            </label>\n          </div>\n          <div class=\"block row\">\n            <div *ngFor=\"let item of DescImgs\" class=\"small col-2\">\n              <img [src]=\"item.data\">\n              <span (click)=\"removeDescImage(item.name)\" class=\"remove\">X</span>\n            </div>\n          </div>\n        </div>\n      </div>\n\n      <button [disabled]=\"f.invalid\" class=\"btn btn-info\">Submit</button>\n    </form>\n\n    <!-- <p class=\"formData alert alert-success\">\n      {{ f.value | json }}\n    </p> -->\n  </div>\n  <div class=\"col-3\">\n    <product-history [Products]=\"lastProducts\"></product-history>\n  </div>\n</div>\n"
+module.exports = "<div class=\"row no-gutters\">\n  <div class=\"col-9\">\n    <form #f=\"ngForm\" (ngSubmit)=\"onSubmit(f)\" autocomplete=\"off\">\n      <input type=\"hidden\" [(ngModel)]=\"_Product.Id\" name=\"Id\" #Id=\"ngModel\" class=\" form-control\">\n      <div class=\"row\">\n        <div class=\" form-group col-6 \">\n          <label>Name :</label>\n          <input required minlength=\"6\" type=\"text\" [(ngModel)]=\"_Product.Name\" name=\"Name\" #Name=\"ngModel\" class=\" form-control\">\n          <div class=\"alert alert-dark\" *ngIf=\"Name.touched && !Name.valid\">\n            <div *ngIf=\"Name.errors.required\"> Name Is Required !</div>\n            <!-- Custom Validation => Name Must Be Unique -->\n            <div *ngIf=\"Name.errors.minlength\"> Name Must Be More Then 6 Characters </div>\n          </div>\n\n        </div>\n        <div class=\" form-group col-2\">\n          <label>Price :</label>\n          <input required maxlength=\"7\" type=\"number\" [(ngModel)]=\"_Product.Price\" name=\"Price\" #Price=\"ngModel\" class=\"form-control\">\n          <div class=\"alert alert-dark\" *ngIf=\"Price.touched && !Price.valid\">\n            <div *ngIf=\"Price.errors?.required\"> Price Is Required !</div>\n          </div>\n        </div>\n        <div class=\" form-group col-4\">\n          <label>Status :</label>\n          <div class=\"form-control \">\n            <label class=\"col-6 radio\">\n              <input type=\"radio\" [(ngModel)]=\"_Product.Status\" name=\"Status\" value=\"on-sale\">\n              On Sale\n            </label>\n            <label class=\"col-6 radio\">\n              <input type=\"radio\" [(ngModel)]=\"_Product.Status\" name=\"Status\" value=\"out-of-stock\">\n              Out Of Stock\n            </label>\n          </div>\n        </div>\n      </div>\n      <div class=\"row\">\n        <div class=\"col-7 form-group\">\n          <label>Description :</label>\n          <textarea required [(ngModel)]=\"_Product.Description\" name=\"Description\" #des=\"ngModel\" cols=\"30\" rows=\"8\"\n            class=\" form-control\"></textarea>\n          <div class=\"alert alert-dark\" *ngIf=\"des.touched && des.errors?.required\">Fill The Description !</div>\n        </div>\n        <div class=\"col-3\">\n          <div class=\"form-group\">\n            <label>Category :</label>\n            <select #Category (change)=\"getSub(Category.value)\" class=\"form-control\">\n              <option value=\"\"></option>\n              <option *ngFor=\"let item of categories\" [value]=\"item.Id\">{{item.Name}}</option>\n            </select>\n          </div>\n          <div class=\"form-group\">\n            <label>SubCategory :</label>\n            <select name=\"SubCategoryId\" required [(ngModel)]=\"_Product.SubCategoryId\" class=\"form-control\">\n              <option *ngFor=\"let item of subCategories\" [value]=\"item.Id\">{{item.Name}}</option>\n            </select>\n          </div>\n\n          <!-- <div class=\"form-group\">\n            <label>Shipping :</label>\n            <div class=\"form-control\">\n              <label *ngFor=\"let item of shipping\" class=\"col-4 radio\">\n                <input type=\"radio\" ngModel name=\"shippingMethod\" [value]=\"item\">\n                {{item}}\n              </label>\n            </div>\n          </div> -->\n        </div>\n        <div class=\"form-group col-2\">\n          <label>Color :</label>\n          <div>\n            <label class=\"color col-3\" *ngFor=\"let item of colors\" [ngStyle]=\"{'background': item}\">\n              <input type=\"radio\" [(ngModel)]=\"_Product.Color\" name=\"Color\" [value]=\"item\">\n            </label>\n          </div>\n        </div>\n      </div>\n      <div class=\"row\">\n        <div class=\"form-group col-2\">\n          <label>Main Image :</label>\n          <div class=\" form-control \">\n            <label class=\"browse\">Browse&hellip;\n              <input type=\"file\" name=\"MainImg\" ngModel (change)=\"setMainImage($event.target.files)\" style=\"display: none;\">\n            </label>\n          </div>\n\n          <div class=\"block \">\n            <img *ngIf=\"imgPath\" [src]=\"imgPath\" class=\"image\">\n          </div>\n\n        </div>\n\n        <div class=\"form-group col-5\">\n          <label>Other Images :</label>\n          <div class=\"form-control\">\n            <label class=\"browse\">Browse&hellip;\n              <input type=\"file\" accept=\"image/*\" name=\"GalleryImgs\" ngModel multiple (change)=\"addProductImages($event.target.files)\"\n                style=\"display: none;\">\n            </label>\n          </div>\n          <div class=\"block row\">\n            <div *ngFor=\"let item of GalleryImgs\" class=\"small col-2\">\n              <img [src]=\"item.data\">\n              <span (click)=\"removeImage(item.name)\" class=\"remove\">X</span>\n            </div>\n          </div>\n        </div>\n        <div class=\"form-group col-5\">\n          <label>Description Images :</label>\n          <div class=\"form-control\">\n            <label class=\"browse\">Browse&hellip;\n              <input type=\"file\" accept=\"image/*\" name=\"DescImgs\" ngModel multiple (change)=\"addDescImages($event.target.files)\"\n                style=\"display: none;\">\n            </label>\n          </div>\n          <div class=\"block row\">\n            <div *ngFor=\"let item of DescImgs\" class=\"small col-2\">\n              <img [src]=\"item.data\">\n              <span (click)=\"removeDescImage(item.name)\" class=\"remove\">X</span>\n            </div>\n          </div>\n        </div>\n      </div>\n\n      <button [disabled]=\"f.invalid\" class=\"btn btn-info\">Submit</button>\n    </form>\n\n    <!-- <p class=\"formData alert alert-success\">\n      {{ f.value | json }}\n    </p> -->\n  </div>\n  <div class=\"col-3\">\n    <product-history [Products]=\"lastProducts\"></product-history>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -157,7 +157,7 @@ var ProductFormComponent = /** @class */ (function () {
         this.toaster = toaster;
         this.GalleryImgs = new Array();
         this.DescImgs = new Array();
-        this.colors = ['white', 'red', 'pink', 'green', 'grey', 'yellow', 'blue', 'orange', 'brown', 'black'];
+        this.colors = ['white', 'red', 'pink', 'green', 'grey', 'yellow', 'blue', 'orange', 'brown', 'violet', 'black'];
         this._Product = new _models_adminProduct__WEBPACK_IMPORTED_MODULE_3__["AdminProduct"]();
     }
     ProductFormComponent.prototype.ngOnInit = function () {
@@ -336,7 +336,7 @@ module.exports = "h4 {\r\n  text-align: center;\r\n  text-decoration: underline;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"history\">\n  <h4>Last Added Product</h4>\n  <table class=\"table table-hover text-center\">\n    <tr *ngFor=\"let p of Products\" class=\"row\">\n      <td class=\"col-3\"><img [src]=\"'/Content/Images/Products/' + p.Id + '/Main/' + p.Image\" class=\"img-responsive table-img\"></td>\n      <td class=\"col-9\"><a target=\"blank\" routerLink=\"/product/{{p.Slug}}\">{{p.Name}}</a></td>\n      <td class=\"col-4\"><a routerLink=\"/add-product\">Edit</a></td>\n      <td class=\"col-4\"><a routerLink=\"/add-product\">Copy</a></td>\n      <td class=\"col-4\"><a routerLink=\"/add-product\">Delete</a></td>\n    </tr>\n  </table>\n</div>"
+module.exports = "<div class=\"history\">\n  <h4 *ngIf=\"Products\">Last Added Products</h4>\n  <table class=\"table table-hover text-center\">\n    <tr *ngFor=\"let p of Products\" class=\"row\">\n      <td class=\"col-3\"><img [src]=\"'/Content/Images/Products/' + p.Id + '/Main/' + p.Image\" class=\"img-responsive table-img\"></td>\n      <td class=\"col-9\"><a target=\"blank\" routerLink=\"/product/{{p.Slug}}\">{{p.Name}}</a></td>\n      <td class=\"col-4\"><a routerLink=\"/add-product\">Edit</a></td>\n      <td class=\"col-4\"><a routerLink=\"/add-product\">Copy</a></td>\n      <td class=\"col-4\"><a routerLink=\"/add-product\">Delete</a></td>\n    </tr>\n  </table>\n</div>\n"
 
 /***/ }),
 
@@ -543,7 +543,7 @@ var routes = [
     { path: 'sign-in', component: _sign_in_up_sign_in_up_component__WEBPACK_IMPORTED_MODULE_4__["SignInUpComponent"], canActivate: [_guards_signin_guard__WEBPACK_IMPORTED_MODULE_12__["SigninGuard"]] },
     { path: 'sign-up', component: _sign_in_up_sign_in_up_component__WEBPACK_IMPORTED_MODULE_4__["SignInUpComponent"], canActivate: [_guards_signin_guard__WEBPACK_IMPORTED_MODULE_12__["SigninGuard"]] },
     {
-        path: 'admin', component: _admin_admin_area_admin_area_component__WEBPACK_IMPORTED_MODULE_17__["AdminAreaComponent"], canActivate: [_guards_admin_guard_guard__WEBPACK_IMPORTED_MODULE_8__["AdminGuard"]],
+        path: 'admin-panel', component: _admin_admin_area_admin_area_component__WEBPACK_IMPORTED_MODULE_17__["AdminAreaComponent"], canActivate: [_guards_admin_guard_guard__WEBPACK_IMPORTED_MODULE_8__["AdminGuard"]],
         children: [
             { path: '', component: _admin_product_form_product_form_component__WEBPACK_IMPORTED_MODULE_15__["ProductFormComponent"], },
             { path: 'add-product', component: _admin_product_form_product_form_component__WEBPACK_IMPORTED_MODULE_15__["ProductFormComponent"], canActivate: [_guards_admin_guard_guard__WEBPACK_IMPORTED_MODULE_8__["AdminGuard"]] },
@@ -803,7 +803,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <h2>Shipping Adress :</h2>\n  <br>\n  <div class=\"row\">\n    <div class=\"col-5\">\n      <form #f=\"ngForm\" (ngSubmit)=\"Proceed(f)\">\n        <div class=\"form-group\">\n          <label for=\"\">FullName</label>\n          <input #FullName=\"ngModel\" ngModel name=\"FullName\" type=\"text\" class=\"form-control\" required>\n          <div class=\"alert alert-dark\" *ngIf=\"FullName.touched && FullName.invalid\">\n            <div *ngIf=\"FullName.errors.required\">FullName is required.</div>\n          </div>\n        </div>\n        <div class=\"form-group\">\n          <label for=\"\">Phone</label>\n          <input #Phone=\"ngModel\" ngModel name=\"Phone\" type=\"text\" class=\"form-control\" required>\n          <div class=\"alert alert-dark\" *ngIf=\"Phone.touched && Phone.invalid\">\n            <div *ngIf=\"Phone.errors.required\">Phone is required.</div>\n          </div>\n        </div>\n        <div class=\"form-group\">\n          <label for=\"\">Addresses</label>\n          <input #Line1=\"ngModel\" ngModel name=\"Line1\" type=\"text\" class=\"form-control\" placeholder=\"Line 1\" required>\n          <div class=\"alert alert-dark\" *ngIf=\"Line1.touched && Line1.invalid\">\n            <div *ngIf=\"Line1.errors.required\">Address Line 1 is required.</div>\n          </div>\n        </div>\n        <div class=\"form-group\">\n          <input #Line2=\"ngModel\" ngModel name=\"Line2\" type=\"text\" class=\"form-control\" placeholder=\"Line 2 (Optional)\">\n        </div>\n\n        <div class=\"row\">\n          <div class=\"form-group col-6\">\n            <label for=\"\">Country</label>\n            <select name=\"Country\" required ngModel class=\"form-control\">\n              <option value=\"USA\">United States</option>\n              <option value=\"Canada\">Canada</option>\n              <option value=\"Morocco\">Morocco</option>\n            </select>\n          </div>\n          <div class=\"form-group col-6\">\n            <label for=\"\">State</label>\n            <input #State=\"ngModel\" ngModel name=\"State\" type=\"text\" class=\"form-control\">\n            <div class=\"alert alert-dark\" *ngIf=\"State.touched && State.invalid\">\n              <div *ngIf=\"State.errors.required\">State is required.</div>\n            </div>\n          </div>\n        </div>\n        <div class=\"row\">\n          <div class=\"form-group col-6\">\n            <label for=\"\">City</label>\n            <input #City=\"ngModel\" ngModel name=\"City\" type=\"text\" class=\"form-control\" required>\n            <div class=\"alert alert-dark\" *ngIf=\"City.touched && City.invalid\">\n              <div *ngIf=\"City.errors.required\">City is required.</div>\n            </div>\n          </div>\n          <div class=\"form-group col-6\">\n            <label for=\"\">Zip</label>\n            <input #Zip=\"ngModel\" ngModel name=\"Zip\" type=\"text\" class=\"form-control\">\n            <div class=\"alert alert-dark\" *ngIf=\"Zip.touched && Zip.invalid\">\n              <div *ngIf=\"Zip.errors.required\">Zip is required.</div>\n            </div>\n          </div>\n        </div>\n\n        <button [disabled]=\"f.invalid\" class=\"btn btn-info\">Procecced</button>\n      </form>\n    </div>\n    <div class=\" offset-2 col-5\">\n      <coupon></coupon>\n      <sc-summary [cart]=\"shoppingCart\"></sc-summary>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"container\">\n  <h2>Shipping Adress :</h2>\n  <div class=\"row\">\n    <div class=\"col-5\">\n      <form #f=\"ngForm\" (ngSubmit)=\"Proceed(f)\">\n        <div class=\"form-group\">\n          <label for=\"\">FullName</label>\n          <input #FullName=\"ngModel\" ngModel name=\"FullName\" type=\"text\" class=\"form-control\" required>\n          <div class=\"alert alert-dark\" *ngIf=\"FullName.touched && FullName.invalid\">\n            <div *ngIf=\"FullName.errors.required\">FullName is required.</div>\n          </div>\n        </div>\n        <div class=\"form-group\">\n          <label for=\"\">Phone</label>\n          <input #Phone=\"ngModel\" ngModel name=\"Phone\" type=\"text\" class=\"form-control\" required>\n          <div class=\"alert alert-dark\" *ngIf=\"Phone.touched && Phone.invalid\">\n            <div *ngIf=\"Phone.errors.required\">Phone is required.</div>\n          </div>\n        </div>\n        <div class=\"form-group\">\n          <label for=\"\">Addresses</label>\n          <input #Line1=\"ngModel\" ngModel name=\"Line1\" type=\"text\" class=\"form-control\" placeholder=\"Line 1\" required>\n          <div class=\"alert alert-dark\" *ngIf=\"Line1.touched && Line1.invalid\">\n            <div *ngIf=\"Line1.errors.required\">Address Line 1 is required.</div>\n          </div>\n        </div>\n        <div class=\"form-group\">\n          <input #Line2=\"ngModel\" ngModel name=\"Line2\" type=\"text\" class=\"form-control\" placeholder=\"Line 2 (Optional)\">\n        </div>\n\n        <div class=\"row\">\n          <div class=\"form-group col-6\">\n            <label for=\"\">Country</label>\n            <select name=\"Country\" required ngModel class=\"form-control\">\n              <option value=\"USA\">United States</option>\n              <option value=\"Canada\">Canada</option>\n              <option value=\"Morocco\">Morocco</option>\n            </select>\n          </div>\n          <div class=\"form-group col-6\">\n            <label for=\"\">State</label>\n            <input #State=\"ngModel\" ngModel name=\"State\" type=\"text\" class=\"form-control\">\n            <div class=\"alert alert-dark\" *ngIf=\"State.touched && State.invalid\">\n              <div *ngIf=\"State.errors.required\">State is required.</div>\n            </div>\n          </div>\n        </div>\n        <div class=\"row\">\n          <div class=\"form-group col-6\">\n            <label for=\"\">City</label>\n            <input #City=\"ngModel\" ngModel name=\"City\" type=\"text\" class=\"form-control\" required>\n            <div class=\"alert alert-dark\" *ngIf=\"City.touched && City.invalid\">\n              <div *ngIf=\"City.errors.required\">City is required.</div>\n            </div>\n          </div>\n          <div class=\"form-group col-6\">\n            <label for=\"\">Zip</label>\n            <input #Zip=\"ngModel\" ngModel name=\"Zip\" type=\"text\" class=\"form-control\">\n            <div class=\"alert alert-dark\" *ngIf=\"Zip.touched && Zip.invalid\">\n              <div *ngIf=\"Zip.errors.required\">Zip is required.</div>\n            </div>\n          </div>\n        </div>\n\n        <button [disabled]=\"f.invalid\" class=\"btn btn-info\">Procecced</button>\n      </form>\n    </div>\n    <div class=\" offset-2 col-5\">\n      <coupon></coupon>\n      <sc-summary [cart]=\"shoppingCart\"></sc-summary>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -1363,7 +1363,7 @@ var UserAuthGuard = /** @class */ (function () {
         if (localStorage.getItem('MW-AccessToken')) {
             return true;
         }
-        this.router.navigate(['/sign-in']);
+        this.router.navigate(['/sign-in'], { queryParams: { returnUrl: state.url } });
     };
     UserAuthGuard = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
@@ -1396,7 +1396,7 @@ module.exports = "header {\r\n  background: #6c757d;\r\n  position: -webkit-stic
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<header>\n  <nav>\n    <a routerLink=\"/\"><span>You-Better</span></a>\n    <ul>\n      <li>\n        <a routerLink=\"/admin\">GoAdmin</a>\n      </li>\n      <li>\n        <a routerLink=\"/cart\">Cart ({{cartCount}})\n        </a>\n      </li>\n      <li *ngIf=\"userAuth.user ; else anonumousUser\" ngbDropdown class=\"nav-item dropdown\">\n        <a ngbDropdownToggle class=\"dropdown-toggle\" id=\"dropdown01\" data-toggle=\"dropdown\" aria-haspopup=\"true\"\n          aria-expanded=\"false\">{{ userAuth.user.FullName }}</a>\n        <div ngbDropdownMenu class=\"dropdown-menu\" aria-labelledby=\"dropdown01\">\n          <a class=\"dropdown-item\" routerLink=\"/dashboard\">My Profile</a>\n          <a class=\"dropdown-item\" routerLink=\"/\">My Orders</a>\n          <a class=\"dropdown-item\" (click)=\"Logout()\">Log Out</a>\n        </div>\n      </li>\n      <ng-template #anonumousUser>\n        <li>\n          <a routerLink=\"/sign-in\">Login</a>\n        </li>\n      </ng-template>\n    </ul>\n  </nav>\n</header>\n"
+module.exports = "<header>\n  <nav>\n    <a routerLink=\"/\"><span>You-Better</span></a>\n    <ul>\n      <li>\n        <a routerLink=\"/admin-panel\">GoAdmin</a>\n      </li>\n      <li>\n        <a routerLink=\"/cart\">Cart ({{cartCount}})\n        </a>\n      </li>\n      <li *ngIf=\" user ; else anonumousUser\" ngbDropdown class=\"nav-item dropdown\">\n        <a ngbDropdownToggle class=\"dropdown-toggle\" id=\"dropdown01\" data-toggle=\"dropdown\" aria-haspopup=\"true\"\n          aria-expanded=\"false\">{{ user.FullName }}</a>\n        <div ngbDropdownMenu class=\"dropdown-menu\" aria-labelledby=\"dropdown01\">\n          <a class=\"dropdown-item\" routerLink=\"/dashboard\">My Profile</a>\n          <a class=\"dropdown-item\" routerLink=\"/\">My Orders</a>\n          <a class=\"dropdown-item\" (click)=\"Logout()\">Log Out</a>\n        </div>\n      </li>\n      <ng-template #anonumousUser>\n        <li>\n          <a routerLink=\"/sign-in\">Login</a>\n        </li>\n      </ng-template>\n    </ul>\n  </nav>\n</header>"
 
 /***/ }),
 
@@ -1423,6 +1423,15 @@ var HeaderComponent = /** @class */ (function () {
         this.cartService = cartService;
         this.userAuth = userAuth;
     }
+    HeaderComponent.prototype.ngOnInit = function () {
+    };
+    Object.defineProperty(HeaderComponent.prototype, "user", {
+        get: function () {
+            return this.userAuth.user;
+        },
+        enumerable: true,
+        configurable: true
+    });
     Object.defineProperty(HeaderComponent.prototype, "cartCount", {
         get: function () {
             return this.cartService.Cart.totalCartItems;
@@ -1430,8 +1439,6 @@ var HeaderComponent = /** @class */ (function () {
         enumerable: true,
         configurable: true
     });
-    HeaderComponent.prototype.ngOnInit = function () {
-    };
     HeaderComponent.prototype.Logout = function () {
         this.userAuth.Logout();
     };
@@ -1468,7 +1475,7 @@ module.exports = ".col-3 {\r\n    margin-bottom: 20px;\r\n}\r\n/*# sourceMapping
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div class=\"products row \">\n    <div *ngFor=\"let p of products$ | async\" class=\"col-3\">\n      <product-card [product]=\"p\"></product-card>\n      <div class=\" alert alert-danger justForTesting \">\n        {{ p | json }}\n      </div>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"container\">\n  <div class=\"products row \">\n    <div *ngFor=\"let p of products$ | async\" class=\"col-3\">\n      <product-card [product]=\"p\"></product-card>\n      <div class=\" alert alert-info justForTesting \">\n        {{ p | json }}\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -1651,7 +1658,7 @@ module.exports = ".centerBlock {\r\n  margin: 30px auto;\r\n}\r\n\r\np {\r\n  fo
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div *ngIf=\"userService.adress \" class=\" alert alert-info justForTesting \">\n    <u>Ship To :</u> {{userService.adress | json }}\n  </div>\n  <br>\n  <u>\n    <h3 class=\"text-center\">Choose Your Favourite Payment Method:</h3>\n  </u>\n  <div class=\"row col-10 centerBlock\">\n    <div class=\"col-5\">\n      <form>\n        <div class=\" form-group\">\n          <label for=\"\">Card Number</label>\n          <input type=\"text\" name=\"cardNumber\" class=\"form-control\">\n        </div>\n        <div class=\"row\">\n          <div class=\" form-group col-8\">\n            <label for=\"\">Expiration Date</label>\n            <input type=\"text\" name=\"expDate\" class=\"form-control\">\n          </div>\n          <div class=\" form-group col-4\">\n            <label for=\"\">CSC</label>\n            <input type=\"text\" name=\"csc\" class=\"form-control\">\n          </div>\n        </div>\n        <button type=\"submit\" class=\"col-4 btn btn-info\">Place Order</button>\n      </form>\n    </div>\n    <div class=\"col-2 text-center\"><span class=\"or\">Or</span></div>\n    <div class=\"col-5\">\n      <div for=\"\">Safer & Faster</div>\n      <p>\n        NB: By clicking the button below you will redirct to your PayPal account to complete the order\n      </p>\n      <div class=\"text-center\"><button type=\"button\" (click)=\"PayPal()\" class=\"btn btn-info\">Pay With PayPal</button></div>\n\n    </div>\n  </div>\n\n</div>\n"
+module.exports = "<div class=\"container\">\n  <div *ngIf=\" user_adress \" class=\" alert alert-info justForTesting \">\n    <u>Ship To :</u> {{ user_adress | json }}\n  </div>\n  <br>\n  <u>\n    <h3 class=\"text-center\">Choose Your Favourite Payment Method:</h3>\n  </u>\n  <div class=\"row col-10 centerBlock\">\n    <div class=\"col-5\">\n      <form>\n        <div class=\" form-group\">\n          <label for=\"\">Card Number</label>\n          <input type=\"text\" name=\"cardNumber\" class=\"form-control\">\n        </div>\n        <div class=\"row\">\n          <div class=\" form-group col-8\">\n            <label for=\"\">Expiration Date</label>\n            <input type=\"text\" name=\"expDate\" class=\"form-control\">\n          </div>\n          <div class=\" form-group col-4\">\n            <label for=\"\">CSC</label>\n            <input type=\"text\" name=\"csc\" class=\"form-control\">\n          </div>\n        </div>\n        <button type=\"submit\" class=\"col-4 btn btn-info\">Place Order</button>\n      </form>\n    </div>\n    <div class=\"col-2 text-center\"><span class=\"or\">Or</span></div>\n    <div class=\"col-5\">\n      <div for=\"\">Safer & Faster</div>\n      <p>\n        NB: By clicking the button below you will redirct to your PayPal account to complete the order\n      </p>\n      <div class=\"text-center\"><button type=\"button\" (click)=\"PayPal()\" class=\"btn btn-info\">Pay With PayPal</button>\n      </div>\n\n    </div>\n  </div>\n\n</div>"
 
 /***/ }),
 
@@ -1680,6 +1687,13 @@ var PaymentComponent = /** @class */ (function () {
     }
     PaymentComponent.prototype.ngOnInit = function () {
     };
+    Object.defineProperty(PaymentComponent.prototype, "user_adress", {
+        get: function () {
+            return this.userService.adress;
+        },
+        enumerable: true,
+        configurable: true
+    });
     PaymentComponent.prototype.PayPal = function () {
         this.cartService.postCart();
     };
@@ -2333,7 +2347,7 @@ module.exports = "form {\r\n    margin: 10px auto;\r\n}\r\n\r\n.alert {\r\n    p
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form [formGroup]=\"form\" (ngSubmit)=login(form) class=\"col-8\">\n  <div class=\"form-group\">\n    <label for=\"Email\">Email :</label>\n    <input formControlName=\"Email\" type=\"text\" class=\"form-control\">\n    <ng-container *ngIf=\"Email.touched && Email.invalid\">\n      <div *ngIf=\"Email.errors.required\" class=\"alert alert-dark text-center\">this field is\n        required !</div>\n      <div *ngIf=\" Email.errors.cannotContainSpace\" class=\"alert alert-dark text-center\">This field cannot contain\n        spaces ..\n\n      </div>\n    </ng-container>\n  </div>\n  <div class=\"form-group\">\n    <label for=\"Password\">Password :</label>\n    <input formControlName=\"Password\" type=\"Password\" class=\"form-control\">\n    <div *ngIf=\"Password.touched && Password.invalid\" class=\" alert alert-dark text-center\">this field is required !</div>\n  </div>\n  <button class=\"btn btn-primary col-4\" type=\"submit\">Sign In</button>\n  <div class=\"btn offset-2 col-2 \" (click)='facebookLogin()'><img src=\"Content/Images/Other/f.png\"></div>\n  <div class=\"btn col-2 \" (click)='googleLogin()'><img src=\"Content/Images/Other/g.png\"></div>\n  <div class=\"btn col-2 \" (click)='twitterLogin()'><img src=\"/Content/Images/Other/t.png\"></div>\n</form>\n<br>\n<div>\n  <div class=\"alert alert-warning\" *ngIf=\"serverError\">\n    {{serverError}}\n  </div>\n</div>"
+module.exports = "<form [formGroup]=\"form\" (ngSubmit)=login() class=\"col-8\">\n  <div class=\"form-group\">\n    <label for=\"Email\">Email :</label>\n    <input formControlName=\"Email\" type=\"text\" class=\"form-control\">\n    <ng-container *ngIf=\"Email.touched && Email.invalid\">\n      <div *ngIf=\"Email.errors.required\" class=\"alert alert-dark text-center\">this field is\n        required !</div>\n      <div *ngIf=\" Email.errors.cannotContainSpace\" class=\"alert alert-dark text-center\">This field cannot contain\n        spaces ..\n\n      </div>\n    </ng-container>\n  </div>\n  <div class=\"form-group\">\n    <label for=\"Password\">Password :</label>\n    <input formControlName=\"Password\" type=\"Password\" class=\"form-control\">\n    <div *ngIf=\"Password.touched && Password.invalid\" class=\" alert alert-dark text-center\">this field is required !\n    </div>\n  </div>\n  <button class=\"btn btn-primary col-4\" type=\"submit\">Sign In</button>\n  <div class=\"btn offset-2 col-2 \" (click)='facebookLogin()'><img src=\"Content/Images/Other/f.png\"></div>\n  <div class=\"btn col-2 \" (click)='googleLogin()'><img src=\"Content/Images/Other/g.png\"></div>\n  <div class=\"btn col-2 \" (click)='twitterLogin()'><img src=\"/Content/Images/Other/t.png\"></div>\n</form>\n<br>\n<div>\n  <div class=\"alert alert-warning\" *ngIf=\"serverError\">\n    {{serverError}}\n  </div>\n</div>"
 
 /***/ }),
 
@@ -2351,11 +2365,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var src_app_common_validators_product_validators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/common/validators/product.validators */ "./src/app/common/validators/product.validators.ts");
-/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm5/ngx-toastr.js");
-/* harmony import */ var src_app_common_errors_http_errors__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/common/errors/http-errors */ "./src/app/common/errors/http-errors.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var src_app_services_user_auth_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/services/user-auth.service */ "./src/app/services/user-auth.service.ts");
-
+/* harmony import */ var src_app_common_errors_http_errors__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/common/errors/http-errors */ "./src/app/common/errors/http-errors.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var src_app_services_user_auth_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/services/user-auth.service */ "./src/app/services/user-auth.service.ts");
 
 
 
@@ -2364,9 +2376,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var SignInComponent = /** @class */ (function () {
-    function SignInComponent(userAuth, toaster, router) {
+    function SignInComponent(userAuth, route, router) {
         this.userAuth = userAuth;
-        this.toaster = toaster;
+        this.route = route;
         this.router = router;
         this.form = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormGroup"]({
             Email: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, src_app_common_validators_product_validators__WEBPACK_IMPORTED_MODULE_3__["ProductValidators"].cannotContainSpace]),
@@ -2393,18 +2405,19 @@ var SignInComponent = /** @class */ (function () {
     };
     SignInComponent.prototype.twitterLogin = function () {
     };
-    SignInComponent.prototype.login = function (form) {
+    SignInComponent.prototype.login = function () {
         var _this = this;
-        if (form.invalid) {
+        if (this.form.invalid) {
             this.serverError = 'Fill all fields with valid data';
             return;
         }
-        this.userAuth.Login(form.value).subscribe(function (response) {
+        this.userAuth.Login(this.form.value).subscribe(function (response) {
             localStorage.setItem('MW-AccessToken', response.access_token);
             _this.userAuth.getProfile();
-            _this.router.navigate(['/']); // Redirect to a return url
+            var returnUrl = _this.route.snapshot.queryParamMap.get('returnUrl') || '/';
+            _this.router.navigateByUrl(returnUrl); // Redirect to a return url
         }, function (err) {
-            if (err instanceof src_app_common_errors_http_errors__WEBPACK_IMPORTED_MODULE_5__["BadInput"]) {
+            if (err instanceof src_app_common_errors_http_errors__WEBPACK_IMPORTED_MODULE_4__["BadInput"]) {
                 _this.serverError = 'Email or Password is Incorect ..'; // Display the error within Form errors
             }
             else
@@ -2417,7 +2430,7 @@ var SignInComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./sign-in.component.html */ "./src/app/sign-in-up/sign-in/sign-in.component.html"),
             styles: [__webpack_require__(/*! ./sign-in.component.css */ "./src/app/sign-in-up/sign-in/sign-in.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_services_user_auth_service__WEBPACK_IMPORTED_MODULE_7__["UserAuthService"], ngx_toastr__WEBPACK_IMPORTED_MODULE_4__["ToastrService"], _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_services_user_auth_service__WEBPACK_IMPORTED_MODULE_6__["UserAuthService"], _angular_router__WEBPACK_IMPORTED_MODULE_5__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"]])
     ], SignInComponent);
     return SignInComponent;
 }());
@@ -2481,7 +2494,7 @@ var SignUpComponent = /** @class */ (function () {
             this.serverError = 'Fill all fields with valid data';
             return;
         }
-        this.userAuth.Register(form.value).subscribe(function (response) {
+        this.userAuth.Register(form.value).subscribe(function () {
             _this.userAuth.Login(form.value).subscribe(function (res) {
                 localStorage.setItem('MW-AccessToken', res.access_token);
                 _this.userAuth.getProfile();
@@ -2528,7 +2541,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n<p class=\"formData alert alert-success justForTesting\">\n  {{ userAuth.user | json }}\n</p>\n</div>"
+module.exports = "<div class=\"container\">\n  <p class=\"formData alert alert-success justForTesting\">\n    {{ user_profile | json }}\n  </p>\n</div>"
 
 /***/ }),
 
@@ -2554,6 +2567,13 @@ var UserProfileComponent = /** @class */ (function () {
     }
     UserProfileComponent.prototype.ngOnInit = function () {
     };
+    Object.defineProperty(UserProfileComponent.prototype, "user_profile", {
+        get: function () {
+            return this.userAuth.user;
+        },
+        enumerable: true,
+        configurable: true
+    });
     UserProfileComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'user-profile',

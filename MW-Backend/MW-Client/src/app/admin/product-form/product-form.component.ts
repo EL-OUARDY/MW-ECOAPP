@@ -18,7 +18,7 @@ export class ProductFormComponent implements OnInit {
 
   categories; subCategories; shipping; MainImage: File;
   imgPath: string; GalleryImgs = new Array<IPath>(); DescImgs = new Array<IPath>();
-  colors = ['white', 'red', 'pink', 'green', 'grey', 'yellow', 'blue', 'orange', 'brown', 'black'];
+  colors = ['white', 'red', 'pink', 'green', 'grey', 'yellow', 'blue', 'orange', 'brown', 'violet', 'black'];
 
   lastProducts: MiniProduct[];
   _Product = new AdminProduct();

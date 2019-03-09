@@ -6,13 +6,13 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UserAuthGuard implements CanActivate {
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    if (localStorage.getItem('MW-AccessToken') ) {
+    if (localStorage.getItem('MW-AccessToken')) {
       return true;
     }
-    this.router.navigate(['/sign-in']);
+    this.router.navigate(['/sign-in'], { queryParams: { returnUrl: state.url } });
   }
 }

@@ -1,6 +1,6 @@
 <div class="container">
-  <div *ngIf="userService.adress " class=" alert alert-info justForTesting ">
-    <u>Ship To :</u> {{userService.adress | json }}
+  <div *ngIf=" user_adress " class=" alert alert-info justForTesting ">
+    <u>Ship To :</u> {{ user_adress | json }}
   </div>
   <br>
   <u>
@@ -32,7 +32,8 @@
       <p>
         NB: By clicking the button below you will redirct to your PayPal account to complete the order
       </p>
-      <div class="text-center"><button type="button" (click)="PayPal()" class="btn btn-info">Pay With PayPal</button></div>
+      <div class="text-center"><button type="button" (click)="PayPal()" class="btn btn-info">Pay With PayPal</button>
+      </div>
 
     </div>
   </div>

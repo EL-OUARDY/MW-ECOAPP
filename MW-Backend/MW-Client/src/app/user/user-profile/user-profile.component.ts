@@ -13,4 +13,8 @@ export class UserProfileComponent implements OnInit {
   ngOnInit() {
   }
 
+  get user_profile() {
+    return this.userAuth.user;
+  }
+
 }

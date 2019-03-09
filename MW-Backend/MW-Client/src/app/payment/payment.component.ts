@@ -14,6 +14,10 @@ export class PaymentComponent implements OnInit {
   ngOnInit() {
   }
 
+  get user_adress() {
+    return this.userService.adress;
+  }
+
   PayPal() {
     this.cartService.postCart();
   }

@@ -9,14 +9,17 @@ import { UserAuthService } from '../services/user-auth.service';
 })
 export class HeaderComponent implements OnInit {
 
-  get cartCount() {
-    return this.cartService.Cart.totalCartItems;
-  }
-
   constructor(private cartService: CartService, private userAuth: UserAuthService) {
   }
 
   ngOnInit() {
+  }
+
+  get user() {
+    return this.userAuth.user;
+  }
+  get cartCount() {
+    return this.cartService.Cart.totalCartItems;
   }
 
   Logout() {

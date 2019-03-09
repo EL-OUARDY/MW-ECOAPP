@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm} from '@angular/forms';
+import { NgForm } from '@angular/forms';
 import { AppError } from 'src/app/common/errors/app-error';
 import { BadInput } from 'src/app/common/errors/http-errors';
 import { Router } from '@angular/router';
@@ -23,7 +23,7 @@ export class SignUpComponent implements OnInit {
       return;
     }
     this.userAuth.Register(form.value).subscribe(
-      response => {
+      () => {
         this.userAuth.Login(form.value).subscribe(
           (res: any) => {
             localStorage.setItem('MW-AccessToken', res.access_token);
@@ -32,7 +32,7 @@ export class SignUpComponent implements OnInit {
           });
       },
       (err: AppError) => {
-        if (err instanceof BadInput ) {
+        if (err instanceof BadInput) {
           this.serverError = err.originalError.error.Message; // Display the error within Form errors
         } else throw err;
       });

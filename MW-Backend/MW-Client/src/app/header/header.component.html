@@ -3,15 +3,15 @@
     <a routerLink="/"><span>You-Better</span></a>
     <ul>
       <li>
-        <a routerLink="/admin">GoAdmin</a>
+        <a routerLink="/admin-panel">GoAdmin</a>
       </li>
       <li>
         <a routerLink="/cart">Cart ({{cartCount}})
         </a>
       </li>
-      <li *ngIf="userAuth.user ; else anonumousUser" ngbDropdown class="nav-item dropdown">
+      <li *ngIf=" user ; else anonumousUser" ngbDropdown class="nav-item dropdown">
         <a ngbDropdownToggle class="dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
-          aria-expanded="false">{{ userAuth.user.FullName }}</a>
+          aria-expanded="false">{{ user.FullName }}</a>
         <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
           <a class="dropdown-item" routerLink="/dashboard">My Profile</a>
           <a class="dropdown-item" routerLink="/">My Orders</a>

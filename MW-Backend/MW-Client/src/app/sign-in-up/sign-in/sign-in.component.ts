@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators, NgForm } from '@angular/forms';
 import { ProductValidators } from 'src/app/common/validators/product.validators';
-import { ToastrService } from 'ngx-toastr';
 import { AppError } from 'src/app/common/errors/app-error';
 import { BadInput } from 'src/app/common/errors/http-errors';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { UserAuthService } from 'src/app/services/user-auth.service';
 
 @Component({
@@ -14,7 +13,7 @@ import { UserAuthService } from 'src/app/services/user-auth.service';
 })
 export class SignInComponent {
   serverError: string;
-  constructor(private userAuth: UserAuthService, private toaster: ToastrService, private router: Router) {
+  constructor(private userAuth: UserAuthService, private route: ActivatedRoute, private router: Router) {
   }
   form = new FormGroup({
     Email: new FormControl('', [Validators.required, ProductValidators.cannotContainSpace]),
@@ -36,16 +35,17 @@ export class SignInComponent {
   twitterLogin() {
   }
 
-  login(form: NgForm) {
-    if (form.invalid) {
+  login() {
+    if (this.form.invalid) {
       this.serverError = 'Fill all fields with valid data';
       return;
     }
-    this.userAuth.Login(form.value).subscribe(
+    this.userAuth.Login(this.form.value).subscribe(
       (response: any) => {
         localStorage.setItem('MW-AccessToken', response.access_token);
         this.userAuth.getProfile();
-        this.router.navigate(['/']); // Redirect to a return url
+        const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
+        this.router.navigateByUrl(returnUrl); // Redirect to a return url
       },
       (err: AppError) => {
         if (err instanceof BadInput) {

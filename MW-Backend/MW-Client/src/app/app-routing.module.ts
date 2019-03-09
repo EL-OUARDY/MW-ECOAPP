@@ -22,7 +22,7 @@ const routes: Routes = [
   { path: 'sign-up', component: SignInUpComponent, canActivate: [SigninGuard] },
 
   {
-    path: 'admin', component: AdminAreaComponent, canActivate: [AdminGuard],
+    path: 'admin-panel', component: AdminAreaComponent, canActivate: [AdminGuard],
     children: [
       { path: '', component: ProductFormComponent, },
       { path: 'add-product', component: ProductFormComponent, canActivate: [AdminGuard] },
@@ -35,7 +35,7 @@ const routes: Routes = [
   {
     path: '', component: NavigationComponent,
     children: [
-      { path: '', component: HomeComponent, },
+      { path: '', component: HomeComponent },
       { path: 'cart', component: ShoppingCartComponent, },
       { path: 'product/:slug', component: ProductDetailsComponent },
       { path: 'checkout', component: CheckoutComponent, canActivate: [CheckoutGuard, UserAuthGuard] },
