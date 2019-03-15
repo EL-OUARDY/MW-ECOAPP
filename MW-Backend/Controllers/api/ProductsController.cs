@@ -54,13 +54,14 @@ namespace MW_Backend.Controllers.api
 
         [HttpPost]
         [Route("api/upload-images")]
+        // request size
         public IHttpActionResult UploadImages()
         {
-            int ProductId = int.Parse( HttpContext.Current.Request["ProductId"] );
+            int ProductId = int.Parse(HttpContext.Current.Request["ProductId"]);
             var files = HttpContext.Current.Request.Files;
 
             // verify the Id
-            if ( ProductExists(ProductId) == false )
+            if (ProductExists(ProductId) == false)
             {
                 return NotFound();
             }

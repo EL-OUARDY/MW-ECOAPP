@@ -25,7 +25,7 @@ namespace MW_Backend
                 {
                     serverRoute = new ServerRouteConstraint(url =>
                     {
-                        return url.PathAndQuery.StartsWith("/admin",
+                        return url.PathAndQuery.Equals("/admin",
                             StringComparison.InvariantCultureIgnoreCase);
                     })
                 });

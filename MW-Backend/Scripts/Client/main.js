@@ -23,474 +23,6 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 
 /***/ }),
 
-/***/ "./src/app/admin/admin-area/admin-area.component.css":
-/*!***********************************************************!*\
-  !*** ./src/app/admin/admin-area/admin-area.component.css ***!
-  \***********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "a {\r\n  color: #eee !important\r\n}\r\n\r\na:hover {\r\n  text-decoration: none\r\n}\r\n\r\n.holder {\r\n  padding: 20px 10px 0px 30px\r\n}\r\n\r\n.sidenav {\r\n  height: 100%;\r\n  position: fixed;\r\n  z-index: 1;\r\n  top: 0;\r\n  left: 0;\r\n  background-color: #6c757d;\r\n  overflow-x: hidden;\r\n  padding-top: 20px;\r\n  background-color: #6c757d;\r\n}\r\n\r\n.icon-bar {\r\n  background-color: #6c757d;\r\n}\r\n\r\n.sidenav a {\r\n  text-align: center !important;\r\n  transition: all 0.3s ease;\r\n  display: block;\r\n  font-size: 20px !important;\r\n  margin-top: 30px;\r\n  padding: 4px\r\n}\r\n\r\n.fa {\r\n  display: block !important;\r\n  font-size: 30px;\r\n}\r\n\r\n.sidenav a:hover {\r\n  background-color: #98a7b3;\r\n}\r\n\r\n.active {\r\n  background-color: rgb(56, 172, 160);\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRtaW4vYWRtaW4tYXJlYS9hZG1pbi1hcmVhLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRTtBQUNGOztBQUVBO0VBQ0U7QUFDRjs7QUFFQTtFQUNFO0FBQ0Y7O0FBRUE7RUFDRSxZQUFZO0VBQ1osZUFBZTtFQUNmLFVBQVU7RUFDVixNQUFNO0VBQ04sT0FBTztFQUNQLHlCQUF5QjtFQUN6QixrQkFBa0I7RUFDbEIsaUJBQWlCO0VBQ2pCLHlCQUF5QjtBQUMzQjs7QUFFQTtFQUNFLHlCQUF5QjtBQUMzQjs7QUFFQTtFQUNFLDZCQUE2QjtFQUM3Qix5QkFBeUI7RUFDekIsY0FBYztFQUNkLDBCQUEwQjtFQUMxQixnQkFBZ0I7RUFDaEI7QUFDRjs7QUFFQTtFQUNFLHlCQUF5QjtFQUN6QixlQUFlO0FBQ2pCOztBQUVBO0VBQ0UseUJBQXlCO0FBQzNCOztBQUVBO0VBQ0UsbUNBQW1DO0FBQ3JDIiwiZmlsZSI6InNyYy9hcHAvYWRtaW4vYWRtaW4tYXJlYS9hZG1pbi1hcmVhLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJhIHtcclxuICBjb2xvcjogI2VlZSAhaW1wb3J0YW50XHJcbn1cclxuXHJcbmE6aG92ZXIge1xyXG4gIHRleHQtZGVjb3JhdGlvbjogbm9uZVxyXG59XHJcblxyXG4uaG9sZGVyIHtcclxuICBwYWRkaW5nOiAyMHB4IDEwcHggMHB4IDMwcHhcclxufVxyXG5cclxuLnNpZGVuYXYge1xyXG4gIGhlaWdodDogMTAwJTtcclxuICBwb3NpdGlvbjogZml4ZWQ7XHJcbiAgei1pbmRleDogMTtcclxuICB0b3A6IDA7XHJcbiAgbGVmdDogMDtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjNmM3NTdkO1xyXG4gIG92ZXJmbG93LXg6IGhpZGRlbjtcclxuICBwYWRkaW5nLXRvcDogMjBweDtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjNmM3NTdkO1xyXG59XHJcblxyXG4uaWNvbi1iYXIge1xyXG4gIGJhY2tncm91bmQtY29sb3I6ICM2Yzc1N2Q7XHJcbn1cclxuXHJcbi5zaWRlbmF2IGEge1xyXG4gIHRleHQtYWxpZ246IGNlbnRlciAhaW1wb3J0YW50O1xyXG4gIHRyYW5zaXRpb246IGFsbCAwLjNzIGVhc2U7XHJcbiAgZGlzcGxheTogYmxvY2s7XHJcbiAgZm9udC1zaXplOiAyMHB4ICFpbXBvcnRhbnQ7XHJcbiAgbWFyZ2luLXRvcDogMzBweDtcclxuICBwYWRkaW5nOiA0cHhcclxufVxyXG5cclxuLmZhIHtcclxuICBkaXNwbGF5OiBibG9jayAhaW1wb3J0YW50O1xyXG4gIGZvbnQtc2l6ZTogMzBweDtcclxufVxyXG5cclxuLnNpZGVuYXYgYTpob3ZlciB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogIzk4YTdiMztcclxufVxyXG5cclxuLmFjdGl2ZSB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogcmdiKDU2LCAxNzIsIDE2MCk7XHJcbn1cclxuIl19 */"
-
-/***/ }),
-
-/***/ "./src/app/admin/admin-area/admin-area.component.html":
-/*!************************************************************!*\
-  !*** ./src/app/admin/admin-area/admin-area.component.html ***!
-  \************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"container-fluid\">\n  <div class=\"row\">\n    <div class=\"col-1 no-gutters\">\n      <div class=\"sidenav col-1 text-center\">\n        <a routerLink=\"/admin\"><i class=\"fa fa-dashboard\"></i>Dashboard</a>\n        <a routerLink=\"/admin\"><i class=\"fa fa-gears\"></i>Products</a>\n        <a routerLink=\"/admin\"><i class=\"fa fa-flag\"></i>Orders</a>\n        <a routerLink=\"/admin\"><i class=\"fa fa-users\"></i>Users</a>\n        <a routerLink=\"/admin\"><i class=\"fa fa-support\"></i>Support</a>\n        <a routerLink=\"/admin\"><i class=\"fa fa-pie-chart\"></i>Analytics</a>\n        <a routerLink=\"/admin\"><i class=\"fa fa-files-o\"></i>CMS</a>\n      </div>\n    </div>\n    <div class=\"col-11 holder\">\n      <router-outlet></router-outlet>\n    </div>\n  </div>\n</div>\n"
-
-/***/ }),
-
-/***/ "./src/app/admin/admin-area/admin-area.component.ts":
-/*!**********************************************************!*\
-  !*** ./src/app/admin/admin-area/admin-area.component.ts ***!
-  \**********************************************************/
-/*! exports provided: AdminAreaComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminAreaComponent", function() { return AdminAreaComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-
-
-var AdminAreaComponent = /** @class */ (function () {
-    function AdminAreaComponent() {
-    }
-    AdminAreaComponent.prototype.ngOnInit = function () {
-    };
-    AdminAreaComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-            selector: 'app-admin-area',
-            template: __webpack_require__(/*! ./admin-area.component.html */ "./src/app/admin/admin-area/admin-area.component.html"),
-            styles: [__webpack_require__(/*! ./admin-area.component.css */ "./src/app/admin/admin-area/admin-area.component.css")]
-        }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
-    ], AdminAreaComponent);
-    return AdminAreaComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/admin/models/adminProduct.ts":
-/*!**********************************************!*\
-  !*** ./src/app/admin/models/adminProduct.ts ***!
-  \**********************************************/
-/*! exports provided: AdminProduct */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminProduct", function() { return AdminProduct; });
-var AdminProduct = /** @class */ (function () {
-    function AdminProduct() {
-        this.Id = -1;
-        this.Color = 'white';
-        this.Status = 'on-sale';
-        this.Name = 'Lorem Ipsum';
-        this.Price = 9;
-        this.Description = 'Some Dummy Text ..';
-    }
-    return AdminProduct;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/admin/product-form/product-form.component.css":
-/*!***************************************************************!*\
-  !*** ./src/app/admin/product-form/product-form.component.css ***!
-  \***************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "label {\r\n  font-size: 20px;\r\n}\r\n\r\nlabel.radio {\r\n  font-size: 15px;\r\n}\r\n\r\n.form-control.ng-touched.ng-invalid {\r\n  border-left: 6px solid #d6d8d9;\r\n}\r\n\r\n.formData {\r\n  margin-top: 20px;\r\n  text-align: center;\r\n}\r\n\r\n.browse {\r\n  border-bottom: 1px solid #ced4da;\r\n  text-align: right;\r\n  width: 100%;\r\n}\r\n\r\nimg {\r\n  width: 100%;\r\n  height: 100%;\r\n}\r\n\r\n.image {\r\n  display: block;\r\n  margin: 0 auto\r\n}\r\n\r\n.block {\r\n  border: 1px solid #eee;\r\n  margin: 10px auto;\r\n  padding: 10px;\r\n  height: 220px;\r\n}\r\n\r\n.scroll {\r\n  overflow-y: scroll\r\n}\r\n\r\n.small {\r\n  height: 90px;\r\n  padding: 5px 11px;\r\n  border: 1px solid #eee;\r\n  margin: 5px 8px;\r\n  text-align: center;\r\n  position: relative;\r\n}\r\n\r\n.remove {\r\n  background: #dc3545;\r\n  padding: 0px 5px;\r\n  color: #fff;\r\n  border-radius: 50%;\r\n  position: absolute;\r\n  top: -8px;\r\n  right: -8px;\r\n  cursor: pointer;\r\n}\r\n\r\n.color {\r\n  padding: 5px;\r\n  cursor: pointer;\r\n  text-align: center;\r\n  opacity: 0.7;\r\n}\r\n\r\n.color input[type=radio] {\r\n  visibility: hidden;\r\n}\r\n\r\n.color input[type=radio]:checked {\r\n  visibility: visible;\r\n}\r\n\r\ntextarea {\r\n  height: 134px;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRtaW4vcHJvZHVjdC1mb3JtL3Byb2R1Y3QtZm9ybS5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsZUFBZTtBQUNqQjs7QUFFQTtFQUNFLGVBQWU7QUFDakI7O0FBRUE7RUFDRSw4QkFBOEI7QUFDaEM7O0FBRUE7RUFDRSxnQkFBZ0I7RUFDaEIsa0JBQWtCO0FBQ3BCOztBQUVBO0VBQ0UsZ0NBQWdDO0VBQ2hDLGlCQUFpQjtFQUNqQixXQUFXO0FBQ2I7O0FBRUE7RUFDRSxXQUFXO0VBQ1gsWUFBWTtBQUNkOztBQUVBO0VBQ0UsY0FBYztFQUNkO0FBQ0Y7O0FBRUE7RUFDRSxzQkFBc0I7RUFDdEIsaUJBQWlCO0VBQ2pCLGFBQWE7RUFDYixhQUFhO0FBQ2Y7O0FBRUE7RUFDRTtBQUNGOztBQUVBO0VBQ0UsWUFBWTtFQUNaLGlCQUFpQjtFQUNqQixzQkFBc0I7RUFDdEIsZUFBZTtFQUNmLGtCQUFrQjtFQUNsQixrQkFBa0I7QUFDcEI7O0FBRUE7RUFDRSxtQkFBbUI7RUFDbkIsZ0JBQWdCO0VBQ2hCLFdBQVc7RUFDWCxrQkFBa0I7RUFDbEIsa0JBQWtCO0VBQ2xCLFNBQVM7RUFDVCxXQUFXO0VBQ1gsZUFBZTtBQUNqQjs7QUFFQTtFQUNFLFlBQVk7RUFDWixlQUFlO0VBQ2Ysa0JBQWtCO0VBQ2xCLFlBQVk7QUFDZDs7QUFFQTtFQUNFLGtCQUFrQjtBQUNwQjs7QUFFQTtFQUNFLG1CQUFtQjtBQUNyQjs7QUFFQTtFQUNFLGFBQWE7QUFDZiIsImZpbGUiOiJzcmMvYXBwL2FkbWluL3Byb2R1Y3QtZm9ybS9wcm9kdWN0LWZvcm0uY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbImxhYmVsIHtcclxuICBmb250LXNpemU6IDIwcHg7XHJcbn1cclxuXHJcbmxhYmVsLnJhZGlvIHtcclxuICBmb250LXNpemU6IDE1cHg7XHJcbn1cclxuXHJcbi5mb3JtLWNvbnRyb2wubmctdG91Y2hlZC5uZy1pbnZhbGlkIHtcclxuICBib3JkZXItbGVmdDogNnB4IHNvbGlkICNkNmQ4ZDk7XHJcbn1cclxuXHJcbi5mb3JtRGF0YSB7XHJcbiAgbWFyZ2luLXRvcDogMjBweDtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbn1cclxuXHJcbi5icm93c2Uge1xyXG4gIGJvcmRlci1ib3R0b206IDFweCBzb2xpZCAjY2VkNGRhO1xyXG4gIHRleHQtYWxpZ246IHJpZ2h0O1xyXG4gIHdpZHRoOiAxMDAlO1xyXG59XHJcblxyXG5pbWcge1xyXG4gIHdpZHRoOiAxMDAlO1xyXG4gIGhlaWdodDogMTAwJTtcclxufVxyXG5cclxuLmltYWdlIHtcclxuICBkaXNwbGF5OiBibG9jaztcclxuICBtYXJnaW46IDAgYXV0b1xyXG59XHJcblxyXG4uYmxvY2sge1xyXG4gIGJvcmRlcjogMXB4IHNvbGlkICNlZWU7XHJcbiAgbWFyZ2luOiAxMHB4IGF1dG87XHJcbiAgcGFkZGluZzogMTBweDtcclxuICBoZWlnaHQ6IDIyMHB4O1xyXG59XHJcblxyXG4uc2Nyb2xsIHtcclxuICBvdmVyZmxvdy15OiBzY3JvbGxcclxufVxyXG5cclxuLnNtYWxsIHtcclxuICBoZWlnaHQ6IDkwcHg7XHJcbiAgcGFkZGluZzogNXB4IDExcHg7XHJcbiAgYm9yZGVyOiAxcHggc29saWQgI2VlZTtcclxuICBtYXJnaW46IDVweCA4cHg7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxufVxyXG5cclxuLnJlbW92ZSB7XHJcbiAgYmFja2dyb3VuZDogI2RjMzU0NTtcclxuICBwYWRkaW5nOiAwcHggNXB4O1xyXG4gIGNvbG9yOiAjZmZmO1xyXG4gIGJvcmRlci1yYWRpdXM6IDUwJTtcclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgdG9wOiAtOHB4O1xyXG4gIHJpZ2h0OiAtOHB4O1xyXG4gIGN1cnNvcjogcG9pbnRlcjtcclxufVxyXG5cclxuLmNvbG9yIHtcclxuICBwYWRkaW5nOiA1cHg7XHJcbiAgY3Vyc29yOiBwb2ludGVyO1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICBvcGFjaXR5OiAwLjc7XHJcbn1cclxuXHJcbi5jb2xvciBpbnB1dFt0eXBlPXJhZGlvXSB7XHJcbiAgdmlzaWJpbGl0eTogaGlkZGVuO1xyXG59XHJcblxyXG4uY29sb3IgaW5wdXRbdHlwZT1yYWRpb106Y2hlY2tlZCB7XHJcbiAgdmlzaWJpbGl0eTogdmlzaWJsZTtcclxufVxyXG5cclxudGV4dGFyZWEge1xyXG4gIGhlaWdodDogMTM0cHg7XHJcbn1cclxuIl19 */"
-
-/***/ }),
-
-/***/ "./src/app/admin/product-form/product-form.component.html":
-/*!****************************************************************!*\
-  !*** ./src/app/admin/product-form/product-form.component.html ***!
-  \****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"row no-gutters\">\n  <div class=\"col-9\">\n    <form #f=\"ngForm\" (ngSubmit)=\"onSubmit(f)\" autocomplete=\"off\">\n      <input type=\"hidden\" [(ngModel)]=\"_Product.Id\" name=\"Id\" #Id=\"ngModel\" class=\" form-control\">\n      <div class=\"row\">\n        <div class=\" form-group col-6 \">\n          <label>Name :</label>\n          <input required minlength=\"6\" type=\"text\" [(ngModel)]=\"_Product.Name\" name=\"Name\" #Name=\"ngModel\" class=\" form-control\">\n          <div class=\"alert alert-dark\" *ngIf=\"Name.touched && !Name.valid\">\n            <div *ngIf=\"Name.errors.required\"> Name Is Required !</div>\n            <!-- Custom Validation => Name Must Be Unique -->\n            <div *ngIf=\"Name.errors.minlength\"> Name Must Be More Then 6 Characters </div>\n          </div>\n\n        </div>\n        <div class=\" form-group col-2\">\n          <label>Price :</label>\n          <input required maxlength=\"7\" type=\"number\" [(ngModel)]=\"_Product.Price\" name=\"Price\" #Price=\"ngModel\" class=\"form-control\">\n          <div class=\"alert alert-dark\" *ngIf=\"Price.touched && !Price.valid\">\n            <div *ngIf=\"Price.errors?.required\"> Price Is Required !</div>\n          </div>\n        </div>\n        <div class=\" form-group col-4\">\n          <label>Status :</label>\n          <div class=\"form-control \">\n            <label class=\"col-6 radio\">\n              <input type=\"radio\" [(ngModel)]=\"_Product.Status\" name=\"Status\" value=\"on-sale\">\n              On Sale\n            </label>\n            <label class=\"col-6 radio\">\n              <input type=\"radio\" [(ngModel)]=\"_Product.Status\" name=\"Status\" value=\"out-of-stock\">\n              Out Of Stock\n            </label>\n          </div>\n        </div>\n      </div>\n      <div class=\"row\">\n        <div class=\"col-7 form-group\">\n          <label>Description :</label>\n          <textarea required [(ngModel)]=\"_Product.Description\" name=\"Description\" #des=\"ngModel\" cols=\"30\" rows=\"8\"\n            class=\" form-control\"></textarea>\n          <div class=\"alert alert-dark\" *ngIf=\"des.touched && des.errors?.required\">Fill The Description !</div>\n        </div>\n        <div class=\"col-3\">\n          <div class=\"form-group\">\n            <label>Category :</label>\n            <select #Category (change)=\"getSub(Category.value)\" class=\"form-control\">\n              <option value=\"\"></option>\n              <option *ngFor=\"let item of categories\" [value]=\"item.Id\">{{item.Name}}</option>\n            </select>\n          </div>\n          <div class=\"form-group\">\n            <label>SubCategory :</label>\n            <select name=\"SubCategoryId\" required [(ngModel)]=\"_Product.SubCategoryId\" class=\"form-control\">\n              <option *ngFor=\"let item of subCategories\" [value]=\"item.Id\">{{item.Name}}</option>\n            </select>\n          </div>\n\n          <!-- <div class=\"form-group\">\n            <label>Shipping :</label>\n            <div class=\"form-control\">\n              <label *ngFor=\"let item of shipping\" class=\"col-4 radio\">\n                <input type=\"radio\" ngModel name=\"shippingMethod\" [value]=\"item\">\n                {{item}}\n              </label>\n            </div>\n          </div> -->\n        </div>\n        <div class=\"form-group col-2\">\n          <label>Color :</label>\n          <div>\n            <label class=\"color col-3\" *ngFor=\"let item of colors\" [ngStyle]=\"{'background': item}\">\n              <input type=\"radio\" [(ngModel)]=\"_Product.Color\" name=\"Color\" [value]=\"item\">\n            </label>\n          </div>\n        </div>\n      </div>\n      <div class=\"row\">\n        <div class=\"form-group col-2\">\n          <label>Main Image :</label>\n          <div class=\" form-control \">\n            <label class=\"browse\">Browse&hellip;\n              <input type=\"file\" name=\"MainImg\" ngModel (change)=\"setMainImage($event.target.files)\" style=\"display: none;\">\n            </label>\n          </div>\n\n          <div class=\"block \">\n            <img *ngIf=\"imgPath\" [src]=\"imgPath\" class=\"image\">\n          </div>\n\n        </div>\n\n        <div class=\"form-group col-5\">\n          <label>Other Images :</label>\n          <div class=\"form-control\">\n            <label class=\"browse\">Browse&hellip;\n              <input type=\"file\" accept=\"image/*\" name=\"GalleryImgs\" ngModel multiple (change)=\"addProductImages($event.target.files)\"\n                style=\"display: none;\">\n            </label>\n          </div>\n          <div class=\"block row\">\n            <div *ngFor=\"let item of GalleryImgs\" class=\"small col-2\">\n              <img [src]=\"item.data\">\n              <span (click)=\"removeImage(item.name)\" class=\"remove\">X</span>\n            </div>\n          </div>\n        </div>\n        <div class=\"form-group col-5\">\n          <label>Description Images :</label>\n          <div class=\"form-control\">\n            <label class=\"browse\">Browse&hellip;\n              <input type=\"file\" accept=\"image/*\" name=\"DescImgs\" ngModel multiple (change)=\"addDescImages($event.target.files)\"\n                style=\"display: none;\">\n            </label>\n          </div>\n          <div class=\"block row\">\n            <div *ngFor=\"let item of DescImgs\" class=\"small col-2\">\n              <img [src]=\"item.data\">\n              <span (click)=\"removeDescImage(item.name)\" class=\"remove\">X</span>\n            </div>\n          </div>\n        </div>\n      </div>\n\n      <button [disabled]=\"f.invalid\" class=\"btn btn-info\">Submit</button>\n    </form>\n\n    <!-- <p class=\"formData alert alert-success\">\n      {{ f.value | json }}\n    </p> -->\n  </div>\n  <div class=\"col-3\">\n    <product-history [Products]=\"lastProducts\"></product-history>\n  </div>\n</div>\n"
-
-/***/ }),
-
-/***/ "./src/app/admin/product-form/product-form.component.ts":
-/*!**************************************************************!*\
-  !*** ./src/app/admin/product-form/product-form.component.ts ***!
-  \**************************************************************/
-/*! exports provided: ProductFormComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProductFormComponent", function() { return ProductFormComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _services_admin_product_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/admin-product.service */ "./src/app/admin/services/admin-product.service.ts");
-/* harmony import */ var _models_adminProduct__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../models/adminProduct */ "./src/app/admin/models/adminProduct.ts");
-/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm5/ngx-toastr.js");
-/* harmony import */ var src_app_common_errors_http_errors__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/common/errors/http-errors */ "./src/app/common/errors/http-errors.ts");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-
-
-
-
-
-
-
-var ProductFormComponent = /** @class */ (function () {
-    function ProductFormComponent(aps, toaster) {
-        this.aps = aps;
-        this.toaster = toaster;
-        this.GalleryImgs = new Array();
-        this.DescImgs = new Array();
-        this.colors = ['white', 'red', 'pink', 'green', 'grey', 'yellow', 'blue', 'orange', 'brown', 'violet', 'black'];
-        this._Product = new _models_adminProduct__WEBPACK_IMPORTED_MODULE_3__["AdminProduct"]();
-    }
-    ProductFormComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.aps.getCategories().subscribe(function (res) {
-            _this.categories = res;
-        });
-        this.aps.GetLastProducts().subscribe(function (data) {
-            _this.lastProducts = data;
-        });
-        this.shipping = this.aps.getShippings();
-    };
-    // Posting The Product
-    ProductFormComponent.prototype.onSubmit = function (f) {
-        var _this = this;
-        if (f.invalid || !this.MainImage || this.GalleryImgs.length === 0) {
-            this.toaster.warning("You've to fill the required areas ..");
-            return;
-        }
-        this._Product.Slug = this._Product.Name.replace(/\s+/g, '-');
-        this.aps.PostProduct(this._Product).subscribe(function (ProductId) {
-            _this.toaster.success('Product has been added ' + ProductId, 'Success');
-            _this.uploadProductImages(ProductId);
-        }, function (error) {
-            if (error instanceof src_app_common_errors_http_errors__WEBPACK_IMPORTED_MODULE_5__["BadInput"]) {
-                _this.toaster.warning('ModelState is not valid ..'); // Display the error within Form errors and Wrap it with JSON pipe
-            }
-            else
-                throw error;
-        });
-    };
-    ProductFormComponent.prototype.uploadProductImages = function (ProductId) {
-        var _this = this;
-        var form = new FormData();
-        form.append('ProductId', ProductId);
-        form.append('MainImg', this.MainImage, this.MainImage.name);
-        this.GalleryImgs.forEach(function (e) {
-            form.append('GalleryImgs', e.img, e.img.name);
-        });
-        this.DescImgs.forEach(function (e) {
-            form.append('DescImgs', e.img, e.img.name);
-        });
-        this.aps.UploadImages(form).subscribe(function (Product) {
-            _this.addToHistory(Product);
-            _this.toaster.success('Images Uploaded !', 'Success');
-            _this.resetForm();
-        }, function (err) {
-            if (err instanceof src_app_common_errors_http_errors__WEBPACK_IMPORTED_MODULE_5__["BadInput"]) {
-                _this.toaster.warning(err.originalError.error.Message); // Display the error within Form errors
-            }
-            else
-                throw err;
-        });
-    };
-    ProductFormComponent.prototype.resetForm = function () {
-        this.ngForm.resetForm(new _models_adminProduct__WEBPACK_IMPORTED_MODULE_3__["AdminProduct"]());
-        this.MainImage = undefined;
-        this.imgPath = undefined;
-        this.GalleryImgs = new Array();
-        this.DescImgs = new Array();
-    };
-    ProductFormComponent.prototype.addToHistory = function (data) {
-        var array = this.lastProducts;
-        array.pop(); // Remove The Last
-        array.unshift(data); // Insert at The start
-    };
-    ProductFormComponent.prototype.getSub = function (c) {
-        if (c)
-            this.subCategories = this.categories.find(function (x) { return x.Id === Number(c); }).SubCategories;
-    };
-    /* Images Functions */
-    ProductFormComponent.prototype.setMainImage = function (files) {
-        this.MainImage = files[0];
-        this.previewMainImg();
-    };
-    ProductFormComponent.prototype.previewMainImg = function () {
-        var _this = this;
-        if (this.MainImage) { // image exist
-            var reader = new FileReader();
-            reader.onload = function (e) {
-                _this.imgPath = e.target.result.toString();
-            };
-            reader.readAsDataURL(this.MainImage);
-        }
-    };
-    ProductFormComponent.prototype.addProductImages = function (files) {
-        var _this = this;
-        var _loop_1 = function (i) {
-            var exist = (this_1.GalleryImgs.find(function (x) { return x.name === files[i].name; })) ? true : false;
-            if (files[i] && !exist) {
-                var reader = new FileReader();
-                reader.onload = function (e) {
-                    var item = {
-                        img: files[i],
-                        name: files[i].name,
-                        data: e.target.result.toString()
-                    };
-                    if (_this.GalleryImgs.length < 8) {
-                        _this.GalleryImgs.push(item);
-                    }
-                };
-                reader.readAsDataURL(files[i]);
-            }
-        };
-        var this_1 = this;
-        for (var i = 0; i < files.length; i++) {
-            _loop_1(i);
-        }
-    };
-    ProductFormComponent.prototype.addDescImages = function (files) {
-        var _this = this;
-        var _loop_2 = function (i) {
-            var exist = (this_2.DescImgs.find(function (x) { return x.name === files[i].name; })) ? true : false;
-            if (files[i] && !exist) {
-                var reader = new FileReader();
-                reader.onload = function (e) {
-                    var item = {
-                        img: files[i],
-                        name: files[i].name,
-                        data: e.target.result.toString()
-                    };
-                    if (_this.DescImgs.length < 8) {
-                        _this.DescImgs.push(item);
-                    }
-                };
-                reader.readAsDataURL(files[i]);
-            }
-        };
-        var this_2 = this;
-        for (var i = 0; i < files.length; i++) {
-            _loop_2(i);
-        }
-    };
-    ProductFormComponent.prototype.removeImage = function (name) {
-        var elem = this.GalleryImgs.find(function (x) { return x.name === name; });
-        this.GalleryImgs.splice(this.GalleryImgs.indexOf(elem), 1);
-    };
-    ProductFormComponent.prototype.removeDescImage = function (name) {
-        var elem = this.DescImgs.find(function (x) { return x.name === name; });
-        this.DescImgs.splice(this.DescImgs.indexOf(elem), 1);
-    };
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('f'),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_forms__WEBPACK_IMPORTED_MODULE_6__["NgForm"])
-    ], ProductFormComponent.prototype, "ngForm", void 0);
-    ProductFormComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-            selector: 'product-form',
-            template: __webpack_require__(/*! ./product-form.component.html */ "./src/app/admin/product-form/product-form.component.html"),
-            styles: [__webpack_require__(/*! ./product-form.component.css */ "./src/app/admin/product-form/product-form.component.css")]
-        }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_admin_product_service__WEBPACK_IMPORTED_MODULE_2__["AdminProductService"], ngx_toastr__WEBPACK_IMPORTED_MODULE_4__["ToastrService"]])
-    ], ProductFormComponent);
-    return ProductFormComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/admin/product-history/product-history.component.css":
-/*!*********************************************************************!*\
-  !*** ./src/app/admin/product-history/product-history.component.css ***!
-  \*********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "h4 {\r\n  text-align: center;\r\n  text-decoration: underline;\r\n  margin: 15px 0;\r\n}\r\n\r\n.table-img {\r\n  height: 40px;\r\n  width: 40px;\r\n  border-radius: 50%;\r\n}\r\n\r\ntr td:first-of-type {\r\n  padding: 5px;\r\n  width: 52px;\r\n}\r\n\r\ntr {\r\n  text-align: left;\r\n  margin: 5px 0 10px 0;\r\n}\r\n\r\na {\r\n  color: black;\r\n  text-decoration: underline\r\n}\r\n\r\ntd.col-4 {\r\n  padding-top: 0 !important;\r\n  padding-bottom: 0 !important;\r\n}\r\n\r\n.history {\r\n  position: -webkit-sticky;\r\n  position: sticky;\r\n  top: 20px;\r\n  padding: 5px 22px !important;\r\n  font-size: 18px\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRtaW4vcHJvZHVjdC1oaXN0b3J5L3Byb2R1Y3QtaGlzdG9yeS5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0Usa0JBQWtCO0VBQ2xCLDBCQUEwQjtFQUMxQixjQUFjO0FBQ2hCOztBQUVBO0VBQ0UsWUFBWTtFQUNaLFdBQVc7RUFDWCxrQkFBa0I7QUFDcEI7O0FBRUE7RUFDRSxZQUFZO0VBQ1osV0FBVztBQUNiOztBQUVBO0VBQ0UsZ0JBQWdCO0VBQ2hCLG9CQUFvQjtBQUN0Qjs7QUFFQTtFQUNFLFlBQVk7RUFDWjtBQUNGOztBQUVBO0VBQ0UseUJBQXlCO0VBQ3pCLDRCQUE0QjtBQUM5Qjs7QUFFQTtFQUNFLHdCQUFnQjtFQUFoQixnQkFBZ0I7RUFDaEIsU0FBUztFQUNULDRCQUE0QjtFQUM1QjtBQUNGIiwiZmlsZSI6InNyYy9hcHAvYWRtaW4vcHJvZHVjdC1oaXN0b3J5L3Byb2R1Y3QtaGlzdG9yeS5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiaDQge1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICB0ZXh0LWRlY29yYXRpb246IHVuZGVybGluZTtcclxuICBtYXJnaW46IDE1cHggMDtcclxufVxyXG5cclxuLnRhYmxlLWltZyB7XHJcbiAgaGVpZ2h0OiA0MHB4O1xyXG4gIHdpZHRoOiA0MHB4O1xyXG4gIGJvcmRlci1yYWRpdXM6IDUwJTtcclxufVxyXG5cclxudHIgdGQ6Zmlyc3Qtb2YtdHlwZSB7XHJcbiAgcGFkZGluZzogNXB4O1xyXG4gIHdpZHRoOiA1MnB4O1xyXG59XHJcblxyXG50ciB7XHJcbiAgdGV4dC1hbGlnbjogbGVmdDtcclxuICBtYXJnaW46IDVweCAwIDEwcHggMDtcclxufVxyXG5cclxuYSB7XHJcbiAgY29sb3I6IGJsYWNrO1xyXG4gIHRleHQtZGVjb3JhdGlvbjogdW5kZXJsaW5lXHJcbn1cclxuXHJcbnRkLmNvbC00IHtcclxuICBwYWRkaW5nLXRvcDogMCAhaW1wb3J0YW50O1xyXG4gIHBhZGRpbmctYm90dG9tOiAwICFpbXBvcnRhbnQ7XHJcbn1cclxuXHJcbi5oaXN0b3J5IHtcclxuICBwb3NpdGlvbjogc3RpY2t5O1xyXG4gIHRvcDogMjBweDtcclxuICBwYWRkaW5nOiA1cHggMjJweCAhaW1wb3J0YW50O1xyXG4gIGZvbnQtc2l6ZTogMThweFxyXG59XHJcbiJdfQ== */"
-
-/***/ }),
-
-/***/ "./src/app/admin/product-history/product-history.component.html":
-/*!**********************************************************************!*\
-  !*** ./src/app/admin/product-history/product-history.component.html ***!
-  \**********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"history\">\n  <h4 *ngIf=\"Products\">Last Added Products</h4>\n  <table class=\"table table-hover text-center\">\n    <tr *ngFor=\"let p of Products\" class=\"row\">\n      <td class=\"col-3\"><img [src]=\"'/Content/Images/Products/' + p.Id + '/Main/' + p.Image\" class=\"img-responsive table-img\"></td>\n      <td class=\"col-9\"><a target=\"blank\" routerLink=\"/product/{{p.Slug}}\">{{p.Name}}</a></td>\n      <td class=\"col-4\"><a routerLink=\"/add-product\">Edit</a></td>\n      <td class=\"col-4\"><a routerLink=\"/add-product\">Copy</a></td>\n      <td class=\"col-4\"><a routerLink=\"/add-product\">Delete</a></td>\n    </tr>\n  </table>\n</div>\n"
-
-/***/ }),
-
-/***/ "./src/app/admin/product-history/product-history.component.ts":
-/*!********************************************************************!*\
-  !*** ./src/app/admin/product-history/product-history.component.ts ***!
-  \********************************************************************/
-/*! exports provided: ProductHistoryComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProductHistoryComponent", function() { return ProductHistoryComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _services_admin_product_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/admin-product.service */ "./src/app/admin/services/admin-product.service.ts");
-
-
-
-var ProductHistoryComponent = /** @class */ (function () {
-    function ProductHistoryComponent(aps) {
-        this.aps = aps;
-    }
-    ProductHistoryComponent.prototype.ngOnInit = function () {
-    };
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])('Products'),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Array)
-    ], ProductHistoryComponent.prototype, "Products", void 0);
-    ProductHistoryComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-            selector: 'product-history',
-            template: __webpack_require__(/*! ./product-history.component.html */ "./src/app/admin/product-history/product-history.component.html"),
-            styles: [__webpack_require__(/*! ./product-history.component.css */ "./src/app/admin/product-history/product-history.component.css")]
-        }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_admin_product_service__WEBPACK_IMPORTED_MODULE_2__["AdminProductService"]])
-    ], ProductHistoryComponent);
-    return ProductHistoryComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/admin/product-images/product-images.component.css":
-/*!*******************************************************************!*\
-  !*** ./src/app/admin/product-images/product-images.component.css ***!
-  \*******************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FkbWluL3Byb2R1Y3QtaW1hZ2VzL3Byb2R1Y3QtaW1hZ2VzLmNvbXBvbmVudC5jc3MifQ== */"
-
-/***/ }),
-
-/***/ "./src/app/admin/product-images/product-images.component.html":
-/*!********************************************************************!*\
-  !*** ./src/app/admin/product-images/product-images.component.html ***!
-  \********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<p>\n  product-images works!\n</p>\n"
-
-/***/ }),
-
-/***/ "./src/app/admin/product-images/product-images.component.ts":
-/*!******************************************************************!*\
-  !*** ./src/app/admin/product-images/product-images.component.ts ***!
-  \******************************************************************/
-/*! exports provided: ProductImagesComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProductImagesComponent", function() { return ProductImagesComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-
-
-var ProductImagesComponent = /** @class */ (function () {
-    function ProductImagesComponent() {
-    }
-    ProductImagesComponent.prototype.ngOnInit = function () {
-    };
-    ProductImagesComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-            selector: 'app-product-images',
-            template: __webpack_require__(/*! ./product-images.component.html */ "./src/app/admin/product-images/product-images.component.html"),
-            styles: [__webpack_require__(/*! ./product-images.component.css */ "./src/app/admin/product-images/product-images.component.css")]
-        }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
-    ], ProductImagesComponent);
-    return ProductImagesComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/admin/services/admin-product.service.ts":
-/*!*********************************************************!*\
-  !*** ./src/app/admin/services/admin-product.service.ts ***!
-  \*********************************************************/
-/*! exports provided: AdminProductService */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminProductService", function() { return AdminProductService; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
-/* harmony import */ var src_app_common_errors_http_errors__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/common/errors/http-errors */ "./src/app/common/errors/http-errors.ts");
-
-
-
-
-
-var AdminProductService = /** @class */ (function () {
-    function AdminProductService(http) {
-        this.http = http;
-        this.noAuth = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({ 'NoAuth': 'true' }); // only for testing
-    }
-    AdminProductService.prototype.getCategories = function () {
-        return this.http.get('api/Categories', { headers: this.noAuth });
-    };
-    AdminProductService.prototype.getShippings = function () {
-        return ['GearBest', 'Ali Express', 'Other']; // available shipping methods
-    };
-    // calling the server
-    AdminProductService.prototype.PostProduct = function (form) {
-        return this.http.post('api/Products', form, { headers: this.noAuth }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(src_app_common_errors_http_errors__WEBPACK_IMPORTED_MODULE_4__["handleExpectedErrors"]));
-    };
-    AdminProductService.prototype.UploadImages = function (form) {
-        return this.http.post('api/upload-images', form, { headers: this.noAuth }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(src_app_common_errors_http_errors__WEBPACK_IMPORTED_MODULE_4__["handleExpectedErrors"]));
-    };
-    AdminProductService.prototype.GetLastProducts = function () {
-        return this.http.get('api/last7', { headers: this.noAuth });
-    };
-    AdminProductService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
-            providedIn: 'root'
-        }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
-    ], AdminProductService);
-    return AdminProductService;
-}());
-
-
-
-/***/ }),
-
 /***/ "./src/app/app-routing.module.ts":
 /*!***************************************!*\
   !*** ./src/app/app-routing.module.ts ***!
@@ -509,20 +41,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _shopping_cart_shopping_cart_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./shopping-cart/shopping-cart.component */ "./src/app/shopping-cart/shopping-cart.component.ts");
 /* harmony import */ var _checkout_checkout_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./checkout/checkout.component */ "./src/app/checkout/checkout.component.ts");
 /* harmony import */ var _guards_checkout_guard__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./guards/checkout.guard */ "./src/app/guards/checkout.guard.ts");
-/* harmony import */ var _guards_admin_guard_guard__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./guards/admin-guard.guard */ "./src/app/guards/admin-guard.guard.ts");
-/* harmony import */ var _product_product_details_product_details_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./product/product-details/product-details.component */ "./src/app/product/product-details/product-details.component.ts");
-/* harmony import */ var _guards_user_auth_guard__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./guards/user-auth.guard */ "./src/app/guards/user-auth.guard.ts");
-/* harmony import */ var _user_user_profile_user_profile_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./user/user-profile/user-profile.component */ "./src/app/user/user-profile/user-profile.component.ts");
-/* harmony import */ var _guards_signin_guard__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./guards/signin.guard */ "./src/app/guards/signin.guard.ts");
-/* harmony import */ var _error_pages_not_found_not_found_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./error-pages/not-found/not-found.component */ "./src/app/error-pages/not-found/not-found.component.ts");
-/* harmony import */ var _error_pages_unexpected_error_unexpected_error_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./error-pages/unexpected-error/unexpected-error.component */ "./src/app/error-pages/unexpected-error/unexpected-error.component.ts");
-/* harmony import */ var _admin_product_form_product_form_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./admin/product-form/product-form.component */ "./src/app/admin/product-form/product-form.component.ts");
-/* harmony import */ var _payment_payment_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./payment/payment.component */ "./src/app/payment/payment.component.ts");
-/* harmony import */ var _admin_admin_area_admin_area_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./admin/admin-area/admin-area.component */ "./src/app/admin/admin-area/admin-area.component.ts");
-/* harmony import */ var _navigation_navigation_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./navigation/navigation.component */ "./src/app/navigation/navigation.component.ts");
-
-
-
+/* harmony import */ var _product_product_details_product_details_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./product/product-details/product-details.component */ "./src/app/product/product-details/product-details.component.ts");
+/* harmony import */ var _guards_user_auth_guard__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./guards/user-auth.guard */ "./src/app/guards/user-auth.guard.ts");
+/* harmony import */ var _user_user_profile_user_profile_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./user/user-profile/user-profile.component */ "./src/app/user/user-profile/user-profile.component.ts");
+/* harmony import */ var _guards_signin_guard__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./guards/signin.guard */ "./src/app/guards/signin.guard.ts");
+/* harmony import */ var _error_pages_not_found_not_found_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./error-pages/not-found/not-found.component */ "./src/app/error-pages/not-found/not-found.component.ts");
+/* harmony import */ var _error_pages_unexpected_error_unexpected_error_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./error-pages/unexpected-error/unexpected-error.component */ "./src/app/error-pages/unexpected-error/unexpected-error.component.ts");
+/* harmony import */ var _payment_payment_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./payment/payment.component */ "./src/app/payment/payment.component.ts");
+/* harmony import */ var _navigation_navigation_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./navigation/navigation.component */ "./src/app/navigation/navigation.component.ts");
 
 
 
@@ -540,27 +66,20 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var routes = [
-    { path: 'sign-in', component: _sign_in_up_sign_in_up_component__WEBPACK_IMPORTED_MODULE_4__["SignInUpComponent"], canActivate: [_guards_signin_guard__WEBPACK_IMPORTED_MODULE_12__["SigninGuard"]] },
-    { path: 'sign-up', component: _sign_in_up_sign_in_up_component__WEBPACK_IMPORTED_MODULE_4__["SignInUpComponent"], canActivate: [_guards_signin_guard__WEBPACK_IMPORTED_MODULE_12__["SigninGuard"]] },
+    { path: 'sign-in', component: _sign_in_up_sign_in_up_component__WEBPACK_IMPORTED_MODULE_4__["SignInUpComponent"], canActivate: [_guards_signin_guard__WEBPACK_IMPORTED_MODULE_11__["SigninGuard"]] },
+    { path: 'sign-up', component: _sign_in_up_sign_in_up_component__WEBPACK_IMPORTED_MODULE_4__["SignInUpComponent"], canActivate: [_guards_signin_guard__WEBPACK_IMPORTED_MODULE_11__["SigninGuard"]] },
+    { path: '404', component: _error_pages_not_found_not_found_component__WEBPACK_IMPORTED_MODULE_12__["NotFoundComponent"] },
+    { path: 'error', component: _error_pages_unexpected_error_unexpected_error_component__WEBPACK_IMPORTED_MODULE_13__["UnexpectedErrorComponent"] },
     {
-        path: 'admin-panel', component: _admin_admin_area_admin_area_component__WEBPACK_IMPORTED_MODULE_17__["AdminAreaComponent"], canActivate: [_guards_admin_guard_guard__WEBPACK_IMPORTED_MODULE_8__["AdminGuard"]],
+        path: '', component: _navigation_navigation_component__WEBPACK_IMPORTED_MODULE_15__["NavigationComponent"],
         children: [
-            { path: '', component: _admin_product_form_product_form_component__WEBPACK_IMPORTED_MODULE_15__["ProductFormComponent"], },
-            { path: 'add-product', component: _admin_product_form_product_form_component__WEBPACK_IMPORTED_MODULE_15__["ProductFormComponent"], canActivate: [_guards_admin_guard_guard__WEBPACK_IMPORTED_MODULE_8__["AdminGuard"]] },
-        ]
-    },
-    { path: '404', component: _error_pages_not_found_not_found_component__WEBPACK_IMPORTED_MODULE_13__["NotFoundComponent"] },
-    { path: 'error', component: _error_pages_unexpected_error_unexpected_error_component__WEBPACK_IMPORTED_MODULE_14__["UnexpectedErrorComponent"] },
-    {
-        path: '', component: _navigation_navigation_component__WEBPACK_IMPORTED_MODULE_18__["NavigationComponent"],
-        children: [
-            { path: '', component: _home_home_component__WEBPACK_IMPORTED_MODULE_3__["HomeComponent"], },
+            { path: '', component: _home_home_component__WEBPACK_IMPORTED_MODULE_3__["HomeComponent"] },
             { path: 'cart', component: _shopping_cart_shopping_cart_component__WEBPACK_IMPORTED_MODULE_5__["ShoppingCartComponent"], },
-            { path: 'product/:slug', component: _product_product_details_product_details_component__WEBPACK_IMPORTED_MODULE_9__["ProductDetailsComponent"] },
-            { path: 'checkout', component: _checkout_checkout_component__WEBPACK_IMPORTED_MODULE_6__["CheckoutComponent"], canActivate: [_guards_checkout_guard__WEBPACK_IMPORTED_MODULE_7__["CheckoutGuard"], _guards_user_auth_guard__WEBPACK_IMPORTED_MODULE_10__["UserAuthGuard"]] },
-            { path: 'payment', component: _payment_payment_component__WEBPACK_IMPORTED_MODULE_16__["PaymentComponent"], canActivate: [_guards_checkout_guard__WEBPACK_IMPORTED_MODULE_7__["CheckoutGuard"], _guards_user_auth_guard__WEBPACK_IMPORTED_MODULE_10__["UserAuthGuard"]] },
-            { path: 'dashboard', component: _user_user_profile_user_profile_component__WEBPACK_IMPORTED_MODULE_11__["UserProfileComponent"], canActivate: [_guards_user_auth_guard__WEBPACK_IMPORTED_MODULE_10__["UserAuthGuard"]] },
-            { path: '**', component: _home_home_component__WEBPACK_IMPORTED_MODULE_3__["HomeComponent"] }
+            { path: 'product/:slug', component: _product_product_details_product_details_component__WEBPACK_IMPORTED_MODULE_8__["ProductDetailsComponent"] },
+            { path: 'checkout', component: _checkout_checkout_component__WEBPACK_IMPORTED_MODULE_6__["CheckoutComponent"], canActivate: [_guards_checkout_guard__WEBPACK_IMPORTED_MODULE_7__["CheckoutGuard"], _guards_user_auth_guard__WEBPACK_IMPORTED_MODULE_9__["UserAuthGuard"]] },
+            { path: 'payment', component: _payment_payment_component__WEBPACK_IMPORTED_MODULE_14__["PaymentComponent"], canActivate: [_guards_checkout_guard__WEBPACK_IMPORTED_MODULE_7__["CheckoutGuard"], _guards_user_auth_guard__WEBPACK_IMPORTED_MODULE_9__["UserAuthGuard"]] },
+            { path: 'dashboard', component: _user_user_profile_user_profile_component__WEBPACK_IMPORTED_MODULE_10__["UserProfileComponent"], canActivate: [_guards_user_auth_guard__WEBPACK_IMPORTED_MODULE_9__["UserAuthGuard"]] },
+            { path: '**', redirectTo: '/' }
         ]
     }
 ];
@@ -683,19 +202,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _common_errors_global_error_handler__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./common/errors/global-error-handler */ "./src/app/common/errors/global-error-handler.ts");
 /* harmony import */ var _error_pages_unexpected_error_unexpected_error_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./error-pages/unexpected-error/unexpected-error.component */ "./src/app/error-pages/unexpected-error/unexpected-error.component.ts");
 /* harmony import */ var _common_auth_interceptor__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./common/auth-interceptor */ "./src/app/common/auth-interceptor.ts");
-/* harmony import */ var _admin_services_admin_product_service__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./admin/services/admin-product.service */ "./src/app/admin/services/admin-product.service.ts");
-/* harmony import */ var _admin_product_history_product_history_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./admin/product-history/product-history.component */ "./src/app/admin/product-history/product-history.component.ts");
-/* harmony import */ var _admin_product_form_product_form_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./admin/product-form/product-form.component */ "./src/app/admin/product-form/product-form.component.ts");
-/* harmony import */ var _payment_payment_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./payment/payment.component */ "./src/app/payment/payment.component.ts");
-/* harmony import */ var _coupon_coupon_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./coupon/coupon.component */ "./src/app/coupon/coupon.component.ts");
-/* harmony import */ var _admin_admin_area_admin_area_component__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./admin/admin-area/admin-area.component */ "./src/app/admin/admin-area/admin-area.component.ts");
-/* harmony import */ var _navigation_navigation_component__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./navigation/navigation.component */ "./src/app/navigation/navigation.component.ts");
-/* harmony import */ var _admin_product_images_product_images_component__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./admin/product-images/product-images.component */ "./src/app/admin/product-images/product-images.component.ts");
-
-
-
-
-
+/* harmony import */ var _payment_payment_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./payment/payment.component */ "./src/app/payment/payment.component.ts");
+/* harmony import */ var _coupon_coupon_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./coupon/coupon.component */ "./src/app/coupon/coupon.component.ts");
+/* harmony import */ var _navigation_navigation_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./navigation/navigation.component */ "./src/app/navigation/navigation.component.ts");
 
 
 
@@ -749,13 +258,9 @@ var AppModule = /** @class */ (function () {
                 _user_user_profile_user_profile_component__WEBPACK_IMPORTED_MODULE_24__["UserProfileComponent"],
                 _error_pages_not_found_not_found_component__WEBPACK_IMPORTED_MODULE_25__["NotFoundComponent"],
                 _error_pages_unexpected_error_unexpected_error_component__WEBPACK_IMPORTED_MODULE_27__["UnexpectedErrorComponent"],
-                _admin_product_form_product_form_component__WEBPACK_IMPORTED_MODULE_31__["ProductFormComponent"],
-                _admin_product_history_product_history_component__WEBPACK_IMPORTED_MODULE_30__["ProductHistoryComponent"],
-                _payment_payment_component__WEBPACK_IMPORTED_MODULE_32__["PaymentComponent"],
-                _coupon_coupon_component__WEBPACK_IMPORTED_MODULE_33__["CouponComponent"],
-                _admin_admin_area_admin_area_component__WEBPACK_IMPORTED_MODULE_34__["AdminAreaComponent"],
-                _navigation_navigation_component__WEBPACK_IMPORTED_MODULE_35__["NavigationComponent"],
-                _admin_product_images_product_images_component__WEBPACK_IMPORTED_MODULE_36__["ProductImagesComponent"]
+                _payment_payment_component__WEBPACK_IMPORTED_MODULE_29__["PaymentComponent"],
+                _coupon_coupon_component__WEBPACK_IMPORTED_MODULE_30__["CouponComponent"],
+                _navigation_navigation_component__WEBPACK_IMPORTED_MODULE_31__["NavigationComponent"],
             ],
             imports: [
                 _angular_common__WEBPACK_IMPORTED_MODULE_19__["CommonModule"],
@@ -769,7 +274,6 @@ var AppModule = /** @class */ (function () {
                 ngx_toastr__WEBPACK_IMPORTED_MODULE_21__["ToastrModule"].forRoot()
             ],
             providers: [
-                _admin_services_admin_product_service__WEBPACK_IMPORTED_MODULE_29__["AdminProductService"],
                 _services_product_service__WEBPACK_IMPORTED_MODULE_15__["ProductService"],
                 _services_cart_service__WEBPACK_IMPORTED_MODULE_16__["CartService"],
                 { provide: _angular_core__WEBPACK_IMPORTED_MODULE_2__["ErrorHandler"], useClass: _common_errors_global_error_handler__WEBPACK_IMPORTED_MODULE_26__["AppErrorHandler"] },
@@ -1222,39 +726,6 @@ var UnexpectedErrorComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/guards/admin-guard.guard.ts":
-/*!*********************************************!*\
-  !*** ./src/app/guards/admin-guard.guard.ts ***!
-  \*********************************************/
-/*! exports provided: AdminGuard */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminGuard", function() { return AdminGuard; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-
-
-var AdminGuard = /** @class */ (function () {
-    function AdminGuard() {
-    }
-    AdminGuard.prototype.canActivate = function (next, state) {
-        return true;
-    };
-    AdminGuard = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
-            providedIn: 'root'
-        }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
-    ], AdminGuard);
-    return AdminGuard;
-}());
-
-
-
-/***/ }),
-
 /***/ "./src/app/guards/checkout.guard.ts":
 /*!******************************************!*\
   !*** ./src/app/guards/checkout.guard.ts ***!
@@ -1396,7 +867,7 @@ module.exports = "header {\r\n  background: #6c757d;\r\n  position: -webkit-stic
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<header>\n  <nav>\n    <a routerLink=\"/\"><span>You-Better</span></a>\n    <ul>\n      <li>\n        <a routerLink=\"/admin-panel\">GoAdmin</a>\n      </li>\n      <li>\n        <a routerLink=\"/cart\">Cart ({{cartCount}})\n        </a>\n      </li>\n      <li *ngIf=\" user ; else anonumousUser\" ngbDropdown class=\"nav-item dropdown\">\n        <a ngbDropdownToggle class=\"dropdown-toggle\" id=\"dropdown01\" data-toggle=\"dropdown\" aria-haspopup=\"true\"\n          aria-expanded=\"false\">{{ user.FullName }}</a>\n        <div ngbDropdownMenu class=\"dropdown-menu\" aria-labelledby=\"dropdown01\">\n          <a class=\"dropdown-item\" routerLink=\"/dashboard\">My Profile</a>\n          <a class=\"dropdown-item\" routerLink=\"/\">My Orders</a>\n          <a class=\"dropdown-item\" (click)=\"Logout()\">Log Out</a>\n        </div>\n      </li>\n      <ng-template #anonumousUser>\n        <li>\n          <a routerLink=\"/sign-in\">Login</a>\n        </li>\n      </ng-template>\n    </ul>\n  </nav>\n</header>"
+module.exports = "<header>\n  <nav>\n    <a routerLink=\"/\"><span>You-Better</span></a>\n    <ul>\n      <li>\n        <div routerLink=\"/\">Test</div>\n      </li>\n      <li>\n        <a href=\"admin\">GoAdmin</a>\n      </li>\n      <li>\n        <a routerLink=\"/cart\">Cart ({{cartCount}})\n        </a>\n      </li>\n      <li *ngIf=\" user ; else anonumousUser\" ngbDropdown class=\"nav-item dropdown\">\n        <a ngbDropdownToggle class=\"dropdown-toggle\" id=\"dropdown01\" data-toggle=\"dropdown\" aria-haspopup=\"true\"\n          aria-expanded=\"false\">{{ user.FullName }}</a>\n        <div ngbDropdownMenu class=\"dropdown-menu\" aria-labelledby=\"dropdown01\">\n          <a class=\"dropdown-item\" routerLink=\"/dashboard\">My Profile</a>\n          <a class=\"dropdown-item\" routerLink=\"/\">My Orders</a>\n          <a class=\"dropdown-item\" (click)=\"Logout()\">Log Out</a>\n        </div>\n      </li>\n      <ng-template #anonumousUser>\n        <li>\n          <a routerLink=\"/sign-in\">Login</a>\n        </li>\n      </ng-template>\n    </ul>\n  </nav>\n</header>"
 
 /***/ }),
 
@@ -2650,7 +2121,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\IMPORTANT\SourceCode\MW-Backend\MW-Backend\MW-Client\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! D:\IMPORTANT\SourceCode\MW-Backend\MW-Backend\MW-App\src\main.ts */"./src/main.ts");
 
 
 /***/ })
