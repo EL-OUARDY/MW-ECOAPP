@@ -1693,6 +1693,8 @@ input[type="text"] {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    overflow: hidden;
 }
 
 .divcategproduct {
@@ -4468,6 +4470,20 @@ td.fdgdzeazreio {
     width: 30px;
 }
 
+.mat-checkbox-label {
+    color: #939698;
+    font-size: 20px;
+}
+
+.mat-checkbox-frame {
+    border-width: 1px;
+    border-color: #6c757d;
+}
+
+.noColor .mat-checkbox-background, .noColor .mat-checkbox:not(.mat-checkbox-disabled).mat-accent .mat-checkbox-ripple .mat-ripple-element {
+    background-color: #6c757d !important;
+}
+
 /***************************/
 
 /***** Custom Classes ******/
@@ -4515,38 +4531,86 @@ td.fdgdzeazreio {
 
 .history .box:hover svg {
     display: block;
+    fill: #4dd0e1;
 }
 
 .history .box svg {
     position: absolute;
     width: 15px;
     display: none;
-
+    animation-duration: 400ms;
+    animation-timing-function: ease-in-out;
 }
 
 .history .box svg:nth-of-type(1) {
-    top: 8px;
+    top: 10px;
     left: 8px;
+    animation-name: k1;
 }
 
 .history .box svg:nth-of-type(2) {
-    top: 8px;
+    top: 10px;
     right: 8px;
+    animation-name: k2;
 }
 
 .history .box svg:nth-of-type(3) {
     bottom: 8px;
     left: 8px;
+    animation-name: k1;
 }
 
 .history .box svg:nth-of-type(4) {
     bottom: 8px;
     right: 8px;
+    animation-name: k2;
 }
 
 .history .box svg:hover {
     fill: #000;
     cursor: pointer;
+}
+
+@keyframes k1 {
+    0% {
+        top: 35px;
+        left: 35px;
+        opacity: 0;
+    }
+    80% {
+        opacity: .4;
+    }
+    100% {
+        top: initial !important;
+        left: initial !important;
+        opacity: 1
+    }
+}
+
+@keyframes k2 {
+    0% {
+        top: 35px;
+        right: 35px;
+        opacity: 0
+    }
+    80% {
+        opacity: .4;
+    }
+    100% {
+        top: initial !important;
+        right: initial !important;
+        opacity: 1
+    }
+}
+
+.noColor {
+    text-align: center;
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    left: 0;
+    background: #292a2d;
+    padding: 6px 0;
 }
 
 /*****************************/

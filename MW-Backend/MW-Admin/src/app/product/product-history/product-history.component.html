@@ -1,6 +1,6 @@
 
 
-<div *ngFor="let p of Products" class="box">
+<div *ngFor="let p of Products; trackBy: trackById" class="box">
   <img [src]="'/Content/Images/Products/' + p.Id + '/Main/' + p.Image">
   <svg version="1.1" x="0px" y="0px" viewBox="0 0 469.331 469.331" style="enable-background:new 0 0 469.331 469.331;"
     xml:space="preserve">

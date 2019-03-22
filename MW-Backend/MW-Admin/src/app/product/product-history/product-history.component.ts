@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { MiniProduct } from 'src/app/models/miniProduct';
 import { AdminProductService } from '../../services/admin-product.service';
 import { AppError } from 'src/app/common/errors/app-error';
@@ -13,6 +13,7 @@ import { ToastrService } from 'ngx-toastr';
 export class ProductHistoryComponent implements OnInit {
 
   @Input('Products') Products: MiniProduct[];
+  @Output('delete') delete = new EventEmitter();
 
   constructor(private aps: AdminProductService, private toaster: ToastrService) { }
 
@@ -20,11 +21,12 @@ export class ProductHistoryComponent implements OnInit {
   }
 
   deleteProduct(product: MiniProduct) {
-    console.log(product.Id);
     this.aps.deleteProduct(product.Id).subscribe(
       () => {
-          const index = this.Products.indexOf(product);
-          this.Products.splice(index, 1);
+          // const index = this.Products.indexOf(product);
+          // this.Products.splice(index, 1);
+
+          this.delete.emit();
       },
       (err: AppError) => {
         if (err instanceof BadInput) {
@@ -33,5 +35,8 @@ export class ProductHistoryComponent implements OnInit {
           this.toaster.warning('Product Not Found Or Already Deleted');
         } else { throw err; }
       });
+  }
+  trackById(index, product){
+    return product ? product.Id : undefined;
   }
 }

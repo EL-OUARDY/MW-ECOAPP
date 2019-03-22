@@ -110,7 +110,7 @@
               <mat-radio-button [disabled]=" hasNoColor " [value]="item"></mat-radio-button>
             </div>
           </mat-radio-group>
-          <div>
+          <div class="noColor">
             <mat-checkbox (change)="setNoColor()" name="hasNoColor" [(ngModel)]="hasNoColor">No Color</mat-checkbox>
           </div>
           <!-- <mat-select  #colorSelect (selectionChange)="mixedColor(colorSelect)" >
@@ -226,6 +226,6 @@
   </form>
 
   <div class="history">
-    <product-history [Products]="lastProducts"></product-history>
+    <product-history [Products]="lastProducts" (delete)="getLastAddedProducts()" ></product-history>
   </div>
 </div>

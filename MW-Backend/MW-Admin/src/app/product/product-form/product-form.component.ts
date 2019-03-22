@@ -26,18 +26,17 @@ export class ProductFormComponent implements OnInit {
 
   constructor(private aps: AdminProductService, private toaster: ToastrService) {
   }
+  // implements ngOnDestroy to Remove all subscriptions
 
   ngOnInit() {
     this.aps.getCategories().subscribe(res => {
       this.categories = res;
     });
-    this.aps.GetLastProducts().subscribe(data => {
-      this.lastProducts = <MiniProduct[]>data;
-    });
+
+    this.getLastAddedProducts();
 
     this.shipping = this.aps.getShippings();
   }
-
 
   // Posting The Product
   onSubmit(f: NgForm) {
@@ -57,6 +56,12 @@ export class ProductFormComponent implements OnInit {
           this.toaster.warning('ModelState is not valid ..'); // Display the error within Form errors and Wrap it with JSON pipe
         } else { throw error; }
       });
+  }
+
+  private getLastAddedProducts() {
+    this.aps.GetLastProducts().subscribe(data => {
+      this.lastProducts = <MiniProduct[]>data;
+    });
   }
 
   private uploadProductImages(ProductId: string) {
