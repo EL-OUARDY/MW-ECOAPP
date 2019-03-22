@@ -4,7 +4,7 @@ import { AdminProduct } from '../../models/adminProduct';
 import { ToastrService } from 'ngx-toastr';
 import { MiniProduct } from 'src/app/models/miniProduct';
 import { BadInput } from 'src/app/common/errors/http-errors';
-import { NgForm } from '@angular/forms';
+import { NgForm, FormControl } from '@angular/forms';
 import { AppError } from 'src/app/common/errors/app-error';
 
 @Component({
@@ -13,12 +13,13 @@ import { AppError } from 'src/app/common/errors/app-error';
   styleUrls: ['./product-form.component.css']
 })
 export class ProductFormComponent implements OnInit {
-
+  expand = false;
+  hasNoColor = false;
+  colors = ['white', 'red', 'green', 'yellow', 'gray', 'orange', 'blue', 'pink', 'brown', 'purple', 'black'];
   @ViewChild('f') ngForm: NgForm;
 
   categories; subCategories; shipping; MainImage: File;
   imgPath: string; GalleryImgs = new Array<IPath>(); DescImgs = new Array<IPath>();
-  colors = ['white', 'red', 'pink', 'green', 'grey', 'yellow', 'blue', 'orange', 'brown', 'violet', 'black'];
 
   lastProducts: MiniProduct[];
   _Product = new AdminProduct();
@@ -45,7 +46,7 @@ export class ProductFormComponent implements OnInit {
       return;
     }
 
-    this._Product.Slug = this._Product.Name.replace(/\s+/g, '-');
+    this._Product.Slug = this._Product.Name.replace(/\s+/g, '-'); // on server side
     this.aps.PostProduct(this._Product).subscribe(
       (ProductId: string) => {
         this.toaster.success('Product has been added ' + ProductId, 'Success');
@@ -54,7 +55,7 @@ export class ProductFormComponent implements OnInit {
       }, (error: AppError) => {
         if (error instanceof BadInput) {
           this.toaster.warning('ModelState is not valid ..'); // Display the error within Form errors and Wrap it with JSON pipe
-        } else throw error;
+        } else { throw error; }
       });
   }
 
@@ -81,7 +82,7 @@ export class ProductFormComponent implements OnInit {
       (err: AppError) => {
         if (err instanceof BadInput) {
           this.toaster.warning(err.originalError.error.Message); // Display the error within Form errors
-        } else throw err;
+        } else { throw err; }
       });
   }
 
@@ -101,8 +102,9 @@ export class ProductFormComponent implements OnInit {
   }
 
   getSub(c) {
-    if (c)
+    if (c) {
       this.subCategories = this.categories.find(x => x.Id === Number(c)).SubCategories;
+    }
   }
 
 
@@ -134,7 +136,7 @@ export class ProductFormComponent implements OnInit {
             data: (<FileReader>e.target).result.toString()
           };
 
-          if (this.GalleryImgs.length < 8) { this.GalleryImgs.push(item); }
+          if (this.GalleryImgs.length < 7) { this.GalleryImgs.push(item); }
         };
         reader.readAsDataURL(files[i]);
       }
@@ -152,11 +154,15 @@ export class ProductFormComponent implements OnInit {
             data: (<FileReader>e.target).result.toString()
           };
 
-          if (this.DescImgs.length < 8) { this.DescImgs.push(item); }
+          if (this.DescImgs.length < 5) { this.DescImgs.push(item); }
         };
         reader.readAsDataURL(files[i]);
       }
     }
+  }
+  asMainImage(img: File) {
+      this.MainImage = img;
+      this.previewMainImg();
   }
   removeImage(name) {
     const elem = this.GalleryImgs.find(x => x.name === name);
@@ -165,6 +171,10 @@ export class ProductFormComponent implements OnInit {
   removeDescImage(name) {
     const elem = this.DescImgs.find(x => x.name === name);
     this.DescImgs.splice(this.DescImgs.indexOf(elem), 1);
+  }
+
+  setNoColor() {
+    if (this.hasNoColor) this._Product.Color = null;
   }
 }
 

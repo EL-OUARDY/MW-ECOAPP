@@ -54,5 +54,40 @@ namespace MW_Backend.Helpers
 
             return true;
         }
+
+        public static string getMainImage(int Id)
+        {
+            string myPath = HttpContext.Current.Server.MapPath("~/Content/Images/Products/" + Id.ToString() + "/Main");
+            return Directory.EnumerateFiles(myPath).Select(x => Path.GetFileName(x)).FirstOrDefault();
+        }
+
+        public static IEnumerable<string> getGalleryImages(int Id)
+        {
+            string myPath = HttpContext.Current.Server.MapPath("~/Content/Images/Products/" + Id.ToString() + "/Gallery");
+            return Directory.EnumerateFiles(myPath).Select(fn => Path.GetFileName(fn));
+        }
+
+        public static IEnumerable<string> getDescImages(int Id)
+        {
+            string myPath = HttpContext.Current.Server.MapPath("~/Content/Images/Products/" + Id.ToString() + "/Desc");
+            return Directory.EnumerateFiles(myPath).Select(fn => Path.GetFileName(fn));
+        }
+
+        public static bool deleteProductImages(int id)
+        {
+            string dir = HttpContext.Current.Server.MapPath("~/Content/Images/Products/" + id.ToString() );
+
+            try
+            {
+                if (Directory.Exists(dir))
+                    Directory.Delete(dir, true);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return true;
+        }
     }
 }

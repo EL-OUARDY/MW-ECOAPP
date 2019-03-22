@@ -16,7 +16,7 @@ namespace MW_Backend.Models.Data
         [Display(Name = "Category")]
         public string Name { get; set; }
 
-        public Category Category { get; set; }
+        public virtual Category Category { get; set; }
 
         [Required]
         public int CategoryId { get; set; }

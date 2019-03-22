@@ -13,7 +13,6 @@ export class AdminProductService {
   constructor(private http: HttpClient) { }
 
   getCategories() {
-
     return this.http.get('api/Categories', { headers: this.noAuth });
   }
 
@@ -36,6 +35,12 @@ export class AdminProductService {
   }
 
   GetLastProducts() {
-    return this.http.get('api/last7', { headers: this.noAuth });
+    return this.http.get('api/history', { headers: this.noAuth });
+  }
+
+  deleteProduct(id: number) {
+    return this.http.delete('api/Products/' + id , { headers: this.noAuth }).pipe(
+      catchError(handleExpectedErrors)
+    );
   }
 }

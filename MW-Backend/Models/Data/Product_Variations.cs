@@ -19,6 +19,8 @@ namespace MW_Backend.Models.Data
         [Required]
         public bool HasImage { get; set; }
 
+        public DateTime? Date_Added { get; set; } = DateTime.Now;
+
         public Product Product { get; set; }
         public int ProductId { get; set; }
     }

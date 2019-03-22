@@ -228,7 +228,6 @@
     <Compile Include="Controllers\api\ProductsController.cs" />
     <Compile Include="Controllers\api\UserProfileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="DTOs\CategoryDTO.cs" />
     <Compile Include="DTOs\mProductDTO.cs" />
     <Compile Include="DTOs\ProductDTO.cs" />
     <Compile Include="DTOs\UserProfileDTO.cs" />
@@ -316,6 +315,18 @@
     <Compile Include="Migrations\201902281308296_ApplicationUserIdToOrder.cs" />
     <Compile Include="Migrations\201902281308296_ApplicationUserIdToOrder.Designer.cs">
       <DependentUpon>201902281308296_ApplicationUserIdToOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903181343263_addShippingMethodFieldToProduct.cs" />
+    <Compile Include="Migrations\201903181343263_addShippingMethodFieldToProduct.Designer.cs">
+      <DependentUpon>201903181343263_addShippingMethodFieldToProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903201824248_DropColorSizeStatusFromProduct.cs" />
+    <Compile Include="Migrations\201903201824248_DropColorSizeStatusFromProduct.Designer.cs">
+      <DependentUpon>201903201824248_DropColorSizeStatusFromProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903211100513_addNullableColoR.cs" />
+    <Compile Include="Migrations\201903211100513_addNullableColoR.Designer.cs">
+      <DependentUpon>201903211100513_addNullableColoR.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
@@ -524,6 +535,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902281308296_ApplicationUserIdToOrder.resx">
       <DependentUpon>201902281308296_ApplicationUserIdToOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903181343263_addShippingMethodFieldToProduct.resx">
+      <DependentUpon>201903181343263_addShippingMethodFieldToProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903201824248_DropColorSizeStatusFromProduct.resx">
+      <DependentUpon>201903201824248_DropColorSizeStatusFromProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903211100513_addNullableColoR.resx">
+      <DependentUpon>201903211100513_addNullableColoR.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

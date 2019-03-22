@@ -22,6 +22,18 @@ import { AdminProductService } from './services/admin-product.service';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { HeaderComponent } from './header/header.component';
 import { OrdersComponent } from './order/orders/orders.component';
+import { SupportComponent } from './support/support.component';
+import { ProductListComponent } from './product/product-list/product-list.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { UsersListComponent } from './user/users-list/users-list.component';
+import { CouponComponent } from './coupon/coupon.component';
+import { ReviewsComponent } from './user/reviews/reviews.component';
+import { PagesEditComponent } from './pages-edit/pages-edit.component';
+import { TicketsComponent } from './tickets/tickets.component';
+import { ProfileComponent } from './profile/profile.component';
+import { SettingsComponent } from './settings/settings.component';
+
+import { MatSelectModule, MatCheckboxModule, MatRadioModule, MatTooltipModule, MatDialogModule, MatSnackBarModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -34,6 +46,16 @@ import { OrdersComponent } from './order/orders/orders.component';
     SidebarComponent,
     HeaderComponent,
     OrdersComponent,
+    SupportComponent,
+    ProductListComponent,
+    DashboardComponent,
+    UsersListComponent,
+    CouponComponent,
+    ReviewsComponent,
+    PagesEditComponent,
+    TicketsComponent,
+    ProfileComponent,
+    SettingsComponent,
   ],
   imports: [
     CommonModule,
@@ -44,7 +66,11 @@ import { OrdersComponent } from './order/orders/orders.component';
     ReactiveFormsModule,
     HttpClientModule,
 
-    NgbDropdownModule,
+    MatSelectModule,
+    MatCheckboxModule,
+    MatRadioModule,
+    MatDialogModule,
+    MatSnackBarModule,
 
     BrowserAnimationsModule,
     ToastrModule.forRoot()

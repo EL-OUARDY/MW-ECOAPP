@@ -9,7 +9,6 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Http.Description;
 using AutoMapper;
-using Microsoft.Ajax.Utilities;
 using MW_Backend.DTOs;
 using MW_Backend.Helpers;
 using MW_Backend.Models;
@@ -54,7 +53,6 @@ namespace MW_Backend.Controllers.api
 
         [HttpPost]
         [Route("api/upload-images")]
-        // request size
         public IHttpActionResult UploadImages()
         {
             int ProductId = int.Parse(HttpContext.Current.Request["ProductId"]);
@@ -105,11 +103,11 @@ namespace MW_Backend.Controllers.api
 
         // GET: api/last5
         [HttpGet]
-        [Route("api/last7")]
-        public IHttpActionResult Last7()
+        [Route("api/history")]
+        public IHttpActionResult history()
         {
             var products = db.Products.OrderByDescending(x => x.Id)
-                                .Take(7)
+                                .Take(6)
                                 .ToList()
                                 .Select(Mapper.Map<Product, mProductDTO>);
 
@@ -117,7 +115,7 @@ namespace MW_Backend.Controllers.api
         }
 
         // DELETE: api/Products/5
-        [ResponseType(typeof(Product))]
+        [Route("api/Products/{id}")]
         public IHttpActionResult DeleteProduct(int id)
         {
             Product product = db.Products.Find(id);
@@ -126,10 +124,16 @@ namespace MW_Backend.Controllers.api
                 return NotFound();
             }
 
+            // Remove Images Directory
+            if ( !DirectoryHelper.deleteProductImages(id) )
+            {
+                return BadRequest("An error was occured while deleting images directory !");
+            }
+
             db.Products.Remove(product);
             db.SaveChanges();
 
-            return Ok(product);
+            return Ok();
         }
 
         // PUT: api/Products/5

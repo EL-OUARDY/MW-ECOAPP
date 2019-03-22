@@ -26,9 +26,8 @@ namespace MW_Backend.Controllers.api
         // GET: api/Categories
         public IHttpActionResult GetCategories()
         {
-            var _categories = db.Categories
-                                .ToList()
-                                .Select(Mapper.Map<Category, CategoryDTO>);            
+            var _categories = db.Categories.ToList();
+
             return Ok(_categories);
         }
 

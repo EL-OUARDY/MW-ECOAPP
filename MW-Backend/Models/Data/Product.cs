@@ -22,13 +22,13 @@ namespace MW_Backend.Models.Data
         [Required]
         public decimal Price { get; set; }
 
-        [Required]
-        public string Color { get; set; }
-
-        public string Size { get; set; }
+        public string Color { get; set; } // main color ..
 
         [Required]
-        public string Status { get; set; }
+        public bool OnSale { get; set; } = true; // false => 'out of stock'
+
+        [Required]
+        public string ShippingMethod { get; set; }
 
         [Required]
         public string Description { get; set; }
@@ -39,7 +39,6 @@ namespace MW_Backend.Models.Data
 
         [Range(0, 100)]
         public byte Discount { get; set; } = 0; // its a % , by default : 0
-
 
         public SubCategory SubCategory { get; set; }
 

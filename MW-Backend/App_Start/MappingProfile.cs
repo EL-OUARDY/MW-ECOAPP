@@ -21,8 +21,7 @@ namespace MW_Backend.App_Start
             Mapper.CreateMap<UserProfile, UserProfileDTO>();
             Mapper.CreateMap<UserProfileDTO, UserProfile>();
 
-            Mapper.CreateMap<Category, CategoryDTO>();
-            Mapper.CreateMap<CategoryDTO, Category>();
+            
 
         }
     }
