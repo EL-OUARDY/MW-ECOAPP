@@ -27,6 +27,8 @@ namespace MW_Backend.Models.Data
         [Required]
         public bool OnSale { get; set; } = true; // false => 'out of stock'
 
+        public int? Quantity { get; set; } // 0 => 'out of stock'
+
         [Required]
         public string ShippingMethod { get; set; }
 

@@ -27,6 +27,7 @@
 }
 
 body {
+    user-select: none;
     font-family: "AgencyFB";
     position: absolute;
     height: 100%;
@@ -85,8 +86,7 @@ body {
 
 .divaddproduct {
     display: flex;
-    /*  */
-    margin: 0 auto;
+    margin-left: 110px;
     height: 100%;
     width: 1270px;
     /* height: calc(100% - 50px); */
@@ -103,8 +103,8 @@ body {
 }
 
 .inputprice {
-    width: 80px;
-    /*  */
+    width: 60px;
+    text-align: center;
 }
 
 #inputtitle {
@@ -294,17 +294,15 @@ textarea#textdescrip {
 }
 
 .bottonaddprod {
-    /* width: 220px; */
-    /* height: 50px; */
     background: var(--backgbutton);
     border-radius: 70px;
-    padding: 9px 30px;
+    padding: 6px 0px;
+    width: 115px;
+    text-align: center;
     cursor: pointer;
-    margin: 31px auto;
-    margin-bottom: 0;
     color: var(--colorbutton);
-    /* border: 1px solid #009688; */
-    display: table;
+    display: block;
+    margin: 7px 4px;
 }
 
 .bottonaddprod:hover {
@@ -4028,8 +4026,8 @@ td.hjksghgf {
     width: 50px;
     position: relative;
     height: 26px;
-    background: var(--backgrcontent);
-    margin-left: 90px;
+    background: #bb303de8;
+    margin-left: 14px;
     float: right;
     cursor: pointer;
     border-radius: 90px;
@@ -4041,7 +4039,7 @@ td.hjksghgf {
 .switch2 {
     /* float: right; */
     position: absolute;
-    right: 5px;
+    right: 27px;
     height: 18px;
     width: 18px;
     background: var(--fillsidebar);
@@ -4050,11 +4048,11 @@ td.hjksghgf {
 }
 
 .switchadd1 {
-    background: var(--colorsvg);
+    background: #248c3be6;
 }
 
 .switchadd2 {
-    right: 27px;
+    right: 5px;
     background: var(--backgrcontent);
 }
 
@@ -4433,7 +4431,7 @@ td.fdgdzeazreio {
     padding: 0.75rem 1.25rem;
     border: 1px solid transparent;
     border-radius: 0.25rem;
-    /* color: #0c5460; */
+    margin-top: 1%;
     color: var(--color-font);
     background-color: var(--backgrcontent);
     font-size: 12px;
@@ -4454,11 +4452,11 @@ td.fdgdzeazreio {
 }
 
 .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
-    border-color: #4DD0E1;
+    border-color: #28a745;
 }
 
 .mat-radio-button.mat-accent .mat-radio-inner-circle, .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element:not(.mat-radio-persistent-ripple), .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-persistent-ripple, .mat-radio-button.mat-accent:active .mat-radio-persistent-ripple {
-    background-color: #4DD0E1;
+    background-color: #28a745;
 }
 
 .lijksdfgdsvc .mat-radio-inner-circle, .lijksdfgdsvc .mat-radio-outer-circle {
@@ -4478,6 +4476,10 @@ td.fdgdzeazreio {
 .mat-checkbox-frame {
     border-width: 1px;
     border-color: #6c757d;
+}
+
+.mat-slide-toggle {
+    height: 31px;
 }
 
 .noColor .mat-checkbox-background, .noColor .mat-checkbox:not(.mat-checkbox-disabled).mat-accent .mat-checkbox-ripple .mat-ripple-element {
@@ -4525,13 +4527,14 @@ td.fdgdzeazreio {
     border-radius: 50%;
     display: block;
     width: 100%;
+    height: 100%;
     cursor: pointer;
-    box-shadow: 0 0.75px 10px 3px #4dd0e169;
+    box-shadow: 0 0 6px 2px #d5d6d6b0;
 }
 
 .history .box:hover svg {
     display: block;
-    fill: #4dd0e1;
+    fill: #dc3545ab;
 }
 
 .history .box svg {
@@ -4567,7 +4570,7 @@ td.fdgdzeazreio {
 }
 
 .history .box svg:hover {
-    fill: #000;
+    fill: #da2536;
     cursor: pointer;
 }
 
@@ -4611,6 +4614,37 @@ td.fdgdzeazreio {
     left: 0;
     background: #292a2d;
     padding: 6px 0;
+}
+
+.divtitleprod.lastdiv {
+    margin: 0;
+    border-radius: 15px;
+    width: 300px;
+}
+
+.formFooter {
+    display: flex;
+    margin: 2% 0 0 0
+}
+
+.formFooter .bottonaddprod.mgLeft {
+    margin-left: 588px !important;
+}
+
+.fadeIn {
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+    animation-duration: 400ms;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 /*****************************/

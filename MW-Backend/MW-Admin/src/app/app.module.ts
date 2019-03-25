@@ -33,7 +33,8 @@ import { TicketsComponent } from './tickets/tickets.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SettingsComponent } from './settings/settings.component';
 
-import { MatSelectModule, MatCheckboxModule, MatRadioModule, MatTooltipModule, MatDialogModule, MatSnackBarModule } from '@angular/material';
+import { MatSelectModule, MatCheckboxModule, MatRadioModule, MatTooltipModule, MatDialogModule, MatSnackBarModule, MatTableModule } from '@angular/material';
+import { CdkTableModule } from '@angular/cdk/table';
 
 @NgModule({
   declarations: [
@@ -71,7 +72,9 @@ import { MatSelectModule, MatCheckboxModule, MatRadioModule, MatTooltipModule, M
     MatRadioModule,
     MatDialogModule,
     MatSnackBarModule,
-
+    MatTableModule,
+    CdkTableModule,
+    
     BrowserAnimationsModule,
     ToastrModule.forRoot()
 

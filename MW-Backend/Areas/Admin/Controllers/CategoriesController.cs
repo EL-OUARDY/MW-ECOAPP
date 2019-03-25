@@ -17,10 +17,11 @@ namespace MW_Backend.Controllers.api
 {
     public class CategoriesController : ApiController
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private ApplicationDbContext db;
 
         public CategoriesController()
         {
+            db = new ApplicationDbContext();
         }
 
         // GET: api/Categories

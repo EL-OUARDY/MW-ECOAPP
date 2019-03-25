@@ -31,6 +31,8 @@ namespace MW_Backend.DTOs
         [Required]
         public bool OnSale { get; set; }
 
+        public int? Quantity { get; set; }
+
         public decimal? OldPrice { get; set; }
 
         [Required]

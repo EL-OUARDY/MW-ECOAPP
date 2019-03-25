@@ -14,10 +14,11 @@ import { PagesEditComponent } from './pages-edit/pages-edit.component';
 import { TicketsComponent } from './tickets/tickets.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SettingsComponent } from './settings/settings.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
 
-  { path: 'admin', component: ProductFormComponent, canActivate: [AdminGuard] },
+  { path: 'admin', component: DashboardComponent , canActivate: [AdminGuard] },
   { path: 'admin/products', component: ProductListComponent, canActivate: [AdminGuard] },
   { path: 'admin/add-product', component: ProductFormComponent, canActivate: [AdminGuard] },
   { path: 'admin/orders', component: OrdersComponent, canActivate: [AdminGuard] },

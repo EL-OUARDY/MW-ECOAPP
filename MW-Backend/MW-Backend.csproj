@@ -220,10 +220,12 @@
     <Compile Include="App_Start\ServerRouteConstraint.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminProductsController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\api\CartController.cs" />
-    <Compile Include="Controllers\api\CategoriesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\api\OrdersController.cs" />
     <Compile Include="Controllers\api\ProductsController.cs" />
     <Compile Include="Controllers\api\UserProfileController.cs" />
@@ -328,6 +330,10 @@
     <Compile Include="Migrations\201903211100513_addNullableColoR.Designer.cs">
       <DependentUpon>201903211100513_addNullableColoR.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903231237409_addQteToProductModel.cs" />
+    <Compile Include="Migrations\201903231237409_addQteToProductModel.Designer.cs">
+      <DependentUpon>201903231237409_addQteToProductModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -393,6 +399,8 @@
     <Content Include="Scripts\Client\runtime.js.map" />
     <Content Include="Scripts\Client\styles.js.map" />
     <Content Include="Scripts\Client\vendor.js.map" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Admin\Index.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile1.pubxml" />
     <Content Include="Scripts\Admin\main.js.map" />
@@ -431,11 +439,12 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Admin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Views\AdminProduct\" />
+    <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Content\Images\Products\12\Desc\" />
     <Folder Include="Content\Images\Products\12\Gallery\" />
     <Folder Include="Content\Images\Products\13\Desc\" />
@@ -544,6 +553,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903211100513_addNullableColoR.resx">
       <DependentUpon>201903211100513_addNullableColoR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903231237409_addQteToProductModel.resx">
+      <DependentUpon>201903231237409_addQteToProductModel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

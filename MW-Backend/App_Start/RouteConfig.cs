@@ -14,12 +14,13 @@ namespace MW_Backend
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            // routes.MapMvcAttributeRoutes();
+            routes.MapMvcAttributeRoutes();
 
             routes.MapRoute(
                 name: "default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                ,
                 // Set a constraint to only use this for routes identified as server-side routes
                 constraints: new
                 {
@@ -28,7 +29,8 @@ namespace MW_Backend
                         return url.PathAndQuery.Equals("/admin",
                             StringComparison.InvariantCultureIgnoreCase);
                     })
-                });
+                }
+                );
 
             // This is a catch-all for when no other routes matched. Let the Angular router take care of it
             routes.MapRoute(

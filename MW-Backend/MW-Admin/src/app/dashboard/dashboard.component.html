@@ -1,17 +1,30 @@
 <br>
 <br>
-<br>
 <!-- <br>
-<mat-form-field class="example-full-width">
-  <input matInput [matDatepicker]="picker" placeholder="Choose a date">
-  <mat-datepicker #picker></mat-datepicker>
-</mat-form-field>
-<button mat-raised-button (click)="picker.open()">Open</button> -->
-<br>
-<!-- <div>
-  <mat-progress-bar class="example-margin" [color]="'blue'" [mode]="mode" [value]="10" [bufferValue]="bufferValue">
-  </mat-progress-bar>
-</div> -->
 
-<br><br>
-<button mat-button (click)="openSnackBar()">Show snack-bar</button>
+<button mat-button (click)="openSnackBar()">Show snack-bar</button> -->
+
+<div class="divaddproduct">
+  <table cdk-table [dataSource]="dataSource">
+    <ng-container cdkColumnDef="Id">
+      <th cdk-header-cell *cdkHeaderCellDef> Id </th>
+      <td cdk-cell *cdkCellDef="let row"> {{row.Id}} </td>
+    </ng-container>
+    <ng-container cdkColumnDef="title">
+      <th cdk-header-cell *cdkHeaderCellDef> title </th>
+      <td cdk-cell *cdkCellDef="let row"> {{row.title}} </td>
+    </ng-container>
+    <ng-container cdkColumnDef="price">
+      <th cdk-header-cell *cdkHeaderCellDef> price </th>
+      <td cdk-cell *cdkCellDef="let row"> {{row.price}} </td>
+    </ng-container>
+    <ng-container cdkColumnDef="image">
+      <th cdk-header-cell *cdkHeaderCellDef> image </th>
+      <td cdk-cell *cdkCellDef="let row"> {{row.image}} </td>
+    </ng-container>
+  
+    <tr cdk-header-row *cdkHeaderRowDef="columns"></tr>
+    <tr cdk-row *cdkRowDef="let row; columns: columns;"></tr>
+  </table>
+
+</div>

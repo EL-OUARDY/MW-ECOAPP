@@ -4,11 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace MW_Backend.Controllers
+namespace MW_Backend.Areas.Admin.Controllers
 {
     public class AdminController : Controller
     {
-        // GET: Admin
+        // GET: Admin/Admin
         public ActionResult Index()
         {
             return View();

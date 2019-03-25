@@ -16,7 +16,6 @@ using MW_Backend.Models.Data;
 
 namespace MW_Backend.Controllers.api
 {
-    // [Authorize] //Admin Role
     public class ProductsController : ApiController
     {
         private ApplicationDbContext db;
@@ -48,127 +47,6 @@ namespace MW_Backend.Controllers.api
             }
 
             return Ok( Mapper.Map<Product, ProductDTO>(model) );
-        }
-
-
-        [HttpPost]
-        [Route("api/upload-images")]
-        public IHttpActionResult UploadImages()
-        {
-            int ProductId = int.Parse(HttpContext.Current.Request["ProductId"]);
-            var files = HttpContext.Current.Request.Files;
-
-            // verify the Id
-            if (ProductExists(ProductId) == false)
-            {
-                return NotFound();
-            }
-
-            // Check the existance of images within the request object..
-
-            if (files["MainImg"] == null || files.GetMultiple("GalleryImgs").Count == 0) //DescImages aren't mandatory
-            {
-                return BadRequest("Main Image And Gallery Images Are Required");
-            }
-
-            bool success = DirectoryHelper.SaveProductImages(files, ProductId); // should be async
-
-            if (!success)
-            {
-                return BadRequest("A Problem Has Occured While Uploading Images, You have to check it manualy !");
-            }
-
-            var model = db.Products.Find(ProductId);
-
-            return Ok( Mapper.Map<mProductDTO>(model) );
-        }
-
-
-
-        // POST: api/Products
-        [HttpPost]
-        public IHttpActionResult PostProduct(ProductDTO productDto)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            var product = Mapper.Map<ProductDTO, Product>(productDto);
-            db.Products.Add(product);
-            db.SaveChanges();
-
-            return Ok( product.Id );
-        }
-
-        // GET: api/last5
-        [HttpGet]
-        [Route("api/history")]
-        public IHttpActionResult history()
-        {
-            var products = db.Products.OrderByDescending(x => x.Id)
-                                .Take(6)
-                                .ToList()
-                                .Select(Mapper.Map<Product, mProductDTO>);
-
-            return Ok(products);
-        }
-
-        // DELETE: api/Products/5
-        [Route("api/Products/{id}")]
-        public IHttpActionResult DeleteProduct(int id)
-        {
-            Product product = db.Products.Find(id);
-            if (product == null)
-            {
-                return NotFound();
-            }
-
-            // Remove Images Directory
-            if ( !DirectoryHelper.deleteProductImages(id) )
-            {
-                return BadRequest("An error was occured while deleting images directory !");
-            }
-
-            db.Products.Remove(product);
-            db.SaveChanges();
-
-            return Ok();
-        }
-
-        // PUT: api/Products/5
-        [ResponseType(typeof(void))]
-        public IHttpActionResult PutProduct(int id, Product product)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            if (id != product.Id)
-            {
-                return BadRequest();
-            }
-
-            db.Entry(product).State = EntityState.Modified;
-
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!ProductExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return StatusCode(HttpStatusCode.NoContent);
         }
 
         protected override void Dispose(bool disposing)

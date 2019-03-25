@@ -12,7 +12,7 @@ export class AdminProductService {
   noAuth = new HttpHeaders({ 'NoAuth': 'true' }); // only for testing
   constructor(private http: HttpClient) { }
 
-  getCategories() {
+  getCategories() { // move to category service
     return this.http.get('api/Categories', { headers: this.noAuth });
   }
 
@@ -23,23 +23,23 @@ export class AdminProductService {
   // calling the server
 
   PostProduct(form) {
-    return this.http.post('api/Products', form, { headers: this.noAuth }).pipe(
+    return this.http.post('api/AdminProducts', form, { headers: this.noAuth }).pipe(
       catchError(handleExpectedErrors)
     );
   }
 
   UploadImages(form: FormData) {
-    return this.http.post('api/upload-images', form, { headers: this.noAuth }).pipe(
+    return this.http.post('api/AdminProducts/upload-images', form, { headers: this.noAuth }).pipe(
       catchError(handleExpectedErrors)
     );
   }
 
   GetLastProducts() {
-    return this.http.get('api/history', { headers: this.noAuth });
+    return this.http.get('api/AdminProducts/history', { headers: this.noAuth });
   }
 
   deleteProduct(id: number) {
-    return this.http.delete('api/Products/' + id , { headers: this.noAuth }).pipe(
+    return this.http.delete('api/AdminProducts/' + id , { headers: this.noAuth }).pipe(
       catchError(handleExpectedErrors)
     );
   }

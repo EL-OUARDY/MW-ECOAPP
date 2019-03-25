@@ -177,7 +177,9 @@ export class ProductFormComponent implements OnInit {
     const elem = this.DescImgs.find(x => x.name === name);
     this.DescImgs.splice(this.DescImgs.indexOf(elem), 1);
   }
-
+  Reset(f) {
+    this.resetForm();
+  }
   setNoColor() {
     if (this.hasNoColor) this._Product.Color = null;
   }

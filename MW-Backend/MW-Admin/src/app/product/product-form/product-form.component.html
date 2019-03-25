@@ -216,11 +216,30 @@
       </div>
     </div>
   
-    <div class="bottonaddprod" (click)="onSubmit(f)">
-      Add Product
+    <div class="formFooter">
+      <div class="divtitleprod lastdiv">
+
+        <label>Quantity</label>
+        <input min="0" placeholder="null" class="inputprice" maxlength="7" type="number" [(ngModel)]="_Product.Qte"
+          name="Quantity">
+      
+        <label>On Sale</label>
+        <div class="switch1" [ngClass]="{'switchadd1': _Product.OnSale}">
+          <input name="OnSale" [(ngModel)]="_Product.OnSale" #OnSale="ngModel" id="checkanimat1" type="checkbox">
+          <div class="switch2" [ngClass]="{'switchadd2': _Product.OnSale}"></div>
+        </div>
+      
+      </div>
+      
+      <div class="bottonaddprod mgLeft" (click)="onSubmit(f)">
+        Add Product
+      </div>
+      <div class="bottonaddprod" (click)="Reset()">
+        Reset
+      </div>
     </div>
-    <br>
-    <div style="display: none;" class="alert">
+    
+    <div class="alert">
       {{ f.value | json }}
     </div>
   </form>
