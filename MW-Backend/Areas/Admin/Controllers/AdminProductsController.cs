@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Http.Description;
 using AutoMapper;
+using MW_Backend.Areas.Admin.ViewModel;
 using MW_Backend.DTOs;
 using MW_Backend.Helpers;
 using MW_Backend.Models;
@@ -31,7 +32,8 @@ namespace MW_Backend.Areas.Admin.Controllers
         public IHttpActionResult GetAdminProducts()
         {
             var products = db.Products
-                             .ToList();
+                             .ToList()
+                             .Select(Mapper.Map<Product, ProductListVM>);
 
             return Ok(products);
         }

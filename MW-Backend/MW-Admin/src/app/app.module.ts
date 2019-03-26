@@ -74,6 +74,7 @@ import { CdkTableModule } from '@angular/cdk/table';
     MatSnackBarModule,
     MatTableModule,
     CdkTableModule,
+    MatDialogModule,
     
     BrowserAnimationsModule,
     ToastrModule.forRoot()

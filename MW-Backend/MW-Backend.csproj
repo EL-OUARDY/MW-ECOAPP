@@ -223,6 +223,7 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminProductsController.cs" />
+    <Compile Include="Areas\Admin\ViewModel\ProductListVM.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\api\CartController.cs" />
     <Compile Include="Areas\Admin\Controllers\CategoriesController.cs" />
@@ -453,7 +454,6 @@
     <Folder Include="Content\Images\Products\15\Gallery\" />
     <Folder Include="Content\Images\Products\9\Desc\" />
     <Folder Include="Content\Images\Products\9\Gallery\" />
-    <Folder Include="ViewModel\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

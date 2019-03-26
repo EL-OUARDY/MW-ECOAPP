@@ -53,6 +53,7 @@ export class ProductFormComponent implements OnInit {
 
       }, (error: AppError) => {
         if (error instanceof BadInput) {
+          console.log(error.originalError);
           this.toaster.warning('ModelState is not valid ..'); // Display the error within Form errors and Wrap it with JSON pipe
         } else { throw error; }
       });

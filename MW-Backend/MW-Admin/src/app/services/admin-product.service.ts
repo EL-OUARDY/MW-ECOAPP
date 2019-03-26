@@ -22,6 +22,11 @@ export class AdminProductService {
 
   // calling the server
 
+
+  GetProductsList() {
+    return this.http.get('api/AdminProducts', { headers: this.noAuth });
+  }
+
   PostProduct(form) {
     return this.http.post('api/AdminProducts', form, { headers: this.noAuth }).pipe(
       catchError(handleExpectedErrors)
@@ -35,7 +40,7 @@ export class AdminProductService {
   }
 
   GetLastProducts() {
-    return this.http.get('api/AdminProducts/history', { headers: this.noAuth });
+    return this.http.get('api/AdminProducts/History', { headers: this.noAuth });
   }
 
   deleteProduct(id: number) {

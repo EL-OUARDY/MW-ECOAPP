@@ -42,7 +42,7 @@ namespace MW_Backend.Models.Data
         [Range(0, 100)]
         public byte Discount { get; set; } = 0; // its a % , by default : 0
 
-        public SubCategory SubCategory { get; set; }
+        public virtual SubCategory SubCategory { get; set; }
 
         public int SubCategoryId { get; set; }
 

@@ -63,7 +63,7 @@ body {
     /* display: contents; */
     box-sizing: border-box;
     /* height: 100%; */
-    height: calc(100% - 50px);
+    height: calc(100% - 70px);
     width: 100%;
     /* width: calc(100% - 90px); */
 }
@@ -1235,15 +1235,6 @@ textarea::placeholder {
     /* border: 1px solid #fff; */
 }
 
-table.divstatueoreder {
-    /* width: 99%; */
-    background: var(--backgrcontent);
-    border-radius: 20px;
-    margin-bottom: 20px;
-    /* margin: 10px 0; */
-    /* font-size: 16px; */
-}
-
 .labstatueorderc {
     /* text-align: center; */
     /* color: turquoise; */
@@ -1374,23 +1365,6 @@ span.divselectship {
     /* border-radius: 42px; */
     color: #E91E63;
     /* border: 1px solid #E91E63; */
-}
-
-.trorders {
-    /* background: #212e33; */
-    border-radius: 70px;
-    /* border: 0; */
-    /* font-size: 17px; */
-    /* display: table-row-group; */
-    padding: 0px 22px;
-    box-sizing: border-box;
-    margin: 0;
-    /* border-collapse: separate; */
-    /* margin-top: -10px; */
-    /* border-spacing: 0 10px; */
-    display: inline-table;
-    width: 100%;
-    /* color: #9E9E9E; */
 }
 
 .svgdowndet {
@@ -2007,6 +1981,7 @@ input[type="text"] {
     max-width: 250px;
     /* text-decoration: underline; */
     transition: all 300ms ease-out;
+    color: var(--color-font)
 }
 
 .divcolortd {
@@ -2144,21 +2119,18 @@ input.uyoieztr, .uyoieztra {
     padding: 2.5px 8px;
 }
 
-.refgdfdbfg {
+.PtableControls {
     position: absolute;
     padding: 6px 10px;
     border-radius: 39px;
     z-index: 2;
     background: var(--backgrsvg);
     fill: var(--colorsvg);
-    /* fill: #00bcd4; */
-    left: 16px;
     top: 8px;
     display: flex;
-    /* background: #f7f7f7; */
 }
 
-.refgdfdbfg svg {
+.PtableControls svg {
     width: 9px;
     height: 9px;
     cursor: pointer;
@@ -2167,7 +2139,7 @@ input.uyoieztr, .uyoieztra {
     transition: all 300ms ease-out;
 }
 
-.refgdfdbfg svg:hover {
+.PtableControls svg:hover {
     fill: #000;
     transform: scale(1.5);
 }
@@ -2189,7 +2161,7 @@ input.uyoieztr, .uyoieztra {
     /*  */
 }
 
-.tddefgdhils:hover .refgdfdbfg {
+.tddefgdhils:hover .PtableControls {
     display: flex;
 }
 
@@ -2311,10 +2283,6 @@ input.uyoieztr, .uyoieztra {
     background: lawngreen;
     display: block;
     border-radius: 50%;
-}
-
-.gdfscxthbv::after {
-    content: " $";
 }
 
 .svgeditm2, .svgdeletm2 {
@@ -4323,11 +4291,6 @@ td.fdgdzeazreio {
     fill: var(--fillsidebarx);
 }
 
-.divstatueoreder:hover {
-    /* background: #00bcd4; */
-    /* color: #eeeeee; */
-}
-
 .nbpgcom:hover {
     color: var(--backgrcontent);
     background: var(--colorsvg);
@@ -4631,6 +4594,10 @@ td.fdgdzeazreio {
     margin-left: 588px !important;
 }
 
+.labcolstock.outStock {
+    background: var(--red);
+}
+
 .fadeIn {
     -webkit-animation-name: fadeIn;
     animation-name: fadeIn;
@@ -4645,6 +4612,95 @@ td.fdgdzeazreio {
     to {
         opacity: 1;
     }
+}
+
+/*CDK TABLE*/
+
+.cdk-table {
+    margin-bottom: 20px;
+    color: var(--color-font);
+}
+
+.cdk-table tbody {
+    background: var(--backgrcontent);
+}
+
+.cdk-row {
+    /* font-size: 17px; */
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.cdk-table thead {
+    text-align: left !important;
+    margin-bottom: 10px;
+}
+
+.cdk-row:first-child .cdk-column-Selection {
+    border-top-left-radius: 20px;
+}
+
+.cdk-row:last-child .cdk-column-Selection {
+    border-bottom-left-radius: 20px;
+}
+
+.cdk-row:first-child .cdk-column-Expand {
+    border-top-right-radius: 20px;
+}
+
+.cdk-row:last-child .cdk-column-Expand {
+    border-bottom-right-radius: 20px;
+}
+
+.cdk-column-Selection {
+    width: 8%;
+    box-sizing: border-box;
+    padding-left: 44px;
+}
+
+.cdk-column-Id {
+    width: 8%;
+}
+
+.cdk-column-Image {
+    width: 8%;
+}
+
+.cdk-column-Name {
+    width: 23%
+}
+
+.cdk-column-Price {
+    width: 9%;
+}
+
+.cdk-column-Color {
+    width: 6%;
+}
+
+.cdk-column-Quantity {
+    width: 6%;
+}
+
+.cdk-column-OnSale {
+    width: 5%;
+}
+
+.cdk-column-Source {
+    width: 8%;
+}
+
+.cdk-column-Date_Created {
+    width: 6%;
+}
+
+.cdk-column-Controls {
+    width: 8%;
+}
+
+.cdk-column-Expand {
+    width: 5% !important;
+    padding-right: 26px;
 }
 
 /*****************************/

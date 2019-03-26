@@ -12,6 +12,7 @@ export class AdminProduct {
     ShippingMethod: string;
     SubCategoryId: number;
     Date_Added: Date;
+    mainImg: string;
 
     get Qte() {
         if (!this.OnSale) {
@@ -29,7 +30,7 @@ export class AdminProduct {
     }
 
     constructor() {
-        this.Id = -1;
+        this.Id = 0;
         this.Color = 'white';
         this.OnSale = true;
         this.ShippingMethod = 'gearbest';

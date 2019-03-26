@@ -1,30 +1,5 @@
 <br>
 <br>
-<!-- <br>
+<br>
 
-<button mat-button (click)="openSnackBar()">Show snack-bar</button> -->
-
-<div class="divaddproduct">
-  <table cdk-table [dataSource]="dataSource">
-    <ng-container cdkColumnDef="Id">
-      <th cdk-header-cell *cdkHeaderCellDef> Id </th>
-      <td cdk-cell *cdkCellDef="let row"> {{row.Id}} </td>
-    </ng-container>
-    <ng-container cdkColumnDef="title">
-      <th cdk-header-cell *cdkHeaderCellDef> title </th>
-      <td cdk-cell *cdkCellDef="let row"> {{row.title}} </td>
-    </ng-container>
-    <ng-container cdkColumnDef="price">
-      <th cdk-header-cell *cdkHeaderCellDef> price </th>
-      <td cdk-cell *cdkCellDef="let row"> {{row.price}} </td>
-    </ng-container>
-    <ng-container cdkColumnDef="image">
-      <th cdk-header-cell *cdkHeaderCellDef> image </th>
-      <td cdk-cell *cdkCellDef="let row"> {{row.image}} </td>
-    </ng-container>
-  
-    <tr cdk-header-row *cdkHeaderRowDef="columns"></tr>
-    <tr cdk-row *cdkRowDef="let row; columns: columns;"></tr>
-  </table>
-
-</div>
+<button mat-button (click)="openSnackBar()">Show snack-bar</button>
