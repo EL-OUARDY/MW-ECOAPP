@@ -1381,13 +1381,6 @@ span.divselectship {
     display: block;
 }
 
-td {
-    padding: 9px 0;
-    /* background: #eee; */
-    /* display: table-cell; */
-    position: relative;
-}
-
 .tddetails {
     text-align: center;
     width: 10%;
@@ -1556,7 +1549,7 @@ input[type="text"] {
 .rqsetgertg {
     width: 100%;
     display: inline-block;
-    margin: 15px 0;
+    margin-top: 15px;
 }
 
 .bottonimport:hover {
@@ -1778,8 +1771,7 @@ input[type="text"] {
 }
 
 .divallordersm {
-    /* margin-top: 10px; */
-    height: 71%;
+    height: 78%;
 }
 
 .datefilt1, .datefilt2 {
@@ -2120,13 +2112,11 @@ input.uyoieztr, .uyoieztra {
 }
 
 .PtableControls {
-    position: absolute;
     padding: 6px 10px;
     border-radius: 39px;
     z-index: 2;
     background: var(--backgrsvg);
     fill: var(--colorsvg);
-    top: 8px;
     display: flex;
 }
 
@@ -2188,8 +2178,6 @@ input.uyoieztr, .uyoieztra {
 
 .ertytrh {
     height: 35px;
-    top: 4px;
-    position: absolute;
     background: var(--fillbackrg);
     /* fill: var(--colorsvg); */
     border-radius: 50%;
@@ -3013,8 +3001,8 @@ table.tabljedetails {
 .jklhmhgfsi {
     height: 100%;
     width: 100%;
-    /* margin-top: 10px; */
     overflow-x: overlay;
+    position: relative;
 }
 
 .tddeytails {
@@ -4617,45 +4605,37 @@ td.fdgdzeazreio {
 /*CDK TABLE*/
 
 .cdk-table {
-    margin-bottom: 20px;
     color: var(--color-font);
+    position: absolute;
+    top: 0;
 }
 
-.cdk-table tbody {
+.table-background {
+    position: sticky;
+    top: 50px;
+    height: 94%;
+    width: 100%;
+    border-radius: 20px;
     background: var(--backgrcontent);
+    z-index: -1;
 }
 
 .cdk-row {
-    /* font-size: 17px; */
     box-sizing: border-box;
     margin: 0;
 }
 
-.cdk-table thead {
+.cdk-table thead th {
     text-align: left !important;
-    margin-bottom: 10px;
+    padding-bottom: 12px;
+    padding-top: 15px;
+    font-weight: 100;
 }
 
-.cdk-row:first-child .cdk-column-Selection {
-    border-top-left-radius: 20px;
-}
-
-.cdk-row:last-child .cdk-column-Selection {
-    border-bottom-left-radius: 20px;
-}
-
-.cdk-row:first-child .cdk-column-Expand {
-    border-top-right-radius: 20px;
-}
-
-.cdk-row:last-child .cdk-column-Expand {
-    border-bottom-right-radius: 20px;
-}
-
-.cdk-column-Selection {
+.cdk-column-Select {
     width: 8%;
     box-sizing: border-box;
-    padding-left: 44px;
+    padding-left: 44px !important
 }
 
 .cdk-column-Id {
@@ -4691,16 +4671,21 @@ td.fdgdzeazreio {
 }
 
 .cdk-column-Date_Created {
-    width: 6%;
+    width: 7%;
 }
 
 .cdk-column-Controls {
-    width: 8%;
+    width: 7%;
 }
 
 .cdk-column-Expand {
     width: 5% !important;
     padding-right: 26px;
+}
+
+.cdk-table td {
+    padding: 14px 0;
+    position: relative;
 }
 
 /*****************************/

@@ -59,7 +59,7 @@ export class ProductFormComponent implements OnInit {
       });
   }
 
-  private getLastAddedProducts() {
+  getLastAddedProducts() {
     this.aps.GetLastProducts().subscribe(data => {
       this.lastProducts = <MiniProduct[]>data;
     });
@@ -178,7 +178,7 @@ export class ProductFormComponent implements OnInit {
     const elem = this.DescImgs.find(x => x.name === name);
     this.DescImgs.splice(this.DescImgs.indexOf(elem), 1);
   }
-  Reset(f) {
+  Reset() {
     this.resetForm();
   }
   setNoColor() {

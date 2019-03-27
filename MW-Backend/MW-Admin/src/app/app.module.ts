@@ -33,7 +33,7 @@ import { TicketsComponent } from './tickets/tickets.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SettingsComponent } from './settings/settings.component';
 
-import { MatSelectModule, MatCheckboxModule, MatRadioModule, MatTooltipModule, MatDialogModule, MatSnackBarModule, MatTableModule } from '@angular/material';
+import { MatSelectModule, MatCheckboxModule, MatRadioModule, MatTooltipModule, MatDialogModule, MatSnackBarModule, MatTableModule, MatRippleModule } from '@angular/material';
 import { CdkTableModule } from '@angular/cdk/table';
 
 @NgModule({
@@ -75,7 +75,7 @@ import { CdkTableModule } from '@angular/cdk/table';
     MatTableModule,
     CdkTableModule,
     MatDialogModule,
-    
+
     BrowserAnimationsModule,
     ToastrModule.forRoot()
 

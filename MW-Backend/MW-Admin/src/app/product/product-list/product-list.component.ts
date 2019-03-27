@@ -11,7 +11,7 @@ import { AdminProduct } from 'src/app/models/adminProduct';
 export class ProductListComponent implements OnInit {
   constructor(private aps: AdminProductService) { }
 
-  columns: string[] = ['Selection', 'Id', 'Image', 'Name', 'Price', 'Color', 'Quantity', 'OnSale', 'Source', 'Date_Created', 'Controls', 'Expand'];
+  columns: string[] = ['Select', 'Id', 'Image', 'Name', 'Price', 'Color', 'Quantity', 'OnSale', 'Source', 'Date_Created', 'Controls', 'Expand'];
   products$;
   dataSource: Observable<any[]>;
 
