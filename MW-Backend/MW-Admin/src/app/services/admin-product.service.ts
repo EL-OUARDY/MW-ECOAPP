@@ -23,8 +23,8 @@ export class AdminProductService {
   // calling the server
 
 
-  GetProductsList() {
-    return this.http.get('api/AdminProducts', { headers: this.noAuth });
+  GetProductsList(filter: string) {
+    return this.http.get('api/AdminProducts?filter=' + filter, { headers: this.noAuth });
   }
 
   PostProduct(form) {

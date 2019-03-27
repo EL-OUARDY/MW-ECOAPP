@@ -2206,7 +2206,7 @@ input.uyoieztr, .uyoieztra {
     /* width: max-content; */
 }
 
-.labdeferorder {
+.divlabtyporeder .active {
     /* background: #00bcd4; */
     /* background: var(--backgrsvg); */
     background: var(--colorsvg);
@@ -2799,7 +2799,7 @@ table.tabljedetails {
     margin: 12px;
 }
 
-.divlabtyporeder label:hover {
+.divlabtyporeder label:not(.productListActive .active):hover {
     background: var(--backgrbody);
     color: var(--color-font);
 }
@@ -4485,7 +4485,7 @@ td.fdgdzeazreio {
 
 .history .box:hover svg {
     display: block;
-    fill: #dc3545ab;
+    fill: #7cfc008f;
 }
 
 .history .box svg {
@@ -4521,7 +4521,7 @@ td.fdgdzeazreio {
 }
 
 .history .box svg:hover {
-    fill: #da2536;
+    fill: lawngreen;
     cursor: pointer;
 }
 
@@ -4613,7 +4613,7 @@ td.fdgdzeazreio {
 .table-background {
     position: sticky;
     top: 50px;
-    height: 94%;
+    height: 91%;
     width: 100%;
     border-radius: 20px;
     background: var(--backgrcontent);

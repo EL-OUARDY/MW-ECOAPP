@@ -29,13 +29,19 @@ namespace MW_Backend.Areas.Admin.Controllers
 
         // GET: api/AdminProducts
         [HttpGet]
-        public IHttpActionResult GetAdminProducts()
+        public IHttpActionResult GetAdminProducts(string filter = "")
         {
-            var products = db.Products
-                             .ToList()
-                             .Select(Mapper.Map<Product, ProductListVM>);
+            IEnumerable<Product> products;
 
-            return Ok(products);
+            if (filter == "on-sale")
+                products = db.Products.Where(x => x.OnSale == true).ToList();
+            else 
+            if (filter == "out-of-stock")
+                products = db.Products.Where(x => x.OnSale == false).ToList();
+            else
+                products = db.Products.ToList();            
+
+            return Ok( products.Select(Mapper.Map<Product, ProductListVM>));
         }
 
         // POST: api/AdminProducts/5

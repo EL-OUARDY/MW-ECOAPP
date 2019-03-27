@@ -1,8 +1,8 @@
 <div class="divproductlist" id="my-productlist">
   <div class="divlabtyporeder">
-    <label>All Product</label>
-    <label class="labdeferorder">IN Stok</label>
-    <label>OUt Stoke</label>
+    <label [routerLink]="[ '/admin/products','all-products' ]" [ngClass]="{'active': productsToShow === 'all-products'}" >All Products</label>
+    <label [routerLink]="[ '/admin/products', 'on-sale' ]" [ngClass]="{'active': productsToShow === 'on-sale'}" >On Sale</label>
+    <label [routerLink]="[ '/admin/products', 'out-of-stock' ]" [ngClass]="{'active': productsToShow === 'out-of-stock'}" >Out Of Stock</label>
   </div>
   <div class="rqsetgertg">
     <input class="datefilt1" type="date" name="" value="">
@@ -39,9 +39,17 @@
       <div class="table-background"></div>
       <table cdk-table [dataSource]="dataSource">
         <ng-container cdkColumnDef="Select">
-          <th cdk-header-cell *cdkHeaderCellDef><mat-checkbox></mat-checkbox></th>
+          <th cdk-header-cell *cdkHeaderCellDef>
+            <mat-checkbox (change)="$event ? masterToggle() : null"
+              [checked]="selection.hasValue() && isAllSelected()"
+              [indeterminate]="selection.hasValue() && !isAllSelected()">
+            </mat-checkbox>
+          </th>
           <td cdk-cell *cdkCellDef="let row">
-            <mat-checkbox></mat-checkbox>
+            <mat-checkbox (click)="$event.stopPropagation()"
+              (change)="$event ? selection.toggle(row) : null"
+              [checked]="selection.isSelected(row)">
+            </mat-checkbox>
           </td>
         </ng-container>
         <ng-container cdkColumnDef="Id">

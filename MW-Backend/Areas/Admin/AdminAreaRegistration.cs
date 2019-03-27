@@ -18,8 +18,8 @@ namespace MW_Backend.Areas.Admin
         {
             context.MapRoute(
                "Admin_default",
-               "Admin/{controller}/{action}/{id}",
-               defaults: new { controller = "Admin", action = "Index", id = UrlParameter.Optional }
+               "Admin/{controller}/{action}/{slug}",
+               defaults: new { controller = "Admin", action = "Index", slug = UrlParameter.Optional }
                ,
                 // Set a constraint to only use this for routes identified as server-side routes
                 constraints: new

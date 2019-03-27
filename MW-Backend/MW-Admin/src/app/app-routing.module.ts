@@ -20,6 +20,7 @@ const routes: Routes = [
 
   { path: 'admin', component: ProductListComponent , canActivate: [AdminGuard] },
   { path: 'admin/products', component: ProductListComponent, canActivate: [AdminGuard] },
+  { path: 'admin/products/:x', component: ProductListComponent, canActivate: [AdminGuard] },
   { path: 'admin/add-product', component: ProductFormComponent, canActivate: [AdminGuard] },
   { path: 'admin/orders', component: OrdersComponent, canActivate: [AdminGuard] },
   { path: 'admin/support', component: SupportComponent, canActivate: [AdminGuard] },
@@ -33,8 +34,8 @@ const routes: Routes = [
 
   { path: '404', component: NotFoundComponent },
   { path: 'error', component: UnexpectedErrorComponent },
-  { path: '', component: ProductFormComponent, },
-  { path: '**', redirectTo: 'admin' }
+  { path: '', component: DashboardComponent },
+  // { path: '**', redirectTo: 'admin' }
 ];
 
 @NgModule({
