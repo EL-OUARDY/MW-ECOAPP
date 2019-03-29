@@ -154,9 +154,10 @@
     </div>
   
     <div class="divdecription">
-      <div class="divletterdecr">
-        <textarea required [(ngModel)]="_Product.Description" name="Description" #des="ngModel" id="textdescrip" rows="8"
-          cols="80"></textarea>
+      <div class="textareaWrapper">
+        <ng-scrollbar  [shown]="'always'" class="txtareacontent" barClass="scrollbar" thumbClass="scroll-thumb">
+            <textarea  matInput cdkTextareaAutosize required [(ngModel)]="_Product.Description" name="Description" #des="ngModel"></textarea>
+        </ng-scrollbar>
       </div>
       <div class="divimagedescr">
         <div (click)="descImgs.click()" class="uopietter">
@@ -239,9 +240,9 @@
       </div>
     </div>
     
-    <div class="alert">
+    <!-- <div class="alert">
       {{ f.value | json }}
-    </div>
+    </div> -->
   </form>
 
   <div class="history">

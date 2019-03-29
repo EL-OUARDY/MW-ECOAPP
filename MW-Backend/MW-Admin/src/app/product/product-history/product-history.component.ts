@@ -30,7 +30,8 @@ export class ProductHistoryComponent implements OnInit {
       },
       (err: AppError) => {
         if (err instanceof BadInput) {
-          this.toaster.warning(err.originalError.error.Message);
+          this.toaster.warning('Something Went Wrong');
+          console.log(err.originalError.error.Message);
         } else if (err instanceof NotFound) {
           this.toaster.warning('Product Not Found Or Already Deleted');
         } else { throw err; }

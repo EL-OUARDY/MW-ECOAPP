@@ -1,9 +1,10 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, ViewEncapsulation} from '@angular/core';
 import { AdminProductService } from 'src/app/services/admin-product.service';
 import { AdminProduct } from 'src/app/models/adminProduct';
 import { SelectionModel } from '@angular/cdk/collections';
 import { MatTableDataSource } from '@angular/material';
-import { ActivatedRoute, UrlSegment } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { trigger, transition, animate, keyframes, style } from '@angular/animations';
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
@@ -12,18 +13,18 @@ import { ActivatedRoute, UrlSegment } from '@angular/router';
 export class ProductListComponent implements OnInit {
   constructor(private aps: AdminProductService, private activeRoute: ActivatedRoute) { }
 
-  productsToShow = "all-products";
-  columns: string[] = ['Select', 'Id', 'Image', 'Name', 'Price', 'Color', 'Quantity', 'OnSale', 'Source', 'Date_Created', 'Controls', 'Expand'];
+  productsToShow;
+  columns: string[] = ['Select', 'Id', 'Image', 'Name', 'Price', 'Color', 'Quantity', 'Source', 'Date_Created', 'OnSale', 'Controls', 'Expand'];
   dataSource = new MatTableDataSource<AdminProduct>();
   selection = new SelectionModel<AdminProduct>(true, []);
 
   ngOnInit() {
-    this.activeRoute.params.subscribe(params => {
-      console.log(params);
-      this.productsToShow = params.x;
+    this.activeRoute.queryParamMap.subscribe(params => {
+      this.productsToShow = params.get('filter') || 'all-products';
       this.aps.GetProductsList(this.productsToShow)
         .subscribe((data: AdminProduct[]) => {
           this.dataSource.data = data;
+          this.selection.clear();
         });
     });
   }
@@ -38,6 +39,10 @@ export class ProductListComponent implements OnInit {
     this.isAllSelected() ?
       this.selection.clear() :
       this.dataSource.data.forEach(row => this.selection.select(row));
+  }
+
+  trackById(index, product) {
+    return product ? product.Id : undefined;
   }
 
 }

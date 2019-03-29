@@ -24,6 +24,21 @@
     --gray: #6c757d;
     --black: #191818;
     --brown: #883838;
+    --color-font: #ffffff;
+    --backgrbody: #1c1d1f;
+    --fillbackrg: #eeeeee24;
+    --backgrcontent: #2f3134;
+    --fillsidebar: #37393c;
+    --fillsidebarx: #ffffff;
+    --backgbutton: #c3d3e02e;
+    --colorbutton: #c3d3e0;
+    --colorsvg: #ffffff;
+    --backgrsvg: #ffffff33;
+    --fillsort: #9E9E9E;
+    --bg-chat-send: linear-gradient(120deg, var(--fill-text-chat) 0%, #1c1d1f 100%);
+    --bg-chat-recev: linear-gradient(120deg, var(--colorsvg) 0%, #eeeeee61 100%);
+    --fill-text-chat: #6ec6ca;
+    --bg-btn-chat: #6bc0c430;
 }
 
 body {
@@ -39,22 +54,6 @@ body {
     margin: 0;
     padding: 0;
     background: var(--backgrbody);
-    --color-font: #ffffff;
-    --backgrbody: #1c1d1f;
-    --fillbackrg: #eeeeee24;
-    --backgrcontent: #2f3134;
-    /* --backgsidebar: #f7f7f7; */
-    --fillsidebar: #37393c;
-    --fillsidebarx: #ffffff;
-    --backgbutton: #c3d3e02e;
-    --colorbutton: #c3d3e0;
-    --colorsvg: #ffffff;
-    --backgrsvg: #ffffff33;
-    --fillsort: #9E9E9E;
-    --bg-chat-send: linear-gradient(120deg, var(--fill-text-chat) 0%, #1c1d1f 100%);
-    --bg-chat-recev: linear-gradient(120deg, var(--colorsvg) 0%, #eeeeee61 100%);
-    --fill-text-chat: #6ec6ca;
-    --bg-btn-chat: #6bc0c430;
 }
 
 .divallcontent {
@@ -239,34 +238,34 @@ body {
     opacity: 1;
 }
 
-.divletterdecr {
-    width: 50.6%;
+.textareaWrapper {
+    width: 50.6% !important;
     margin-right: 1.2%;
-    height: 100%;
+    height: 100% !important;
     float: left;
     background: var(--backgrcontent);
-    /* box-shadow: 0 0.75rem 1.5rem #ebeeef; */
     border-radius: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-textarea#textdescrip {
-    width: 97%;
-    /* margin: 11px auto; */
-    /* box-shadow: 0 0.75rem 1.5rem #ebeeef; */
-    height: 93%;
-    display: block;
-    padding: 2px;
-    outline: none;
-    color: var(--color-font);
-    /* max-height: 190px; */
+.divdecription textarea {
+    min-height: 98% !important;
+    margin: 0 auto;
     border: none;
+    width: 98%;
+    display: block;
+    color: var(--color-font);
     background: transparent;
-    border-radius: 10px;
-    padding: 2px;
-    resize: none;
+    color: #91969a;
+    font-size: 18px;
+    font-family: "AgencyFB";
+}
+
+.txtareacontent {
+    height: 90% !important;
+    width: 98% !important;
 }
 
 .divdecription {
@@ -1771,7 +1770,7 @@ input[type="text"] {
 }
 
 .divallordersm {
-    height: 78%;
+    height: 80%;
 }
 
 .datefilt1, .datefilt2 {
@@ -2263,6 +2262,7 @@ input.uyoieztr, .uyoieztra {
     background: #ffffff;
     display: block;
     border-radius: 50%;
+    margin-left: 8%;
 }
 
 .labcolstock {
@@ -2271,6 +2271,7 @@ input.uyoieztr, .uyoieztra {
     background: lawngreen;
     display: block;
     border-radius: 50%;
+    margin-left: 20%;
 }
 
 .svgeditm2, .svgdeletm2 {
@@ -2996,13 +2997,6 @@ table.tabljedetails {
     fill: var(--fillsort);
     margin-bottom: 10px;
     /* width: 98.3%; */
-}
-
-.jklhmhgfsi {
-    height: 100%;
-    width: 100%;
-    overflow-x: overlay;
-    position: relative;
 }
 
 .tddeytails {
@@ -4388,6 +4382,10 @@ td.fdgdzeazreio {
     font-size: 12px;
 }
 
+.bordered {
+    border: 1px solid red !important
+}
+
 /***************************/
 
 /* Overide Default Angular Material Styles */
@@ -4446,7 +4444,7 @@ td.fdgdzeazreio {
 }
 
 .ng-touched.ng-invalid:not(form) {
-    box-shadow: 0px 0px 13px 0px turquoise;
+    /* add a style applied on validation error */
 }
 
 .lijksdfgdsvc .mat-radio-checked .mat-radio-container {
@@ -4610,19 +4608,18 @@ td.fdgdzeazreio {
     top: 0;
 }
 
-.table-background {
-    position: sticky;
-    top: 50px;
-    height: 91%;
-    width: 100%;
-    border-radius: 20px;
-    background: var(--backgrcontent);
-    z-index: -1;
+.table-wrapper {
+    background: var(--backgrcontent) !important;
 }
 
 .cdk-row {
     box-sizing: border-box;
     margin: 0;
+    /* background: var(--backgrcontent) */
+}
+
+.cdk-row:hover {
+    background: #eeeeee14
 }
 
 .cdk-table thead th {
@@ -4630,6 +4627,10 @@ td.fdgdzeazreio {
     padding-bottom: 12px;
     padding-top: 15px;
     font-weight: 100;
+    position: sticky;
+    top: 0;
+    background: var(--backgrbody);
+    z-index: 99;
 }
 
 .cdk-column-Select {
@@ -4684,8 +4685,21 @@ td.fdgdzeazreio {
 }
 
 .cdk-table td {
-    padding: 14px 0;
+    padding: 8px 0;
     position: relative;
+}
+
+.table-wrapper ng-scrollbar-y {
+    background: var(--backgrbody) !important;
+    padding-bottom: 0 !important;
+}
+
+.scrollbar {
+    background: var(--backgrcontent);
+}
+
+.table-wrapper ng-scrollbar-y {
+    padding-top: 45px !important;
 }
 
 /*****************************/

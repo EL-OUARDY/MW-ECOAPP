@@ -44,6 +44,7 @@ export class AdminProductService {
   }
 
   deleteProduct(id: number) {
+    
     return this.http.delete('api/AdminProducts/' + id , { headers: this.noAuth }).pipe(
       catchError(handleExpectedErrors)
     );
