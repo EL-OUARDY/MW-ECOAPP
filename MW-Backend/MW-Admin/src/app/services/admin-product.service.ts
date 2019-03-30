@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { handleExpectedErrors, BadInput } from 'src/app/common/errors/http-errors';
-import { throwError } from 'rxjs';
+import { MatDialog } from '@angular/material';
+import { ConfirmDialogComponent } from '../shared/confirm-dialog/confirm-dialog.component';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ import { throwError } from 'rxjs';
 export class AdminProductService {
 
   noAuth = new HttpHeaders({ 'NoAuth': 'true' }); // only for testing
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private dialog: MatDialog) { }
 
   getCategories() { // move to category service
     return this.http.get('api/Categories', { headers: this.noAuth });
@@ -23,8 +24,8 @@ export class AdminProductService {
   // calling the server
 
 
-  GetProductsList(filter: string) {
-    return this.http.get('api/AdminProducts?filter=' + filter, { headers: this.noAuth });
+  GetProductsList(stock: string) {
+    return this.http.get('api/AdminProducts?stock=' + stock, { headers: this.noAuth });
   }
 
   PostProduct(form) {
@@ -44,9 +45,15 @@ export class AdminProductService {
   }
 
   deleteProduct(id: number) {
-    
     return this.http.delete('api/AdminProducts/' + id , { headers: this.noAuth }).pipe(
       catchError(handleExpectedErrors)
     );
+  }
+
+  raiseConfirmDialog() {
+    return this.dialog.open(ConfirmDialogComponent, {
+      panelClass: 'confirm-dialog-container',
+      // data: // a message can be passed
+    }).afterClosed();
   }
 }

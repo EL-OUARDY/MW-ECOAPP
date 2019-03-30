@@ -33,10 +33,11 @@ import { TicketsComponent } from './tickets/tickets.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SettingsComponent } from './settings/settings.component';
 
-import { MatSelectModule, MatCheckboxModule, MatRadioModule, MatDialogModule, MatSnackBarModule, MatTableModule, MatInputModule } from '@angular/material';
+import { MatSelectModule, MatCheckboxModule, MatRadioModule, MatDialogModule, MatSnackBarModule, MatTableModule, MatInputModule, MatButton, MatButtonModule } from '@angular/material';
 import { CdkTableModule } from '@angular/cdk/table';
 
 import { NgScrollbarModule } from 'ngx-scrollbar';
+import { ConfirmDialogComponent } from './shared/confirm-dialog/confirm-dialog.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { NgScrollbarModule } from 'ngx-scrollbar';
     TicketsComponent,
     ProfileComponent,
     SettingsComponent,
+    ConfirmDialogComponent,
   ],
   imports: [
     CommonModule,
@@ -80,6 +82,7 @@ import { NgScrollbarModule } from 'ngx-scrollbar';
     CdkTableModule,
     MatDialogModule,
     MatInputModule,
+    MatButtonModule,
 
     BrowserAnimationsModule,
     ToastrModule.forRoot()
@@ -92,6 +95,7 @@ import { NgScrollbarModule } from 'ngx-scrollbar';
 
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ConfirmDialogComponent]
 })
 export class AppModule { }

@@ -20,7 +20,7 @@ export class ProductListComponent implements OnInit {
 
   ngOnInit() {
     this.activeRoute.queryParamMap.subscribe(params => {
-      this.productsToShow = params.get('filter') || 'all-products';
+      this.productsToShow = params.get('stock') || 'all';
       this.aps.GetProductsList(this.productsToShow)
         .subscribe((data: AdminProduct[]) => {
           this.dataSource.data = data;

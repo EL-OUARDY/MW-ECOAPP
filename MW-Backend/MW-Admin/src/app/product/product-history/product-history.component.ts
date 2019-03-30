@@ -21,21 +21,21 @@ export class ProductHistoryComponent implements OnInit {
   }
 
   deleteProduct(product: MiniProduct) {
-    this.aps.deleteProduct(product.Id).subscribe(
-      () => {
-          // const index = this.Products.indexOf(product);
-          // this.Products.splice(index, 1);
-
-          this.delete.emit();
-      },
-      (err: AppError) => {
-        if (err instanceof BadInput) {
-          this.toaster.warning('Something Went Wrong');
-          console.log(err.originalError.error.Message);
-        } else if (err instanceof NotFound) {
-          this.toaster.warning('Product Not Found Or Already Deleted');
-        } else { throw err; }
-      });
+    this.aps.raiseConfirmDialog().subscribe(res => {
+      if (res) {
+        this.aps.deleteProduct(product.Id)
+          .subscribe(
+            () => this.delete.emit(),
+            (err: AppError) => {
+              if (err instanceof BadInput) {
+                this.toaster.warning('Something Went Wrong');
+                console.log(err.originalError.error.Message);
+              } else if (err instanceof NotFound) {
+                this.toaster.warning('Product Not Found Or Already Deleted');
+              } else { throw err; }
+            });
+      }
+    });
   }
   trackById(index, product){
     return product ? product.Id : undefined;
