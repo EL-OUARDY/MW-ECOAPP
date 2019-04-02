@@ -18,7 +18,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
 
-  { path: 'admin', component: ProductFormComponent , canActivate: [AdminGuard] },
+  { path: 'admin', component: ProductListComponent , canActivate: [AdminGuard] },
   { path: 'admin/products', component: ProductListComponent, canActivate: [AdminGuard] },
   { path: 'admin/add-product', component: ProductFormComponent, canActivate: [AdminGuard] },
   { path: 'admin/orders', component: OrdersComponent, canActivate: [AdminGuard] },

@@ -1,21 +1,29 @@
-import { Component, OnInit, ViewEncapsulation} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { AdminProductService } from 'src/app/services/admin-product.service';
 import { AdminProduct } from 'src/app/models/adminProduct';
 import { SelectionModel } from '@angular/cdk/collections';
-import { MatTableDataSource } from '@angular/material';
+import { MatTableDataSource} from '@angular/material';
 import { ActivatedRoute } from '@angular/router';
-import { trigger, transition, animate, keyframes, style } from '@angular/animations';
+import { trigger, state, style, transition, animate } from '@angular/animations';
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.css']
+  styleUrls: ['./product-list.component.css'],
+  animations: [
+    trigger('detailExpand', [
+      state('collapsed', style({ height: '0px', minHeight: '0', display: 'none' })),
+      state('expanded', style({ height: '*' })),
+      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+    ]),
+  ],
 })
 export class ProductListComponent implements OnInit {
   constructor(private aps: AdminProductService, private activeRoute: ActivatedRoute) { }
 
   productsToShow;
   columns: string[] = ['Select', 'Id', 'Image', 'Name', 'Price', 'Color', 'Quantity', 'Source', 'Date_Created', 'OnSale', 'Controls', 'Expand'];
-  dataSource = new MatTableDataSource<AdminProduct>();
+  dataSource: MatTableDataSource<AdminProduct>;
+  expandedElement: AdminProduct | null;
   selection = new SelectionModel<AdminProduct>(true, []);
 
   ngOnInit() {
@@ -23,7 +31,7 @@ export class ProductListComponent implements OnInit {
       this.productsToShow = params.get('stock') || 'all';
       this.aps.GetProductsList(this.productsToShow)
         .subscribe((data: AdminProduct[]) => {
-          this.dataSource.data = data;
+          this.dataSource = new MatTableDataSource<AdminProduct>(data);
           this.selection.clear();
         });
     });
