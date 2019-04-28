@@ -349,7 +349,7 @@ namespace MW_Backend.Controllers
 
             using (var db = new ApplicationDbContext())
             {
-                var Profile = new UserProfile { FullName = model.FullName , ApplicationUserId = newUser.Id};
+                var Profile = new UserProfile { ApplicationUserId = newUser.Id , Email = model.Email , FullName = model.FullName};
                 db.Users_Profiles.Add(Profile);
                 db.SaveChanges();
             }

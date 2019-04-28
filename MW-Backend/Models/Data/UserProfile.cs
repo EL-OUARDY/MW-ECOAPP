@@ -12,6 +12,10 @@ namespace MW_Backend.Models.Data
         public int Id { get; set; }
 
         [Required]
+        [DataType(DataType.EmailAddress)]
+        public string Email { get; set; }
+
+        [Required]
         [StringLength(30)]
         public string FullName { get; set; }
 

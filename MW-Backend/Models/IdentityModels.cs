@@ -46,5 +46,7 @@ namespace MW_Backend.Models
         {
             return new ApplicationDbContext();
         }
+
+        // public System.Data.Entity.DbSet<MW_Backend.Models.ApplicationUser> ApplicationUsers { get; set; }
     }
 }

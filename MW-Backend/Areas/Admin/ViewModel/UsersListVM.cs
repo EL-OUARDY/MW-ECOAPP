@@ -3,10 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace MW_Backend.DTOs
+namespace MW_Backend.Areas.Admin.ViewModel
 {
-    public class UserProfileDTO
+    public class UsersListVM
     {
+        public int Id { get; set; }
+
+        public string Email { get; set; }
+
+        public bool EmailConfirmed { get; set; }
+
         public string FullName { get; set; }
 
         public string Gender { get; set; }
@@ -16,6 +22,10 @@ namespace MW_Backend.DTOs
         public string Country { get; set; }
 
         public string City { get; set; }
+
+        public DateTime Date_Registred { get; set; }
+
+        public DateTime Last_Signed { get; set; }
 
         public string Avatar //image
         {
