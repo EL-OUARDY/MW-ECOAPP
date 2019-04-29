@@ -38,7 +38,7 @@ namespace MW_Backend
                 TokenEndpointPath = new PathString("/login"),
                 Provider = new ApplicationOAuthProvider(PublicClientId),
                 AuthorizeEndpointPath = new PathString("/api/Account/ExternalLogin"),
-                AccessTokenExpireTimeSpan = TimeSpan.FromDays(30),
+                AccessTokenExpireTimeSpan = TimeSpan.FromDays(7),
                 // In production mode set AllowInsecureHttp = false
                 AllowInsecureHttp = true
             };

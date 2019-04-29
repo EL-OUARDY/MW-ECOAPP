@@ -16,6 +16,6 @@ export class AppErrorHandler implements ErrorHandler {
             return;
         }
 
-        window.location.href = '/error';
+        // window.location.href = '/error';
     }
 }

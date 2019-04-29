@@ -13,11 +13,13 @@ import {handleExpectedErrors } from 'src/app/common/errors/http-errors';
 })
 export class UserAuthService {
   user: UserProfile;
+  // for demostration
+  noAuth = new HttpHeaders({ 'NoAuth': 'true' });
+
   constructor(private http: HttpClient, private toaster: ToastrService, private router: Router) { }
 
   Register(f) {
-    const noAuth = new HttpHeaders({'NoAuth': 'true'}); 
-    return this.http.post('api/Account/Register', f, {headers : noAuth}).pipe(
+    return this.http.post('api/Account/Register', f, {headers : this.noAuth}).pipe(
       catchError(handleExpectedErrors)
     );
   }
@@ -48,8 +50,11 @@ export class UserAuthService {
   }
 
   Logout() {
-    localStorage.removeItem('MW-AccessToken');
-    this.user = null;
-    this.router.navigate(['/']);
+    this.http.post('/api/Account/Logout', null).subscribe( x => {
+      console.log(x);
+      // localStorage.removeItem('MW-AccessToken');
+      this.user = null;
+      this.router.navigate(['/']);
+    });
   }
 }

@@ -167,11 +167,12 @@ var AppComponent = /** @class */ (function () {
 /*!*******************************!*\
   !*** ./src/app/app.module.ts ***!
   \*******************************/
-/*! exports provided: AppModule */
+/*! exports provided: signalRConfig, AppModule */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "signalRConfig", function() { return signalRConfig; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppModule", function() { return AppModule; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
@@ -205,6 +206,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _payment_payment_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./payment/payment.component */ "./src/app/payment/payment.component.ts");
 /* harmony import */ var _coupon_coupon_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./coupon/coupon.component */ "./src/app/coupon/coupon.component.ts");
 /* harmony import */ var _navigation_navigation_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./navigation/navigation.component */ "./src/app/navigation/navigation.component.ts");
+/* harmony import */ var ng2_signalr__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ng2-signalr */ "./node_modules/ng2-signalr/index.js");
 
 
 
@@ -237,6 +239,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+function signalRConfig() {
+    var c = new ng2_signalr__WEBPACK_IMPORTED_MODULE_32__["SignalRConfiguration"]();
+    c.hubName = 'counterHub';
+    return c;
+}
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -271,7 +279,8 @@ var AppModule = /** @class */ (function () {
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_14__["HttpClientModule"],
                 _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_18__["NgbDropdownModule"],
                 _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_20__["BrowserAnimationsModule"],
-                ngx_toastr__WEBPACK_IMPORTED_MODULE_21__["ToastrModule"].forRoot()
+                ngx_toastr__WEBPACK_IMPORTED_MODULE_21__["ToastrModule"].forRoot(),
+                ng2_signalr__WEBPACK_IMPORTED_MODULE_32__["SignalRModule"].forRoot(signalRConfig)
             ],
             providers: [
                 _services_product_service__WEBPACK_IMPORTED_MODULE_15__["ProductService"],
@@ -452,7 +461,7 @@ var AppErrorHandler = /** @class */ (function () {
             window.location.href = '/404';
             return;
         }
-        window.location.href = '/error';
+        // window.location.href = '/error';
     };
     AppErrorHandler = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
@@ -946,7 +955,7 @@ module.exports = ".col-3 {\r\n    margin-bottom: 20px;\r\n}\r\n/*# sourceMapping
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div class=\"products row \">\n    <div *ngFor=\"let p of products$ | async\" class=\"col-3\">\n      <product-card [product]=\"p\"></product-card>\n      <div class=\" alert alert-info justForTesting \">\n        {{ p | json }}\n      </div>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<!-- <div class=\"container\">\n  <div class=\"products row \">\n    <div *ngFor=\"let p of products$ | async\" class=\"col-3\">\n      <product-card [product]=\"p\"></product-card>\n      <div class=\" alert alert-info justForTesting \">\n        {{ p | json }}\n      </div>\n    </div>\n  </div>\n</div> -->\n\n<div class=\"container\">\n  <h2 id=\"myId\"></h2>\n  <h2 id=\"counter\"></h2>\n</div>\n"
 
 /***/ }),
 
@@ -963,21 +972,33 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _services_product_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/product.service */ "./src/app/services/product.service.ts");
-/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm5/ngx-toastr.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var ng2_signalr__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ng2-signalr */ "./node_modules/ng2-signalr/index.js");
+
 
 
 
 
 var HomeComponent = /** @class */ (function () {
-    function HomeComponent(productService, toaster) {
+    function HomeComponent(productService, _signalR) {
         this.productService = productService;
-        this.toaster = toaster;
+        this._signalR = _signalR;
     }
     HomeComponent.prototype.ngOnInit = function () {
-        this.products$ = this.productService.getProductList();
-    };
-    HomeComponent.prototype.n = function () {
-        this.toaster.success('You did it', 'Success');
+        // this.products$ = this.productService.getProductList();
+        this._signalR.connect().then(function (c) {
+            var listener = c.listenFor('getMyId');
+            listener.subscribe(function (id) {
+                jquery__WEBPACK_IMPORTED_MODULE_3__('#myId').text(id);
+            });
+            var listener2 = c.listenFor('onRecordHit');
+            listener2.subscribe(function (count) {
+                jquery__WEBPACK_IMPORTED_MODULE_3__('#counter').text(count);
+            });
+            c.invoke('getMyId');
+            c.invoke('onRecordHit');
+        }).catch(function (err) { return console.warn(err); });
     };
     HomeComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -985,7 +1006,7 @@ var HomeComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./home.component.html */ "./src/app/home/home.component.html"),
             styles: [__webpack_require__(/*! ./home.component.css */ "./src/app/home/home.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_product_service__WEBPACK_IMPORTED_MODULE_2__["ProductService"], ngx_toastr__WEBPACK_IMPORTED_MODULE_3__["ToastrService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_product_service__WEBPACK_IMPORTED_MODULE_2__["ProductService"], ng2_signalr__WEBPACK_IMPORTED_MODULE_4__["SignalR"]])
     ], HomeComponent);
     return HomeComponent;
 }());
@@ -1541,10 +1562,11 @@ var UserAuthService = /** @class */ (function () {
         this.http = http;
         this.toaster = toaster;
         this.router = router;
+        // for demostration
+        this.noAuth = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({ 'NoAuth': 'true' });
     }
     UserAuthService.prototype.Register = function (f) {
-        var noAuth = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({ 'NoAuth': 'true' });
-        return this.http.post('api/Account/Register', f, { headers: noAuth }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["catchError"])(src_app_common_errors_http_errors__WEBPACK_IMPORTED_MODULE_6__["handleExpectedErrors"]));
+        return this.http.post('api/Account/Register', f, { headers: this.noAuth }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["catchError"])(src_app_common_errors_http_errors__WEBPACK_IMPORTED_MODULE_6__["handleExpectedErrors"]));
     };
     UserAuthService.prototype.Login = function (f) {
         var data = 'username=' + f.Email + '&password=' + f.Password + '&grant_type=password';
@@ -1569,9 +1591,13 @@ var UserAuthService = /** @class */ (function () {
         });
     };
     UserAuthService.prototype.Logout = function () {
-        localStorage.removeItem('MW-AccessToken');
-        this.user = null;
-        this.router.navigate(['/']);
+        var _this = this;
+        this.http.post('/api/Account/Logout', null).subscribe(function (x) {
+            console.log(x);
+            // localStorage.removeItem('MW-AccessToken');
+            _this.user = null;
+            _this.router.navigate(['/']);
+        });
     };
     UserAuthService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({

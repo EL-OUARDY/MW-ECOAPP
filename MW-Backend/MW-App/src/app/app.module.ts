@@ -35,6 +35,15 @@ import { PaymentComponent } from './payment/payment.component';
 import { CouponComponent } from './coupon/coupon.component';
 import { NavigationComponent } from './navigation/navigation.component';
 
+import { SignalRModule, SignalRConfiguration } from 'ng2-signalr';
+
+export function signalRConfig() {
+  const c = new SignalRConfiguration();
+  c.hubName = 'counterHub';
+  return c;
+}
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,7 +78,9 @@ import { NavigationComponent } from './navigation/navigation.component';
 
 
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+
+    SignalRModule.forRoot(signalRConfig)
 
   ],
   providers: [

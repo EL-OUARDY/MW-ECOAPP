@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { MiniProduct } from '../models/miniProduct';
 import { ProductService } from '../services/product.service';
-import { ToastrService } from 'ngx-toastr';
-import { UserService } from '../services/user.service';
+
+import * as $ from 'jquery';
+import { SignalR, SignalRConnection } from 'ng2-signalr';
 
 @Component({
   selector: 'app-home',
@@ -11,14 +11,26 @@ import { UserService } from '../services/user.service';
 })
 export class HomeComponent implements OnInit {
   products$;
-  constructor(private productService: ProductService, private toaster: ToastrService) { }
+  constructor(private productService: ProductService, private _signalR: SignalR) { }
 
   ngOnInit() {
-    this.products$ = this.productService.getProductList();
-  }
+    // this.products$ = this.productService.getProductList();
 
-  n() {
-    this.toaster.success('You did it', 'Success');
-  }
+    this._signalR.connect().then((c) => {
 
+      const listener = c.listenFor('getMyId');
+
+      listener.subscribe((id: string) => {
+        $('#myId').text(id);
+      });
+
+      const listener2 = c.listenFor('onRecordHit');
+
+      listener2.subscribe((count: string) => {
+        $('#counter').text(count);
+      });
+      c.invoke('getMyId');
+      c.invoke('onRecordHit');
+    }).catch(err => console.warn(err));
+  }
 }
