@@ -363,6 +363,10 @@
     <Compile Include="Migrations\201905071342345_addConnectionsModel.Designer.cs">
       <DependentUpon>201905071342345_addConnectionsModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905071407068_addLive-UsersModel.cs" />
+    <Compile Include="Migrations\201905071407068_addLive-UsersModel.Designer.cs">
+      <DependentUpon>201905071407068_addLive-UsersModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -371,6 +375,7 @@
     <Compile Include="Models\Data\Category.cs" />
     <Compile Include="Models\Data\Connection.cs" />
     <Compile Include="Models\Data\Coupon.cs" />
+    <Compile Include="Models\Data\Live_User.cs" />
     <Compile Include="Models\Data\Order.cs" />
     <Compile Include="Models\Data\Order_Item.cs" />
     <Compile Include="Models\Data\Product.cs" />
@@ -386,7 +391,7 @@
     </Compile>
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
-    <Compile Include="signalr\hubs\CounterHub.cs" />
+    <Compile Include="signalr\hubs\MainHub.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -596,6 +601,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201905071342345_addConnectionsModel.resx">
       <DependentUpon>201905071342345_addConnectionsModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905071407068_addLive-UsersModel.resx">
+      <DependentUpon>201905071407068_addLive-UsersModel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

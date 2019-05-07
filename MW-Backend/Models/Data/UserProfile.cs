@@ -33,7 +33,5 @@ namespace MW_Backend.Models.Data
 
         public ApplicationUser ApplicationUser { get; set; }
         public string ApplicationUserId { get; set; }
-
-        public ICollection<Connection> Connections { get; set; }
     }
 }
