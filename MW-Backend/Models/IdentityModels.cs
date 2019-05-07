@@ -23,6 +23,8 @@ namespace MW_Backend.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<Connection> Connections { get; set; }
+
         public DbSet<UserProfile> Users_Profiles { get; set; }
 
         public DbSet<Address_Book> Addresses_Book { get; set; }
@@ -47,6 +49,5 @@ namespace MW_Backend.Models
             return new ApplicationDbContext();
         }
 
-        // public System.Data.Entity.DbSet<MW_Backend.Models.ApplicationUser> ApplicationUsers { get; set; }
     }
 }

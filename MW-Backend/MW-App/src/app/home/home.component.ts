@@ -3,6 +3,7 @@ import { ProductService } from '../services/product.service';
 
 import * as $ from 'jquery';
 import { SignalR, SignalRConnection } from 'ng2-signalr';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +12,7 @@ import { SignalR, SignalRConnection } from 'ng2-signalr';
 })
 export class HomeComponent implements OnInit {
   products$;
-  constructor(private productService: ProductService, private _signalR: SignalR) { }
+  constructor(private productService: ProductService, private _signalR: SignalR, private toaster: ToastrService) { }
 
   ngOnInit() {
     // this.products$ = this.productService.getProductList();
@@ -27,10 +28,11 @@ export class HomeComponent implements OnInit {
       const listener2 = c.listenFor('onRecordHit');
 
       listener2.subscribe((count: string) => {
+        this.toaster.success('someone has logged in/out recently');
         $('#counter').text(count);
       });
       c.invoke('getMyId');
-      c.invoke('onRecordHit');
+
     }).catch(err => console.warn(err));
   }
 }

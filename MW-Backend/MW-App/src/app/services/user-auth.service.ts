@@ -52,7 +52,7 @@ export class UserAuthService {
   Logout() {
     this.http.post('/api/Account/Logout', null).subscribe( x => {
       console.log(x);
-      // localStorage.removeItem('MW-AccessToken');
+      localStorage.removeItem('MW-AccessToken');
       this.user = null;
       this.router.navigate(['/']);
     });

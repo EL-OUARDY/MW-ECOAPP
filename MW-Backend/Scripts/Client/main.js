@@ -975,18 +975,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var ng2_signalr__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ng2-signalr */ "./node_modules/ng2-signalr/index.js");
+/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm5/ngx-toastr.js");
+
 
 
 
 
 
 var HomeComponent = /** @class */ (function () {
-    function HomeComponent(productService, _signalR) {
+    function HomeComponent(productService, _signalR, toaster) {
         this.productService = productService;
         this._signalR = _signalR;
+        this.toaster = toaster;
     }
     HomeComponent.prototype.ngOnInit = function () {
         // this.products$ = this.productService.getProductList();
+        var _this = this;
         this._signalR.connect().then(function (c) {
             var listener = c.listenFor('getMyId');
             listener.subscribe(function (id) {
@@ -994,10 +998,10 @@ var HomeComponent = /** @class */ (function () {
             });
             var listener2 = c.listenFor('onRecordHit');
             listener2.subscribe(function (count) {
+                _this.toaster.success('someone has logged in/out recently');
                 jquery__WEBPACK_IMPORTED_MODULE_3__('#counter').text(count);
             });
             c.invoke('getMyId');
-            c.invoke('onRecordHit');
         }).catch(function (err) { return console.warn(err); });
     };
     HomeComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -1006,7 +1010,7 @@ var HomeComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./home.component.html */ "./src/app/home/home.component.html"),
             styles: [__webpack_require__(/*! ./home.component.css */ "./src/app/home/home.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_product_service__WEBPACK_IMPORTED_MODULE_2__["ProductService"], ng2_signalr__WEBPACK_IMPORTED_MODULE_4__["SignalR"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_product_service__WEBPACK_IMPORTED_MODULE_2__["ProductService"], ng2_signalr__WEBPACK_IMPORTED_MODULE_4__["SignalR"], ngx_toastr__WEBPACK_IMPORTED_MODULE_5__["ToastrService"]])
     ], HomeComponent);
     return HomeComponent;
 }());
@@ -1594,7 +1598,7 @@ var UserAuthService = /** @class */ (function () {
         var _this = this;
         this.http.post('/api/Account/Logout', null).subscribe(function (x) {
             console.log(x);
-            // localStorage.removeItem('MW-AccessToken');
+            localStorage.removeItem('MW-AccessToken');
             _this.user = null;
             _this.router.navigate(['/']);
         });

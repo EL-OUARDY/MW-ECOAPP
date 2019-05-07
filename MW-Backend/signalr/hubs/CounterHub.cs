@@ -9,30 +9,25 @@ namespace Run_SignalR.signalr.hubs
 {
     public class CounterHub : Hub
     {
-        static int counter = 1;
+        static int counter = 0;
 
-        public void getMyId()
+        public async void getMyId()
         {
             var id = Context.ConnectionId;
-            Clients.Caller.getMyId(id);
-        }
-
-        public void OnRecordHit()
-        {
-            Clients.All.onRecordHit(counter);
+            await Clients.User("edy.developer09@gmail.com").getMyId(id);
         }
 
         public override Task OnConnected()
         {
             counter++;
-            OnRecordHit();
+            Clients.All.onRecordHit(counter);
             return base.OnConnected();
         }
 
         public override Task OnDisconnected(bool stopCalled)
         {
             counter--;
-            OnRecordHit();
+            Clients.All.onRecordHit(counter);
             return base.OnDisconnected(stopCalled);
         }
     }
