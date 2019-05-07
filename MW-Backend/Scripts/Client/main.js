@@ -242,7 +242,7 @@ __webpack_require__.r(__webpack_exports__);
 
 function signalRConfig() {
     var c = new ng2_signalr__WEBPACK_IMPORTED_MODULE_32__["SignalRConfiguration"]();
-    c.hubName = 'counterHub';
+    c.hubName = 'mainHub';
     return c;
 }
 var AppModule = /** @class */ (function () {
@@ -955,7 +955,7 @@ module.exports = ".col-3 {\r\n    margin-bottom: 20px;\r\n}\r\n/*# sourceMapping
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- <div class=\"container\">\n  <div class=\"products row \">\n    <div *ngFor=\"let p of products$ | async\" class=\"col-3\">\n      <product-card [product]=\"p\"></product-card>\n      <div class=\" alert alert-info justForTesting \">\n        {{ p | json }}\n      </div>\n    </div>\n  </div>\n</div> -->\n\n<div class=\"container\">\n  <h2 id=\"myId\"></h2>\n  <h2 id=\"counter\"></h2>\n</div>\n"
+module.exports = "<div class=\"container\">\r\n  <div class=\"products row \">\r\n    <div *ngFor=\"let p of products$ | async\" class=\"col-3\">\r\n      <product-card [product]=\"p\"></product-card>\r\n      <div class=\" alert alert-info justForTesting \">\r\n        {{ p | json }}\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -972,37 +972,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _services_product_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/product.service */ "./src/app/services/product.service.ts");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var ng2_signalr__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ng2-signalr */ "./node_modules/ng2-signalr/index.js");
-/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm5/ngx-toastr.js");
-
-
-
 
 
 
 var HomeComponent = /** @class */ (function () {
-    function HomeComponent(productService, _signalR, toaster) {
+    function HomeComponent(productService) {
         this.productService = productService;
-        this._signalR = _signalR;
-        this.toaster = toaster;
     }
     HomeComponent.prototype.ngOnInit = function () {
-        // this.products$ = this.productService.getProductList();
-        var _this = this;
-        this._signalR.connect().then(function (c) {
-            var listener = c.listenFor('getMyId');
-            listener.subscribe(function (id) {
-                jquery__WEBPACK_IMPORTED_MODULE_3__('#myId').text(id);
-            });
-            var listener2 = c.listenFor('onRecordHit');
-            listener2.subscribe(function (count) {
-                _this.toaster.success('someone has logged in/out recently');
-                jquery__WEBPACK_IMPORTED_MODULE_3__('#counter').text(count);
-            });
-            c.invoke('getMyId');
-        }).catch(function (err) { return console.warn(err); });
+        this.products$ = this.productService.getProductList();
     };
     HomeComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1010,7 +988,7 @@ var HomeComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./home.component.html */ "./src/app/home/home.component.html"),
             styles: [__webpack_require__(/*! ./home.component.css */ "./src/app/home/home.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_product_service__WEBPACK_IMPORTED_MODULE_2__["ProductService"], ng2_signalr__WEBPACK_IMPORTED_MODULE_4__["SignalR"], ngx_toastr__WEBPACK_IMPORTED_MODULE_5__["ToastrService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_product_service__WEBPACK_IMPORTED_MODULE_2__["ProductService"]])
     ], HomeComponent);
     return HomeComponent;
 }());
@@ -1550,10 +1528,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm5/ngx-toastr.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
-/* harmony import */ var src_app_common_errors_http_errors__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/common/errors/http-errors */ "./src/app/common/errors/http-errors.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var src_app_common_errors_http_errors__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/common/errors/http-errors */ "./src/app/common/errors/http-errors.ts");
+/* harmony import */ var ng2_signalr__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ng2-signalr */ "./node_modules/ng2-signalr/index.js");
 
 
 
@@ -1562,20 +1540,20 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var UserAuthService = /** @class */ (function () {
-    function UserAuthService(http, toaster, router) {
+    function UserAuthService(http, _signalR, router) {
         this.http = http;
-        this.toaster = toaster;
+        this._signalR = _signalR;
         this.router = router;
         // for demostration
         this.noAuth = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({ 'NoAuth': 'true' });
     }
     UserAuthService.prototype.Register = function (f) {
-        return this.http.post('api/Account/Register', f, { headers: this.noAuth }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["catchError"])(src_app_common_errors_http_errors__WEBPACK_IMPORTED_MODULE_6__["handleExpectedErrors"]));
+        return this.http.post('api/Account/Register', f, { headers: this.noAuth }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(src_app_common_errors_http_errors__WEBPACK_IMPORTED_MODULE_5__["handleExpectedErrors"]));
     };
     UserAuthService.prototype.Login = function (f) {
         var data = 'username=' + f.Email + '&password=' + f.Password + '&grant_type=password';
         var reqHeader = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({ 'Content-Type': 'application/x-www-urlencoded', 'NoAuth': 'true' });
-        return this.http.post('login', data, { headers: reqHeader }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["catchError"])(src_app_common_errors_http_errors__WEBPACK_IMPORTED_MODULE_6__["handleExpectedErrors"]));
+        return this.http.post('login', data, { headers: reqHeader }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(src_app_common_errors_http_errors__WEBPACK_IMPORTED_MODULE_5__["handleExpectedErrors"]));
     };
     UserAuthService.prototype.getProfile = function () {
         var _this = this;
@@ -1585,6 +1563,7 @@ var UserAuthService = /** @class */ (function () {
         }
         this.http.get('/api/UserIdentity').subscribe(function (userProfile) {
             _this.user = userProfile;
+            _this.goLive();
         }, function (error) {
             if (error.status === 401) { // means that acctoken has expired
                 localStorage.removeItem('MW-AccessToken');
@@ -1603,11 +1582,16 @@ var UserAuthService = /** @class */ (function () {
             _this.router.navigate(['/']);
         });
     };
+    UserAuthService.prototype.goLive = function () {
+        this._signalR.connect().then(function (c) {
+            console.log('you are connected to the hub..');
+        }).catch(function (err) { return console.warn(err); });
+    };
     UserAuthService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
             providedIn: 'root'
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"], ngx_toastr__WEBPACK_IMPORTED_MODULE_3__["ToastrService"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"], ng2_signalr__WEBPACK_IMPORTED_MODULE_6__["SignalR"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
     ], UserAuthService);
     return UserAuthService;
 }());

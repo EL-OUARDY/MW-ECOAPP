@@ -15,6 +15,7 @@ namespace MW_Backend.Models.Data
 
         public DateTime LastActivity { get; set; }
 
+        [Required]
         public string UserName { get; set; }
     }
 }

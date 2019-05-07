@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { catchError } from 'rxjs/operators';
 
 import {handleExpectedErrors } from 'src/app/common/errors/http-errors';
+import { SignalR } from 'ng2-signalr';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class UserAuthService {
   // for demostration
   noAuth = new HttpHeaders({ 'NoAuth': 'true' });
 
-  constructor(private http: HttpClient, private toaster: ToastrService, private router: Router) { }
+  constructor(private http: HttpClient, private _signalR: SignalR, private router: Router) { }
 
   Register(f) {
     return this.http.post('api/Account/Register', f, {headers : this.noAuth}).pipe(
@@ -40,6 +41,7 @@ export class UserAuthService {
     }
     this.http.get('/api/UserIdentity').subscribe((userProfile: any) => {
       this.user = userProfile as UserProfile;
+      this.goLive();
     },
     (error: Response) => {
       if (error.status === 401) { // means that acctoken has expired
@@ -56,5 +58,11 @@ export class UserAuthService {
       this.user = null;
       this.router.navigate(['/']);
     });
+  }
+
+  private goLive() {
+    this._signalR.connect().then((c) => {
+      console.log('you are connected to the hub..');
+    }).catch(err => console.warn(err));
   }
 }

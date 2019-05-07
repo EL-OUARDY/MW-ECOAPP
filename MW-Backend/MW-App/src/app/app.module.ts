@@ -39,7 +39,7 @@ import { SignalRModule, SignalRConfiguration } from 'ng2-signalr';
 
 export function signalRConfig() {
   const c = new SignalRConfiguration();
-  c.hubName = 'counterHub';
+  c.hubName = 'mainHub';
   return c;
 }
 

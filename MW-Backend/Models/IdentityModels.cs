@@ -25,8 +25,6 @@ namespace MW_Backend.Models
     {
         public DbSet<Connection> Connections { get; set; }
 
-        public DbSet<Live_User> Live_Users { get; set; }
-
         public DbSet<UserProfile> Users_Profiles { get; set; }
 
         public DbSet<Address_Book> Addresses_Book { get; set; }
