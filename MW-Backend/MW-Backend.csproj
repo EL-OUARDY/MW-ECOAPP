@@ -259,6 +259,7 @@
     </Compile>
     <Compile Include="Helpers\CartHelper.cs" />
     <Compile Include="Helpers\DirectoryHelper.cs" />
+    <Compile Include="Helpers\PresenceMonitor.cs" />
     <Compile Include="Migrations\201901311336117_addProductCategorieModels.cs" />
     <Compile Include="Migrations\201901311336117_addProductCategorieModels.Designer.cs">
       <DependentUpon>201901311336117_addProductCategorieModels.cs</DependentUpon>
