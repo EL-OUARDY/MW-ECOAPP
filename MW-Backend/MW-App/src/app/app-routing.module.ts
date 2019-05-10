@@ -12,7 +12,7 @@ import { SigninGuard } from './guards/signin.guard';
 import { NotFoundComponent } from './error-pages/not-found/not-found.component';
 import { UnexpectedErrorComponent } from './error-pages/unexpected-error/unexpected-error.component';
 import { PaymentComponent } from './payment/payment.component';
-import { NavigationComponent } from './navigation/navigation.component';
+import { LayoutComponent } from './layout/layout.component';
 
 const routes: Routes = [
   { path: 'sign-in', component: SignInUpComponent, canActivate: [SigninGuard] },
@@ -22,7 +22,7 @@ const routes: Routes = [
   { path: 'error', component: UnexpectedErrorComponent },
 
   {
-    path: '', component: NavigationComponent,
+    path: '', component: LayoutComponent,
     children: [
       { path: '', component: HomeComponent },
       { path: 'cart', component: ShoppingCartComponent, },

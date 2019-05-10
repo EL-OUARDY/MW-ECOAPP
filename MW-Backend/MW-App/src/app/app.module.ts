@@ -33,9 +33,8 @@ import { UnexpectedErrorComponent } from './error-pages/unexpected-error/unexpec
 import { AuthInterceptor } from './common/auth-interceptor';
 import { PaymentComponent } from './payment/payment.component';
 import { CouponComponent } from './coupon/coupon.component';
-import { NavigationComponent } from './navigation/navigation.component';
-
 import { SignalRModule, SignalRConfiguration } from 'ng2-signalr';
+import { LayoutComponent } from './layout/layout.component';
 
 export function signalRConfig() {
   const c = new SignalRConfiguration();
@@ -63,7 +62,7 @@ export function signalRConfig() {
     UnexpectedErrorComponent,
     PaymentComponent,
     CouponComponent,
-    NavigationComponent,
+    LayoutComponent,
   ],
   imports: [
     CommonModule,
