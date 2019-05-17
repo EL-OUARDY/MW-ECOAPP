@@ -2,26 +2,26 @@
   <form #f="ngForm" (ngSubmit)="onSubmit(f)" autocomplete="off">
     <input type="hidden" [(ngModel)]="_Product.Id" name="Id" #Id="ngModel">
     <div class="divtitleprod">
-  
+
       <label>Source</label>
       <input id="inpulien" required minlength="6" type="text" name="SourceLink" placeholder="https://example.io">
-  
+
       <label>Name</label>
       <input id="inputtitle" required minlength="6" type="text" [(ngModel)]="_Product.Name" name="Name" #Name="ngModel">
-  
+
       <label>Price</label>
       <input class="inputprice" required maxlength="7" type="number" [(ngModel)]="_Product.Price" name="Price"
         #Price="ngModel">
-  
+
       <svg *ngIf="!expand" (click)="expand = true" version="1.1" x="0px" y="0px" viewBox="0 0 286.376 286.376"
         style="enable-background:new 0 0 286.376 286.376;" xml:space="preserve">
         <path style="fill-rule:evenodd;clip-rule:evenodd;"
           d="M268.477,125.29H161.086V17.899c0-9.885-8.013-17.898-17.898-17.898   s-17.898,8.013-17.898,17.898v107.39H17.9c-9.885,0-17.9,8.013-17.9,17.898c0,9.885,8.015,17.898,17.9,17.898h107.39v107.39   c0,9.885,8.013,17.898,17.898,17.898s17.898-8.013,17.898-17.898v-107.39h107.391c9.885,0,17.898-8.014,17.898-17.898   C286.376,133.303,278.362,125.29,268.477,125.29z">
         </path>
       </svg>
-  
+
       <ng-container *ngIf="expand">
-  
+
         <label>Old Price</label>
         <input class="inputprice" maxlength="7" type="number" [(ngModel)]="_Product.OldPrice" name="OldPrice"
           #OldPrice="ngModel">
@@ -31,9 +31,9 @@
             points="612,36.004 576.521,0.603 306,270.608 35.478,0.603 0,36.004 270.522,306.011 0,575.997 35.478,611.397      306,341.411 576.521,611.397 612,575.997 341.459,306.011    ">
           </polygon>
         </svg>
-  
+
       </ng-container>
-  
+
     </div>
     <div class="divimageproduct">
       <div (click)="mainImg.click()" class="divmainimageprod">
@@ -57,7 +57,7 @@
             </path>
           </svg>
         </ng-template>
-  
+
       </div>
       <div class="divmoreimage">
         <div (click)="galleryImgs.click()" class="roidfudsdxv">
@@ -80,7 +80,7 @@
             </path>
           </svg>
         </div>
-  
+
         <ng-container *ngFor="let item of GalleryImgs">
           <div class="roidfudsdxv">
             <div class="rytfhgqsfez">
@@ -100,11 +100,11 @@
             <img class="otherimage" [src]="item.data">
           </div>
         </ng-container>
-  
+
       </div>
       <div class="divcolorproduct">
         <div class="lijksdfgdsvc">
-  
+
           <mat-radio-group [(ngModel)]="_Product.Color" name="Color">
             <div [ngStyle]="{'background': 'var(--'+ item + ')'  }" *ngFor="let item of colors" class="colorbox">
               <mat-radio-button [disabled]=" hasNoColor " [value]="item"></mat-radio-button>
@@ -118,28 +118,29 @@
                 <mat-option [value]="item"></mat-option>
               </div>
             </mat-select> -->
-  
+
         </div>
       </div>
-  
+
       <div class="divcategproduct">
         <div class="iofdgljkgfd">
-  
+
           <div class="selectsubcateg1">
-            <mat-select disableOptionCentering #Category (selectionChange)="getSub(Category.value)" placeholder="Category"
+            <mat-select disableOptionCentering #Category (selectionChange)="getSub(Category.value, true)"
+              name="CategoryId" required [(ngModel)]="_Product.CategoryId" placeholder="Category"
               panelClass="select-panel">
               <mat-option *ngFor="let item of categories" [value]="item.Id">{{item.Name}}</mat-option>
             </mat-select>
           </div>
-  
+
           <div class="selectsubcateg1">
             <mat-select disableOptionCentering name="SubCategoryId" required [(ngModel)]="_Product.SubCategoryId"
               placeholder="SubCategory" panelClass="select-panel">
               <mat-option *ngFor="let item of subCategories" [value]="item.Id">{{item.Name}}</mat-option>
             </mat-select>
           </div>
-  
-  
+
+
           <div class="labplustype">
             <svg class="svgpluytrice" version="1.1" x="0px" y="0px" viewBox="0 0 286.376 286.376" xml:space="preserve">
               <path style="fill-rule:evenodd;clip-rule:evenodd;"
@@ -148,15 +149,16 @@
             </svg>
             <label class="dfgcbxvc">Option</label>
           </div>
-  
+
         </div>
       </div>
     </div>
-  
+
     <div class="divdecription">
       <div class="textareaWrapper">
-        <ng-scrollbar  [shown]="'always'" class="txtareacontent" barClass="scrollbar" thumbClass="scroll-thumb">
-            <textarea  matInput cdkTextareaAutosize required [(ngModel)]="_Product.Description" name="Description" #des="ngModel"></textarea>
+        <ng-scrollbar [shown]="'always'" class="txtareacontent" barClass="scrollbar" thumbClass="scroll-thumb">
+          <textarea matInput cdkTextareaAutosize required [(ngModel)]="_Product.Description" name="Description"
+            #des="ngModel"></textarea>
         </ng-scrollbar>
       </div>
       <div class="divimagedescr">
@@ -193,7 +195,7 @@
           </div>
         </ng-container>
       </div>
-  
+
       <div class="divshipping">
         <div class="uytuytyuuy">
           <label class="labshipping">Shipping</label>
@@ -216,36 +218,39 @@
         </div>
       </div>
     </div>
-  
+
     <div class="formFooter">
       <div class="divtitleprod lastdiv">
 
         <label>Quantity</label>
-        <input min="0" placeholder="null" class="inputprice" maxlength="7" type="number" [(ngModel)]="_Product.Qte"
+        <input min="0" placeholder="null" class="inputprice" maxlength="7" type="number" [(ngModel)]="_Product.Quantity"
           name="Quantity">
-      
+
         <label>On Sale</label>
         <div class="switch1" [ngClass]="{'switchadd1': _Product.OnSale}">
           <input name="OnSale" [(ngModel)]="_Product.OnSale" #OnSale="ngModel" id="checkanimat1" type="checkbox">
           <div class="switch2" [ngClass]="{'switchadd2': _Product.OnSale}"></div>
         </div>
-      
+
       </div>
-      
+
       <div class="bottonaddprod mgLeft" (click)="onSubmit(f)">
-        Add Product
+        {{ (_Product.Id > 0) ? 'Update' : 'Add Product' }}
       </div>
       <div class="bottonaddprod" (click)="Reset()">
         Reset
       </div>
     </div>
-    
-    <!-- <div class="alert">
+
+    <div class="alert">
       {{ f.value | json }}
-    </div> -->
+    </div>
+    <div class="alert">
+      {{ _Product | json }}
+    </div>
   </form>
 
   <div class="history">
-    <product-history [Products]="lastProducts" (delete)="getLastAddedProducts()" ></product-history>
+    <product-history [Products]="lastProducts" (delete)="getLastAddedProducts()"></product-history>
   </div>
 </div>

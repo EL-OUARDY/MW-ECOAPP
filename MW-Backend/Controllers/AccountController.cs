@@ -74,7 +74,7 @@ namespace MW_Backend.Controllers
         public IHttpActionResult Logout()
         {
             Authentication.SignOut(CookieAuthenticationDefaults.AuthenticationType);
-            return Ok("logged out");
+            return Ok();
         }
 
         // GET api/Account/ManageInfo?returnUrl=%2F&generateState=true

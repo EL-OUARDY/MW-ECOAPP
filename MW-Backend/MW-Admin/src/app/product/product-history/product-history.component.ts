@@ -4,6 +4,7 @@ import { AdminProductService } from '../../services/admin-product.service';
 import { AppError } from 'src/app/common/errors/app-error';
 import { BadInput, NotFound } from 'src/app/common/errors/http-errors';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'product-history',
@@ -15,9 +16,13 @@ export class ProductHistoryComponent implements OnInit {
   @Input('Products') Products: MiniProduct[];
   @Output('delete') delete = new EventEmitter();
 
-  constructor(private aps: AdminProductService, private toaster: ToastrService) { }
+  constructor(private aps: AdminProductService, private toaster: ToastrService, private router: Router) { }
 
   ngOnInit() {
+  }
+
+  editProduct(p: MiniProduct) {
+    this.router.navigateByUrl('/admin/edit-product/' + p.Id.toString());
   }
 
   deleteProduct(product: MiniProduct) {
@@ -37,7 +42,7 @@ export class ProductHistoryComponent implements OnInit {
       }
     });
   }
-  trackById(index, product){
+  trackById(index, product) {
     return product ? product.Id : undefined;
   }
 }

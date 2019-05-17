@@ -44,6 +44,12 @@ export class AdminProductService {
     return this.http.get('api/AdminProducts/History', { headers: this.noAuth });
   }
 
+  getProduct(id: number) { // for updating products
+    return this.http.get('api/AdminProducts/' + id, { headers: this.noAuth }).pipe(
+      catchError(handleExpectedErrors)
+    );
+  }
+
   deleteProduct(id: number) {
     return this.http.delete('api/AdminProducts/' + id , { headers: this.noAuth }).pipe(
       catchError(handleExpectedErrors)

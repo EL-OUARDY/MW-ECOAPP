@@ -11,23 +11,25 @@ export class AdminProduct {
     Discount: number;
     ShippingMethod: string;
     SubCategoryId: number;
+    CategoryId: number;
     Date_Added: Date;
     mainImg: string;
 
-    get Qte() {
-        if (!this.OnSale) {
-            return 0;
-        }
-        return this.Quantity; 
-    }
-    set Qte(value: number) {
+    // get Qte() {
+    //     if (!this.OnSale) {
+    //         return 0;
+    //     }
+    //     return this.Quantity;
+    // }
 
-        if (value === 0) {
-            this.OnSale = false;
-        } else this.OnSale = true;
+    // set Qte(value: number) {
 
-        this.Quantity = value;
-    }
+    //     if (value === 0) {
+    //         this.OnSale = false;
+    //     } else this.OnSale = true;
+
+    //     this.Quantity = value;
+    // }
 
     constructor() {
         this.Id = 0;

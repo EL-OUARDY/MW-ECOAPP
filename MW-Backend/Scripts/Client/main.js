@@ -1540,13 +1540,16 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var UserAuthService = /** @class */ (function () {
-    function UserAuthService(http, _signalR, router) {
+    function UserAuthService(zone, http, _signalR, router) {
+        this.zone = zone;
         this.http = http;
         this._signalR = _signalR;
         this.router = router;
         // for demostration
         this.noAuth = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({ 'NoAuth': 'true' });
     }
+    UserAuthService.prototype.ngOnInit = function () {
+    };
     UserAuthService.prototype.Register = function (f) {
         return this.http.post('api/Account/Register', f, { headers: this.noAuth }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(src_app_common_errors_http_errors__WEBPACK_IMPORTED_MODULE_5__["handleExpectedErrors"]));
     };
@@ -1575,23 +1578,28 @@ var UserAuthService = /** @class */ (function () {
     };
     UserAuthService.prototype.Logout = function () {
         var _this = this;
-        this.http.post('/api/Account/Logout', null).subscribe(function (x) {
-            console.log(x);
+        this.http.post('/api/Account/Logout', null).subscribe(function () {
             localStorage.removeItem('MW-AccessToken');
             _this.user = null;
             _this.router.navigate(['/']);
+            _this.cnx.stop();
         });
     };
     UserAuthService.prototype.goLive = function () {
-        this._signalR.connect().then(function (c) {
+        this.cnx = this._signalR.createConnection();
+        this.cnx.start().then(function (c) {
             console.log('you are connected to the hub..');
+            // setInterval(() => {
+            //   console.log('should go offline');
+            //   this.cnx.stop(); // go offline
+            // }, 50000);
         }).catch(function (err) { return console.warn(err); });
     };
     UserAuthService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
             providedIn: 'root'
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"], ng2_signalr__WEBPACK_IMPORTED_MODULE_6__["SignalR"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"], _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"], ng2_signalr__WEBPACK_IMPORTED_MODULE_6__["SignalR"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
     ], UserAuthService);
     return UserAuthService;
 }());

@@ -10,9 +10,9 @@ using MW_Backend.Models.Data;
 
 namespace Run_SignalR.signalr.hubs
 {
-    [Authorize]
     public class MainHub : Hub
     {
+        //[Authorize]
         public override async Task OnConnected()
         {
             using (var db = new ApplicationDbContext())
@@ -29,6 +29,7 @@ namespace Run_SignalR.signalr.hubs
             }
         }
 
+        //[Authorize]
         public override async Task OnReconnected()
         {
             using (var db = new ApplicationDbContext())
@@ -54,7 +55,7 @@ namespace Run_SignalR.signalr.hubs
                 await db.SaveChangesAsync();
             }
         }
-
+        //[System.Web.Http.AllowAnonymous]
         public override async Task OnDisconnected(bool stopCalled)
         {
             using (var db = new ApplicationDbContext())

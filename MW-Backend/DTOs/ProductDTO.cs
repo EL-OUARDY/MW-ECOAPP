@@ -43,6 +43,9 @@ namespace MW_Backend.DTOs
         [Required]
         public int SubCategoryId { get; set; }
 
+
+        public int CategoryId { get; set; } //
+
         //Handling Exceptions !!
         public string mainImg
         {

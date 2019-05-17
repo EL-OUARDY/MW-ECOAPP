@@ -19,7 +19,8 @@ namespace MW_Backend.App_Start
             Mapper.CreateMap<Product, ProductListVM>();
             Mapper.CreateMap<ProductListVM, Product>();
 
-            Mapper.CreateMap<Product, ProductDTO>();
+            Mapper.CreateMap<Product, ProductDTO>()
+                .ForMember(dest => dest.CategoryId, opt => opt.MapFrom(src => src.SubCategory.CategoryId));
             Mapper.CreateMap<ProductDTO, Product>();
 
             Mapper.CreateMap<UserProfile, UserProfileDTO>();

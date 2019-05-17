@@ -3,9 +3,10 @@ import { AdminProductService } from '../../services/admin-product.service';
 import { AdminProduct } from '../../models/adminProduct';
 import { ToastrService } from 'ngx-toastr';
 import { MiniProduct } from 'src/app/models/miniProduct';
-import { BadInput } from 'src/app/common/errors/http-errors';
+import { BadInput, NotFound } from 'src/app/common/errors/http-errors';
 import { NgForm } from '@angular/forms';
 import { AppError } from 'src/app/common/errors/app-error';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'product-form',
@@ -24,18 +25,25 @@ export class ProductFormComponent implements OnInit {
   lastProducts: MiniProduct[];
   _Product = new AdminProduct();
 
-  constructor(private aps: AdminProductService, private toaster: ToastrService) {
-  }
-  // implements ngOnDestroy to Remove all subscriptions
-
-  ngOnInit() {
+  constructor(private aps: AdminProductService, private activeRoute: ActivatedRoute, private toaster: ToastrService) {
     this.aps.getCategories().subscribe(res => {
       this.categories = res;
     });
+  }
+
+  // implements ngOnDestroy to Remove all subscriptions
+
+  ngOnInit() {
+
+    this.activeRoute.paramMap.subscribe(p => {
+      const id = Number(p.get('id'));
+      if ( id ) {
+        this.getProduct(id);
+      }
+    });
 
     this.getLastAddedProducts();
-
-    this.shipping = this.aps.getShippings();
+    // this.shipping = this.aps.getShippings();
   }
 
   // Posting The Product
@@ -107,12 +115,28 @@ export class ProductFormComponent implements OnInit {
     array.unshift(data); // Insert at The start
   }
 
-  getSub(c) {
-    if (c) {
-      this.subCategories = this.categories.find(x => x.Id === Number(c)).SubCategories;
-    }
+  getSub(cat, reset) {
+   if (cat) {
+     this.subCategories = this.categories.find(x => x.Id === Number(cat)).SubCategories;
+     if (reset) this._Product.SubCategoryId = null;
+   }
   }
 
+  getProduct(id: number){
+    this.aps.getProduct(id)
+      .subscribe(
+        (p) => {
+          console.log(p);
+          this._Product = p as AdminProduct;
+          this.hasNoColor = this._Product.Color ? false : true;
+          this.getSub(this._Product.CategoryId, false);
+        },
+        (err: AppError) => {
+          if (err instanceof NotFound) {
+            this.toaster.warning('Product Not Found Or Deleted');
+          } else { throw err; }
+        });
+  }
 
   /* Images Functions */
 

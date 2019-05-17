@@ -44,7 +44,7 @@ namespace MW_Backend.Areas.Admin.Controllers
             return Ok( products.Select(Mapper.Map<Product, ProductListVM>));
         }
 
-        // POST: api/AdminProducts/5
+        // POST: api/AdminProducts
         [HttpPost]
         public IHttpActionResult PostAdminProduct(ProductDTO productDto)
         {
@@ -58,6 +58,21 @@ namespace MW_Backend.Areas.Admin.Controllers
             db.SaveChanges();
 
             return Ok(product.Id);
+        }
+
+        // GET: api/AdminProducts/5
+        [HttpGet]
+        [Route("api/AdminProducts/{id}")]
+        public IHttpActionResult GetAdminProduct(int id)
+        {
+            var model = db.Products.Where(x => x.Id == id).FirstOrDefault();
+
+            if (model == null)
+            {
+                return NotFound();
+            }
+
+            return Ok( Mapper.Map<ProductDTO>(model) );
         }
 
         [HttpPost]

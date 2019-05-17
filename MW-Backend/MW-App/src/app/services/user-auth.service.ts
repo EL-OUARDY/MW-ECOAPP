@@ -1,37 +1,40 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit, NgZone } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { ToastrService } from 'ngx-toastr';
 import { UserProfile } from 'src/app/models/userProfile';
 import { Router } from '@angular/router';
 
 import { catchError } from 'rxjs/operators';
 
-import {handleExpectedErrors } from 'src/app/common/errors/http-errors';
-import { SignalR } from 'ng2-signalr';
+import { handleExpectedErrors } from 'src/app/common/errors/http-errors';
+import { SignalR, SignalRConnection } from 'ng2-signalr';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserAuthService {
+export class UserAuthService implements OnInit {
+
   user: UserProfile;
+  cnx: SignalRConnection;
   // for demostration
   noAuth = new HttpHeaders({ 'NoAuth': 'true' });
 
-  constructor(private http: HttpClient, private _signalR: SignalR, private router: Router) { }
-
+  constructor(private zone: NgZone, private http: HttpClient, private _signalR: SignalR, private router: Router) {
+  }
+  ngOnInit() {
+  }
   Register(f) {
-    return this.http.post('api/Account/Register', f, {headers : this.noAuth}).pipe(
+    return this.http.post('api/Account/Register', f, { headers: this.noAuth }).pipe(
       catchError(handleExpectedErrors)
     );
   }
 
   Login(f) {
     const data = 'username=' + f.Email + '&password=' + f.Password + '&grant_type=password';
-    const reqHeader = new HttpHeaders({'Content-Type': 'application/x-www-urlencoded', 'NoAuth': 'true'});
+    const reqHeader = new HttpHeaders({ 'Content-Type': 'application/x-www-urlencoded', 'NoAuth': 'true' });
 
     return this.http.post('login', data, { headers: reqHeader }).pipe(
-          catchError(handleExpectedErrors)
-        );
+      catchError(handleExpectedErrors)
+    );
   }
 
   getProfile() {
@@ -43,26 +46,32 @@ export class UserAuthService {
       this.user = userProfile as UserProfile;
       this.goLive();
     },
-    (error: Response) => {
-      if (error.status === 401) { // means that acctoken has expired
-        localStorage.removeItem('MW-AccessToken');
-        this.user = null;
-      } else throw error;
-    });
+      (error: Response) => {
+        if (error.status === 401) { // means that acctoken has expired
+          localStorage.removeItem('MW-AccessToken');
+          this.user = null;
+        } else throw error;
+      });
   }
 
   Logout() {
-    this.http.post('/api/Account/Logout', null).subscribe( x => { // logout!!?
-      console.log(x);
+    this.http.post('/api/Account/Logout', null).subscribe(() => { // logout!!?
       localStorage.removeItem('MW-AccessToken');
       this.user = null;
       this.router.navigate(['/']);
+      this.cnx.stop();
     });
   }
 
   private goLive() {
-    this._signalR.connect().then((c) => {
+    this.cnx = this._signalR.createConnection();
+    this.cnx.start().then((c) => {
       console.log('you are connected to the hub..');
+      // setInterval(() => {
+      //   console.log('should go offline');
+      //   this.cnx.stop(); // go offline
+      // }, 50000);
+
     }).catch(err => console.warn(err));
   }
 }
