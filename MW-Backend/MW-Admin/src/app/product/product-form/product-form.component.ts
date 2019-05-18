@@ -18,6 +18,8 @@ export class ProductFormComponent implements OnInit {
   hasNoColor = false;
   colors = ['white', 'red', 'green', 'yellow', 'gray', 'orange', 'blue', 'pink', 'brown', 'purple', 'black'];
   @ViewChild('f') ngForm: NgForm;
+  _maxG = 7; // Max gallery images
+  _maxD = 5; // Max description images
 
   categories; subCategories; shipping; MainImage: File;
   imgPath: string; GalleryImgs = new Array<IPath>(); DescImgs = new Array<IPath>();
@@ -166,7 +168,7 @@ export class ProductFormComponent implements OnInit {
             data: (<FileReader>e.target).result.toString()
           };
 
-          if (this.GalleryImgs.length < 7) { this.GalleryImgs.push(item); }
+          if (this.GalleryImgs.length < this._maxG) { this.GalleryImgs.push(item); }
         };
         reader.readAsDataURL(files[i]);
       }
@@ -184,7 +186,7 @@ export class ProductFormComponent implements OnInit {
             data: (<FileReader>e.target).result.toString()
           };
 
-          if (this.DescImgs.length < 5) { this.DescImgs.push(item); }
+          if (this.DescImgs.length < this._maxD) { this.DescImgs.push(item); }
         };
         reader.readAsDataURL(files[i]);
       }

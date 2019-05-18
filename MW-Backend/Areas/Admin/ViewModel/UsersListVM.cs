@@ -27,7 +27,7 @@ namespace MW_Backend.Areas.Admin.ViewModel
 
         public DateTime Last_Signed { get; set; }
 
-        public string Avatar //image
+        public string Avatar //profile image
         {
             get
             {
