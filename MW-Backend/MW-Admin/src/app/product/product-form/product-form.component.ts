@@ -6,7 +6,7 @@ import { MiniProduct } from 'src/app/models/miniProduct';
 import { BadInput, NotFound } from 'src/app/common/errors/http-errors';
 import { NgForm } from '@angular/forms';
 import { AppError } from 'src/app/common/errors/app-error';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'product-form',
@@ -27,7 +27,7 @@ export class ProductFormComponent implements OnInit {
   lastProducts: MiniProduct[];
   _Product = new AdminProduct();
 
-  constructor(private aps: AdminProductService, private activeRoute: ActivatedRoute, private toaster: ToastrService) {
+  constructor(private aps: AdminProductService, private router: Router, private activeRoute: ActivatedRoute, private toaster: ToastrService) {
     this.aps.getCategories().subscribe(res => {
       this.categories = res;
     });
@@ -50,11 +50,20 @@ export class ProductFormComponent implements OnInit {
 
   // Posting The Product
   onSubmit(f: NgForm) {
-    if (f.invalid || !this.MainImage || this.GalleryImgs.length === 0) {
-      this.toaster.warning("You've to fill the required areas ..");
+    if (f.invalid) {
+      this.toaster.warning("Form Is Not Valid ..");
       return;
     }
+    if (this._Product.Id > 0)
+      this.updateProduct();
+    else this.addProduct();
+  }
 
+  addProduct() {
+    if ( !this.MainImage || this.GalleryImgs.length === 0) {
+      this.toaster.warning("Main Image and Gallery images are Mandatory");
+      return;
+    }
     this._Product.Slug = this._Product.Name.replace(/\s+/g, '-'); // on server side
     this.aps.PostProduct(this._Product).subscribe(
       (ProductId: string) => {
@@ -68,6 +77,11 @@ export class ProductFormComponent implements OnInit {
         } else { throw error; }
       });
   }
+  updateProduct() {
+    // validation of images ..
+    console.log('from update');
+  }
+  ///////////////////////
 
   getLastAddedProducts() {
     this.aps.GetLastProducts().subscribe(data => {
@@ -103,11 +117,7 @@ export class ProductFormComponent implements OnInit {
   }
 
   private resetForm() {
-    this.ngForm.resetForm(new AdminProduct());
-    this.MainImage = undefined;
-    this.imgPath = undefined;
-    this.GalleryImgs = new Array<IPath>();
-    this.DescImgs = new Array<IPath>();
+    this.router.navigateByUrl('/admin/add-product');
   }
 
   addToHistory(data: MiniProduct) {
@@ -118,10 +128,11 @@ export class ProductFormComponent implements OnInit {
   }
 
   getSub(cat, reset) {
-   if (cat) {
-     this.subCategories = this.categories.find(x => x.Id === Number(cat)).SubCategories;
-     if (reset) this._Product.SubCategoryId = null;
-   }
+    try {
+      if (cat)
+        this.subCategories = this.categories.find(x => x.Id === Number(cat)).SubCategories;
+          if (reset) this._Product.SubCategoryId = null;
+    } catch (e) {}
   }
 
   getProduct(id: number){
@@ -146,6 +157,13 @@ export class ProductFormComponent implements OnInit {
     this.MainImage = files[0];
     this.previewMainImg();
   }
+
+  setMainImageServer(file){
+    console.log('change on server');
+  }
+
+
+
   previewMainImg() {
     if (this.MainImage) { // image exist
       const reader = new FileReader();
@@ -156,7 +174,7 @@ export class ProductFormComponent implements OnInit {
     }
   }
 
-  addProductImages(files: File[]) {
+  addGalleryImages(files: File[]) {
     for (let i = 0; i < files.length; i++) {
       const exist = (this.GalleryImgs.find(x => x.name === files[i].name)) ? true : false;
       if (files[i] && !exist) {
@@ -174,6 +192,12 @@ export class ProductFormComponent implements OnInit {
       }
     }
   }
+
+  addGalleryImagesServer(files){
+    console.log('add gallery image on server');
+  }
+
+
   addDescImages(files: File[]) {
     for (let i = 0; i < files.length; i++) {
       const exist = (this.DescImgs.find(x => x.name === files[i].name)) ? true : false;
@@ -192,23 +216,42 @@ export class ProductFormComponent implements OnInit {
       }
     }
   }
+  addDescImagesServer(files){
+    console.log('add desc images');
+  }
+
   asMainImage(img: File) {
       this.MainImage = img;
       this.previewMainImg();
   }
-  removeImage(name) {
+
+  asMainImageServer(img) {
+    console.log('as main : ' + img);
+  }
+
+  removeGalleryImage(name) {
     const elem = this.GalleryImgs.find(x => x.name === name);
     this.GalleryImgs.splice(this.GalleryImgs.indexOf(elem), 1);
   }
+
+  removeGalleryImageServer(name) {
+    console.log('delete gallery : ' + name);
+  }
+
   removeDescImage(name) {
     const elem = this.DescImgs.find(x => x.name === name);
     this.DescImgs.splice(this.DescImgs.indexOf(elem), 1);
+  }
+  removeDescImageServer(name){
+    console.log('delete desc images : ' + name);
+    
   }
   Reset() {
     this.resetForm();
   }
   setNoColor() {
     if (this.hasNoColor) this._Product.Color = null;
+    else this._Product.Color = 'white';
   }
 }
 
