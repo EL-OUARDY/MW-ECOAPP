@@ -4,6 +4,7 @@ import { catchError } from 'rxjs/operators';
 import { handleExpectedErrors, BadInput } from 'src/app/common/errors/http-errors';
 import { MatDialog } from '@angular/material';
 import { ConfirmDialogComponent } from '../shared/confirm-dialog/confirm-dialog.component';
+import { AdminProduct } from '../models/adminProduct';
 
 @Injectable({
   providedIn: 'root'
@@ -23,13 +24,18 @@ export class AdminProductService {
 
   // calling the server
 
-
   GetProductsList(stock: string) {
     return this.http.get('api/AdminProducts?stock=' + stock, { headers: this.noAuth });
   }
 
   PostProduct(form) {
     return this.http.post('api/AdminProducts', form, { headers: this.noAuth }).pipe(
+      catchError(handleExpectedErrors)
+    );
+  }
+
+  UpdateProduct( id: number, p: AdminProduct) {
+    return this.http.put('/api/UpdateProducts/' + id.toString(), p, { headers: this.noAuth }).pipe(
       catchError(handleExpectedErrors)
     );
   }
@@ -55,6 +61,15 @@ export class AdminProductService {
       catchError(handleExpectedErrors)
     );
   }
+
+  ReplaceMainImg(id: number, img: string) {
+    const data =  { id: id, filename: img };    
+    return this.http.post('api/ReplaceMainImg', data, { headers: this.noAuth }).pipe(
+      catchError(handleExpectedErrors)
+    );
+  }
+
+  // Shared Functions
 
   raiseConfirmDialog() {
     return this.dialog.open(ConfirmDialogComponent, {

@@ -10,6 +10,7 @@ namespace MW_Backend.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
+            AutomaticMigrationDataLossAllowed = true;
         }
 
         protected override void Seed(MW_Backend.Models.ApplicationDbContext context)
@@ -18,6 +19,8 @@ namespace MW_Backend.Migrations
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.
+
+
         }
     }
 }

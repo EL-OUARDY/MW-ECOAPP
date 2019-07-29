@@ -30,13 +30,17 @@ namespace MW_Backend.Models
         public DbSet<Address_Book> Addresses_Book { get; set; }
 
         public DbSet<Category> Categories { get; set; }
+
         public DbSet<SubCategory> Sub_Categories { get; set; }
+
         public DbSet<Coupon> Coupons { get; set; }
 
         public DbSet<Product> Products { get; set; }
+
         public DbSet<Product_Variations> Product_Variations { get; set; }
 
         public DbSet<Order> Orders { get; set; }
+
         public DbSet<Order_Item> Order_Items { get; set; }
 
         public ApplicationDbContext()

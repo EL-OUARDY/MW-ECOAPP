@@ -12,8 +12,10 @@ export class AdminProduct {
     ShippingMethod: string;
     SubCategoryId: number;
     CategoryId: number;
-    Date_Added: Date;
+    Date_Added: Date; //
     mainImg: string;
+    galleryImgs: string[];
+    descImgs: string[];
 
     // get Qte() {
     //     if (!this.OnSale) {

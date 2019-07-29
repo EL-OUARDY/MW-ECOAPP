@@ -138,6 +138,7 @@ body {
 
 .mainimage {
     height: 100%;
+    width: 100%;
     border-radius: 15px;
 }
 
@@ -4443,6 +4444,9 @@ td.fdgdzeazreio {
     display: none
 }
 
+.halfOpacity {
+    opacity: .3;
+}
 .ng-touched.ng-invalid:not(form) {
     /* add a style applied on validation error */
 }
@@ -4711,3 +4715,4 @@ td.fdgdzeazreio {
 }
 
 /*****************************/
+

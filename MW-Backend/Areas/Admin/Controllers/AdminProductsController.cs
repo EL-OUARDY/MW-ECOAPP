@@ -60,6 +60,44 @@ namespace MW_Backend.Areas.Admin.Controllers
             return Ok(product.Id);
         }
 
+        // PUT: api/AdminProducts/5
+        [HttpPut]
+        [Route("api/UpdateProducts/{id}")]
+        public IHttpActionResult PutAdminProduct(int id, ProductDTO productDto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            if (id != productDto.Id)
+            {
+                return BadRequest();
+            }
+
+            var product = Mapper.Map<ProductDTO, Product>(productDto);
+            db.Entry(product).State = EntityState.Modified;
+
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!ProductExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return Ok(product.Id);
+            // return StatusCode(HttpStatusCode.NoContent);
+        }
+
         // GET: api/AdminProducts/5
         [HttpGet]
         [Route("api/AdminProducts/{id}")]
@@ -76,6 +114,28 @@ namespace MW_Backend.Areas.Admin.Controllers
         }
 
         [HttpPost]
+        [Route("api/ReplaceMainImg")]
+        public IHttpActionResult ReplaceMainImg(ReplaceImageModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            int id = model.id;
+            string filename = model.filename;
+
+            bool isOk = DirectoryHelper.ReplaceMainImg(id, filename);
+
+            if (!isOk)
+            {
+                return BadRequest("A Problem Has Occured While trying to replace product main image !");
+            }
+
+            return Ok();
+        }
+
+        [HttpPost]
         [Route("api/AdminProducts/upload-images")]
         public IHttpActionResult UploadImages()
         {
@@ -83,7 +143,7 @@ namespace MW_Backend.Areas.Admin.Controllers
             var files = HttpContext.Current.Request.Files;
 
             // verify the Id
-            if (ProductExists(ProductId) == false)
+            if ( !ProductExists(ProductId))
             {
                 return NotFound();
             }
@@ -95,7 +155,7 @@ namespace MW_Backend.Areas.Admin.Controllers
                 return BadRequest("Main Image And Gallery Images Are Required");
             }
 
-            bool success = DirectoryHelper.SaveProductImages(files, ProductId); // should be async
+            bool success = DirectoryHelper.SaveProductImages(files, ProductId);
 
             if (!success)
             {
@@ -106,6 +166,7 @@ namespace MW_Backend.Areas.Admin.Controllers
 
             return Ok(Mapper.Map<mProductDTO>(model));
         }
+
 
         // GET: api/last6
         [HttpGet]
@@ -142,40 +203,7 @@ namespace MW_Backend.Areas.Admin.Controllers
             return Ok();
         }
 
-        // PUT: api/AdminProducts/5
-        [ResponseType(typeof(void))]
-        public IHttpActionResult PutAdminProduct(int id, Product product)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            if (id != product.Id)
-            {
-                return BadRequest();
-            }
-
-            db.Entry(product).State = EntityState.Modified;
-
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!ProductExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return StatusCode(HttpStatusCode.NoContent);
-        }
+        
 
         protected override void Dispose(bool disposing)
         {

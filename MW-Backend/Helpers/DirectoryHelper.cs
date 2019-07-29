@@ -8,6 +8,8 @@ namespace MW_Backend.Helpers
 {
     public class DirectoryHelper
     {
+        // Everything here should be async
+
         public static bool SaveProductImages(HttpFileCollection files, int ProductId)
         {
             try
@@ -81,6 +83,44 @@ namespace MW_Backend.Helpers
             {
                 if (Directory.Exists(dir))
                     Directory.Delete(dir, true);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public static bool ReplaceMainImg(int id, string filename)
+        {
+            string dir = HttpContext.Current.Server.MapPath("~/Content/Images/Products/" + id.ToString());
+
+            // delete old main image
+            try
+            {
+                if (Directory.Exists(dir + "/Main"))
+                    Directory.Delete(dir + "/Main", true);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            // take given image from gallery and make it the main img
+            var gFile = Directory.EnumerateFiles(dir + "/Gallery")
+                         .FirstOrDefault(x => Path.GetFileName(x) == filename);
+            try
+            {
+                if ( gFile != null )
+                {
+                    Directory.CreateDirectory(dir + "/Main");
+                    File.Copy(gFile, dir + "/Main/" + filename, true);
+                }
+                else
+                {
+                    return false;
+                }
             }
             catch (Exception)
             {
