@@ -7,6 +7,7 @@ import { BadInput, NotFound } from 'src/app/common/errors/http-errors';
 import { NgForm } from '@angular/forms';
 import { AppError } from 'src/app/common/errors/app-error';
 import { Router, ActivatedRoute } from '@angular/router';
+import { FormJob } from 'src/app/common/GlobalConstants';
 
 @Component({
   selector: 'product-form',
@@ -16,6 +17,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class ProductFormComponent implements OnInit {
   expand = false;
   hasNoColor = false;
+  _formJob: string = FormJob.Add; // what operation the form will achieve adding, editing ..
   colors = ['white', 'red', 'green', 'yellow', 'gray', 'orange', 'blue', 'pink', 'brown', 'purple', 'black'];
   @ViewChild('f') ngForm: NgForm;
   _maxG = 7; // Max gallery images
@@ -30,6 +32,8 @@ export class ProductFormComponent implements OnInit {
   lastProducts: MiniProduct[];
   _Product = new AdminProduct();
 
+  copyingId = null; // store the product id that the new product will copy from
+
   constructor(private aps: AdminProductService, private router: Router, private activeRoute: ActivatedRoute, private toaster: ToastrService) {
     this.aps.getCategories().subscribe(res => {
       this.categories = res;
@@ -39,11 +43,29 @@ export class ProductFormComponent implements OnInit {
   // implements ngOnDestroy to Remove all subscriptions
 
   ngOnInit() {
+    // this.activeRoute.paramMap.subscribe(p => {
+    //   const id = Number(p.get('editId'));
+    //   if ( id ) {
+    //     this.getProduct(id);
+    //   }
+    //   const id2 = Number(p.get('copyId'));
+    //   if (id2) {
+    //     console.log("coping works fine");
+        
+    //   }
+    // });
 
-    this.activeRoute.paramMap.subscribe(p => {
-      const id = Number(p.get('id'));
-      if ( id ) {
-        this.getProduct(id);
+    this.activeRoute.queryParamMap.subscribe(p => {
+      const editId = Number(p.get('editId'));
+      if (editId) {
+        this._formJob = FormJob.Update;
+        this.getProduct(editId, FormJob.Update);
+      }
+
+      this.copyingId = Number(p.get('copyId'));
+      if (this.copyingId) {
+        this._formJob = FormJob.Copy;
+        this.getProduct(this.copyingId, FormJob.Copy);
       }
     });
 
@@ -57,13 +79,13 @@ export class ProductFormComponent implements OnInit {
       this.toaster.warning("Form Is Not Valid ..");
       return;
     }
-    if (this._Product.Id > 0)
+    if (this._Product.Id > 0) // update case
       this.updateProduct();
     else this.addProduct();
   }
 
   addProduct() {
-    if ( !this.MainImage || this.GalleryImgs.length === 0) {
+    if ( !this.MainImage || this.GalleryImgs.length === 0) { //  and and
       this.toaster.warning("Main Image and Gallery images are Mandatory");
       return;
     }
@@ -81,20 +103,31 @@ export class ProductFormComponent implements OnInit {
       });
   }
   updateProduct() {
-    // validation of images ..
+    if (this.GalleryImgs.length === 0 && //  no need to check for mainImg
+        this._Product.galleryImgs.length === 0) { 
+      this.toaster.warning("Main Image and Gallery images are Mandatory");
+      return;
+    }
     this.aps.UpdateProduct(this._Product.Id, this._Product).subscribe(
       (ProductId: string) => {
         this.toaster.success('Product modified ' + ProductId, 'Success');
-        this.resetForm();
-        // UpdateImages(ProductId);
-
+        if (this.MainImage || // the cases when whe have to call upload method ..
+            this.GalleryImgs.length > 0 ||
+            this.DescImgs.length > 0 ||
+            this.GalleryImgsDrop.length > 0 ||
+            this.DescImgsDrop.length > 0 ) { 
+               this.uploadProductImages(ProductId); 
+        }
       }, (error: AppError) => {
         if (error instanceof BadInput) {
           console.log(error.originalError);
           this.toaster.warning('ModelState is not valid ..'); // Display the error within Form errors and Wrap it with JSON pipe
+        } else if (error instanceof NotFound) {
+          console.log(error.originalError);
+          this.toaster.warning("Can't update a none existing product !!");
+          this.resetForm();
         } else { throw error; }
       });
-    console.log('from update');
   }
   //////////////////////
 
@@ -106,9 +139,12 @@ export class ProductFormComponent implements OnInit {
 
   private uploadProductImages(ProductId: string) {
     const form = new FormData();
+    form.append('Job', this._formJob);
     form.append('ProductId', ProductId);
 
-    form.append('MainImg', this.MainImage, this.MainImage.name);
+    if (this.MainImage) {
+      form.append('MainImg', this.MainImage, this.MainImage.name);
+    }
 
     this.GalleryImgs.forEach(e => {
       form.append('GalleryImgs', e.img, e.img.name);
@@ -117,6 +153,10 @@ export class ProductFormComponent implements OnInit {
     this.DescImgs.forEach(e => {
       form.append('DescImgs', e.img, e.img.name);
     });
+
+    // Update case, but fine to send them also in adding case
+    form.append('GalleryImgsDrop', JSON.stringify(this.GalleryImgsDrop));
+    form.append('DescImgsDrop', JSON.stringify(this.DescImgsDrop));
 
     this.aps.UploadImages(form).subscribe(
       (Product) => {
@@ -133,15 +173,22 @@ export class ProductFormComponent implements OnInit {
 
   private resetForm() {
     this._Product = new AdminProduct();
+    this.copyingId = null;
+    this._formJob = FormJob.Add;
     this.freeImages();
-    this.router.navigateByUrl('/admin/add-product');
+    this.GalleryImgsDrop = [];
+    this.DescImgsDrop = [];
+    this.router.navigateByUrl('/admin/product-form');
   }
 
-  addToHistory(data: MiniProduct) {
+  addToHistory(item: MiniProduct) {
     const array = this.lastProducts;
 
+    const ex_item = array.find(x => x.Id === item.Id);
+    console.log(array.splice(array.indexOf(ex_item), 1));
+    
     array.pop(); // Remove The Last
-    array.unshift(data); // Insert at The start
+    array.unshift(item); // Insert at The start
   }
 
   getSub(cat, reset) {
@@ -152,7 +199,7 @@ export class ProductFormComponent implements OnInit {
     } catch (e) {}
   }
 
-  getProduct(id: number){
+  getProduct(id: number, mode: string){
     this.aps.getProduct(id)
       .subscribe(
         (p) => {
@@ -160,6 +207,9 @@ export class ProductFormComponent implements OnInit {
           this._Product = p as AdminProduct;
           this.hasNoColor = this._Product.Color ? false : true;
           this.getSub(this._Product.CategoryId, false);
+          if (mode === FormJob.Copy) {
+            this._Product.Id = 0;
+          }
         },
         (err: AppError) => {
           if (err instanceof NotFound) {
@@ -167,6 +217,7 @@ export class ProductFormComponent implements OnInit {
           } else { throw err; }
         });
   }
+
   freeImages() {
     this.imgPath = null;
     this.MainImage = null;
@@ -285,6 +336,7 @@ export class ProductFormComponent implements OnInit {
       () => {
         this.toaster.success('main image changed', 'Success');
         this._Product.mainImg = img;
+        this.getLastAddedProducts();
       },
       (error: AppError) => {
         if (error instanceof BadInput) {
@@ -323,9 +375,23 @@ export class ProductFormComponent implements OnInit {
     if (this.hasNoColor) this._Product.Color = null;
     else this._Product.Color = 'white';
   }
-}
 
-interface IPath {
+  OnsaleChanged() {
+    if (this._Product.OnSale === false) this._Product.Quantity = 0;
+    else this._Product.Quantity = null;
+  }
+
+  QteBlured() {
+    if (this._Product.Quantity === 0) this._Product.OnSale = false;
+    else this._Product.OnSale = true;
+  }
+  kill() {
+    this._Product = new AdminProduct();
+  }
+}
+// interface helps to store both img file and img data that display on template,
+// plus the name that identify every image
+interface IPath { 
   img: File;
   name: string;
   data: string;

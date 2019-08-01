@@ -379,19 +379,22 @@
       <div class="divtitleprod lastdiv">
 
         <label>Quantity</label>
-        <input min="0" placeholder="null" class="inputprice" maxlength="7" type="number" [(ngModel)]="_Product.Quantity"
+        <input (blur)="QteBlured()" min="0" placeholder="NULL" class="inputprice" maxlength="7" type="number" [(ngModel)]="_Product.Quantity"
           name="Quantity">
 
         <label>On Sale</label>
         <div class="switch1" [ngClass]="{'switchadd1': _Product.OnSale}">
-          <input name="OnSale" [(ngModel)]="_Product.OnSale" #OnSale="ngModel" id="checkanimat1" type="checkbox">
+          <input (change)="OnsaleChanged()" name="OnSale" [(ngModel)]="_Product.OnSale" #OnSale="ngModel" id="checkanimat1" type="checkbox">
           <div class="switch2" [ngClass]="{'switchadd2': _Product.OnSale}"></div>
         </div>
 
       </div>
 
-      <div class="bottonaddprod mgLeft" (click)="onSubmit(f)">
+      <!-- <div class="bottonaddprod mgLeft" (click)="onSubmit(f)">
         {{ (_Product.Id > 0) ? 'Update' : 'Add Product' }}
+      </div> -->
+      <div class="bottonaddprod mgLeft" (click)="onSubmit(f)">
+        {{ _formJob + ' Product'}}
       </div>
 
       <div class="bottonaddprod" (click)="Reset()">
@@ -400,12 +403,12 @@
     </div>
 
     <div class="alert">
-      {{ f.value | json }}
+      {{ GalleryImgs.length + ' / ' + MainImage  }}
     </div>
     <div class="alert">
-      {{ _Product.mainImg | json }}
+      {{ _Product | json }}
     </div>
-
+    <button (click)="kill()">KIll</button>
   </form>
 
   <div class="history">

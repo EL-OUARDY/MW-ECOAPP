@@ -13,4 +13,12 @@ namespace MW_Backend.Helpers
         public int id { get; set; }
         public string filename { get; set; }
     }
+
+    public class FormJob
+    {
+        public static string Add = "Add";
+        public static string Update = "Update";
+        public static string Delete = "Delete";
+        public static string Copy = "Copy";
+    }
 }

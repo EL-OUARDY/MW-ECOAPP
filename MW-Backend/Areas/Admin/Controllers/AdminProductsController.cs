@@ -14,6 +14,7 @@ using MW_Backend.DTOs;
 using MW_Backend.Helpers;
 using MW_Backend.Models;
 using MW_Backend.Models.Data;
+using Newtonsoft.Json;
 
 namespace MW_Backend.Areas.Admin.Controllers
 {
@@ -137,12 +138,21 @@ namespace MW_Backend.Areas.Admin.Controllers
 
         [HttpPost]
         [Route("api/AdminProducts/upload-images")]
-        public IHttpActionResult UploadImages()
+        public IHttpActionResult UploadImages() // upload images & edit images ..
         {
+            string Job = HttpContext.Current.Request["Job"];
             int ProductId = int.Parse(HttpContext.Current.Request["ProductId"]);
             var files = HttpContext.Current.Request.Files;
 
-            // verify the Id
+            var GalleryImgsDrop = JsonConvert.DeserializeObject<string[]>(HttpContext.Current.Request["GalleryImgsDrop"]);
+            var DescImgsDrop = JsonConvert.DeserializeObject<string[]>(HttpContext.Current.Request["DescImgsDrop"]);
+
+            if (Job == null) // what this method does depends on this variable
+            {
+                return BadRequest("Request's job is not defined !");
+            }
+
+            // verify the existance of product
             if ( !ProductExists(ProductId))
             {
                 return NotFound();
@@ -150,12 +160,13 @@ namespace MW_Backend.Areas.Admin.Controllers
 
             // Check the existance of images within the request object..
 
-            if (files["MainImg"] == null || files.GetMultiple("GalleryImgs").Count == 0) //DescImages aren't mandatory
+            if ( Job == FormJob.Add && (files["MainImg"] == null ||
+                files.GetMultiple("GalleryImgs").Count == 0)) //DescImages aren't mandatory
             {
                 return BadRequest("Main Image And Gallery Images Are Required");
             }
 
-            bool success = DirectoryHelper.SaveProductImages(files, ProductId);
+            bool success = DirectoryHelper.SaveProductImages(ProductId, files, GalleryImgsDrop, DescImgsDrop);
 
             if (!success)
             {
@@ -191,14 +202,21 @@ namespace MW_Backend.Areas.Admin.Controllers
                 return NotFound();
             }
 
+            try
+            {
+                db.Products.Remove(product);
+                db.SaveChanges();
+            }
+            catch (Exception)
+            {
+                return BadRequest("Can't Remove this product - Unknown reason !");
+            }
+
             // Remove Images Directory
             if (!DirectoryHelper.deleteProductImages(id))
             {
                 return BadRequest("An error was occured while deleting images directory !");
             }
-
-            db.Products.Remove(product);
-            db.SaveChanges();
 
             return Ok();
         }

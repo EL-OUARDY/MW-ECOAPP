@@ -10,10 +10,17 @@ namespace MW_Backend.Helpers
     {
         // Everything here should be async
 
-        public static bool SaveProductImages(HttpFileCollection files, int ProductId)
+        public static bool SaveProductImages(int productId, HttpFileCollection files, string[] galleryImgsDrop, string[] descImgsDrop)
         {
             try
             {
+                // Directories
+                string parent_dir = "~/Content/Images/Products/" + productId.ToString();
+                string mainImgPath = HttpContext.Current.Server.MapPath(parent_dir + "/Main");
+                string galleryPath = HttpContext.Current.Server.MapPath(parent_dir + "/Gallery");
+                string descPath = HttpContext.Current.Server.MapPath(parent_dir + "/Desc");
+
+
                 var MainImg = files["MainImg"];
 
                 var GalleryImgs = files.GetMultiple("GalleryImgs");
@@ -21,32 +28,62 @@ namespace MW_Backend.Helpers
                 var DescImgs = files.GetMultiple("DescImgs");
 
                 // Main Image
-                string Path1 = HttpContext.Current.Server.MapPath("~/Content/Images/Products/" + ProductId.ToString() + "/Main");
+                if (MainImg != null)
+                {
 
-                if (!Directory.Exists(Path1))
-                    Directory.CreateDirectory(Path1);
+                    if (!Directory.Exists(mainImgPath))
+                        Directory.CreateDirectory(mainImgPath);
 
-                MainImg.SaveAs(Path1 + "/" + MainImg.FileName);
+                    MainImg.SaveAs(mainImgPath + "/" + MainImg.FileName);
+                }
 
-                // Gallery Images
-                string Path2 = HttpContext.Current.Server.MapPath("~/Content/Images/Products/" + ProductId.ToString() + "/Gallery");
-                if (!Directory.Exists(Path2))
-                    Directory.CreateDirectory(Path2);
+                // Drop Gallery Images
+                if (galleryImgsDrop.Length > 0)
+                {
+                    foreach (var item in galleryImgsDrop)
+                    {
+                        if (File.Exists(galleryPath + "/" + item))
+                        {
+                            File.GetAccessControl(galleryPath + "/" + item);
+                            File.Delete(galleryPath + "/" + item);
+                        }
+                    }
+                }
+
+                // Drop Description Images
+                if (descImgsDrop.Length > 0)
+                {
+                    foreach (var item in descImgsDrop)
+                    {
+                        if (File.Exists(descPath + "/" + item))
+                        {
+                            File.GetAccessControl(descPath + "/" + item);
+                            File.Delete(descPath + "/" + item);
+                        }
+                    }
+                }
+
+                // Save Gallery Images
+                if (!Directory.Exists(galleryPath))
+                    Directory.CreateDirectory(galleryPath);
 
                 foreach (var item in GalleryImgs)
                 {
-                    item.SaveAs(Path2 + "/" + item.FileName);
+                    item.SaveAs(galleryPath + "/" + item.FileName);
                 }
 
-                // Description Images
-                string Path3 = HttpContext.Current.Server.MapPath("~/Content/Images/Products/" + ProductId.ToString() + "/Desc");
-                if (!Directory.Exists(Path3))
-                    Directory.CreateDirectory(Path3);
+                // Save Description Images
+                if (!Directory.Exists(descPath))
+                    Directory.CreateDirectory(descPath);
 
                 foreach (var item in DescImgs)
                 {
-                    item.SaveAs(Path3 + "/" + item.FileName);
+                    item.SaveAs(descPath + "/" + item.FileName);
                 }
+
+                // Grant access to the parent directory => avoid access_denied exception
+                var dir = new DirectoryInfo(HttpContext.Current.Server.MapPath(parent_dir));
+                SetAttributesNormal(dir);
 
             }
             catch (Exception)
@@ -75,23 +112,6 @@ namespace MW_Backend.Helpers
             return Directory.EnumerateFiles(myPath).Select(fn => Path.GetFileName(fn));
         }
 
-        public static bool deleteProductImages(int id)
-        {
-            string dir = HttpContext.Current.Server.MapPath("~/Content/Images/Products/" + id.ToString() );
-
-            try
-            {
-                if (Directory.Exists(dir))
-                    Directory.Delete(dir, true);
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-
-            return true;
-        }
-
         public static bool ReplaceMainImg(int id, string filename)
         {
             string dir = HttpContext.Current.Server.MapPath("~/Content/Images/Products/" + id.ToString());
@@ -100,7 +120,10 @@ namespace MW_Backend.Helpers
             try
             {
                 if (Directory.Exists(dir + "/Main"))
+                {
+                    File.GetAccessControl(dir + "/Main");
                     Directory.Delete(dir + "/Main", true);
+                }
             }
             catch (Exception)
             {
@@ -112,7 +135,7 @@ namespace MW_Backend.Helpers
                          .FirstOrDefault(x => Path.GetFileName(x) == filename);
             try
             {
-                if ( gFile != null )
+                if (gFile != null)
                 {
                     Directory.CreateDirectory(dir + "/Main");
                     File.Copy(gFile, dir + "/Main/" + filename, true);
@@ -129,5 +152,37 @@ namespace MW_Backend.Helpers
 
             return true;
         }
+
+        public static bool deleteProductImages(int id)
+        {
+            string path = HttpContext.Current.Server.MapPath("~/Content/Images/Products/" + id.ToString() );
+            DirectoryInfo dir = new DirectoryInfo(path);
+
+            
+            try
+            {
+                if (dir.Exists)
+                {
+                    dir.Delete(true);
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        private static void SetAttributesNormal(DirectoryInfo dir)
+        {
+            foreach (var subDir in dir.GetDirectories())
+                SetAttributesNormal(subDir);
+            foreach (var file in dir.GetFiles())
+            {
+                file.Attributes = FileAttributes.Normal;
+            }
+        }
+        
     }
 }

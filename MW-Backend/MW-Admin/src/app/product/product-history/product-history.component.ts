@@ -4,7 +4,7 @@ import { AdminProductService } from '../../services/admin-product.service';
 import { AppError } from 'src/app/common/errors/app-error';
 import { BadInput, NotFound } from 'src/app/common/errors/http-errors';
 import { ToastrService } from 'ngx-toastr';
-import { Router } from '@angular/router';
+import { Router, NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'product-history',
@@ -22,9 +22,12 @@ export class ProductHistoryComponent implements OnInit {
   }
 
   editProduct(p: MiniProduct) {
-    this.router.navigateByUrl('/admin/edit-product/' + p.Id.toString());
+    // this.router.navigateByUrl('/admin/product-form/' + p.Id.toString());
+    this.router.navigate(['/admin/product-form'], { queryParams: { editId: p.Id } });
   }
-
+  copyProduct(p: MiniProduct) {
+    this.router.navigate(['/admin/product-form'], { queryParams: { copyId: p.Id } });
+  }
   deleteProduct(product: MiniProduct) {
     this.aps.raiseConfirmDialog().subscribe(res => {
       if (res) {
@@ -42,6 +45,7 @@ export class ProductHistoryComponent implements OnInit {
       }
     });
   }
+  
   trackById(index, product) {
     return product ? product.Id : undefined;
   }
