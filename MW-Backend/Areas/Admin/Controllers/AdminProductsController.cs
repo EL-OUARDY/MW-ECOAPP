@@ -142,6 +142,7 @@ namespace MW_Backend.Areas.Admin.Controllers
         {
             string Job = HttpContext.Current.Request["Job"];
             int ProductId = int.Parse(HttpContext.Current.Request["ProductId"]);
+            int CopyingId = int.Parse(HttpContext.Current.Request["CopyingId"]);
             var files = HttpContext.Current.Request.Files;
 
             var GalleryImgsDrop = JsonConvert.DeserializeObject<string[]>(HttpContext.Current.Request["GalleryImgsDrop"]);
@@ -151,11 +152,20 @@ namespace MW_Backend.Areas.Admin.Controllers
             {
                 return BadRequest("Request's job is not defined !");
             }
-
+            
             // verify the existance of product
             if ( !ProductExists(ProductId))
             {
                 return NotFound();
+            }
+
+            // Copy case : verify the existance of copying product
+            if (Job == FormJob.Copy)
+            {
+                if (!ProductExists(CopyingId))
+                {
+                    return BadRequest("Couldn't find a product with this Copying Id ..");
+                }
             }
 
             // Check the existance of images within the request object..
@@ -166,7 +176,7 @@ namespace MW_Backend.Areas.Admin.Controllers
                 return BadRequest("Main Image And Gallery Images Are Required");
             }
 
-            bool success = DirectoryHelper.SaveProductImages(ProductId, files, GalleryImgsDrop, DescImgsDrop);
+            bool success = DirectoryHelper.SaveProductImages(ProductId, files, GalleryImgsDrop, DescImgsDrop, CopyingId);
 
             if (!success)
             {

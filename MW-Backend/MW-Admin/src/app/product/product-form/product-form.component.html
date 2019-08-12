@@ -38,10 +38,10 @@
 
     <div class="divimageproduct">
       <!-- Edit existing product images -->
-      <ng-container *ngIf="_Product.Id > 0; else addingProduct1">
+      <ng-container *ngIf="_Product.Id > 0 || copyingId > 0 ; else addingProduct1">
         <div (click)="mainImg.click()" class="divmainimageprod">
           <input #mainImg type="file" name="MainImg" ngModel (change)="setMainImage($event.target.files)">
-          <img *ngIf="_Product.mainImg; else localMainImg " [src]="'/Content/Images/Products/' + _Product.Id + '/Main/' + _Product.mainImg" class="mainimage">
+          <img *ngIf="_Product.mainImg; else localMainImg " src="/Content/Images/Products/{{(_Product.Id > 0) ? _Product.Id : copyingId }}/Main/{{_Product.mainImg}}" class="mainimage">
           
           <ng-template #localMainImg >
             <img *ngIf="imgPath; else noImage " [src]="imgPath" class="mainimage halfOpacity">
@@ -105,7 +105,7 @@
                   </polygon>
                 </svg>
               </div>
-              <img class="otherimage" [src]="'/Content/Images/Products/' + _Product.Id + '/Gallery/' + item">
+              <img class="otherimage" src="/Content/Images/Products/{{(_Product.Id > 0) ? _Product.Id : copyingId}}/Gallery/{{item}}">
             </div>
           </ng-container>
 
@@ -263,7 +263,7 @@
 
       <div class="divimagedescr">
         <!-- Edit existing images  -->
-        <ng-container *ngIf="_Product.Id > 0; else addingProduct2">
+        <ng-container *ngIf="_Product.Id > 0 || copyingId; else addingProduct2">
           <div (click)="descImgs.click()" class="uopietter">
             <input [disabled]="DescImgs.length === _maxD" #descImgs type="file" accept="image/*" name="DescImgs" ngModel multiple
               (change)="addDescImagesServer($event.target.files)">
@@ -294,7 +294,7 @@
                   </polygon>
                 </svg>
               </div>
-              <img class="otherimagedescr" [src]="'/Content/Images/Products/' + _Product.Id + '/Desc/' + item">
+              <img class="otherimagedescr" src="/Content/Images/Products/{{(_Product.Id > 0) ? _Product.Id : copyingId}}/Desc/{{item}}">
             </div>
           </ng-container>
 

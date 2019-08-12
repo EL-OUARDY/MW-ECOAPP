@@ -111,13 +111,14 @@ export class ProductFormComponent implements OnInit {
     this.aps.UpdateProduct(this._Product.Id, this._Product).subscribe(
       (ProductId: string) => {
         this.toaster.success('Product modified ' + ProductId, 'Success');
-        if (this.MainImage || // the cases when whe have to call upload method ..
+        if (this.MainImage || // the cases when we have to call upload method ..
             this.GalleryImgs.length > 0 ||
             this.DescImgs.length > 0 ||
             this.GalleryImgsDrop.length > 0 ||
             this.DescImgsDrop.length > 0 ) { 
                this.uploadProductImages(ProductId); 
         }
+        else this.resetForm(); // just reset the form !
       }, (error: AppError) => {
         if (error instanceof BadInput) {
           console.log(error.originalError);
@@ -141,6 +142,7 @@ export class ProductFormComponent implements OnInit {
     const form = new FormData();
     form.append('Job', this._formJob);
     form.append('ProductId', ProductId);
+    form.append('CopyingId', this.copyingId);
 
     if (this.MainImage) {
       form.append('MainImg', this.MainImage, this.MainImage.name);
@@ -185,9 +187,12 @@ export class ProductFormComponent implements OnInit {
     const array = this.lastProducts;
 
     const ex_item = array.find(x => x.Id === item.Id);
-    console.log(array.splice(array.indexOf(ex_item), 1));
+    if (ex_item)
+      array.splice(array.indexOf(ex_item), 1);
     
-    array.pop(); // Remove The Last
+    if (array.length >= 6) // Magic Number 6 => item had to display within history
+      array.pop(); // Remove The Last
+    
     array.unshift(item); // Insert at The start
   }
 
@@ -198,6 +203,7 @@ export class ProductFormComponent implements OnInit {
           if (reset) this._Product.SubCategoryId = null;
     } catch (e) {}
   }
+  
 
   getProduct(id: number, mode: string){
     this.aps.getProduct(id)
@@ -332,6 +338,10 @@ export class ProductFormComponent implements OnInit {
   }
 
   asMainImageServer(img) { // this method will call the server once it raised !
+    if (this._formJob === FormJob.Copy) {
+      this.toaster.info("Can't perform this action !", 'info');
+      return;
+    }
     this.aps.ReplaceMainImg(this._Product.Id, img).subscribe(
       () => {
         this.toaster.success('main image changed', 'Success');

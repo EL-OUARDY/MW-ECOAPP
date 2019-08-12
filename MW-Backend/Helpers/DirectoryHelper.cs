@@ -10,7 +10,7 @@ namespace MW_Backend.Helpers
     {
         // Everything here should be async
 
-        public static bool SaveProductImages(int productId, HttpFileCollection files, string[] galleryImgsDrop, string[] descImgsDrop)
+        public static bool SaveProductImages(int productId, HttpFileCollection files, string[] galleryImgsDrop, string[] descImgsDrop, int copyingId)
         {
             try
             {
@@ -20,6 +20,7 @@ namespace MW_Backend.Helpers
                 string galleryPath = HttpContext.Current.Server.MapPath(parent_dir + "/Gallery");
                 string descPath = HttpContext.Current.Server.MapPath(parent_dir + "/Desc");
 
+                string copying_dir = "~/Content/Images/Products/" + copyingId.ToString();
 
                 var MainImg = files["MainImg"];
 
@@ -27,12 +28,34 @@ namespace MW_Backend.Helpers
 
                 var DescImgs = files.GetMultiple("DescImgs");
 
+
+                // Get all images from the copied product
+                if (copyingId > 0)
+                {
+                    // main
+                    if (MainImg == null)
+                    {
+                        var mi = Directory.EnumerateFiles(copying_dir + "/Main").Select(x => Path.GetFileName(x)).FirstOrDefault();
+                        File.Copy(mi, mainImgPath + "/" + mi, true);
+                    }
+
+                    // gallery
+                    // desc
+                }
+                ///
+
                 // Main Image
                 if (MainImg != null)
                 {
-
-                    if (!Directory.Exists(mainImgPath))
+                    if (Directory.Exists(mainImgPath))
+                    {
+                        Directory.Delete(mainImgPath, true); // delete old images if exist
                         Directory.CreateDirectory(mainImgPath);
+                    }
+                    else
+                    {
+                        Directory.CreateDirectory(mainImgPath);
+                    }
 
                     MainImg.SaveAs(mainImgPath + "/" + MainImg.FileName);
                 }
@@ -44,7 +67,6 @@ namespace MW_Backend.Helpers
                     {
                         if (File.Exists(galleryPath + "/" + item))
                         {
-                            File.GetAccessControl(galleryPath + "/" + item);
                             File.Delete(galleryPath + "/" + item);
                         }
                     }
@@ -57,7 +79,6 @@ namespace MW_Backend.Helpers
                     {
                         if (File.Exists(descPath + "/" + item))
                         {
-                            File.GetAccessControl(descPath + "/" + item);
                             File.Delete(descPath + "/" + item);
                         }
                     }
@@ -121,7 +142,6 @@ namespace MW_Backend.Helpers
             {
                 if (Directory.Exists(dir + "/Main"))
                 {
-                    File.GetAccessControl(dir + "/Main");
                     Directory.Delete(dir + "/Main", true);
                 }
             }
@@ -130,11 +150,13 @@ namespace MW_Backend.Helpers
                 return false;
             }
 
-            // take given image from gallery and make it the main img
-            var gFile = Directory.EnumerateFiles(dir + "/Gallery")
-                         .FirstOrDefault(x => Path.GetFileName(x) == filename);
+            
             try
             {
+                // take given image from gallery and make it the main img
+                var gFile = Directory.EnumerateFiles(dir + "/Gallery")
+                             .FirstOrDefault(x => Path.GetFileName(x) == filename);
+
                 if (gFile != null)
                 {
                     Directory.CreateDirectory(dir + "/Main");
@@ -158,7 +180,6 @@ namespace MW_Backend.Helpers
             string path = HttpContext.Current.Server.MapPath("~/Content/Images/Products/" + id.ToString() );
             DirectoryInfo dir = new DirectoryInfo(path);
 
-            
             try
             {
                 if (dir.Exists)
