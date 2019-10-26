@@ -1,8 +1,8 @@
 <div class="divproductlist" id="my-productlist">
   <div class="divlabtyporeder">
-    <label routerLink="/admin/products" [ngClass]="{'active': productsToShow === 'all'}">All Products</label>
-    <label routerLink="/admin/products" [queryParams]="{stock: 'in'}" [ngClass]="{'active': productsToShow === 'in'}" >On Sale</label>
-    <label routerLink="/admin/products" [queryParams]="{stock: 'out'}" [ngClass]="{'active': productsToShow === 'out'}" >Out Of Stock</label>
+    <label routerLink="/admin/products" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" >All</label>
+    <label routerLink="/admin/products" [queryParams]="{stock: 'in'}" routerLinkActive="active">On Sale</label>
+    <label routerLink="/admin/products" [queryParams]="{stock: 'out'}" routerLinkActive="active" >Out Of Stock</label>
   </div>
   <div class="rqsetgertg">
     <input class="datefilt1" type="date" name="" value="">
