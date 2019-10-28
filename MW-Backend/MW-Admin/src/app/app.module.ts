@@ -37,6 +37,7 @@ import { CdkTableModule } from '@angular/cdk/table';
 
 import { NgScrollbarModule } from 'ngx-scrollbar';
 import { ConfirmDialogComponent } from './shared/confirm-dialog/confirm-dialog.component';
+import { AdminUploadService } from './services/admin-upload.service';
 
 @NgModule({
   declarations: [
@@ -89,6 +90,7 @@ import { ConfirmDialogComponent } from './shared/confirm-dialog/confirm-dialog.c
   ],
   providers: [
     AdminProductService,
+    AdminUploadService,
 
     // { provide: ErrorHandler, useClass: AppErrorHandler },
 

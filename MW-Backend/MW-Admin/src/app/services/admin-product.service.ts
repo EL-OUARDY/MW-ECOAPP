@@ -11,10 +11,12 @@ import { AdminProduct } from '../models/adminProduct';
 })
 export class AdminProductService {
 
+  private readonly END_POINT = 'api/AdminProducts/';
   noAuth = new HttpHeaders({ 'NoAuth': 'true' }); // only for testing
+
   constructor(private http: HttpClient, private dialog: MatDialog) { }
 
-  getCategories() { // move to category service
+  getCategories() { // Extract it to category service
     return this.http.get('api/Categories', { headers: this.noAuth });
   }
 
@@ -25,11 +27,11 @@ export class AdminProductService {
   // calling the server
 
   GetProductsList(stock: string) {
-    return this.http.get('api/AdminProducts?stock=' + stock, { headers: this.noAuth });
+    return this.http.get( this.END_POINT + '?stock=' + stock, { headers: this.noAuth });
   }
 
   PostProduct(form) {
-    return this.http.post('api/AdminProducts', form, { headers: this.noAuth }).pipe(
+    return this.http.post( this.END_POINT , form, { headers: this.noAuth }).pipe(
       catchError(handleExpectedErrors)
     );
   }
@@ -40,31 +42,18 @@ export class AdminProductService {
     );
   }
 
-  UploadImages(form: FormData) {
-    return this.http.post('api/AdminProducts/upload-images', form, { headers: this.noAuth }).pipe(
-      catchError(handleExpectedErrors)
-    );
-  }
-
   GetLastProducts() {
-    return this.http.get('api/AdminProducts/History', { headers: this.noAuth });
+    return this.http.get( this.END_POINT + 'History', { headers: this.noAuth });
   }
 
   getProduct(id: number) { // for updating products
-    return this.http.get('api/AdminProducts/' + id, { headers: this.noAuth }).pipe(
+    return this.http.get( this.END_POINT + id, { headers: this.noAuth }).pipe(
       catchError(handleExpectedErrors)
     );
   }
 
   deleteProduct(id: number) {
-    return this.http.delete('api/AdminProducts/' + id , { headers: this.noAuth }).pipe(
-      catchError(handleExpectedErrors)
-    );
-  }
-
-  ReplaceMainImg(id: number, img: string) {
-    const data =  { id: id, filename: img };    
-    return this.http.post('api/ReplaceMainImg', data, { headers: this.noAuth }).pipe(
+    return this.http.delete( this.END_POINT + id , { headers: this.noAuth }).pipe(
       catchError(handleExpectedErrors)
     );
   }

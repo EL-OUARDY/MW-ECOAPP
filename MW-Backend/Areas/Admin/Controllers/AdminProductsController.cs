@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
 using System.Web.Http.Description;
@@ -114,81 +115,6 @@ namespace MW_Backend.Areas.Admin.Controllers
             return Ok( Mapper.Map<ProductDTO>(model) );
         }
 
-        [HttpPost]
-        [Route("api/ReplaceMainImg")]
-        public IHttpActionResult ReplaceMainImg(ReplaceImageModel model)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            int id = model.id;
-            string filename = model.filename;
-
-            bool isOk = DirectoryHelper.ReplaceMainImg(id, filename);
-
-            if (!isOk)
-            {
-                return BadRequest("A Problem Has Occured While trying to replace product main image !");
-            }
-
-            return Ok();
-        }
-
-        [HttpPost]
-        [Route("api/AdminProducts/upload-images")]
-        public IHttpActionResult UploadImages() // upload images & edit images ..
-        {
-            string Job = HttpContext.Current.Request["Job"];
-            int ProductId = int.Parse(HttpContext.Current.Request["ProductId"]);
-            int CopyingId = int.Parse(HttpContext.Current.Request["CopyingId"]);
-            var files = HttpContext.Current.Request.Files;
-
-            var GalleryImgsDrop = JsonConvert.DeserializeObject<string[]>(HttpContext.Current.Request["GalleryImgsDrop"]);
-            var DescImgsDrop = JsonConvert.DeserializeObject<string[]>(HttpContext.Current.Request["DescImgsDrop"]);
-
-            if (Job == null) // what this method does depends on this variable
-            {
-                return BadRequest("Request's job is not defined !");
-            }
-            
-            // verify the existance of product
-            if ( !ProductExists(ProductId))
-            {
-                return NotFound();
-            }
-
-            // Copy case : verify the existance of copying product
-            if (Job == FormJob.Copy)
-            {
-                if (!ProductExists(CopyingId))
-                {
-                    return BadRequest("Couldn't find a product with this Copying Id ..");
-                }
-            }
-
-            // Check the existance of images within the request object..
-
-            if ( Job == FormJob.Add && (files["MainImg"] == null ||
-                files.GetMultiple("GalleryImgs").Count == 0)) //DescImages aren't mandatory
-            {
-                return BadRequest("Main Image And Gallery Images Are Required");
-            }
-
-            bool success = DirectoryHelper.SaveProductImages(ProductId, files, GalleryImgsDrop, DescImgsDrop, CopyingId);
-
-            if (!success)
-            {
-                return BadRequest("A Problem Has Occured While Uploading Images, You have to check it manualy !");
-            }
-
-            var model = db.Products.Find(ProductId);
-
-            return Ok(Mapper.Map<mProductDTO>(model));
-        }
-
-
         // GET: api/last6
         [HttpGet]
         [Route("api/AdminProducts/history")]
@@ -204,18 +130,16 @@ namespace MW_Backend.Areas.Admin.Controllers
 
         // DELETE: api/AdminProducts/5
         [Route("api/AdminProducts/{id}")]
-        public IHttpActionResult DeleteAdminProduct(int id)
+        public async Task<IHttpActionResult> DeleteAdminProduct(int id)
         {
-            Product product = db.Products.Find(id);
+            Product product = await db.Products.FindAsync(id);
             if (product == null)
-            {
                 return NotFound();
-            }
 
             try
             {
                 db.Products.Remove(product);
-                db.SaveChanges();
+                await db.SaveChangesAsync();
             }
             catch (Exception)
             {
@@ -223,7 +147,10 @@ namespace MW_Backend.Areas.Admin.Controllers
             }
 
             // Remove Images Directory
-            if (!DirectoryHelper.deleteProductImages(id))
+            var _dir = new Product_Dir(id);
+            var task = Task.Run(() => !_dir.DeleteProductImages());
+
+            if (await task)
             {
                 return BadRequest("An error was occured while deleting images directory !");
             }
@@ -231,7 +158,10 @@ namespace MW_Backend.Areas.Admin.Controllers
             return Ok();
         }
 
-        
+        private bool ProductExists(int id)
+        {
+            return db.Products.Count(e => e.Id == id) > 0;
+        }
 
         protected override void Dispose(bool disposing)
         {
@@ -242,9 +172,5 @@ namespace MW_Backend.Areas.Admin.Controllers
             base.Dispose(disposing);
         }
 
-        private bool ProductExists(int id)
-        {
-            return db.Products.Count(e => e.Id == id) > 0;
-        }
     }
 }

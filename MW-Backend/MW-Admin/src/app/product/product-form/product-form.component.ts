@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AdminProductService } from '../../services/admin-product.service';
 import { AdminProduct } from '../../models/adminProduct';
 import { ToastrService } from 'ngx-toastr';
@@ -8,6 +8,7 @@ import { NgForm } from '@angular/forms';
 import { AppError } from 'src/app/common/errors/app-error';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormJob } from 'src/app/common/GlobalConstants';
+import { AdminUploadService } from 'src/app/services/admin-upload.service';
 
 @Component({
   selector: 'product-form',
@@ -24,7 +25,9 @@ export class ProductFormComponent implements OnInit {
   _maxD = 5; // Max description images
 
   categories; subCategories; shipping; MainImage: File;
-  imgPath: string; GalleryImgs = new Array<IPath>(); DescImgs = new Array<IPath>();
+  imgPath: string;
+  GalleryImgs: IPath[] = [];
+  DescImgs: IPath[] = [];
 
   GalleryImgsDrop: string[] = []; // images names to drop from server
   DescImgsDrop: string[] = [];
@@ -32,10 +35,16 @@ export class ProductFormComponent implements OnInit {
   lastProducts: MiniProduct[];
   _Product = new AdminProduct();
 
-  copyingId = null; // store the product id that the new product will copy from
+  copyingId = 0; // store the product id that the new product will copy from
+  mainImgFromCopy;
 
-  constructor(private aps: AdminProductService, private router: Router, private activeRoute: ActivatedRoute, private toaster: ToastrService) {
-    this.aps.getCategories().subscribe(res => {
+  constructor(
+              private productService: AdminProductService, 
+              private uploadService: AdminUploadService, 
+              private router: Router, 
+              private activeRoute: ActivatedRoute,
+              private toaster: ToastrService) {
+    this.productService.getCategories().subscribe(res => {
       this.categories = res;
     });
   }
@@ -43,30 +52,21 @@ export class ProductFormComponent implements OnInit {
   // implements ngOnDestroy to Remove all subscriptions
 
   ngOnInit() {
-    // this.activeRoute.paramMap.subscribe(p => {
-    //   const id = Number(p.get('editId'));
-    //   if ( id ) {
-    //     this.getProduct(id);
-    //   }
-    //   const id2 = Number(p.get('copyId'));
-    //   if (id2) {
-    //     console.log("coping works fine");
-        
-    //   }
-    // });
-
     this.activeRoute.queryParamMap.subscribe(p => {
-      const editId = Number(p.get('editId'));
+      const editId = + p.get('editId');
       if (editId) {
         this._formJob = FormJob.Update;
         this.getProduct(editId, FormJob.Update);
       }
 
-      this.copyingId = Number(p.get('copyId'));
-      if (this.copyingId) {
+      const copyId = + p.get('copyId');
+      if (copyId) {
         this._formJob = FormJob.Copy;
-        this.getProduct(this.copyingId, FormJob.Copy);
+        this.getProduct(copyId, FormJob.Copy);
       }
+      this.mainImgFromCopy = null;
+      this.ngForm.resetForm();
+
     });
 
     this.getLastAddedProducts();
@@ -74,7 +74,7 @@ export class ProductFormComponent implements OnInit {
   }
 
   // Posting The Product
-  onSubmit(f: NgForm) {
+  onSubmit(f: NgForm) {    
     if (f.invalid) {
       this.toaster.warning("Form Is Not Valid ..");
       return;
@@ -84,13 +84,22 @@ export class ProductFormComponent implements OnInit {
     else this.addProduct();
   }
 
-  addProduct() {
-    if ( !this.MainImage || this.GalleryImgs.length === 0) { //  and and
+  private checkImages(): boolean {
+    if ( (this._formJob === FormJob.Add && (!this.MainImage || this.GalleryImgs.length === 0)) ||
+          (this._formJob !== FormJob.Add && 
+          (this.GalleryImgs.length === 0 && this._Product.galleryImgs.length === 0))
+    ) {
       this.toaster.warning("Main Image and Gallery images are Mandatory");
-      return;
+      return false;
     }
+    return true;
+  }
+
+  addProduct() {
+    if (!this.checkImages()) return;
+
     this._Product.Slug = this._Product.Name.replace(/\s+/g, '-'); // on server side
-    this.aps.PostProduct(this._Product).subscribe(
+    this.productService.PostProduct(this._Product).subscribe(
       (ProductId: string) => {
         this.toaster.success('Product has been added ' + ProductId, 'Success');
         this.uploadProductImages(ProductId);
@@ -103,46 +112,38 @@ export class ProductFormComponent implements OnInit {
       });
   }
   updateProduct() {
-    if (this.GalleryImgs.length === 0 && //  no need to check for mainImg
-        this._Product.galleryImgs.length === 0) { 
-      this.toaster.warning("Main Image and Gallery images are Mandatory");
-      return;
+    if (!this.checkImages()) return;
+    
+    if (!this.ngForm.pristine) { // the form has changed (dirty)
+      this.productService.UpdateProduct(this._Product.Id, this._Product).subscribe(
+        (ProductId: string) => {
+          this.toaster.success('Product modified ' + ProductId, 'Success');
+        }, (error: AppError) => {
+          if (error instanceof BadInput) {
+            console.log(error.originalError);
+            this.toaster.warning('ModelState is not valid ..'); // Display the error within Form errors and Wrap it with JSON pipe
+          } else if (error instanceof NotFound) {
+            console.log(error.originalError);
+            this.toaster.warning("Can't update a none existing product !!");
+            this.resetForm();
+          } else { throw error; }
+        });
     }
-    this.aps.UpdateProduct(this._Product.Id, this._Product).subscribe(
-      (ProductId: string) => {
-        this.toaster.success('Product modified ' + ProductId, 'Success');
-        if (this.MainImage || // the cases when we have to call upload method ..
-            this.GalleryImgs.length > 0 ||
-            this.DescImgs.length > 0 ||
-            this.GalleryImgsDrop.length > 0 ||
-            this.DescImgsDrop.length > 0 ) { 
-               this.uploadProductImages(ProductId); 
-        }
-        else this.resetForm(); // just reset the form !
-      }, (error: AppError) => {
-        if (error instanceof BadInput) {
-          console.log(error.originalError);
-          this.toaster.warning('ModelState is not valid ..'); // Display the error within Form errors and Wrap it with JSON pipe
-        } else if (error instanceof NotFound) {
-          console.log(error.originalError);
-          this.toaster.warning("Can't update a none existing product !!");
-          this.resetForm();
-        } else { throw error; }
-      });
+    if (this.MainImage || // the cases when we have to call upload method ..
+      this.GalleryImgs.length > 0 ||
+      this.DescImgs.length > 0 ||
+      this.GalleryImgsDrop.length > 0 ||
+      this.DescImgsDrop.length > 0 ) { 
+         this.uploadProductImages(this._Product.Id.toString()); 
+    }
+    
+    this.resetForm(); // just reset the form !
   }
   //////////////////////
 
-  getLastAddedProducts() {
-    this.aps.GetLastProducts().subscribe(data => {
-      this.lastProducts = <MiniProduct[]>data;
-    });
-  }
-
   private uploadProductImages(ProductId: string) {
     const form = new FormData();
-    form.append('Job', this._formJob);
     form.append('ProductId', ProductId);
-    form.append('CopyingId', this.copyingId);
 
     if (this.MainImage) {
       form.append('MainImg', this.MainImage, this.MainImage.name);
@@ -156,11 +157,22 @@ export class ProductFormComponent implements OnInit {
       form.append('DescImgs', e.img, e.img.name);
     });
 
-    // Update case, but fine to send them also in adding case
-    form.append('GalleryImgsDrop', JSON.stringify(this.GalleryImgsDrop));
-    form.append('DescImgsDrop', JSON.stringify(this.DescImgsDrop));
+    if (this._formJob === FormJob.Copy ) {
+      form.append('CopyingId', this.copyingId.toString());
+      form.append('mainImgFromCopy', this.mainImgFromCopy);
+    }
+    
+    // Updating case, or copying case
+    if (this._formJob !== FormJob.Add) {
+      form.append('GalleryImgsDrop', JSON.stringify(this.GalleryImgsDrop));
+      form.append('DescImgsDrop', JSON.stringify(this.DescImgsDrop));
+    }
 
-    this.aps.UploadImages(form).subscribe(
+    const action = (this._formJob === FormJob.Add) ? this.uploadService.addProductImages(form)
+                    : (this._formJob === FormJob.Update) ? this.uploadService.updateProductImages(form)
+                    : this.uploadService.copyProductImages(form);
+
+    action.subscribe(
       (Product) => {
         this.addToHistory(<MiniProduct>Product);
         this.toaster.success('Images Uploaded !', 'Success');
@@ -172,14 +184,22 @@ export class ProductFormComponent implements OnInit {
         } else { throw err; }
       });
   }
+  
+  getLastAddedProducts() {
+    this.productService.GetLastProducts().subscribe(data => {
+      this.lastProducts = <MiniProduct[]>data;
+    });
+  }
 
   private resetForm() {
+    this.ngForm.resetForm();
     this._Product = new AdminProduct();
-    this.copyingId = null;
+    this.copyingId = 0;
     this._formJob = FormJob.Add;
     this.freeImages();
     this.GalleryImgsDrop = [];
     this.DescImgsDrop = [];
+    this.mainImgFromCopy = null;
     this.router.navigateByUrl('/admin/product-form');
   }
 
@@ -206,7 +226,7 @@ export class ProductFormComponent implements OnInit {
   
 
   getProduct(id: number, mode: string){
-    this.aps.getProduct(id)
+    this.productService.getProduct(id)
       .subscribe(
         (p) => {
           this.freeImages();
@@ -214,6 +234,7 @@ export class ProductFormComponent implements OnInit {
           this.hasNoColor = this._Product.Color ? false : true;
           this.getSub(this._Product.CategoryId, false);
           if (mode === FormJob.Copy) {
+            this.copyingId = id;
             this._Product.Id = 0;
           }
         },
@@ -238,8 +259,6 @@ export class ProductFormComponent implements OnInit {
     this.previewMainImg();
   }
 
-
-
   previewMainImg() {
     if (this.MainImage) { // image exist
       const reader = new FileReader();
@@ -250,7 +269,7 @@ export class ProductFormComponent implements OnInit {
     }
   }
 
-  addGalleryImages(files: File[]) {
+  addGalleryImages(files: File[]) {    
     for (let i = 0; i < files.length; i++) {
       const exist = (this.GalleryImgs.find(x => x.name === files[i].name)) ? true : false;
       if (files[i] && !exist) {
@@ -261,34 +280,14 @@ export class ProductFormComponent implements OnInit {
             name: files[i].name,
             data: (<FileReader>e.target).result.toString()
           };
+          const _length = (this.GalleryImgs.length + this._Product.galleryImgs.length);
 
-          if (this.GalleryImgs.length < this._maxG) { this.GalleryImgs.push(item); }
+          if (_length < this._maxG) { this.GalleryImgs.push(item); }
         };
         reader.readAsDataURL(files[i]);
       }
     }
   }
-
-  addGalleryImagesServer(files){
-    for (let i = 0; i < files.length; i++) {
-      const exist = (this.GalleryImgs.find(x => x.name === files[i].name)) ? true : false;
-      if (files[i] && !exist) {
-        const reader = new FileReader();
-        reader.onload = (e: ProgressEvent) => {
-          const item: IPath = {
-            img: files[i],
-            name: files[i].name,
-            data: (<FileReader>e.target).result.toString()
-          };
-
-          if ( (this.GalleryImgs.length + this._Product.galleryImgs.length) < this._maxG) 
-            { this.GalleryImgs.push(item); }
-        };
-        reader.readAsDataURL(files[i]);
-      }
-    }
-  }
-
 
   addDescImages(files: File[]) {
     for (let i = 0; i < files.length; i++) {
@@ -302,25 +301,9 @@ export class ProductFormComponent implements OnInit {
             data: (<FileReader>e.target).result.toString()
           };
 
-          if (this.DescImgs.length < this._maxD) { this.DescImgs.push(item); }
-        };
-        reader.readAsDataURL(files[i]);
-      }
-    }
-  }
-  addDescImagesServer(files){
-    for (let i = 0; i < files.length; i++) {
-      const exist = (this.DescImgs.find(x => x.name === files[i].name)) ? true : false;
-      if (files[i] && !exist) {
-        const reader = new FileReader();
-        reader.onload = (e: ProgressEvent) => {
-          const item: IPath = {
-            img: files[i],
-            name: files[i].name,
-            data: (<FileReader>e.target).result.toString()
-          };
+          const _length = (this.DescImgs.length + this._Product.descImgs.length);
 
-          if ((this.DescImgs.length + this._Product.descImgs.length) < this._maxD) { this.DescImgs.push(item); }
+          if (_length < this._maxD) { this.DescImgs.push(item); }
         };
         reader.readAsDataURL(files[i]);
       }
@@ -328,6 +311,7 @@ export class ProductFormComponent implements OnInit {
   }
 
   asMainImage(img: File) {
+      this.mainImgFromCopy = null;
       this.MainImage = img;
       this.previewMainImg();
   }
@@ -339,13 +323,15 @@ export class ProductFormComponent implements OnInit {
 
   asMainImageServer(img) { // this method will call the server once it raised !
     if (this._formJob === FormJob.Copy) {
-      this.toaster.info("Can't perform this action !", 'info');
+      this.imgPath = this.MainImage = null;
+      this.mainImgFromCopy = img;
       return;
     }
-    this.aps.ReplaceMainImg(this._Product.Id, img).subscribe(
+    this.uploadService.ReplaceMainImg(this._Product.Id, img).subscribe(
       () => {
         this.toaster.success('main image changed', 'Success');
         this._Product.mainImg = img;
+        this.imgPath = this.MainImage = null;
         this.getLastAddedProducts();
       },
       (error: AppError) => {
@@ -394,9 +380,6 @@ export class ProductFormComponent implements OnInit {
   QteBlured() {
     if (this._Product.Quantity === 0) this._Product.OnSale = false;
     else this._Product.OnSale = true;
-  }
-  kill() {
-    this._Product = new AdminProduct();
   }
 }
 // interface helps to store both img file and img data that display on template,
