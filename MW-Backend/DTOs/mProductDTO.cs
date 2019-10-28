@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MW_Backend.Helpers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.IO;
@@ -23,17 +24,8 @@ namespace MW_Backend.DTOs
         {
             get
             {
-                //Handling Exceptions !!
-                try
-                {
-                    string myPath = HttpContext.Current.Server.MapPath("~/Content/Images/Products/" + Id.ToString() + "/Main");
-                    return Directory.EnumerateFiles(myPath).Select(x => Path.GetFileName(x)).FirstOrDefault();
-                }
-                catch (Exception)
-                {
-                    return null;
-                }
-                
+                var _dir = new Product_Dir(Id);
+                return _dir.GetMainImage();
             }
 
         }

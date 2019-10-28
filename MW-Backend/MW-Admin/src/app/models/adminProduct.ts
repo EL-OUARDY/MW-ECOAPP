@@ -43,6 +43,8 @@ export class AdminProduct {
         this.Price = 17;
         this.OldPrice = 23;
         this.Description = 'Some Dummy Text ..';
+        this.galleryImgs = [];
+        this.descImgs = [];
     }
 
 }

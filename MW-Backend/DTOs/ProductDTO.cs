@@ -51,15 +51,8 @@ namespace MW_Backend.DTOs
         {
             get
             {
-                try
-                {
-                    return DirectoryHelper.getMainImage(Id);
-                }
-                catch (Exception)
-                {
-                    return null;
-                }
-                
+                var _dir = new Product_Dir(Id);
+                return _dir.GetMainImage();
             }
         }
 
@@ -67,15 +60,8 @@ namespace MW_Backend.DTOs
         {
             get
             {
-                try
-                {
-                    return DirectoryHelper.getGalleryImages(Id);
-                }
-                catch (Exception)
-                {
-                    return null;
-                }
-                
+                var _dir = new Product_Dir(Id);
+                return _dir.GetGalleryImages();
             }
 }
 
@@ -83,15 +69,8 @@ namespace MW_Backend.DTOs
         {
             get
             {
-                try
-                {
-                    return DirectoryHelper.getDescImages(Id);
-                }
-                catch (Exception)
-                {
-                    return null;
-                }
-                
+                var _dir = new Product_Dir(Id);
+                return _dir.GetDescImages();
             }
         }
 

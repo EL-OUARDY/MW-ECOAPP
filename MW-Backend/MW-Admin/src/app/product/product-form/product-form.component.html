@@ -41,13 +41,15 @@
       <ng-container *ngIf="_Product.Id > 0 || copyingId > 0 ; else addingProduct1">
         <div (click)="mainImg.click()" class="divmainimageprod">
           <input #mainImg type="file" name="MainImg" ngModel (change)="setMainImage($event.target.files)">
-          <img *ngIf="_Product.mainImg; else localMainImg " src="/Content/Images/Products/{{(_Product.Id > 0) ? _Product.Id : copyingId }}/Main/{{_Product.mainImg}}" class="mainimage">
+          <img *ngIf="_Product.mainImg && !imgPath && !mainImgFromCopy" src="/Content/Images/Products/{{(_Product.Id > 0) ? _Product.Id : copyingId }}/Main/{{_Product.mainImg}}" class="mainimage">
           
-          <ng-template #localMainImg >
-            <img *ngIf="imgPath; else noImage " [src]="imgPath" class="mainimage halfOpacity">
-          </ng-template>
+          <img *ngIf=" imgPath && !mainImgFromCopy" [src]="imgPath" class="mainimage halfOpacity">
+        
+          <img *ngIf=" mainImgFromCopy " 
+          src="/Content/Images/Products/{{ copyingId }}/Gallery/{{mainImgFromCopy}}"
+          class="mainimage halfOpacity">
 
-          <ng-template #noImage>
+          <!-- <ng-template #noImage>
             <svg _ngcontent-c3="" xml:space="preserve" class="svgplusimage" enable-background="new 0 0 1000 1000"
               version="1.1" viewBox="0 0 1000 1000" x="0px" y="0px">
               <path _ngcontent-c3=""
@@ -64,13 +66,13 @@
                 d="M959.5,747.5H809.6V597.6c0-16.2-13.2-29.4-29.4-29.4c-16.2,0-29.4,13.2-29.4,29.4v149.9H600.9c-16.2,0-29.4,13.2-29.4,29.4c0,16.2,13.2,29.4,29.4,29.4h149.9v149.9c0,16.2,13.2,29.4,29.4,29.4c16.2,0,29.4-13.2,29.4-29.4V806.3h149.9c16.2,0,29.4-13.2,29.4-29.4C988.9,760.6,975.7,747.5,959.5,747.5z">
               </path>
             </svg>
-          </ng-template>
+          </ng-template> -->
         </div>
 
         <div class="divmoreimage">
           <div (click)="galleryImgs.click()" class="roidfudsdxv">
-            <input [disabled]="GalleryImgs.length === _maxG" #galleryImgs type="file" accept="image/*" name="GalleryImgs" ngModel
-              multiple (change)="addGalleryImagesServer($event.target.files)">
+            <input [disabled]="(GalleryImgs.length + _Product.galleryImgs.length) === _maxG" #galleryImgs type="file" accept="image/*" name="GalleryImgs" 
+              multiple (change)="addGalleryImages($event.target.files)">
             <svg class="svgplusimage" version="1.1" x="0px" y="0px" viewBox="0 0 1000 1000" enable-background="new 0 0 1000 1000"
               xml:space="preserve">
               <path
@@ -158,7 +160,7 @@
 
         <div class="divmoreimage">
           <div (click)="galleryImgs.click()" class="roidfudsdxv">
-            <input [disabled]="GalleryImgs.length === _maxG" #galleryImgs type="file" accept="image/*"
+            <input [disabled]="(GalleryImgs.length + _Product.galleryImgs.length) === _maxG" #galleryImgs type="file" accept="image/*"
               name="GalleryImgs" ngModel multiple (change)="addGalleryImages($event.target.files)">
             <svg class="svgplusimage" version="1.1" x="0px" y="0px" viewBox="0 0 1000 1000"
               enable-background="new 0 0 1000 1000" xml:space="preserve">
@@ -265,8 +267,8 @@
         <!-- Edit existing images  -->
         <ng-container *ngIf="_Product.Id > 0 || copyingId; else addingProduct2">
           <div (click)="descImgs.click()" class="uopietter">
-            <input [disabled]="DescImgs.length === _maxD" #descImgs type="file" accept="image/*" name="DescImgs" ngModel multiple
-              (change)="addDescImagesServer($event.target.files)">
+            <input [disabled]="(DescImgs.length + _Product.descImgs.length) === _maxD" #descImgs type="file" accept="image/*" name="DescImgs"  multiple
+              (change)="addDescImages($event.target.files)">
             <svg class="svgplusimage" version="1.1" x="0px" y="0px" viewBox="0 0 1000 1000" enable-background="new 0 0 1000 1000"
               xml:space="preserve">
               <path
@@ -316,7 +318,7 @@
         <!-- Adding Product images  -->
         <ng-template #addingProduct2>
           <div (click)="descImgs.click()" class="uopietter">
-            <input [disabled]="DescImgs.length === _maxD" #descImgs type="file" accept="image/*" name="DescImgs" ngModel multiple
+            <input [disabled]="(DescImgs.length + _Product.descImgs.length) === _maxD" #descImgs type="file" accept="image/*" name="DescImgs" ngModel multiple
               (change)="addDescImages($event.target.files)">
             <svg class="svgplusimage" version="1.1" x="0px" y="0px" viewBox="0 0 1000 1000" enable-background="new 0 0 1000 1000"
               xml:space="preserve">
@@ -349,7 +351,6 @@
           </ng-container>
         </ng-template>
 
-        
       </div>
 
       <div class="divshipping">
@@ -401,14 +402,20 @@
         Reset
       </div>
     </div>
-
     <div class="alert">
-      {{ GalleryImgs.length + ' / ' + MainImage  }}
+      _Product.mainImg: {{ _Product.mainImg ?_Product.mainImg: "no"}} / 
+      imgPath: {{ imgPath ? "yes" : "no"}} / 
+      mainImgFromCopy: {{ mainImgFromCopy ? mainImgFromCopy : "no"}} /
+      isPristine : {{f.pristine}}
     </div>
+    <!-- <div class="alert">
+      Job: {{ _formJob}} / 
+      Id: {{ _Product.Id}} / 
+      CopyId: {{ copyingId}}
+    </div> -->
     <div class="alert">
       {{ _Product | json }}
     </div>
-    <button (click)="kill()">KIll</button>
   </form>
 
   <div class="history">

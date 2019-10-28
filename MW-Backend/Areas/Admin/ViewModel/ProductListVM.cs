@@ -41,15 +41,8 @@ namespace MW_Backend.Areas.Admin.ViewModel
         {
             get
             {
-                try
-                {
-                    return DirectoryHelper.getMainImage(Id);
-                }
-                catch (Exception)
-                {
-                    return null;
-                }
-
+                var _dir = new Product_Dir(Id);
+                return _dir.GetMainImage();
             }
         }
     }

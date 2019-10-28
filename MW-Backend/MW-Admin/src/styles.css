@@ -2177,13 +2177,13 @@ input.uyoieztr, .uyoieztra {
 }
 
 .ertytrh {
-    height: 35px;
+    height: 39px;
     background: var(--fillbackrg);
     /* fill: var(--colorsvg); */
     border-radius: 50%;
     /* background: #eee; */
     border-radius: 50%;
-    width: 35px;
+    width: 39px;
 }
 
 .svgsendus, .svgblockus2 {
@@ -4246,7 +4246,7 @@ td.fdgdzeazreio {
 }
 
 .dfsfhgbcv {
-    margin: 20px 0;
+    margin: 18px 0;
 }
 
 .rqsetgertg select {
@@ -4701,18 +4701,19 @@ td.fdgdzeazreio {
     text-align: center
 }
 
+/*ngx-scroll TEMPORRARY*/
+
 .table-wrapper ng-scrollbar-y {
     background: var(--backgrbody) !important;
     padding-bottom: 0 !important;
 }
 
 .scrollbar {
-    background: var(--backgrcontent);
+    background: var(--backgrcontent) !important;
 }
 
 .table-wrapper ng-scrollbar-y {
     padding-top: 45px !important;
 }
-
 /*****************************/
 
