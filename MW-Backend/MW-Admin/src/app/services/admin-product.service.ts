@@ -26,8 +26,8 @@ export class AdminProductService {
 
   // calling the server
 
-  GetProductsList(stock: string) {
-    return this.http.get( this.END_POINT + '?stock=' + stock, { headers: this.noAuth });
+  GetProductsList(filter) {
+    return this.http.get( this.END_POINT + '?' +  this.toQueryString(filter), { headers: this.noAuth });
   }
 
   PostProduct(form) {
@@ -59,6 +59,25 @@ export class AdminProductService {
   }
 
   // Shared Functions
+
+  toQueryString(obj) {
+    const parts = [];
+    if (obj.OnSale != null && obj.OnSale !== undefined) 
+      parts.push('$filter=OnSale eq ' + obj.OnSale);
+
+    console.log(parts.join('&'));
+    return parts.join('&');
+  }
+  
+  // toQueryString(obj) {
+  //   const parts = [];
+  //   for (const property in obj) {
+  //     const value = obj[property];
+  //     if (value != null && value !== undefined) 
+  //       parts.push(encodeURIComponent(property) + '=' + encodeURIComponent(value));
+  //   }
+  //   return parts.join('&');
+  // }
 
   raiseConfirmDialog() {
     return this.dialog.open(ConfirmDialogComponent, {

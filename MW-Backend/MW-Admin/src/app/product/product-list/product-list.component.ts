@@ -3,7 +3,6 @@ import { AdminProductService } from 'src/app/services/admin-product.service';
 import { AdminProduct } from 'src/app/models/adminProduct';
 import { SelectionModel } from '@angular/cdk/collections';
 import { MatTableDataSource} from '@angular/material';
-import { ActivatedRoute } from '@angular/router';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 @Component({
   selector: 'app-product-list',
@@ -18,23 +17,31 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
   ],
 })
 export class ProductListComponent implements OnInit {
-  constructor(private aps: AdminProductService, private activeRoute: ActivatedRoute) { }
-
-  productsToShow;
-  columns: string[] = ['Select', 'Id', 'Image', 'Name', 'Price', 'Color', 'Quantity', 'Source', 'Date_Created', 'OnSale', 'Controls', 'Expand'];
+  
+  filter: any = {
+  };
+  columns = ['Select', 'Id', 'Image', 'Name', 'Price', 'Color', 'Quantity', 'Source', 'Date_Created', 'OnSale', 'Controls', 'Expand'];
   dataSource: MatTableDataSource<AdminProduct>;
   expandedElement: AdminProduct | null;
   selection = new SelectionModel<AdminProduct>(true, []);
+  
+  constructor(private productService: AdminProductService) { }
 
   ngOnInit() {
-    this.activeRoute.queryParamMap.subscribe(params => {
-      this.productsToShow = params.get('stock') || 'all';
-      this.aps.GetProductsList(this.productsToShow)
-        .subscribe((data: AdminProduct[]) => {
-          this.dataSource = new MatTableDataSource<AdminProduct>(data);
-          this.selection.clear();
-        });
-    });
+    this.populateProducts();
+  }
+
+  onSaleChange(onSale) {
+    this.filter.OnSale = onSale;
+    this.populateProducts();
+  }
+
+  private populateProducts() {
+    this.productService.GetProductsList(this.filter)
+      .subscribe((data: AdminProduct[]) => {
+        this.dataSource = new MatTableDataSource<AdminProduct>(data);
+        this.selection.clear();
+      });
   }
 
   isAllSelected() {
