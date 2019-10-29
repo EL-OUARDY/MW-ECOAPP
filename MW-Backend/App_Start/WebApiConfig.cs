@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using System.Web.Http.OData.Extensions;
 using Microsoft.Owin.Security.OAuth;
 using Newtonsoft.Json.Serialization;
 
@@ -15,8 +16,10 @@ namespace MW_Backend
         {
             // Enable Cors (change the mothods later)
             // config.EnableCors(new EnableCorsAttribute("http://localhost:4200", headers: "*", methods: "*"));
-            
+
             // Web API configuration and services
+            config.AddODataQueryFilter();
+
             // Configure Web API to use only bearer token authentication.
             config.SuppressDefaultHostAuthentication();
             config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
 using System.Web.Http.Description;
+using System.Web.Http.OData;
 using AutoMapper;
 using MW_Backend.Areas.Admin.ViewModel;
 using MW_Backend.DTOs;
@@ -31,19 +32,12 @@ namespace MW_Backend.Areas.Admin.Controllers
 
         // GET: api/AdminProducts
         [HttpGet]
-        public IHttpActionResult GetAdminProducts(string stock = "")
+        [EnableQuery] // OData
+        public async Task<IHttpActionResult> GetAdminProducts()
         {
-            IEnumerable<Product> products;
+            var products = await db.Products.ToListAsync();
 
-            if (stock == "in")
-                products = db.Products.Where(x => x.OnSale == true).ToList();
-            else 
-            if (stock == "out")
-                products = db.Products.Where(x => x.OnSale == false).ToList();
-            else
-                products = db.Products.ToList();
-
-            return Ok( products.Select(Mapper.Map<Product, ProductListVM>));
+            return Ok(products.Select(Mapper.Map<Product, ProductListVM>));
         }
 
         // POST: api/AdminProducts
@@ -78,6 +72,7 @@ namespace MW_Backend.Areas.Admin.Controllers
             }
 
             var product = Mapper.Map<ProductDTO, Product>(productDto);
+            //product.Date_Added = DateTime.Now; property must rename to date_modified
             db.Entry(product).State = EntityState.Modified;
 
             try
