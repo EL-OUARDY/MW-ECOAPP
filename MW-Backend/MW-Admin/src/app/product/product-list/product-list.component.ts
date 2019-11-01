@@ -18,8 +18,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 })
 export class ProductListComponent implements OnInit {
   
-  filter: any = {
-  };
+  queryObj: any = {};
   columns = ['Select', 'Id', 'Image', 'Name', 'Price', 'Color', 'Quantity', 'Source', 'Date_Created', 'OnSale', 'Controls', 'Expand'];
   dataSource: MatTableDataSource<AdminProduct>;
   expandedElement: AdminProduct | null;
@@ -32,12 +31,12 @@ export class ProductListComponent implements OnInit {
   }
 
   onSaleChange(onSale) {
-    this.filter.OnSale = onSale;
+    this.queryObj.OnSale = onSale;
     this.populateProducts();
   }
 
   private populateProducts() {
-    this.productService.GetProductsList(this.filter)
+    this.productService.GetProductsList(this.queryObj)
       .subscribe((data: AdminProduct[]) => {
         this.dataSource = new MatTableDataSource<AdminProduct>(data);
         this.selection.clear();

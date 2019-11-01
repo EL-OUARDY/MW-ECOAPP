@@ -35,6 +35,8 @@ namespace MW_Backend.Areas.Admin.Controllers
         [EnableQuery] // OData
         public async Task<IHttpActionResult> GetAdminProducts()
         {
+            // [FromODataUri] Allow you to catch what ever parameter that has passed with OData uri
+
             var products = await db.Products.ToListAsync();
 
             return Ok(products.Select(Mapper.Map<Product, ProductListVM>));
