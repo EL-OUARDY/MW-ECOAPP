@@ -1,8 +1,8 @@
 <div class="divproductlist" id="my-productlist">
   <div class="divlabtyporeder">
-    <label (click)="onSaleChange(undefined)" [class.active]="filter.OnSale === undefined" >All</label>
-    <label (click)="onSaleChange(true)" [class.active]="filter.OnSale === true" >On Sale</label>
-    <label (click)="onSaleChange(false)" [class.active]="filter.OnSale === false" >Out Of Stock</label>
+    <label (click)="onSaleChange(undefined)" [class.active]="queryObj.OnSale === undefined" >All</label>
+    <label (click)="onSaleChange(true)" [class.active]="queryObj.OnSale === true" >On Sale</label>
+    <label (click)="onSaleChange(false)" [class.active]="queryObj.OnSale === false" >Out Of Stock</label>
   </div>
   <div class="rqsetgertg">
     <input class="datefilt1" type="date" name="" value="">

@@ -31,23 +31,17 @@ namespace MW_Backend.Areas.Admin.Controllers
 
             // verify the existance of product, but Pointless coz this only called once a product being added
             if (!ProductExists(ProductId)) 
-            {
                 return NotFound();
-            }
 
             // Check the existance of images within the request object..
             if (files["MainImg"] == null || files.GetMultiple("GalleryImgs").Count == 0) //DescImages aren't mandatory
-            {
                 return BadRequest("Main Image And Gallery Images Are Required");
-            }
 
             var _dir = new Product_Dir(ProductId);
             var task = Task.Run(() => _dir.AddProductImages(files));
 
             if (!await task)
-            {
                 return BadRequest("A Problem Has Occured While Uploading Images !!");
-            }
 
             var model = db.Products.Find(ProductId);
 
@@ -84,7 +78,7 @@ namespace MW_Backend.Areas.Admin.Controllers
 
         [HttpPost]
         [Route("api/upload/copyProductImages")]
-        public async Task<IHttpActionResult> CopyProductImages() 
+        public async Task<IHttpActionResult> CopyProductImages()
         {
             int ProductId = int.Parse(HttpContext.Current.Request["ProductId"]);
             int CopyingId = int.Parse(HttpContext.Current.Request["CopyingId"]);
@@ -102,7 +96,6 @@ namespace MW_Backend.Areas.Admin.Controllers
 
             var _dir = new Product_Dir(ProductId);
             var task = Task.Run(() => _dir.CopyProductImages(files, GalleryImgsDrop, DescImgsDrop, CopyingId, mainImgFromCopy));
-
             if (!await task)
             {
                 return BadRequest("A Problem Has Occured While Uploading Images !!");

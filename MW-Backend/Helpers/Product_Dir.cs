@@ -8,7 +8,7 @@ namespace MW_Backend.Helpers
 {
     public class Product_Dir
     {
-        public string virtual_parent_dir { get; set; }
+        public string _dir { get; set; }
         public string parent_dir { get; set; }
         public string mainImgPath { get; set; }
         public string galleryPath { get; set; }
@@ -17,7 +17,8 @@ namespace MW_Backend.Helpers
 
         public Product_Dir(int productId)
         {
-            parent_dir = HttpContext.Current.Server.MapPath("~/Content/Images/Products/" + productId.ToString());
+            _dir = HttpContext.Current.Server.MapPath("~/Content/Images/Products");
+            parent_dir = _dir + "\\" + productId.ToString();
             mainImgPath = parent_dir + "\\Main";
             galleryPath = parent_dir + "\\Gallery";
             descPath = parent_dir + "\\Desc";
@@ -35,15 +36,15 @@ namespace MW_Backend.Helpers
                 PrepareDirectories();
 
                 // saving Main Image
-                MainImg.SaveAs(mainImgPath + "/" + MainImg.FileName);
+                MainImg.SaveAs(mainImgPath + "/" + MakeGuid(MainImg.FileName));
 
                 // saving Gallery Images
                 foreach (var item in GalleryImgs)
-                    item.SaveAs(galleryPath + "/" + item.FileName);
+                    item.SaveAs(galleryPath + "/" + MakeGuid(item.FileName));
 
                 // saving Description Images
                 foreach (var item in DescImgs)
-                    item.SaveAs(descPath + "/" + item.FileName);
+                    item.SaveAs(descPath + "/" + MakeGuid(item.FileName));
             }
             catch (Exception)
             {
@@ -72,40 +73,32 @@ namespace MW_Backend.Helpers
                 {
                     Directory.Delete(mainImgPath, true); // delete old images if exist
                     Directory.CreateDirectory(mainImgPath);
-                    MainImg.SaveAs(mainImgPath + "/" + MainImg.FileName);
+                    MainImg.SaveAs(mainImgPath + "/" + MakeGuid(MainImg.FileName));
                 }
 
                 // Drop Gallery Images
                 if (galleryImgsDrop.Length > 0)
                 {
                     foreach (var item in galleryImgsDrop)
-                    {
                         if (File.Exists(galleryPath + "/" + item))
-                        {
                             File.Delete(galleryPath + "/" + item);
-                        }
-                    }
                 }
 
                 // Drop Description Images
                 if (descImgsDrop.Length > 0)
                 {
                     foreach (var item in descImgsDrop)
-                    {
                         if (File.Exists(descPath + "/" + item))
-                        {
                             File.Delete(descPath + "/" + item);
-                        }
-                    }
                 }
 
                 // Save Gallery Images
                 foreach (var item in GalleryImgs)
-                    item.SaveAs(galleryPath + "/" + item.FileName);
+                    item.SaveAs(galleryPath + "/" + MakeGuid(item.FileName));
 
                 // Save Description Images
                 foreach (var item in DescImgs)
-                    item.SaveAs(descPath + "/" + item.FileName);
+                    item.SaveAs(descPath + "/" + MakeGuid(item.FileName));
 
             }
             catch (Exception)
@@ -123,7 +116,7 @@ namespace MW_Backend.Helpers
         {
             try
             {
-                string copying_dir = HttpContext.Current.Server.MapPath("~/Content/Images/Products/" + copyingId.ToString());
+                string copying_dir = _dir + "\\" + copyingId.ToString();
                 var MainImg = files["MainImg"];
                 var GalleryImgs = files.GetMultiple("GalleryImgs");
                 var DescImgs = files.GetMultiple("DescImgs");
@@ -149,13 +142,13 @@ namespace MW_Backend.Helpers
                 }
                 else // image sent within request
                 {
-                    MainImg.SaveAs(mainImgPath + "/" + MainImg.FileName);
+                    MainImg.SaveAs(mainImgPath + "/" + MakeGuid(MainImg.FileName));
                 }
 
                 // 2-gallery
                 // add new posted images
                 foreach (var item in GalleryImgs)
-                    item.SaveAs(galleryPath + "/" + item.FileName);
+                    item.SaveAs(galleryPath + "/" + MakeGuid(item.FileName));
                 // get the images from the copied product
                 var gImgs = Directory.EnumerateFiles(copying_dir + "\\Gallery")
                                         .Where(x => !galleryImgsDrop.Contains(Path.GetFileName(x)))
@@ -167,7 +160,7 @@ namespace MW_Backend.Helpers
                 // 3-desc
                 // add new posted images
                 foreach (var item in DescImgs)
-                    item.SaveAs(descPath + "/" + item.FileName);
+                    item.SaveAs(descPath + "/" + MakeGuid(item.FileName));
                 // get the images from the copied product
                 var dImgs = Directory.EnumerateFiles(copying_dir + "\\Desc")
                                         .Where(x => !descImgsDrop.Contains(Path.GetFileName(x)))
@@ -176,7 +169,6 @@ namespace MW_Backend.Helpers
                 foreach (var item in dImgs)
                     File.Copy(item, descPath + "\\" + Path.GetFileName(item), true);
                 ///
-
             }
             catch (Exception)
             {
@@ -285,6 +277,12 @@ namespace MW_Backend.Helpers
                 Directory.CreateDirectory(descPath);
         }
 
+        private string MakeGuid(string filename)
+        {
+            var _fileName = Guid.NewGuid().ToString() + Path.GetExtension(filename);
+            return _fileName;
+        }
+
         private void SetAttributesNormal(DirectoryInfo dir)
         {
             foreach (var subDir in dir.GetDirectories())
@@ -300,6 +298,7 @@ namespace MW_Backend.Helpers
             // Grant access to the parent directory => avoid access_denied exception
             var dir = new DirectoryInfo(parent_dir);
             SetAttributesNormal(dir);
+
         }
     }
 }
