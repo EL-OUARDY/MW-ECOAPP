@@ -38,6 +38,8 @@ import { CdkTableModule } from '@angular/cdk/table';
 import { NgScrollbarModule } from 'ngx-scrollbar';
 import { ConfirmDialogComponent } from './shared/confirm-dialog/confirm-dialog.component';
 import { AdminUploadService } from './services/admin-upload.service';
+import { LayoutComponent } from './layout/layout.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +63,8 @@ import { AdminUploadService } from './services/admin-upload.service';
     ProfileComponent,
     SettingsComponent,
     ConfirmDialogComponent,
+    LayoutComponent,
+    LoginComponent,
   ],
   imports: [
     CommonModule,
