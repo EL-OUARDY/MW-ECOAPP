@@ -36,21 +36,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _guards_admin_guard_guard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./guards/admin-guard.guard */ "./src/app/guards/admin-guard.guard.ts");
-/* harmony import */ var _error_pages_not_found_not_found_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./error-pages/not-found/not-found.component */ "./src/app/error-pages/not-found/not-found.component.ts");
-/* harmony import */ var _error_pages_unexpected_error_unexpected_error_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./error-pages/unexpected-error/unexpected-error.component */ "./src/app/error-pages/unexpected-error/unexpected-error.component.ts");
-/* harmony import */ var _product_product_form_product_form_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./product/product-form/product-form.component */ "./src/app/product/product-form/product-form.component.ts");
-/* harmony import */ var _order_orders_orders_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./order/orders/orders.component */ "./src/app/order/orders/orders.component.ts");
-/* harmony import */ var _support_support_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./support/support.component */ "./src/app/support/support.component.ts");
-/* harmony import */ var _product_product_list_product_list_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./product/product-list/product-list.component */ "./src/app/product/product-list/product-list.component.ts");
-/* harmony import */ var _user_users_list_users_list_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./user/users-list/users-list.component */ "./src/app/user/users-list/users-list.component.ts");
-/* harmony import */ var _coupon_coupon_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./coupon/coupon.component */ "./src/app/coupon/coupon.component.ts");
-/* harmony import */ var _user_reviews_reviews_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./user/reviews/reviews.component */ "./src/app/user/reviews/reviews.component.ts");
-/* harmony import */ var _pages_edit_pages_edit_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./pages-edit/pages-edit.component */ "./src/app/pages-edit/pages-edit.component.ts");
-/* harmony import */ var _tickets_tickets_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./tickets/tickets.component */ "./src/app/tickets/tickets.component.ts");
-/* harmony import */ var _profile_profile_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./profile/profile.component */ "./src/app/profile/profile.component.ts");
-/* harmony import */ var _settings_settings_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./settings/settings.component */ "./src/app/settings/settings.component.ts");
-/* harmony import */ var _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./dashboard/dashboard.component */ "./src/app/dashboard/dashboard.component.ts");
+/* harmony import */ var _error_pages_not_found_not_found_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./error-pages/not-found/not-found.component */ "./src/app/error-pages/not-found/not-found.component.ts");
+/* harmony import */ var _error_pages_unexpected_error_unexpected_error_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./error-pages/unexpected-error/unexpected-error.component */ "./src/app/error-pages/unexpected-error/unexpected-error.component.ts");
+/* harmony import */ var _product_product_form_product_form_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./product/product-form/product-form.component */ "./src/app/product/product-form/product-form.component.ts");
+/* harmony import */ var _order_orders_orders_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./order/orders/orders.component */ "./src/app/order/orders/orders.component.ts");
+/* harmony import */ var _support_support_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./support/support.component */ "./src/app/support/support.component.ts");
+/* harmony import */ var _product_product_list_product_list_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./product/product-list/product-list.component */ "./src/app/product/product-list/product-list.component.ts");
+/* harmony import */ var _user_users_list_users_list_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./user/users-list/users-list.component */ "./src/app/user/users-list/users-list.component.ts");
+/* harmony import */ var _coupon_coupon_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./coupon/coupon.component */ "./src/app/coupon/coupon.component.ts");
+/* harmony import */ var _user_reviews_reviews_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./user/reviews/reviews.component */ "./src/app/user/reviews/reviews.component.ts");
+/* harmony import */ var _pages_edit_pages_edit_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./pages-edit/pages-edit.component */ "./src/app/pages-edit/pages-edit.component.ts");
+/* harmony import */ var _tickets_tickets_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./tickets/tickets.component */ "./src/app/tickets/tickets.component.ts");
+/* harmony import */ var _profile_profile_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./profile/profile.component */ "./src/app/profile/profile.component.ts");
+/* harmony import */ var _settings_settings_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./settings/settings.component */ "./src/app/settings/settings.component.ts");
+/* harmony import */ var _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./dashboard/dashboard.component */ "./src/app/dashboard/dashboard.component.ts");
+/* harmony import */ var _guards_admin_auth_guard__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./guards/admin-auth.guard */ "./src/app/guards/admin-auth.guard.ts");
+/* harmony import */ var _layout_layout_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./layout/layout.component */ "./src/app/layout/layout.component.ts");
+/* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
+
+
 
 
 
@@ -70,23 +74,28 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var routes = [
-    { path: 'admin', component: _product_product_form_product_form_component__WEBPACK_IMPORTED_MODULE_6__["ProductFormComponent"], canActivate: [_guards_admin_guard_guard__WEBPACK_IMPORTED_MODULE_3__["AdminGuard"]] },
-    { path: 'admin/products', component: _product_product_list_product_list_component__WEBPACK_IMPORTED_MODULE_9__["ProductListComponent"], canActivate: [_guards_admin_guard_guard__WEBPACK_IMPORTED_MODULE_3__["AdminGuard"]] },
-    { path: 'admin/product-form', component: _product_product_form_product_form_component__WEBPACK_IMPORTED_MODULE_6__["ProductFormComponent"], canActivate: [_guards_admin_guard_guard__WEBPACK_IMPORTED_MODULE_3__["AdminGuard"]] },
-    // { path: 'admin/product-form/:editId', component: ProductFormComponent, canActivate: [AdminGuard] },
-    // { path: 'admin/product-form/:copyId', component: ProductFormComponent, canActivate: [AdminGuard] },
-    { path: 'admin/orders', component: _order_orders_orders_component__WEBPACK_IMPORTED_MODULE_7__["OrdersComponent"], canActivate: [_guards_admin_guard_guard__WEBPACK_IMPORTED_MODULE_3__["AdminGuard"]] },
-    { path: 'admin/support', component: _support_support_component__WEBPACK_IMPORTED_MODULE_8__["SupportComponent"], canActivate: [_guards_admin_guard_guard__WEBPACK_IMPORTED_MODULE_3__["AdminGuard"]] },
-    { path: 'admin/users', component: _user_users_list_users_list_component__WEBPACK_IMPORTED_MODULE_10__["UsersListComponent"], canActivate: [_guards_admin_guard_guard__WEBPACK_IMPORTED_MODULE_3__["AdminGuard"]] },
-    { path: 'admin/coupons', component: _coupon_coupon_component__WEBPACK_IMPORTED_MODULE_11__["CouponComponent"], canActivate: [_guards_admin_guard_guard__WEBPACK_IMPORTED_MODULE_3__["AdminGuard"]] },
-    { path: 'admin/user-reviews', component: _user_reviews_reviews_component__WEBPACK_IMPORTED_MODULE_12__["ReviewsComponent"], canActivate: [_guards_admin_guard_guard__WEBPACK_IMPORTED_MODULE_3__["AdminGuard"]] },
-    { path: 'admin/edit-pages', component: _pages_edit_pages_edit_component__WEBPACK_IMPORTED_MODULE_13__["PagesEditComponent"], canActivate: [_guards_admin_guard_guard__WEBPACK_IMPORTED_MODULE_3__["AdminGuard"]] },
-    { path: 'admin/tickets', component: _tickets_tickets_component__WEBPACK_IMPORTED_MODULE_14__["TicketsComponent"], canActivate: [_guards_admin_guard_guard__WEBPACK_IMPORTED_MODULE_3__["AdminGuard"]] },
-    { path: 'admin/profile', component: _profile_profile_component__WEBPACK_IMPORTED_MODULE_15__["ProfileComponent"], canActivate: [_guards_admin_guard_guard__WEBPACK_IMPORTED_MODULE_3__["AdminGuard"]] },
-    { path: 'admin/settings', component: _settings_settings_component__WEBPACK_IMPORTED_MODULE_16__["SettingsComponent"], canActivate: [_guards_admin_guard_guard__WEBPACK_IMPORTED_MODULE_3__["AdminGuard"]] },
-    { path: '404', component: _error_pages_not_found_not_found_component__WEBPACK_IMPORTED_MODULE_4__["NotFoundComponent"] },
-    { path: 'error', component: _error_pages_unexpected_error_unexpected_error_component__WEBPACK_IMPORTED_MODULE_5__["UnexpectedErrorComponent"] },
-    { path: '', component: _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_17__["DashboardComponent"] },
+    { path: 'admin/login', component: _login_login_component__WEBPACK_IMPORTED_MODULE_19__["LoginComponent"] },
+    { path: 'admin/404', component: _error_pages_not_found_not_found_component__WEBPACK_IMPORTED_MODULE_3__["NotFoundComponent"] },
+    { path: 'admin/error', component: _error_pages_unexpected_error_unexpected_error_component__WEBPACK_IMPORTED_MODULE_4__["UnexpectedErrorComponent"] },
+    {
+        path: '', component: _layout_layout_component__WEBPACK_IMPORTED_MODULE_18__["LayoutComponent"],
+        children: [
+            { path: '', component: _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_16__["DashboardComponent"] },
+            { path: 'admin', component: _product_product_form_product_form_component__WEBPACK_IMPORTED_MODULE_5__["ProductFormComponent"], canActivate: [_guards_admin_auth_guard__WEBPACK_IMPORTED_MODULE_17__["AdminAuthGuard"]] },
+            { path: 'admin/products', component: _product_product_list_product_list_component__WEBPACK_IMPORTED_MODULE_8__["ProductListComponent"], canActivate: [_guards_admin_auth_guard__WEBPACK_IMPORTED_MODULE_17__["AdminAuthGuard"]] },
+            { path: 'admin/product-form', component: _product_product_form_product_form_component__WEBPACK_IMPORTED_MODULE_5__["ProductFormComponent"], canActivate: [_guards_admin_auth_guard__WEBPACK_IMPORTED_MODULE_17__["AdminAuthGuard"]] },
+            { path: 'admin/orders', component: _order_orders_orders_component__WEBPACK_IMPORTED_MODULE_6__["OrdersComponent"], canActivate: [_guards_admin_auth_guard__WEBPACK_IMPORTED_MODULE_17__["AdminAuthGuard"]] },
+            { path: 'admin/support', component: _support_support_component__WEBPACK_IMPORTED_MODULE_7__["SupportComponent"], canActivate: [_guards_admin_auth_guard__WEBPACK_IMPORTED_MODULE_17__["AdminAuthGuard"]] },
+            { path: 'admin/users', component: _user_users_list_users_list_component__WEBPACK_IMPORTED_MODULE_9__["UsersListComponent"], canActivate: [_guards_admin_auth_guard__WEBPACK_IMPORTED_MODULE_17__["AdminAuthGuard"]] },
+            { path: 'admin/coupons', component: _coupon_coupon_component__WEBPACK_IMPORTED_MODULE_10__["CouponComponent"], canActivate: [_guards_admin_auth_guard__WEBPACK_IMPORTED_MODULE_17__["AdminAuthGuard"]] },
+            { path: 'admin/user-reviews', component: _user_reviews_reviews_component__WEBPACK_IMPORTED_MODULE_11__["ReviewsComponent"], canActivate: [_guards_admin_auth_guard__WEBPACK_IMPORTED_MODULE_17__["AdminAuthGuard"]] },
+            { path: 'admin/edit-pages', component: _pages_edit_pages_edit_component__WEBPACK_IMPORTED_MODULE_12__["PagesEditComponent"], canActivate: [_guards_admin_auth_guard__WEBPACK_IMPORTED_MODULE_17__["AdminAuthGuard"]] },
+            { path: 'admin/tickets', component: _tickets_tickets_component__WEBPACK_IMPORTED_MODULE_13__["TicketsComponent"], canActivate: [_guards_admin_auth_guard__WEBPACK_IMPORTED_MODULE_17__["AdminAuthGuard"]] },
+            { path: 'admin/profile', component: _profile_profile_component__WEBPACK_IMPORTED_MODULE_14__["ProfileComponent"], canActivate: [_guards_admin_auth_guard__WEBPACK_IMPORTED_MODULE_17__["AdminAuthGuard"]] },
+            { path: 'admin/settings', component: _settings_settings_component__WEBPACK_IMPORTED_MODULE_15__["SettingsComponent"], canActivate: [_guards_admin_auth_guard__WEBPACK_IMPORTED_MODULE_17__["AdminAuthGuard"]] },
+            { path: '**', redirectTo: '' }
+        ]
+    }
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -122,7 +131,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-sidebar></app-sidebar>\n<div class=\"tryeuiytjfg\">\n  <app-header></app-header>\n  <div class=\"divallcontent\">\n    <router-outlet></router-outlet>\n  </div>\n</div>"
+module.exports = "<router-outlet></router-outlet>\n"
 
 /***/ }),
 
@@ -202,6 +211,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var ngx_scrollbar__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ngx-scrollbar */ "./node_modules/ngx-scrollbar/fesm5/ngx-scrollbar.js");
 /* harmony import */ var _shared_confirm_dialog_confirm_dialog_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./shared/confirm-dialog/confirm-dialog.component */ "./src/app/shared/confirm-dialog/confirm-dialog.component.ts");
 /* harmony import */ var _services_admin_upload_service__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./services/admin-upload.service */ "./src/app/services/admin-upload.service.ts");
+/* harmony import */ var _layout_layout_component__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./layout/layout.component */ "./src/app/layout/layout.component.ts");
+/* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
+
+
 
 
 
@@ -261,6 +274,8 @@ var AppModule = /** @class */ (function () {
                 _profile_profile_component__WEBPACK_IMPORTED_MODULE_27__["ProfileComponent"],
                 _settings_settings_component__WEBPACK_IMPORTED_MODULE_28__["SettingsComponent"],
                 _shared_confirm_dialog_confirm_dialog_component__WEBPACK_IMPORTED_MODULE_32__["ConfirmDialogComponent"],
+                _layout_layout_component__WEBPACK_IMPORTED_MODULE_34__["LayoutComponent"],
+                _login_login_component__WEBPACK_IMPORTED_MODULE_35__["LoginComponent"],
             ],
             imports: [
                 _angular_common__WEBPACK_IMPORTED_MODULE_7__["CommonModule"],
@@ -350,7 +365,7 @@ var AuthInterceptor = /** @class */ (function () {
             return next.handle(clonedreq);
         }
         else {
-            this.router.navigate(['sign-in']);
+            this.router.navigate(['admin/login']);
         }
     };
     AuthInterceptor = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -679,33 +694,32 @@ var UnexpectedErrorComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/guards/admin-guard.guard.ts":
-/*!*********************************************!*\
-  !*** ./src/app/guards/admin-guard.guard.ts ***!
-  \*********************************************/
-/*! exports provided: AdminGuard */
+/***/ "./src/app/guards/admin-auth.guard.ts":
+/*!********************************************!*\
+  !*** ./src/app/guards/admin-auth.guard.ts ***!
+  \********************************************/
+/*! exports provided: AdminAuthGuard */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminGuard", function() { return AdminGuard; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminAuthGuard", function() { return AdminAuthGuard; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 
 
-var AdminGuard = /** @class */ (function () {
-    function AdminGuard() {
+var AdminAuthGuard = /** @class */ (function () {
+    function AdminAuthGuard() {
     }
-    AdminGuard.prototype.canActivate = function (next, state) {
+    AdminAuthGuard.prototype.canActivate = function (next, state) {
         return true;
     };
-    AdminGuard = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    AdminAuthGuard = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
             providedIn: 'root'
-        }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
-    ], AdminGuard);
-    return AdminGuard;
+        })
+    ], AdminAuthGuard);
+    return AdminAuthGuard;
 }());
 
 
@@ -762,6 +776,118 @@ var HeaderComponent = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
     ], HeaderComponent);
     return HeaderComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/layout/layout.component.css":
+/*!*********************************************!*\
+  !*** ./src/app/layout/layout.component.css ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2xheW91dC9sYXlvdXQuY29tcG9uZW50LmNzcyJ9 */"
+
+/***/ }),
+
+/***/ "./src/app/layout/layout.component.html":
+/*!**********************************************!*\
+  !*** ./src/app/layout/layout.component.html ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<app-sidebar></app-sidebar>\n<div class=\"tryeuiytjfg\">\n  <app-header></app-header>\n  <div class=\"divallcontent\">\n    <router-outlet></router-outlet>\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/layout/layout.component.ts":
+/*!********************************************!*\
+  !*** ./src/app/layout/layout.component.ts ***!
+  \********************************************/
+/*! exports provided: LayoutComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LayoutComponent", function() { return LayoutComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var LayoutComponent = /** @class */ (function () {
+    function LayoutComponent() {
+    }
+    LayoutComponent.prototype.ngOnInit = function () {
+    };
+    LayoutComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-layout',
+            template: __webpack_require__(/*! ./layout.component.html */ "./src/app/layout/layout.component.html"),
+            styles: [__webpack_require__(/*! ./layout.component.css */ "./src/app/layout/layout.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], LayoutComponent);
+    return LayoutComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/login/login.component.css":
+/*!*******************************************!*\
+  !*** ./src/app/login/login.component.css ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2xvZ2luL2xvZ2luLmNvbXBvbmVudC5jc3MifQ== */"
+
+/***/ }),
+
+/***/ "./src/app/login/login.component.html":
+/*!********************************************!*\
+  !*** ./src/app/login/login.component.html ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  login works!\n</p>\n"
+
+/***/ }),
+
+/***/ "./src/app/login/login.component.ts":
+/*!******************************************!*\
+  !*** ./src/app/login/login.component.ts ***!
+  \******************************************/
+/*! exports provided: LoginComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginComponent", function() { return LoginComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var LoginComponent = /** @class */ (function () {
+    function LoginComponent() {
+    }
+    LoginComponent.prototype.ngOnInit = function () {
+    };
+    LoginComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-login',
+            template: __webpack_require__(/*! ./login.component.html */ "./src/app/login/login.component.html"),
+            styles: [__webpack_require__(/*! ./login.component.css */ "./src/app/login/login.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], LoginComponent);
+    return LoginComponent;
 }());
 
 
@@ -1470,7 +1596,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"divproductlist\" id=\"my-productlist\">\n  <div class=\"divlabtyporeder\">\n    <label (click)=\"onSaleChange(undefined)\" [class.active]=\"filter.OnSale === undefined\" >All</label>\n    <label (click)=\"onSaleChange(true)\" [class.active]=\"filter.OnSale === true\" >On Sale</label>\n    <label (click)=\"onSaleChange(false)\" [class.active]=\"filter.OnSale === false\" >Out Of Stock</label>\n  </div>\n  <div class=\"rqsetgertg\">\n    <input class=\"datefilt1\" type=\"date\" name=\"\" value=\"\">\n    <label>~</label>\n    <input class=\"datefilt2\" type=\"date\" name=\"\" value=\"\">\n    <div class=\"divsearchorder\">\n      <input id=\"inputsearor\" type=\"text\" name=\"\" value=\"\" placeholder=\"Search Order\">\n      <svg class=\"svgsearcus2\" version=\"1.1\" x=\"0px\" y=\"0px\" viewBox=\"0 0 451 451\"\n        style=\"enable-background:new 0 0 451 451;\" xml:space=\"preserve\">\n        <path\n          d=\"M447.05,428l-109.6-109.6c29.4-33.8,47.2-77.9,47.2-126.1C384.65,86.2,298.35,0,192.35,0C86.25,0,0.05,86.3,0.05,192.3   s86.3,192.3,192.3,192.3c48.2,0,92.3-17.8,126.1-47.2L428.05,447c2.6,2.6,6.1,4,9.5,4s6.9-1.3,9.5-4   C452.25,441.8,452.25,433.2,447.05,428z M26.95,192.3c0-91.2,74.2-165.3,165.3-165.3c91.2,0,165.3,74.2,165.3,165.3   s-74.1,165.4-165.3,165.4C101.15,357.7,26.95,283.5,26.95,192.3z\">\n        </path>\n      </svg>\n    </div>\n    <label class=\"bottonimport\">Import</label>\n    <label class=\"bottonimport\">Filter</label>\n    <select class=\"selectcategorie\" name=\"\">\n      <option value=\"\">PHONE</option>\n      <option value=\"\">PC</option>\n      <option value=\"\">BABY</option>\n      <option value=\"\">HOUSE GARIENT</option>\n      <option value=\"\">CAR MOTO</option>\n    </select>\n    <select class=\"selectsubcateg\" name=\"\">\n      <option value=\"\">PHONE</option>\n      <option value=\"\">PC</option>\n      <option value=\"\">BABY</option>\n      <option value=\"\">HOUSE GARIENT</option>\n      <option value=\"\">CAR MOTO</option>\n    </select>\n  </div>\n  <div class=\"divallordersm\">\n\n    <ng-scrollbar [shown]=\"'always'\" class=\"table-wrapper\" barClass=\"scrollbar\" thumbClass=\"scroll-thumb\">\n      <table cdk-table [dataSource]=\"dataSource\" multiTemplateDataRows [trackBy]= \"trackById\" >\n        <ng-container cdkColumnDef=\"Select\">\n          <th cdk-header-cell *cdkHeaderCellDef>\n            <mat-checkbox (change)=\"$event ? masterToggle() : null\"\n              [checked]=\"selection.hasValue() && isAllSelected()\"\n              [indeterminate]=\"selection.hasValue() && !isAllSelected()\">\n            </mat-checkbox>\n          </th>\n          <td cdk-cell *cdkCellDef=\"let row\">\n            <mat-checkbox (click)=\"$event.stopPropagation()\"\n              (change)=\"$event ? selection.toggle(row) : null\"\n              [checked]=\"selection.isSelected(row)\">\n            </mat-checkbox>\n          </td>\n        </ng-container>\n        <ng-container cdkColumnDef=\"Id\">\n          <th cdk-header-cell *cdkHeaderCellDef> ID </th>\n          <td cdk-cell *cdkCellDef=\"let row\"> #{{row.Id}} </td>\n        </ng-container>\n        <ng-container cdkColumnDef=\"Image\">\n          <th cdk-header-cell *cdkHeaderCellDef> Image </th>\n          <td cdk-cell *cdkCellDef=\"let row\">\n            <img [src]=\"'/Content/Images/Products/' + row.Id + '/Main/' + row.mainImg\" class=\"ertytrh\" >\n            <!-- <svg class=\"svgsigj231\" version=\"1.1\" x=\"0px\" y=\"0px\" viewBox=\"0 0 258.75 258.75\"\n                style=\"enable-background:new 0 0 258.75 258.75;\" xml:space=\"preserve\">\n                <circle cx=\"129.375\" cy=\"60\" r=\"60\"></circle>\n                <path\n                  d=\"M129.375,150c-60.061,0-108.75,48.689-108.75,108.75h217.5C238.125,198.689,189.436,150,129.375,150z\">\n                </path>\n              </svg> -->\n          </td>\n        </ng-container>\n        <ng-container cdkColumnDef=\"Name\">\n          <th cdk-header-cell *cdkHeaderCellDef> Name </th>\n          <td cdk-cell *cdkCellDef=\"let row\">\n            <a [href]=\"'/product/'+row.Slug\" target=\"_blank\" class=\"ezrergfrvsx\">{{row.Name}}</a></td>\n        </ng-container>\n        <ng-container cdkColumnDef=\"Price\">\n          <th cdk-header-cell *cdkHeaderCellDef> Price </th>\n          <td cdk-cell *cdkCellDef=\"let row\"> {{ row.Price | currency:'USD' }} </td>\n        </ng-container>\n        <ng-container cdkColumnDef=\"Color\">\n          <th cdk-header-cell *cdkHeaderCellDef> Color </th>\n          <td cdk-cell *cdkCellDef=\"let row\">\n            <label [ngStyle]=\"{'background': 'var(--'+ row.Color + ')' }\" class=\"labcolorprod\"></label>\n          </td>\n        </ng-container>\n        <ng-container cdkColumnDef=\"Quantity\">\n          <th cdk-header-cell *cdkHeaderCellDef> Quantity </th>\n          <td cdk-cell *cdkCellDef=\"let row\"> {{row.Quantity}} </td>\n        </ng-container>\n        <ng-container cdkColumnDef=\"OnSale\">\n          <th cdk-header-cell *cdkHeaderCellDef> Stock </th>\n          <td cdk-cell *cdkCellDef=\"let row\">\n            <label [ngClass]=\"{'outStock': row.OnSale === false}\" class=\"labcolstock\"></label>\n          </td>\n        </ng-container>\n        <ng-container cdkColumnDef=\"Source\">\n          <th cdk-header-cell *cdkHeaderCellDef> Source </th>\n          <td cdk-cell *cdkCellDef=\"let row\"> GearBest </td>\n        </ng-container>\n\n        <ng-container cdkColumnDef=\"Date_Created\">\n          <th cdk-header-cell *cdkHeaderCellDef> Date_Created </th>\n          <td cdk-cell *cdkCellDef=\"let row\"> {{ row.Date_Added | date:shortDate }} </td>\n        </ng-container>\n\n        <ng-container cdkColumnDef=\"Controls\">\n          <th cdk-header-cell *cdkHeaderCellDef></th>\n          <td cdk-cell *cdkCellDef=\"let row\">\n            <div class=\"PtableControls\">\n              <svg class=\"svgeditm2\" version=\"1.1\" x=\"0px\" y=\"0px\" viewBox=\"0 0 469.331 469.331\"\n                style=\"enable-background:new 0 0 469.331 469.331;\" xml:space=\"preserve\">\n                <path\n                  d=\"M438.931,30.403c-40.4-40.5-106.1-40.5-146.5,0l-268.6,268.5c-2.1,2.1-3.4,4.8-3.8,7.7l-19.9,147.4   c-0.6,4.2,0.9,8.4,3.8,11.3c2.5,2.5,6,4,9.5,4c0.6,0,1.2,0,1.8-0.1l88.8-12c7.4-1,12.6-7.8,11.6-15.2c-1-7.4-7.8-12.6-15.2-11.6   l-71.2,9.6l13.9-102.8l108.2,108.2c2.5,2.5,6,4,9.5,4s7-1.4,9.5-4l268.6-268.5c19.6-19.6,30.4-45.6,30.4-73.3   S458.531,49.903,438.931,30.403z M297.631,63.403l45.1,45.1l-245.1,245.1l-45.1-45.1L297.631,63.403z M160.931,416.803l-44.1-44.1   l245.1-245.1l44.1,44.1L160.931,416.803z M424.831,152.403l-107.9-107.9c13.7-11.3,30.8-17.5,48.8-17.5c20.5,0,39.7,8,54.2,22.4   s22.4,33.7,22.4,54.2C442.331,121.703,436.131,138.703,424.831,152.403z\">\n                </path>\n              </svg>\n              <svg class=\"svgdeletm2\" xmlns=\"http://www.w3.org/2000/svg\" height=\"427pt\" viewBox=\"-40 0 427 427.00131\"\n                width=\"427pt\">\n                <path\n                  d=\"m232.398438 154.703125c-5.523438 0-10 4.476563-10 10v189c0 5.519531 4.476562 10 10 10 5.523437 0 10-4.480469 10-10v-189c0-5.523437-4.476563-10-10-10zm0 0\">\n                </path>\n                <path\n                  d=\"m114.398438 154.703125c-5.523438 0-10 4.476563-10 10v189c0 5.519531 4.476562 10 10 10 5.523437 0 10-4.480469 10-10v-189c0-5.523437-4.476563-10-10-10zm0 0\">\n                </path>\n                <path\n                  d=\"m28.398438 127.121094v246.378906c0 14.5625 5.339843 28.238281 14.667968 38.050781 9.285156 9.839844 22.207032 15.425781 35.730469 15.449219h189.203125c13.527344-.023438 26.449219-5.609375 35.730469-15.449219 9.328125-9.8125 14.667969-23.488281 14.667969-38.050781v-246.378906c18.542968-4.921875 30.558593-22.835938 28.078124-41.863282-2.484374-19.023437-18.691406-33.253906-37.878906-33.257812h-51.199218v-12.5c.058593-10.511719-4.097657-20.605469-11.539063-28.03125-7.441406-7.421875-17.550781-11.5546875-28.0625-11.46875h-88.796875c-10.511719-.0859375-20.621094 4.046875-28.0625 11.46875-7.441406 7.425781-11.597656 17.519531-11.539062 28.03125v12.5h-51.199219c-19.1875.003906-35.394531 14.234375-37.878907 33.257812-2.480468 19.027344 9.535157 36.941407 28.078126 41.863282zm239.601562 279.878906h-189.203125c-17.097656 0-30.398437-14.6875-30.398437-33.5v-245.5h250v245.5c0 18.8125-13.300782 33.5-30.398438 33.5zm-158.601562-367.5c-.066407-5.207031 1.980468-10.21875 5.675781-13.894531 3.691406-3.675781 8.714843-5.695313 13.925781-5.605469h88.796875c5.210937-.089844 10.234375 1.929688 13.925781 5.605469 3.695313 3.671875 5.742188 8.6875 5.675782 13.894531v12.5h-128zm-71.199219 32.5h270.398437c9.941406 0 18 8.058594 18 18s-8.058594 18-18 18h-270.398437c-9.941407 0-18-8.058594-18-18s8.058593-18 18-18zm0 0\">\n                </path>\n                <path\n                  d=\"m173.398438 154.703125c-5.523438 0-10 4.476563-10 10v189c0 5.519531 4.476562 10 10 10 5.523437 0 10-4.480469 10-10v-189c0-5.523437-4.476563-10-10-10zm0 0\">\n                </path>\n              </svg>\n              <svg class=\"svgdeletm2\" version=\"1.1\" x=\"0px\" y=\"0px\" viewBox=\"0 0 699.428 699.428\"\n                style=\"enable-background:new 0 0 699.428 699.428;\" xml:space=\"preserve\">\n                <path\n                  d=\"M502.714,0c-2.71,0-262.286,0-262.286,0C194.178,0,153,42.425,153,87.429l-25.267,0.59     c-46.228,0-84.019,41.834-84.019,86.838V612c0,45.004,41.179,87.428,87.429,87.428H459c46.249,0,87.428-42.424,87.428-87.428     h21.857c46.25,0,87.429-42.424,87.429-87.428v-349.19L502.714,0z M459,655.715H131.143c-22.95,0-43.714-21.441-43.714-43.715     V174.857c0-22.272,18.688-42.993,41.638-42.993L153,131.143v393.429C153,569.576,194.178,612,240.428,612h262.286     C502.714,634.273,481.949,655.715,459,655.715z M612,524.572c0,22.271-20.765,43.713-43.715,43.713H240.428     c-22.95,0-43.714-21.441-43.714-43.713V87.429c0-22.272,20.764-43.714,43.714-43.714H459c-0.351,50.337,0,87.975,0,87.975     c0,45.419,40.872,86.882,87.428,86.882c0,0,23.213,0,65.572,0V524.572z M546.428,174.857c-23.277,0-43.714-42.293-43.714-64.981     c0,0,0-22.994,0-65.484v-0.044L612,174.857H546.428z M502.714,306.394H306c-12.065,0-21.857,9.77-21.857,21.835     c0,12.065,9.792,21.835,21.857,21.835h196.714c12.065,0,21.857-9.771,21.857-21.835     C524.571,316.164,514.779,306.394,502.714,306.394z M502.714,415.57H306c-12.065,0-21.857,9.77-21.857,21.834     c0,12.066,9.792,21.836,21.857,21.836h196.714c12.065,0,21.857-9.77,21.857-21.836C524.571,425.34,514.779,415.57,502.714,415.57     z\">\n                </path>\n              </svg>\n              <svg class=\"svgdeletm2\" version=\"1.1\" x=\"0px\" y=\"0px\" viewBox=\"0 0 54.971 54.971\"\n                style=\"enable-background:new 0 0 54.971 54.971;\" xml:space=\"preserve\">\n                <path\n                  d=\"M51.173,3.801c-5.068-5.068-13.315-5.066-18.384,0l-9.192,9.192c-0.781,0.781-0.781,2.047,0,2.828s2.047,0.781,2.828,0   l9.192-9.192c1.691-1.69,3.951-2.622,6.363-2.622c2.413,0,4.673,0.932,6.364,2.623s2.623,3.951,2.623,6.364   c0,2.412-0.932,4.672-2.623,6.363L36.325,31.379c-3.51,3.508-9.219,3.508-12.729,0c-0.781-0.781-2.047-0.781-2.828,0   s-0.781,2.048,0,2.828c2.534,2.534,5.863,3.801,9.192,3.801s6.658-1.267,9.192-3.801l12.021-12.021   c2.447-2.446,3.795-5.711,3.795-9.192C54.968,9.512,53.62,6.248,51.173,3.801z\">\n                </path>\n                <path\n                  d=\"M27.132,40.57l-7.778,7.778c-1.691,1.691-3.951,2.623-6.364,2.623c-2.412,0-4.673-0.932-6.364-2.623   c-3.509-3.509-3.509-9.219,0-12.728L17.94,24.306c1.691-1.69,3.951-2.622,6.364-2.622c2.412,0,4.672,0.932,6.363,2.622   c0.781,0.781,2.047,0.781,2.828,0s0.781-2.047,0-2.828c-5.067-5.067-13.314-5.068-18.384,0L3.797,32.793   c-2.446,2.446-3.794,5.711-3.794,9.192c0,3.48,1.348,6.745,3.795,9.191c2.446,2.447,5.711,3.795,9.191,3.795   c3.481,0,6.746-1.348,9.192-3.795l7.778-7.778c0.781-0.781,0.781-2.047,0-2.828S27.913,39.789,27.132,40.57z\">\n                </path>\n                <path\n                  d=\"M34.003,44.007c-1.104,0-2,0.896-2,2v6c0,1.104,0.896,2,2,2s2-0.896,2-2v-6C36.003,44.902,35.108,44.007,34.003,44.007z\">\n                </path>\n                <path\n                  d=\"M41.175,42.593c-0.781-0.781-2.047-0.781-2.828,0s-0.781,2.047,0,2.828l4.242,4.242c0.391,0.391,0.902,0.586,1.414,0.586   s1.023-0.195,1.414-0.586c0.781-0.781,0.781-2.047,0-2.828L41.175,42.593z\">\n                </path>\n                <path\n                  d=\"M45.968,36.007h-6c-1.104,0-2,0.896-2,2s0.896,2,2,2h6c1.104,0,2-0.896,2-2S47.073,36.007,45.968,36.007z\">\n                </path>\n                <path\n                  d=\"M18.003,13.007c1.104,0,2-0.896,2-2v-6c0-1.104-0.896-2-2-2s-2,0.896-2,2v6C16.003,12.111,16.899,13.007,18.003,13.007z\">\n                </path>\n                <path\n                  d=\"M10.589,14.421c0.391,0.391,0.902,0.586,1.414,0.586s1.023-0.195,1.414-0.586c0.781-0.781,0.781-2.047,0-2.828L9.175,7.35   c-0.781-0.781-2.047-0.781-2.828,0s-0.781,2.047,0,2.828L10.589,14.421z\">\n                </path>\n                <path\n                  d=\"M5.968,21.007h6c1.104,0,2-0.896,2-2s-0.896-2-2-2h-6c-1.104,0-2,0.896-2,2S4.864,21.007,5.968,21.007z\">\n                </path>\n              </svg>\n            </div>\n          </td>\n        </ng-container>\n        <ng-container cdkColumnDef=\"Expand\">\n          <th cdk-header-cell *cdkHeaderCellDef></th>\n          <td cdk-cell *cdkCellDef=\"let row\">\n            <svg (click)=\"expandedElement = (expandedElement === row) ? null : row\" class=\"svgdowndet\" version=\"1.1\" x=\"0px\" y=\"0px\" viewBox=\"0 0 292.362 292.362\"\n              style=\"enable-background:new 0 0 292.362 292.362;\" xml:space=\"preserve\">\n              <path\n                d=\"M286.935,69.377c-3.614-3.617-7.898-5.424-12.848-5.424H18.274c-4.952,0-9.233,1.807-12.85,5.424   C1.807,72.998,0,77.279,0,82.228c0,4.948,1.807,9.229,5.424,12.847l127.907,127.907c3.621,3.617,7.902,5.428,12.85,5.428   s9.233-1.811,12.847-5.428L286.935,95.074c3.613-3.617,5.427-7.898,5.427-12.847C292.362,77.279,290.548,72.998,286.935,69.377z\">\n              </path>\n            </svg>\n          </td>\n        </ng-container>\n\n        <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->\n        <ng-container cdkColumnDef=\"expandedDetail\">\n          <td cdk-cell *cdkCellDef=\"let element\" [attr.colspan]=\"columns.length\">\n            <div class=\"expanded-content\" [@detailExpand]=\"element == expandedElement ? 'expanded' : 'collapsed'\">\n              <!-- Something will appear right here .. -->\n            </div>\n          </td>\n        </ng-container>\n\n        <tr stickyCssClass cdk-header-row *cdkHeaderRowDef=\"columns\"></tr>\n        <tr cdk-row *cdkRowDef=\"let row; columns: columns;\"  ></tr>\n        <tr cdk-row *cdkRowDef=\"let row; columns: ['expandedDetail']\" class=\"example-detail-row\"></tr>\n\n\n      </table>\n    </ng-scrollbar>\n  </div>\n  <div class=\"dfsfhgbcv\">\n    <label>Show</label>\n    <select class=\"selectshow\" name=\"\">\n      <option>10</option>\n      <option>20</option>\n      <option>50</option>\n      <option>100</option>\n    </select>\n    <div class=\"nbpagerevcom\">\n      <div class=\"nbpgcom\">&lt;</div>\n      <div class=\"nbpgcom\">1</div>\n      <div class=\"nbpgcom dnbpgcomd\">2</div>\n      <div class=\"nbpgcom\">3</div>\n      <div class=\"nbpgcom\">4</div>\n      <div class=\"nbpgcom\">&gt;</div>\n    </div>\n  </div>\n\n  <!-- <div class=\"alert\">\n  {{ products$ | async | json }}\n  </div> -->\n</div>"
+module.exports = "<div class=\"divproductlist\" id=\"my-productlist\">\n  <div class=\"divlabtyporeder\">\n    <label (click)=\"onSaleChange(undefined)\" [class.active]=\"queryObj.OnSale === undefined\" >All</label>\n    <label (click)=\"onSaleChange(true)\" [class.active]=\"queryObj.OnSale === true\" >On Sale</label>\n    <label (click)=\"onSaleChange(false)\" [class.active]=\"queryObj.OnSale === false\" >Out Of Stock</label>\n  </div>\n  <div class=\"rqsetgertg\">\n    <input class=\"datefilt1\" type=\"date\" name=\"\" value=\"\">\n    <label>~</label>\n    <input class=\"datefilt2\" type=\"date\" name=\"\" value=\"\">\n    <div class=\"divsearchorder\">\n      <input id=\"inputsearor\" type=\"text\" name=\"\" value=\"\" placeholder=\"Search Order\">\n      <svg class=\"svgsearcus2\" version=\"1.1\" x=\"0px\" y=\"0px\" viewBox=\"0 0 451 451\"\n        style=\"enable-background:new 0 0 451 451;\" xml:space=\"preserve\">\n        <path\n          d=\"M447.05,428l-109.6-109.6c29.4-33.8,47.2-77.9,47.2-126.1C384.65,86.2,298.35,0,192.35,0C86.25,0,0.05,86.3,0.05,192.3   s86.3,192.3,192.3,192.3c48.2,0,92.3-17.8,126.1-47.2L428.05,447c2.6,2.6,6.1,4,9.5,4s6.9-1.3,9.5-4   C452.25,441.8,452.25,433.2,447.05,428z M26.95,192.3c0-91.2,74.2-165.3,165.3-165.3c91.2,0,165.3,74.2,165.3,165.3   s-74.1,165.4-165.3,165.4C101.15,357.7,26.95,283.5,26.95,192.3z\">\n        </path>\n      </svg>\n    </div>\n    <label class=\"bottonimport\">Import</label>\n    <label class=\"bottonimport\">Filter</label>\n    <select class=\"selectcategorie\" name=\"\">\n      <option value=\"\">PHONE</option>\n      <option value=\"\">PC</option>\n      <option value=\"\">BABY</option>\n      <option value=\"\">HOUSE GARIENT</option>\n      <option value=\"\">CAR MOTO</option>\n    </select>\n    <select class=\"selectsubcateg\" name=\"\">\n      <option value=\"\">PHONE</option>\n      <option value=\"\">PC</option>\n      <option value=\"\">BABY</option>\n      <option value=\"\">HOUSE GARIENT</option>\n      <option value=\"\">CAR MOTO</option>\n    </select>\n  </div>\n  <div class=\"divallordersm\">\n\n    <ng-scrollbar [shown]=\"'always'\" class=\"table-wrapper\" barClass=\"scrollbar\" thumbClass=\"scroll-thumb\">\n      <table cdk-table [dataSource]=\"dataSource\" multiTemplateDataRows [trackBy]= \"trackById\" >\n        <ng-container cdkColumnDef=\"Select\">\n          <th cdk-header-cell *cdkHeaderCellDef>\n            <mat-checkbox (change)=\"$event ? masterToggle() : null\"\n              [checked]=\"selection.hasValue() && isAllSelected()\"\n              [indeterminate]=\"selection.hasValue() && !isAllSelected()\">\n            </mat-checkbox>\n          </th>\n          <td cdk-cell *cdkCellDef=\"let row\">\n            <mat-checkbox (click)=\"$event.stopPropagation()\"\n              (change)=\"$event ? selection.toggle(row) : null\"\n              [checked]=\"selection.isSelected(row)\">\n            </mat-checkbox>\n          </td>\n        </ng-container>\n        <ng-container cdkColumnDef=\"Id\">\n          <th cdk-header-cell *cdkHeaderCellDef> ID </th>\n          <td cdk-cell *cdkCellDef=\"let row\"> #{{row.Id}} </td>\n        </ng-container>\n        <ng-container cdkColumnDef=\"Image\">\n          <th cdk-header-cell *cdkHeaderCellDef> Image </th>\n          <td cdk-cell *cdkCellDef=\"let row\">\n            <img [src]=\"'/Content/Images/Products/' + row.Id + '/Main/' + row.mainImg\" class=\"ertytrh\" >\n            <!-- <svg class=\"svgsigj231\" version=\"1.1\" x=\"0px\" y=\"0px\" viewBox=\"0 0 258.75 258.75\"\n                style=\"enable-background:new 0 0 258.75 258.75;\" xml:space=\"preserve\">\n                <circle cx=\"129.375\" cy=\"60\" r=\"60\"></circle>\n                <path\n                  d=\"M129.375,150c-60.061,0-108.75,48.689-108.75,108.75h217.5C238.125,198.689,189.436,150,129.375,150z\">\n                </path>\n              </svg> -->\n          </td>\n        </ng-container>\n        <ng-container cdkColumnDef=\"Name\">\n          <th cdk-header-cell *cdkHeaderCellDef> Name </th>\n          <td cdk-cell *cdkCellDef=\"let row\">\n            <a [href]=\"'/product/'+row.Slug\" target=\"_blank\" class=\"ezrergfrvsx\">{{row.Name}}</a></td>\n        </ng-container>\n        <ng-container cdkColumnDef=\"Price\">\n          <th cdk-header-cell *cdkHeaderCellDef> Price </th>\n          <td cdk-cell *cdkCellDef=\"let row\"> {{ row.Price | currency:'USD' }} </td>\n        </ng-container>\n        <ng-container cdkColumnDef=\"Color\">\n          <th cdk-header-cell *cdkHeaderCellDef> Color </th>\n          <td cdk-cell *cdkCellDef=\"let row\">\n            <label [ngStyle]=\"{'background': 'var(--'+ row.Color + ')' }\" class=\"labcolorprod\"></label>\n          </td>\n        </ng-container>\n        <ng-container cdkColumnDef=\"Quantity\">\n          <th cdk-header-cell *cdkHeaderCellDef> Quantity </th>\n          <td cdk-cell *cdkCellDef=\"let row\"> {{row.Quantity}} </td>\n        </ng-container>\n        <ng-container cdkColumnDef=\"OnSale\">\n          <th cdk-header-cell *cdkHeaderCellDef> Stock </th>\n          <td cdk-cell *cdkCellDef=\"let row\">\n            <label [ngClass]=\"{'outStock': row.OnSale === false}\" class=\"labcolstock\"></label>\n          </td>\n        </ng-container>\n        <ng-container cdkColumnDef=\"Source\">\n          <th cdk-header-cell *cdkHeaderCellDef> Source </th>\n          <td cdk-cell *cdkCellDef=\"let row\"> GearBest </td>\n        </ng-container>\n\n        <ng-container cdkColumnDef=\"Date_Created\">\n          <th cdk-header-cell *cdkHeaderCellDef> Date_Created </th>\n          <td cdk-cell *cdkCellDef=\"let row\"> {{ row.Date_Added | date:shortDate }} </td>\n        </ng-container>\n\n        <ng-container cdkColumnDef=\"Controls\">\n          <th cdk-header-cell *cdkHeaderCellDef></th>\n          <td cdk-cell *cdkCellDef=\"let row\">\n            <div class=\"PtableControls\">\n              <svg class=\"svgeditm2\" version=\"1.1\" x=\"0px\" y=\"0px\" viewBox=\"0 0 469.331 469.331\"\n                style=\"enable-background:new 0 0 469.331 469.331;\" xml:space=\"preserve\">\n                <path\n                  d=\"M438.931,30.403c-40.4-40.5-106.1-40.5-146.5,0l-268.6,268.5c-2.1,2.1-3.4,4.8-3.8,7.7l-19.9,147.4   c-0.6,4.2,0.9,8.4,3.8,11.3c2.5,2.5,6,4,9.5,4c0.6,0,1.2,0,1.8-0.1l88.8-12c7.4-1,12.6-7.8,11.6-15.2c-1-7.4-7.8-12.6-15.2-11.6   l-71.2,9.6l13.9-102.8l108.2,108.2c2.5,2.5,6,4,9.5,4s7-1.4,9.5-4l268.6-268.5c19.6-19.6,30.4-45.6,30.4-73.3   S458.531,49.903,438.931,30.403z M297.631,63.403l45.1,45.1l-245.1,245.1l-45.1-45.1L297.631,63.403z M160.931,416.803l-44.1-44.1   l245.1-245.1l44.1,44.1L160.931,416.803z M424.831,152.403l-107.9-107.9c13.7-11.3,30.8-17.5,48.8-17.5c20.5,0,39.7,8,54.2,22.4   s22.4,33.7,22.4,54.2C442.331,121.703,436.131,138.703,424.831,152.403z\">\n                </path>\n              </svg>\n              <svg class=\"svgdeletm2\" xmlns=\"http://www.w3.org/2000/svg\" height=\"427pt\" viewBox=\"-40 0 427 427.00131\"\n                width=\"427pt\">\n                <path\n                  d=\"m232.398438 154.703125c-5.523438 0-10 4.476563-10 10v189c0 5.519531 4.476562 10 10 10 5.523437 0 10-4.480469 10-10v-189c0-5.523437-4.476563-10-10-10zm0 0\">\n                </path>\n                <path\n                  d=\"m114.398438 154.703125c-5.523438 0-10 4.476563-10 10v189c0 5.519531 4.476562 10 10 10 5.523437 0 10-4.480469 10-10v-189c0-5.523437-4.476563-10-10-10zm0 0\">\n                </path>\n                <path\n                  d=\"m28.398438 127.121094v246.378906c0 14.5625 5.339843 28.238281 14.667968 38.050781 9.285156 9.839844 22.207032 15.425781 35.730469 15.449219h189.203125c13.527344-.023438 26.449219-5.609375 35.730469-15.449219 9.328125-9.8125 14.667969-23.488281 14.667969-38.050781v-246.378906c18.542968-4.921875 30.558593-22.835938 28.078124-41.863282-2.484374-19.023437-18.691406-33.253906-37.878906-33.257812h-51.199218v-12.5c.058593-10.511719-4.097657-20.605469-11.539063-28.03125-7.441406-7.421875-17.550781-11.5546875-28.0625-11.46875h-88.796875c-10.511719-.0859375-20.621094 4.046875-28.0625 11.46875-7.441406 7.425781-11.597656 17.519531-11.539062 28.03125v12.5h-51.199219c-19.1875.003906-35.394531 14.234375-37.878907 33.257812-2.480468 19.027344 9.535157 36.941407 28.078126 41.863282zm239.601562 279.878906h-189.203125c-17.097656 0-30.398437-14.6875-30.398437-33.5v-245.5h250v245.5c0 18.8125-13.300782 33.5-30.398438 33.5zm-158.601562-367.5c-.066407-5.207031 1.980468-10.21875 5.675781-13.894531 3.691406-3.675781 8.714843-5.695313 13.925781-5.605469h88.796875c5.210937-.089844 10.234375 1.929688 13.925781 5.605469 3.695313 3.671875 5.742188 8.6875 5.675782 13.894531v12.5h-128zm-71.199219 32.5h270.398437c9.941406 0 18 8.058594 18 18s-8.058594 18-18 18h-270.398437c-9.941407 0-18-8.058594-18-18s8.058593-18 18-18zm0 0\">\n                </path>\n                <path\n                  d=\"m173.398438 154.703125c-5.523438 0-10 4.476563-10 10v189c0 5.519531 4.476562 10 10 10 5.523437 0 10-4.480469 10-10v-189c0-5.523437-4.476563-10-10-10zm0 0\">\n                </path>\n              </svg>\n              <svg class=\"svgdeletm2\" version=\"1.1\" x=\"0px\" y=\"0px\" viewBox=\"0 0 699.428 699.428\"\n                style=\"enable-background:new 0 0 699.428 699.428;\" xml:space=\"preserve\">\n                <path\n                  d=\"M502.714,0c-2.71,0-262.286,0-262.286,0C194.178,0,153,42.425,153,87.429l-25.267,0.59     c-46.228,0-84.019,41.834-84.019,86.838V612c0,45.004,41.179,87.428,87.429,87.428H459c46.249,0,87.428-42.424,87.428-87.428     h21.857c46.25,0,87.429-42.424,87.429-87.428v-349.19L502.714,0z M459,655.715H131.143c-22.95,0-43.714-21.441-43.714-43.715     V174.857c0-22.272,18.688-42.993,41.638-42.993L153,131.143v393.429C153,569.576,194.178,612,240.428,612h262.286     C502.714,634.273,481.949,655.715,459,655.715z M612,524.572c0,22.271-20.765,43.713-43.715,43.713H240.428     c-22.95,0-43.714-21.441-43.714-43.713V87.429c0-22.272,20.764-43.714,43.714-43.714H459c-0.351,50.337,0,87.975,0,87.975     c0,45.419,40.872,86.882,87.428,86.882c0,0,23.213,0,65.572,0V524.572z M546.428,174.857c-23.277,0-43.714-42.293-43.714-64.981     c0,0,0-22.994,0-65.484v-0.044L612,174.857H546.428z M502.714,306.394H306c-12.065,0-21.857,9.77-21.857,21.835     c0,12.065,9.792,21.835,21.857,21.835h196.714c12.065,0,21.857-9.771,21.857-21.835     C524.571,316.164,514.779,306.394,502.714,306.394z M502.714,415.57H306c-12.065,0-21.857,9.77-21.857,21.834     c0,12.066,9.792,21.836,21.857,21.836h196.714c12.065,0,21.857-9.77,21.857-21.836C524.571,425.34,514.779,415.57,502.714,415.57     z\">\n                </path>\n              </svg>\n              <svg class=\"svgdeletm2\" version=\"1.1\" x=\"0px\" y=\"0px\" viewBox=\"0 0 54.971 54.971\"\n                style=\"enable-background:new 0 0 54.971 54.971;\" xml:space=\"preserve\">\n                <path\n                  d=\"M51.173,3.801c-5.068-5.068-13.315-5.066-18.384,0l-9.192,9.192c-0.781,0.781-0.781,2.047,0,2.828s2.047,0.781,2.828,0   l9.192-9.192c1.691-1.69,3.951-2.622,6.363-2.622c2.413,0,4.673,0.932,6.364,2.623s2.623,3.951,2.623,6.364   c0,2.412-0.932,4.672-2.623,6.363L36.325,31.379c-3.51,3.508-9.219,3.508-12.729,0c-0.781-0.781-2.047-0.781-2.828,0   s-0.781,2.048,0,2.828c2.534,2.534,5.863,3.801,9.192,3.801s6.658-1.267,9.192-3.801l12.021-12.021   c2.447-2.446,3.795-5.711,3.795-9.192C54.968,9.512,53.62,6.248,51.173,3.801z\">\n                </path>\n                <path\n                  d=\"M27.132,40.57l-7.778,7.778c-1.691,1.691-3.951,2.623-6.364,2.623c-2.412,0-4.673-0.932-6.364-2.623   c-3.509-3.509-3.509-9.219,0-12.728L17.94,24.306c1.691-1.69,3.951-2.622,6.364-2.622c2.412,0,4.672,0.932,6.363,2.622   c0.781,0.781,2.047,0.781,2.828,0s0.781-2.047,0-2.828c-5.067-5.067-13.314-5.068-18.384,0L3.797,32.793   c-2.446,2.446-3.794,5.711-3.794,9.192c0,3.48,1.348,6.745,3.795,9.191c2.446,2.447,5.711,3.795,9.191,3.795   c3.481,0,6.746-1.348,9.192-3.795l7.778-7.778c0.781-0.781,0.781-2.047,0-2.828S27.913,39.789,27.132,40.57z\">\n                </path>\n                <path\n                  d=\"M34.003,44.007c-1.104,0-2,0.896-2,2v6c0,1.104,0.896,2,2,2s2-0.896,2-2v-6C36.003,44.902,35.108,44.007,34.003,44.007z\">\n                </path>\n                <path\n                  d=\"M41.175,42.593c-0.781-0.781-2.047-0.781-2.828,0s-0.781,2.047,0,2.828l4.242,4.242c0.391,0.391,0.902,0.586,1.414,0.586   s1.023-0.195,1.414-0.586c0.781-0.781,0.781-2.047,0-2.828L41.175,42.593z\">\n                </path>\n                <path\n                  d=\"M45.968,36.007h-6c-1.104,0-2,0.896-2,2s0.896,2,2,2h6c1.104,0,2-0.896,2-2S47.073,36.007,45.968,36.007z\">\n                </path>\n                <path\n                  d=\"M18.003,13.007c1.104,0,2-0.896,2-2v-6c0-1.104-0.896-2-2-2s-2,0.896-2,2v6C16.003,12.111,16.899,13.007,18.003,13.007z\">\n                </path>\n                <path\n                  d=\"M10.589,14.421c0.391,0.391,0.902,0.586,1.414,0.586s1.023-0.195,1.414-0.586c0.781-0.781,0.781-2.047,0-2.828L9.175,7.35   c-0.781-0.781-2.047-0.781-2.828,0s-0.781,2.047,0,2.828L10.589,14.421z\">\n                </path>\n                <path\n                  d=\"M5.968,21.007h6c1.104,0,2-0.896,2-2s-0.896-2-2-2h-6c-1.104,0-2,0.896-2,2S4.864,21.007,5.968,21.007z\">\n                </path>\n              </svg>\n            </div>\n          </td>\n        </ng-container>\n        <ng-container cdkColumnDef=\"Expand\">\n          <th cdk-header-cell *cdkHeaderCellDef></th>\n          <td cdk-cell *cdkCellDef=\"let row\">\n            <svg (click)=\"expandedElement = (expandedElement === row) ? null : row\" class=\"svgdowndet\" version=\"1.1\" x=\"0px\" y=\"0px\" viewBox=\"0 0 292.362 292.362\"\n              style=\"enable-background:new 0 0 292.362 292.362;\" xml:space=\"preserve\">\n              <path\n                d=\"M286.935,69.377c-3.614-3.617-7.898-5.424-12.848-5.424H18.274c-4.952,0-9.233,1.807-12.85,5.424   C1.807,72.998,0,77.279,0,82.228c0,4.948,1.807,9.229,5.424,12.847l127.907,127.907c3.621,3.617,7.902,5.428,12.85,5.428   s9.233-1.811,12.847-5.428L286.935,95.074c3.613-3.617,5.427-7.898,5.427-12.847C292.362,77.279,290.548,72.998,286.935,69.377z\">\n              </path>\n            </svg>\n          </td>\n        </ng-container>\n\n        <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->\n        <ng-container cdkColumnDef=\"expandedDetail\">\n          <td cdk-cell *cdkCellDef=\"let element\" [attr.colspan]=\"columns.length\">\n            <div class=\"expanded-content\" [@detailExpand]=\"element == expandedElement ? 'expanded' : 'collapsed'\">\n              <!-- Something will appear right here .. -->\n            </div>\n          </td>\n        </ng-container>\n\n        <tr stickyCssClass cdk-header-row *cdkHeaderRowDef=\"columns\"></tr>\n        <tr cdk-row *cdkRowDef=\"let row; columns: columns;\"  ></tr>\n        <tr cdk-row *cdkRowDef=\"let row; columns: ['expandedDetail']\" class=\"example-detail-row\"></tr>\n\n\n      </table>\n    </ng-scrollbar>\n  </div>\n  <div class=\"dfsfhgbcv\">\n    <label>Show</label>\n    <select class=\"selectshow\" name=\"\">\n      <option>10</option>\n      <option>20</option>\n      <option>50</option>\n      <option>100</option>\n    </select>\n    <div class=\"nbpagerevcom\">\n      <div class=\"nbpgcom\">&lt;</div>\n      <div class=\"nbpgcom\">1</div>\n      <div class=\"nbpgcom dnbpgcomd\">2</div>\n      <div class=\"nbpgcom\">3</div>\n      <div class=\"nbpgcom\">4</div>\n      <div class=\"nbpgcom\">&gt;</div>\n    </div>\n  </div>\n\n  <!-- <div class=\"alert\">\n  {{ products$ | async | json }}\n  </div> -->\n</div>"
 
 /***/ }),
 
@@ -1499,7 +1625,7 @@ __webpack_require__.r(__webpack_exports__);
 var ProductListComponent = /** @class */ (function () {
     function ProductListComponent(productService) {
         this.productService = productService;
-        this.filter = {};
+        this.queryObj = {};
         this.columns = ['Select', 'Id', 'Image', 'Name', 'Price', 'Color', 'Quantity', 'Source', 'Date_Created', 'OnSale', 'Controls', 'Expand'];
         this.selection = new _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_3__["SelectionModel"](true, []);
     }
@@ -1507,12 +1633,12 @@ var ProductListComponent = /** @class */ (function () {
         this.populateProducts();
     };
     ProductListComponent.prototype.onSaleChange = function (onSale) {
-        this.filter.OnSale = onSale;
+        this.queryObj.OnSale = onSale;
         this.populateProducts();
     };
     ProductListComponent.prototype.populateProducts = function () {
         var _this = this;
-        this.productService.GetProductsList(this.filter)
+        this.productService.GetProductsList(this.queryObj)
             .subscribe(function (data) {
             _this.dataSource = new _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](data);
             _this.selection.clear();

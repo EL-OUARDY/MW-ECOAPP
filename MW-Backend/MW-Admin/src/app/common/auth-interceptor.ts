@@ -19,7 +19,7 @@ export class AuthInterceptor implements HttpInterceptor {
             });
             return next.handle(clonedreq);
         } else {
-            this.router.navigate(['sign-in']);
+            this.router.navigate(['admin/login']);
         }
     }
 }

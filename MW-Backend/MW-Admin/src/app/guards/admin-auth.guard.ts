@@ -5,12 +5,10 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class AdminGuard implements CanActivate {
-  constructor() { }
-
+export class AdminAuthGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean> | boolean {
+    state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
     return true;
   }
 }
