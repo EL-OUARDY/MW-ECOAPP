@@ -26,7 +26,7 @@ const routes: Routes = [
   {
     path: '', component: LayoutComponent,
     children: [
-      { path: '', component: DashboardComponent },
+      { path: '', component: DashboardComponent , canActivate: [AdminAuthGuard] },
       { path: 'admin', component: ProductFormComponent , canActivate: [AdminAuthGuard] },
       { path: 'admin/products', component: ProductListComponent, canActivate: [AdminAuthGuard] },
       { path: 'admin/product-form', component: ProductFormComponent, canActivate: [AdminAuthGuard] },

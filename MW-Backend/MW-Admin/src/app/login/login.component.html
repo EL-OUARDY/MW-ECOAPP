@@ -1,3 +1,16 @@
-<p>
-  login works!
-</p>
+<div class="divprofileset divphoto">
+  <form [formGroup]="form" (ngSubmit)="login()" class="allinformation">
+    <div class="divforminfo">
+      <div class="divemail">
+        <input formControlName="Email" placeholder="Admin@mw.io" type="email" class="loginInput inputemail">
+      </div>
+      <div class="divemail">
+        <input formControlName="Password" placeholder="Password" type="password" class="loginInput inputemail">
+      </div>
+      <div class="grey">
+        <mat-checkbox formControlName="stayLogged">Stay Logged ?</mat-checkbox>
+      </div>
+    </div>
+    <button type="submit" class="bottonaddprod contbottom">Login</button>
+  </form>
+</div>
