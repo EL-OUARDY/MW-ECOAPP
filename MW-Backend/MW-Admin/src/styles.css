@@ -1489,7 +1489,7 @@ input[type="text"] {
     color: var(--color-font);
 }
 
-.divaddproduct input[type="text"], .divaddproduct input[type="number"] {
+.divaddproduct input[type="text"], .divaddproduct input[type="number"], .loginInput {
     outline: none;
     /* float: left; */
     background: var(--fillbackrg);
@@ -1499,7 +1499,11 @@ input[type="text"] {
     border-radius: 95px;
     padding: 5px 12px 5px 15px;
 }
-
+.loginInput{
+    margin: 0;
+    text-align: center;
+    letter-spacing: 2px;
+}
 .divsearchorder {
     border-radius: 30px;
     /* border: 1px solid #eee; */
@@ -2524,7 +2528,7 @@ input.uyoieztr, .uyoieztra {
 }
 
 .divprofileset .allinformation {
-    display: table;
+    /* display: table; */
     box-sizing: border-box;
     padding: 30px;
     border-radius: 20px;
@@ -2539,7 +2543,7 @@ input.uyoieztr, .uyoieztra {
     width: 100%;
 }
 
-#contbottom {
+.contbottom {
     position: relative;
     width: 53%;
     display: table;
@@ -2553,9 +2557,8 @@ input.uyoieztr, .uyoieztra {
     /* background: transparent; */
     /* color: #00BCD4; */
     font-size: 20px;
+    font-family: "AgencyFB";
     cursor: pointer;
-    font-family: Agency FB;
-    outline: none;
     margin: 10% auto;
     margin-bottom: 0px;
     transition: all 300ms ease-out;
@@ -2567,9 +2570,7 @@ input.uyoieztr, .uyoieztra {
 }
 
 .divemail, .divaddress, .divfullname {
-    width: 100%;
     margin-top: 15px;
-    display: inline-block;
 }
 
 .labchangepass {
@@ -2613,7 +2614,7 @@ input[type='text']:-ms-input-placeholder, input[type='email']:-ms-input-placehol
     font-size: 17px;
 }
 
-#inputemail, #inputname, #inputaddress, .divforminfo input {
+.inputemail, #inputname, #inputaddress, .divforminfo input {
     width: 100%;
     /* margin-top: 5px; */
     box-sizing: border-box;
@@ -2819,10 +2820,6 @@ table.tabljedetails {
     /* height: calc(100% - 50px); */
 }
 
-.divprofileset {
-    /* height: calc(100% - 50px); */
-    height: 100%;
-}
 
 .divproductlist {
     height: 100%;
@@ -4418,9 +4415,14 @@ td.fdgdzeazreio {
     width: 30px;
 }
 
-.mat-checkbox-label {
+.noColor .mat-checkbox-label {
     color: #939698;
     font-size: 20px;
+}
+
+.grey .mat-checkbox-label {
+    color: #939698;
+    font-size: 16px;
 }
 
 .mat-checkbox-frame {
@@ -4432,10 +4434,13 @@ td.fdgdzeazreio {
     height: 31px;
 }
 
+.grey .mat-checkbox-background, .grey .mat-checkbox:not(.mat-checkbox-disabled).mat-accent .mat-checkbox-ripple .mat-ripple-element {
+    background-color: var(--backgbutton) !important;
+}
+
 .noColor .mat-checkbox-background, .noColor .mat-checkbox:not(.mat-checkbox-disabled).mat-accent .mat-checkbox-ripple .mat-ripple-element {
     background-color: #6c757d !important;
 }
-
 /***************************/
 
 /***** Custom Classes ******/

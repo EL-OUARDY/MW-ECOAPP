@@ -80,7 +80,7 @@ var routes = [
     {
         path: '', component: _layout_layout_component__WEBPACK_IMPORTED_MODULE_18__["LayoutComponent"],
         children: [
-            { path: '', component: _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_16__["DashboardComponent"] },
+            { path: '', component: _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_16__["DashboardComponent"], canActivate: [_guards_admin_auth_guard__WEBPACK_IMPORTED_MODULE_17__["AdminAuthGuard"]] },
             { path: 'admin', component: _product_product_form_product_form_component__WEBPACK_IMPORTED_MODULE_5__["ProductFormComponent"], canActivate: [_guards_admin_auth_guard__WEBPACK_IMPORTED_MODULE_17__["AdminAuthGuard"]] },
             { path: 'admin/products', component: _product_product_list_product_list_component__WEBPACK_IMPORTED_MODULE_8__["ProductListComponent"], canActivate: [_guards_admin_auth_guard__WEBPACK_IMPORTED_MODULE_17__["AdminAuthGuard"]] },
             { path: 'admin/product-form', component: _product_product_form_product_form_component__WEBPACK_IMPORTED_MODULE_5__["ProductFormComponent"], canActivate: [_guards_admin_auth_guard__WEBPACK_IMPORTED_MODULE_17__["AdminAuthGuard"]] },
@@ -460,6 +460,35 @@ function handleExpectedErrors(err) {
         return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["throwError"])(new NotFound(err));
     }
 }
+
+
+/***/ }),
+
+/***/ "./src/app/common/validators/product.validators.ts":
+/*!*********************************************************!*\
+  !*** ./src/app/common/validators/product.validators.ts ***!
+  \*********************************************************/
+/*! exports provided: ProductValidators */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProductValidators", function() { return ProductValidators; });
+var ProductValidators = /** @class */ (function () {
+    function ProductValidators() {
+    }
+    ProductValidators.cannotContainSpace = function (control) {
+        if (control.value.indexOf(' ') >= 0) {
+            return { cannotContainSpace: true };
+        }
+        return null;
+    };
+    ProductValidators.shouldBeUnique = function (control) {
+        // Check if the username is already taken ..
+    };
+    return ProductValidators;
+}());
+
 
 
 /***/ }),
@@ -856,7 +885,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  login works!\n</p>\n"
+module.exports = "<div class=\"divprofileset divphoto\">\n  <form [formGroup]=\"form\" (ngSubmit)=\"login()\" class=\"allinformation\">\n    <div class=\"divforminfo\">\n      <div class=\"divemail\">\n        <input formControlName=\"Email\" placeholder=\"Admin@mw.io\" type=\"email\" class=\"loginInput inputemail\">\n      </div>\n      <div class=\"divemail\">\n        <input formControlName=\"Password\" placeholder=\"Password\" type=\"password\" class=\"loginInput inputemail\">\n      </div>\n      <div class=\"grey\">\n        <mat-checkbox formControlName=\"stayLogged\">Stay Logged ?</mat-checkbox>\n      </div>\n    </div>\n    <button type=\"submit\" class=\"bottonaddprod contbottom\">Login</button>\n  </form>\n</div>\n"
 
 /***/ }),
 
@@ -872,12 +901,38 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginComponent", function() { return LoginComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _common_validators_product_validators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../common/validators/product.validators */ "./src/app/common/validators/product.validators.ts");
+
+
 
 
 var LoginComponent = /** @class */ (function () {
     function LoginComponent() {
+        this.form = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormGroup"]({
+            Email: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].email, _common_validators_product_validators__WEBPACK_IMPORTED_MODULE_3__["ProductValidators"].cannotContainSpace]),
+            Password: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required),
+            stayLogged: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](false)
+        });
     }
-    LoginComponent.prototype.ngOnInit = function () {
+    Object.defineProperty(LoginComponent.prototype, "Email", {
+        get: function () {
+            return this.form.get('Email');
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(LoginComponent.prototype, "Password", {
+        get: function () {
+            return this.form.get('Password');
+        },
+        enumerable: true,
+        configurable: true
+    });
+    LoginComponent.prototype.login = function () {
+        if (this.form.invalid)
+            return; //
+        console.log(this.form.value);
     };
     LoginComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1698,7 +1753,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"divprofileset\">\n  <div class=\"divphoto\">\n    <div class=\"photoprof\">\n      <label class=\"changepho\">Change Your Photo</label>\n      <div class=\"commentrev\">\n        <div class=\"avatarrev\">\n          <svg class=\"svgsig223\" version=\"1.1\" x=\"0px\" y=\"0px\" viewBox=\"0 0 258.75 258.75\"\n            style=\"enable-background:new 0 0 258.75 258.75;\" xml:space=\"preserve\">\n            <circle cx=\"129.375\" cy=\"60\" r=\"60\"></circle>\n            <path d=\"M129.375,150c-60.061,0-108.75,48.689-108.75,108.75h217.5C238.125,198.689,189.436,150,129.375,150z\">\n            </path>\n          </svg>\n          <svg class=\"iconplusaddav\" aria-hidden=\"true\" data-prefix=\"fal\" data-icon=\"plus\" role=\"img\"\n            xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 384 512\">\n            <path fill=\"currentColor\"\n              d=\"M376 232H216V72c0-4.42-3.58-8-8-8h-32c-4.42 0-8 3.58-8 8v160H8c-4.42 0-8 3.58-8 8v32c0 4.42 3.58 8 8 8h160v160c0 4.42 3.58 8 8 8h32c4.42 0 8-3.58 8-8V280h160c4.42 0 8-3.58 8-8v-32c0-4.42-3.58-8-8-8z\"\n              class=\"\"></path>\n          </svg>\n        </div> <span class=\"nameavatar\">Mohamed Zouine</span>\n      </div>\n      <div class=\"fdgbxyrte\">\n        <label class=\"dsfvcx\">Theme :</label>\n        <div class=\"fhgnbbvn\">\n          <label for=\"radgear\" class=\"labtypeshipb\"></label>\n          <input id=\"radgear\" type=\"radio\" name=\"shipping\" value=\"Gearbest\">\n          <label for=\"radgear\" class=\"labtypeshipbb\"></label>\n          <label for=\"radgear\" class=\"labtypeship\">1</label>\n        </div>\n        <div class=\"fhgnbbvn\">\n          <label for=\"radgear2\" class=\"labtypeshipb\"></label>\n          <input id=\"radgear2\" type=\"radio\" name=\"shipping\" value=\"Gearbest\">\n          <label for=\"radgear2\" class=\"labtypeshipbb\"></label>\n          <label for=\"radgear2\" class=\"labtypeship\">2</label>\n        </div>\n      </div>\n    </div>\n    <form class=\"allinformation allinformationp1\">\n      <div class=\"divforminfo\">\n        <div class=\"divstate\">\n          <label class=\"labstate\">First Name</label>\n          <input id=\"inputstate\" placeholder=\"Your First Name\" type=\"text\" name=\"\" value=\"\" maxlength=\"60\" required=\"\">\n        </div>\n        <div class=\"divmobile\">\n          <label class=\"labmobile\">Last Name</label>\n          <input id=\"inputmobile\" placeholder=\"Your Last Name\" type=\"text\" name=\"\" value=\"\" maxlength=\"20\" required=\"\">\n        </div>\n        <div class=\"divemail\">\n          <label class=\"labemail\">Email</label>\n          <input id=\"inputemail\" placeholder=\"Email Contact\" type=\"email\" name=\"\" value=\"\" maxlength=\"100\" required=\"\">\n        </div> <span class=\"labchangepass\">Change Password ?</span>\n        <div class=\"divpassword\">\n          <label class=\"labemail\">Write Password Now</label>\n          <input placeholder=\"Password Now\" type=\"password\" name=\"\" value=\"\" maxlength=\"100\" required=\"\">\n          <label class=\"labemail\">New Password</label>\n          <input placeholder=\"Write New Password\" type=\"password\" name=\"\" value=\"\" maxlength=\"100\" required=\"\">\n          <label class=\"labemail\">Confirmed New Password</label>\n          <input placeholder=\"Confirmed New Password\" type=\"password\" name=\"\" value=\"\" maxlength=\"100\" required=\"\">\n        </div>\n      </div>\n      <button id=\"contbottom\" type=\"button\" name=\"button\">SAVE</button>\n    </form>\n  </div>\n</div>"
+module.exports = "<div class=\"divprofileset\">\n  <div class=\"divphoto\">\n    <div class=\"photoprof\">\n      <label class=\"changepho\">Change Your Photo</label>\n      <div class=\"commentrev\">\n        <div class=\"avatarrev\">\n          <svg class=\"svgsig223\" version=\"1.1\" x=\"0px\" y=\"0px\" viewBox=\"0 0 258.75 258.75\"\n            style=\"enable-background:new 0 0 258.75 258.75;\" xml:space=\"preserve\">\n            <circle cx=\"129.375\" cy=\"60\" r=\"60\"></circle>\n            <path d=\"M129.375,150c-60.061,0-108.75,48.689-108.75,108.75h217.5C238.125,198.689,189.436,150,129.375,150z\">\n            </path>\n          </svg>\n          <svg class=\"iconplusaddav\" aria-hidden=\"true\" data-prefix=\"fal\" data-icon=\"plus\" role=\"img\"\n            xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 384 512\">\n            <path fill=\"currentColor\"\n              d=\"M376 232H216V72c0-4.42-3.58-8-8-8h-32c-4.42 0-8 3.58-8 8v160H8c-4.42 0-8 3.58-8 8v32c0 4.42 3.58 8 8 8h160v160c0 4.42 3.58 8 8 8h32c4.42 0 8-3.58 8-8V280h160c4.42 0 8-3.58 8-8v-32c0-4.42-3.58-8-8-8z\"\n              class=\"\"></path>\n          </svg>\n        </div> <span class=\"nameavatar\">Mohamed Zouine</span>\n      </div>\n      <div class=\"fdgbxyrte\">\n        <label class=\"dsfvcx\">Theme :</label>\n        <div class=\"fhgnbbvn\">\n          <label for=\"radgear\" class=\"labtypeshipb\"></label>\n          <input id=\"radgear\" type=\"radio\" name=\"shipping\" value=\"Gearbest\">\n          <label for=\"radgear\" class=\"labtypeshipbb\"></label>\n          <label for=\"radgear\" class=\"labtypeship\">1</label>\n        </div>\n        <div class=\"fhgnbbvn\">\n          <label for=\"radgear2\" class=\"labtypeshipb\"></label>\n          <input id=\"radgear2\" type=\"radio\" name=\"shipping\" value=\"Gearbest\">\n          <label for=\"radgear2\" class=\"labtypeshipbb\"></label>\n          <label for=\"radgear2\" class=\"labtypeship\">2</label>\n        </div>\n      </div>\n    </div>\n    <form class=\"allinformation allinformationp1\">\n      <div class=\"divforminfo\">\n        <div class=\"divstate\">\n          <label class=\"labstate\">First Name</label>\n          <input id=\"inputstate\" placeholder=\"Your First Name\" type=\"text\" name=\"\" value=\"\" maxlength=\"60\" required=\"\">\n        </div>\n        <div class=\"divmobile\">\n          <label class=\"labmobile\">Last Name</label>\n          <input id=\"inputmobile\" placeholder=\"Your Last Name\" type=\"text\" name=\"\" value=\"\" maxlength=\"20\" required=\"\">\n        </div>\n        <div class=\"divemail\">\n          <label class=\"labemail\">Email</label>\n          <input class=\"inputemail\" placeholder=\"Email Contact\" type=\"email\" name=\"\" value=\"\" maxlength=\"100\" required=\"\">\n        </div> <span class=\"labchangepass\">Change Password ?</span>\n        <div class=\"divpassword\">\n          <label class=\"labemail\">Write Password Now</label>\n          <input placeholder=\"Password Now\" type=\"password\" name=\"\" value=\"\" maxlength=\"100\" required=\"\">\n          <label class=\"labemail\">New Password</label>\n          <input placeholder=\"Write New Password\" type=\"password\" name=\"\" value=\"\" maxlength=\"100\" required=\"\">\n          <label class=\"labemail\">Confirmed New Password</label>\n          <input placeholder=\"Confirmed New Password\" type=\"password\" name=\"\" value=\"\" maxlength=\"100\" required=\"\">\n        </div>\n      </div>\n      <button id=\"contbottom\" type=\"button\" name=\"button\">SAVE</button>\n    </form>\n  </div>\n</div>"
 
 /***/ }),
 
