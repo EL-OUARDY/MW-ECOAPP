@@ -250,11 +250,9 @@
     <Compile Include="Areas\Admin\Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\api\OrdersController.cs" />
     <Compile Include="Controllers\api\ProductsController.cs" />
-    <Compile Include="Controllers\api\UserProfileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DTOs\mProductDTO.cs" />
     <Compile Include="DTOs\ProductDTO.cs" />
-    <Compile Include="DTOs\UserProfileDTO.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -374,6 +372,14 @@
     <Compile Include="Migrations\201905071458132_dropLive-UsersModel.Designer.cs">
       <DependentUpon>201905071458132_dropLive-UsersModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911141447460_SeedUsers.cs" />
+    <Compile Include="Migrations\201911141447460_SeedUsers.Designer.cs">
+      <DependentUpon>201911141447460_SeedUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911142157277_dropUserProfileModelAndAddItsColumnsToUser.cs" />
+    <Compile Include="Migrations\201911142157277_dropUserProfileModelAndAddItsColumnsToUser.Designer.cs">
+      <DependentUpon>201911142157277_dropUserProfileModelAndAddItsColumnsToUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -387,7 +393,6 @@
     <Compile Include="Models\Data\Product.cs" />
     <Compile Include="Models\Data\Product_Variations.cs" />
     <Compile Include="Models\Data\SubCategory.cs" />
-    <Compile Include="Models\Data\UserProfile.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -616,6 +621,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201905071458132_dropLive-UsersModel.resx">
       <DependentUpon>201905071458132_dropLive-UsersModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911141447460_SeedUsers.resx">
+      <DependentUpon>201911141447460_SeedUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911142157277_dropUserProfileModelAndAddItsColumnsToUser.resx">
+      <DependentUpon>201911142157277_dropUserProfileModelAndAddItsColumnsToUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -9,7 +9,7 @@
         <a routerLink="/cart">Cart ({{cartCount}})
         </a>
       </li>
-      <li *ngIf=" user ; else anonumousUser" ngbDropdown class="nav-item dropdown">
+      <li *ngIf=" user ; else anonymousUser" ngbDropdown class="nav-item dropdown">
         <a ngbDropdownToggle class="dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
           aria-expanded="false">{{ user.FullName }}</a>
         <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
@@ -18,7 +18,7 @@
           <a class="dropdown-item" (click)="Logout()">Log Out</a>
         </div>
       </li>
-      <ng-template #anonumousUser>
+      <ng-template #anonymousUser>
         <li>
           <a routerLink="/sign-in">Login</a>
         </li>

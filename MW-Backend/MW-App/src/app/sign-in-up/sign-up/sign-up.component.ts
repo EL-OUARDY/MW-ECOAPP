@@ -26,8 +26,8 @@ export class SignUpComponent implements OnInit {
       () => {
         this.userAuth.Login(form.value).subscribe(
           (res: any) => {
-            localStorage.setItem('MW-AccessToken', res.access_token);
-            this.userAuth.getProfile();
+            localStorage.setItem('MWToken', res.access_token);
+            this.userAuth.goLive(); // Live
             this.router.navigate(['/']); // Redirect to a return url
           });
       },

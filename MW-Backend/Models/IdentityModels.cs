@@ -19,13 +19,30 @@ namespace MW_Backend.Models
             // Add custom user claims here
             return userIdentity;
         }
+        #region add custom properties to ApplicationUser
+        [Required]
+        [StringLength(30)]
+        public string FullName { get; set; }
+
+        [StringLength(10)]
+        public string Gender { get; set; }
+
+        [StringLength(30)]
+        public string Phone { get; set; }
+
+        [StringLength(30)]
+        public string Country { get; set; }
+
+        [StringLength(30)]
+        public string City { get; set; }
+
+        public string Avatar { get; set; }
+        #endregion
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<Connection> Connections { get; set; }
-
-        public DbSet<UserProfile> Users_Profiles { get; set; }
 
         public DbSet<Address_Book> Addresses_Book { get; set; }
 

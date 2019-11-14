@@ -12,7 +12,7 @@ export class SigninGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
       
-    if (!localStorage.getItem('MW-AccessToken')) {
+    if (!localStorage.getItem('MWToken')) {
       return true;
     }
     this.router.navigate(['/']);
