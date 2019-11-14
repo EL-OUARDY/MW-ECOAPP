@@ -117,7 +117,7 @@ module.exports = "\r\n/* router-outlet {\r\n    display: none;\r\n} */\r\n\r\n#c
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<router-outlet #myOutlet=\"outlet\"></router-outlet>\n"
+module.exports = "<router-outlet></router-outlet>\n"
 
 /***/ }),
 
@@ -145,7 +145,7 @@ var AppComponent = /** @class */ (function () {
         this.userAuth = userAuth;
     }
     AppComponent.prototype.ngOnInit = function () {
-        this.userAuth.getProfile();
+        this.userAuth.goLive();
         this.cartService.loadCart();
     };
     AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -391,7 +391,7 @@ var AuthInterceptor = /** @class */ (function () {
     AuthInterceptor.prototype.intercept = function (req, next) {
         if (req.headers.get('NoAuth') === 'true')
             return next.handle(req.clone());
-        var token = localStorage.getItem('MW-AccessToken');
+        var token = localStorage.getItem('MWToken');
         if (token != null) {
             var clonedreq = req.clone({
                 headers: req.headers.set('Authorization', 'Bearer ' + token)
@@ -453,7 +453,7 @@ var AppErrorHandler = /** @class */ (function () {
     }
     AppErrorHandler.prototype.handleError = function (error) {
         if (error.status === 401) { // either unRegistred or Token has Expired
-            localStorage.removeItem('MW-AccessToken');
+            localStorage.removeItem('MWToken');
             window.location.href = '/sign-in';
             return;
         }
@@ -801,7 +801,7 @@ var SigninGuard = /** @class */ (function () {
         this.router = router;
     }
     SigninGuard.prototype.canActivate = function (next, state) {
-        if (!localStorage.getItem('MW-AccessToken')) {
+        if (!localStorage.getItem('MWToken')) {
             return true;
         }
         this.router.navigate(['/']);
@@ -840,7 +840,7 @@ var UserAuthGuard = /** @class */ (function () {
         this.router = router;
     }
     UserAuthGuard.prototype.canActivate = function (next, state) {
-        if (localStorage.getItem('MW-AccessToken')) {
+        if (localStorage.getItem('MWToken')) {
             return true;
         }
         this.router.navigate(['/sign-in'], { queryParams: { returnUrl: state.url } });
@@ -876,7 +876,7 @@ module.exports = "header {\r\n  background: #6c757d;\r\n  position: -webkit-stic
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<header>\n  <nav>\n    <a routerLink=\"/\"><span>You-Better</span></a>\n    <ul>\n      <li>\n        <a href=\"admin\">GoAdmin</a>\n      </li>\n      <li>\n        <a routerLink=\"/cart\">Cart ({{cartCount}})\n        </a>\n      </li>\n      <li *ngIf=\" user ; else anonumousUser\" ngbDropdown class=\"nav-item dropdown\">\n        <a ngbDropdownToggle class=\"dropdown-toggle\" id=\"dropdown01\" data-toggle=\"dropdown\" aria-haspopup=\"true\"\n          aria-expanded=\"false\">{{ user.FullName }}</a>\n        <div ngbDropdownMenu class=\"dropdown-menu\" aria-labelledby=\"dropdown01\">\n          <a class=\"dropdown-item\" routerLink=\"/dashboard\">My Profile</a>\n          <a class=\"dropdown-item\" routerLink=\"/\">My Orders</a>\n          <a class=\"dropdown-item\" (click)=\"Logout()\">Log Out</a>\n        </div>\n      </li>\n      <ng-template #anonumousUser>\n        <li>\n          <a routerLink=\"/sign-in\">Login</a>\n        </li>\n      </ng-template>\n    </ul>\n  </nav>\n</header>"
+module.exports = "<header>\n  <nav>\n    <a routerLink=\"/\"><span>You-Better</span></a>\n    <ul>\n      <li>\n        <a href=\"admin\">GoAdmin</a>\n      </li>\n      <li>\n        <a routerLink=\"/cart\">Cart ({{cartCount}})\n        </a>\n      </li>\n      <li *ngIf=\" user ; else anonymousUser\" ngbDropdown class=\"nav-item dropdown\">\n        <a ngbDropdownToggle class=\"dropdown-toggle\" id=\"dropdown01\" data-toggle=\"dropdown\" aria-haspopup=\"true\"\n          aria-expanded=\"false\">{{ user.FullName }}</a>\n        <div ngbDropdownMenu class=\"dropdown-menu\" aria-labelledby=\"dropdown01\">\n          <a class=\"dropdown-item\" routerLink=\"/dashboard\">My Profile</a>\n          <a class=\"dropdown-item\" routerLink=\"/\">My Orders</a>\n          <a class=\"dropdown-item\" (click)=\"Logout()\">Log Out</a>\n        </div>\n      </li>\n      <ng-template #anonymousUser>\n        <li>\n          <a routerLink=\"/sign-in\">Login</a>\n        </li>\n      </ng-template>\n    </ul>\n  </nav>\n</header>"
 
 /***/ }),
 
@@ -1550,49 +1550,35 @@ var UserAuthService = /** @class */ (function () {
     }
     UserAuthService.prototype.ngOnInit = function () {
     };
-    UserAuthService.prototype.Register = function (f) {
-        return this.http.post('api/Account/Register', f, { headers: this.noAuth }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(src_app_common_errors_http_errors__WEBPACK_IMPORTED_MODULE_5__["handleExpectedErrors"]));
+    UserAuthService.prototype.Register = function (form) {
+        return this.http.post('api/Account/Register', form, { headers: this.noAuth }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(src_app_common_errors_http_errors__WEBPACK_IMPORTED_MODULE_5__["handleExpectedErrors"]));
     };
-    UserAuthService.prototype.Login = function (f) {
-        var data = 'username=' + f.Email + '&password=' + f.Password + '&grant_type=password';
+    UserAuthService.prototype.Login = function (form) {
+        var data = 'username=' + form.Email + '&password=' + form.Password + '&grant_type=password';
         var reqHeader = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({ 'Content-Type': 'application/x-www-urlencoded', 'NoAuth': 'true' });
         return this.http.post('login', data, { headers: reqHeader }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(src_app_common_errors_http_errors__WEBPACK_IMPORTED_MODULE_5__["handleExpectedErrors"]));
-    };
-    UserAuthService.prototype.getProfile = function () {
-        var _this = this;
-        var Ls = localStorage.getItem('MW-AccessToken');
-        if (Ls == null) {
-            return;
-        }
-        this.http.get('/api/UserIdentity').subscribe(function (userProfile) {
-            _this.user = userProfile;
-            _this.goLive();
-        }, function (error) {
-            if (error.status === 401) { // means that acctoken has expired
-                localStorage.removeItem('MW-AccessToken');
-                _this.user = null;
-            }
-            else
-                throw error;
-        });
     };
     UserAuthService.prototype.Logout = function () {
         var _this = this;
         this.http.post('/api/Account/Logout', null).subscribe(function () {
-            localStorage.removeItem('MW-AccessToken');
+            localStorage.removeItem('MWToken');
             _this.user = null;
+            // this.cnx.stop(); // Stop signalR connection
             _this.router.navigate(['/']);
-            _this.cnx.stop();
         });
     };
     UserAuthService.prototype.goLive = function () {
+        var Ls = localStorage.getItem('MWToken');
+        if (Ls == null) {
+            return;
+        }
         this.cnx = this._signalR.createConnection();
         this.cnx.start().then(function (c) {
             console.log('you are connected to the hub..');
             // setInterval(() => {
             //   console.log('should go offline');
             //   this.cnx.stop(); // go offline
-            // }, 50000);
+            // }, 60000);
         }).catch(function (err) { return console.warn(err); });
     };
     UserAuthService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -1840,7 +1826,7 @@ module.exports = "form {\r\n    margin: 10px auto;\r\n}\r\n\r\n.alert {\r\n    p
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form [formGroup]=\"form\" (ngSubmit)=login() class=\"col-8\">\n  <div class=\"form-group\">\n    <label for=\"Email\">Email :</label>\n    <input formControlName=\"Email\" type=\"text\" class=\"form-control\">\n    <ng-container *ngIf=\"Email.touched && Email.invalid\">\n      <div *ngIf=\"Email.errors.required\" class=\"alert alert-dark text-center\">this field is\n        required !</div>\n      <div *ngIf=\" Email.errors.cannotContainSpace\" class=\"alert alert-dark text-center\">This field cannot contain\n        spaces ..\n\n      </div>\n    </ng-container>\n  </div>\n  <div class=\"form-group\">\n    <label for=\"Password\">Password :</label>\n    <input formControlName=\"Password\" type=\"Password\" class=\"form-control\">\n    <div *ngIf=\"Password.touched && Password.invalid\" class=\" alert alert-dark text-center\">this field is required !\n    </div>\n  </div>\n  <button class=\"btn btn-primary col-4\" type=\"submit\">Sign In</button>\n  <div class=\"btn offset-2 col-2 \" (click)='facebookLogin()'><img src=\"Content/Images/Other/f.png\"></div>\n  <div class=\"btn col-2 \" (click)='googleLogin()'><img src=\"Content/Images/Other/g.png\"></div>\n  <div class=\"btn col-2 \" (click)='twitterLogin()'><img src=\"/Content/Images/Other/t.png\"></div>\n</form>\n<br>\n<div>\n  <div class=\"alert alert-warning\" *ngIf=\"serverError\">\n    {{serverError}}\n  </div>\n</div>"
+module.exports = "<form [formGroup]=\"form\" (ngSubmit)=\"login()\" class=\"col-8\">\n  <div class=\"form-group\">\n    <label for=\"Email\">Email :</label>\n    <input formControlName=\"Email\" type=\"text\" class=\"form-control\">\n    <ng-container *ngIf=\"Email.touched && Email.invalid\">\n      <div *ngIf=\"Email.errors.required\" class=\"alert alert-dark text-center\">this field is\n        required !</div>\n      <div *ngIf=\" Email.errors.cannotContainSpace\" class=\"alert alert-dark text-center\">This field cannot contain\n        spaces ..\n\n      </div>\n    </ng-container>\n  </div>\n  <div class=\"form-group\">\n    <label for=\"Password\">Password :</label>\n    <input formControlName=\"Password\" type=\"Password\" class=\"form-control\">\n    <div *ngIf=\"Password.touched && Password.invalid\" class=\" alert alert-dark text-center\">this field is required !\n    </div>\n  </div>\n  <button class=\"btn btn-primary col-4\" type=\"submit\">Sign In</button>\n  <div class=\"btn offset-2 col-2 \" (click)='facebookLogin()'><img src=\"Content/Images/Other/f.png\"></div>\n  <div class=\"btn col-2 \" (click)='googleLogin()'><img src=\"Content/Images/Other/g.png\"></div>\n  <div class=\"btn col-2 \" (click)='twitterLogin()'><img src=\"/Content/Images/Other/t.png\"></div>\n</form>\n<br>\n<div>\n  <div class=\"alert alert-warning\" *ngIf=\"serverError\">\n    {{serverError}}\n  </div>\n</div>"
 
 /***/ }),
 
@@ -1905,8 +1891,8 @@ var SignInComponent = /** @class */ (function () {
             return;
         }
         this.userAuth.Login(this.form.value).subscribe(function (response) {
-            localStorage.setItem('MW-AccessToken', response.access_token);
-            _this.userAuth.getProfile();
+            localStorage.setItem('MWToken', response.access_token);
+            _this.userAuth.goLive(); // Live
             var returnUrl = _this.route.snapshot.queryParamMap.get('returnUrl') || '/';
             _this.router.navigateByUrl(returnUrl); // Redirect to a return url
         }, function (err) {
@@ -1989,8 +1975,8 @@ var SignUpComponent = /** @class */ (function () {
         }
         this.userAuth.Register(form.value).subscribe(function () {
             _this.userAuth.Login(form.value).subscribe(function (res) {
-                localStorage.setItem('MW-AccessToken', res.access_token);
-                _this.userAuth.getProfile();
+                localStorage.setItem('MWToken', res.access_token);
+                _this.userAuth.goLive(); // Live
                 _this.router.navigate(['/']); // Redirect to a return url
             });
         }, function (err) {

@@ -10,7 +10,7 @@ export class UserAuthGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    if (localStorage.getItem('MW-AccessToken')) {
+    if (localStorage.getItem('MWToken')) {
       return true;
     }
     this.router.navigate(['/sign-in'], { queryParams: { returnUrl: state.url } });

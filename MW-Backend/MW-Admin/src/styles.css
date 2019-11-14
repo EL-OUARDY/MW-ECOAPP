@@ -305,7 +305,7 @@ body {
     margin: 7px 4px;
 }
 
-.bottonaddprod:hover {
+.bottonaddprod:hover , .loginBtn:hover {
     background: var(--colorsvg);
     color: var(--backgrbody);
 }
@@ -1503,6 +1503,7 @@ input[type="text"] {
     margin: 0;
     text-align: center;
     letter-spacing: 2px;
+    color: #939698;
 }
 .divsearchorder {
     border-radius: 30px;
@@ -2570,7 +2571,7 @@ input.uyoieztr, .uyoieztra {
 }
 
 .divemail, .divaddress, .divfullname {
-    margin-top: 15px;
+    margin: 10px;
 }
 
 .labchangepass {
@@ -4441,7 +4442,6 @@ td.fdgdzeazreio {
 .noColor .mat-checkbox-background, .noColor .mat-checkbox:not(.mat-checkbox-disabled).mat-accent .mat-checkbox-ripple .mat-ripple-element {
     background-color: #6c757d !important;
 }
-/***************************/
 
 /***** Custom Classes ******/
 
@@ -4452,9 +4452,9 @@ td.fdgdzeazreio {
 .halfOpacity {
     opacity: .3;
 }
-.ng-touched.ng-invalid:not(form) {
-    /* add a style applied on validation error */
-}
+/* .ng-touched.ng-invalid:not(form) {
+    add a style applied on validation error 
+}*/
 
 .lijksdfgdsvc .mat-radio-checked .mat-radio-container {
     box-shadow: 0 0.75px 10px 3px #4dd0e169;
@@ -4607,7 +4607,26 @@ td.fdgdzeazreio {
         opacity: 1;
     }
 }
-
+.loginSvg{
+    opacity: 0.8;
+    height: 100px;
+    display: block;
+    margin: 0 auto;
+}
+.loginBtn {
+    width: 40%;
+    display: table;
+    border-radius: 125px;
+    padding: 5px 0;
+    border: none;
+    color: #939698;
+    background: #1c1d1f;
+    font-size: 20px;
+    font-family: "AgencyFB";
+    cursor: pointer;
+    margin: 10px auto 14px auto;
+    transition: all 300ms ease-out;
+}
 /*CDK TABLE*/
 
 .cdk-table {
@@ -4720,5 +4739,28 @@ td.fdgdzeazreio {
 .table-wrapper ng-scrollbar-y {
     padding-top: 45px !important;
 }
-/*****************************/
 
+
+/******** Flipping Card ********/
+.flippingCard {
+    height: 340px;
+    transition: 1s all ease-in-out;
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+.flippingCard:hover {
+    transform: rotateY(180deg);
+}
+
+.flippingCard .side { /* both front and back */
+    background: var(--backgrcontent);
+    backface-visibility: hidden;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.flippingCard .back {
+    transform: rotateY(180deg);
+}

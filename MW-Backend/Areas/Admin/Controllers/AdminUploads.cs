@@ -2,7 +2,6 @@
 using MW_Backend.DTOs;
 using MW_Backend.Helpers;
 using MW_Backend.Models;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -55,8 +54,8 @@ namespace MW_Backend.Areas.Admin.Controllers
             int ProductId = int.Parse(HttpContext.Current.Request["ProductId"]);
             var files = HttpContext.Current.Request.Files;
 
-            var GalleryImgsDrop = JsonConvert.DeserializeObject<string[]>(HttpContext.Current.Request["GalleryImgsDrop"]);
-            var DescImgsDrop = JsonConvert.DeserializeObject<string[]>(HttpContext.Current.Request["DescImgsDrop"]);
+            var GalleryImgsDrop = System.Web.Helpers.Json.Decode<string[]>(HttpContext.Current.Request["GalleryImgsDrop"]);
+            var DescImgsDrop = System.Web.Helpers.Json.Decode<string[]>(HttpContext.Current.Request["DescImgsDrop"]);
 
             // verify the existance of product
             if (!ProductExists(ProductId))
@@ -85,8 +84,8 @@ namespace MW_Backend.Areas.Admin.Controllers
             string mainImgFromCopy = HttpContext.Current.Request["mainImgFromCopy"];
             var files = HttpContext.Current.Request.Files;
 
-            var GalleryImgsDrop = JsonConvert.DeserializeObject<string[]>(HttpContext.Current.Request["GalleryImgsDrop"]);
-            var DescImgsDrop = JsonConvert.DeserializeObject<string[]>(HttpContext.Current.Request["DescImgsDrop"]);
+            var GalleryImgsDrop = System.Web.Helpers.Json.Decode<string[]>(HttpContext.Current.Request["GalleryImgsDrop"]);
+            var DescImgsDrop = System.Web.Helpers.Json.Decode<string[]>(HttpContext.Current.Request["DescImgsDrop"]);
 
             // verify the existance of the two products
             if (!ProductExists(ProductId) || !ProductExists(CopyingId))

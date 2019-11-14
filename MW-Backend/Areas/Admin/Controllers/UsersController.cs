@@ -20,8 +20,10 @@ namespace MW_Backend.Areas.Admin.Controllers
 
         public IHttpActionResult GetUsers()
         {
-            var model = db.Users_Profiles.ToList();
-            return Ok(model);
+            // var model = db.Users_Profiles.ToList();
+            // return Ok(model);
+
+            return Ok();
         }
 
         protected override void Dispose(bool disposing)

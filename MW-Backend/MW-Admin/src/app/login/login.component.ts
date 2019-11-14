@@ -8,6 +8,7 @@ import { ProductValidators } from '../common/validators/product.validators';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+  flipped;
   form = new FormGroup({
     Email: new FormControl('', [Validators.required, Validators.email, ProductValidators.cannotContainSpace]),
     Password: new FormControl('', Validators.required),

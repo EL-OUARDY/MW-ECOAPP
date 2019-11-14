@@ -11,11 +11,11 @@ export class AuthInterceptor implements HttpInterceptor {
         if (req.headers.get('NoAuth') === 'true')
             return next.handle(req.clone());
 
-        const token = localStorage.getItem('MW-AccessToken');
+        const token = localStorage.getItem('MWToken');
 
         if ( token != null) {
             const clonedreq = req.clone({
-                headers: req.headers.set('Authorization', 'Bearer ' + token) 
+                headers: req.headers.set('Authorization', 'Bearer ' + token)
             });
             return next.handle(clonedreq);
         } else {

@@ -40,6 +40,7 @@ import { ConfirmDialogComponent } from './shared/confirm-dialog/confirm-dialog.c
 import { AdminUploadService } from './services/admin-upload.service';
 import { LayoutComponent } from './layout/layout.component';
 import { LoginComponent } from './login/login.component';
+import { AdminAuthService } from './services/admin-auth.service';
 
 @NgModule({
   declarations: [
@@ -93,12 +94,13 @@ import { LoginComponent } from './login/login.component';
 
   ],
   providers: [
+    AdminAuthService,
     AdminProductService,
     AdminUploadService,
 
     // { provide: ErrorHandler, useClass: AppErrorHandler },
 
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+    // { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
   ],
   bootstrap: [AppComponent],
   entryComponents: [ConfirmDialogComponent]

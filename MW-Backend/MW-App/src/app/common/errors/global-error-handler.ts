@@ -6,7 +6,7 @@ export class AppErrorHandler implements ErrorHandler {
 
     handleError(error: Response) {
         if (error.status === 401) { // either unRegistred or Token has Expired
-            localStorage.removeItem('MW-AccessToken');
+            localStorage.removeItem('MWToken');
             window.location.href = '/sign-in';
             return;
         }

@@ -42,8 +42,8 @@ export class SignInComponent {
     }
     this.userAuth.Login(this.form.value).subscribe(
       (response: any) => {
-        localStorage.setItem('MW-AccessToken', response.access_token);
-        this.userAuth.getProfile();
+        localStorage.setItem('MWToken', response.access_token);
+        this.userAuth.goLive(); // Live
         const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
         this.router.navigateByUrl(returnUrl); // Redirect to a return url
       },
