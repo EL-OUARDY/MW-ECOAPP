@@ -1,4 +1,4 @@
-﻿using MW_Backend.DTOs;
+﻿using MW_Backend.DTO_Resourses;
 using MW_Backend.Models.Data;
 using System;
 using System.Collections.Generic;

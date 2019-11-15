@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using MW_Backend.DTOs;
+using MW_Backend.DTO_Resourses;
 using MW_Backend.Helpers;
 using MW_Backend.Models;
 using System;

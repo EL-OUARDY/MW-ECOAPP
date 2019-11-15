@@ -1,6 +1,5 @@
 import { Injectable, OnInit, NgZone } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { UserProfile } from 'src/app/models/userProfile';
 import { Router } from '@angular/router';
 
 import { catchError } from 'rxjs/operators';
@@ -12,8 +11,7 @@ import { SignalR, SignalRConnection } from 'ng2-signalr';
   providedIn: 'root'
 })
 export class UserAuthService implements OnInit {
-
-  user: UserProfile;
+  user: any;
   cnx: SignalRConnection;
   // for demostration
   noAuth = new HttpHeaders({ 'NoAuth': 'true' });
@@ -47,7 +45,22 @@ export class UserAuthService implements OnInit {
       this.router.navigate(['/']);
     });
   }
-
+  authenticate() {
+    const Ls = localStorage.getItem('MWToken');
+    if (Ls == null) {
+      return;
+    }
+    this.http.get('/api/authenticate').subscribe((userProfile: any) => {
+      this.user = userProfile;
+      this.goLive();
+    },
+      (error: Response) => {
+        if (error.status === 401) { // means that acctoken has expired
+          localStorage.removeItem('MWToken');
+          this.user = null;
+        } else throw error;
+      });
+  }
   goLive() {
     const Ls = localStorage.getItem('MWToken');
     if (Ls == null) {
