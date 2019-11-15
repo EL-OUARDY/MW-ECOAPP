@@ -241,9 +241,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function signalRConfig() {
-    var c = new ng2_signalr__WEBPACK_IMPORTED_MODULE_31__["SignalRConfiguration"]();
-    c.hubName = 'mainHub';
-    return c;
+    var config = new ng2_signalr__WEBPACK_IMPORTED_MODULE_31__["SignalRConfiguration"]();
+    config.hubName = 'mainHub';
+    return config;
 }
 var AppModule = /** @class */ (function () {
     function AppModule() {
@@ -1540,10 +1540,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var UserAuthService = /** @class */ (function () {
-    function UserAuthService(zone, http, _signalR, router) {
+    function UserAuthService(zone, http, _signalR, route, router) {
         this.zone = zone;
         this.http = http;
         this._signalR = _signalR;
+        this.route = route;
         this.router = router;
         // for demostration
         this.noAuth = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({ 'NoAuth': 'true' });
@@ -1556,7 +1557,7 @@ var UserAuthService = /** @class */ (function () {
     UserAuthService.prototype.Login = function (form) {
         var data = 'username=' + form.Email + '&password=' + form.Password + '&grant_type=password';
         var reqHeader = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({ 'Content-Type': 'application/x-www-urlencoded', 'NoAuth': 'true' });
-        return this.http.post('login', data, { headers: reqHeader }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(src_app_common_errors_http_errors__WEBPACK_IMPORTED_MODULE_5__["handleExpectedErrors"]));
+        return this.http.post('/api/Account/token', data, { headers: reqHeader }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(src_app_common_errors_http_errors__WEBPACK_IMPORTED_MODULE_5__["handleExpectedErrors"]));
     };
     UserAuthService.prototype.Logout = function () {
         var _this = this;
@@ -1585,6 +1586,13 @@ var UserAuthService = /** @class */ (function () {
                 throw error;
         });
     };
+    UserAuthService.prototype.afterAuthentication = function (response) {
+        localStorage.setItem('MWToken', response.access_token);
+        this.user = JSON.parse(response.user_profile);
+        this.goLive(); // Live
+        var returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
+        this.router.navigateByUrl(returnUrl); // Redirect to a return url
+    };
     UserAuthService.prototype.goLive = function () {
         var Ls = localStorage.getItem('MWToken');
         if (Ls == null) {
@@ -1603,7 +1611,11 @@ var UserAuthService = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
             providedIn: 'root'
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"], _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"], ng2_signalr__WEBPACK_IMPORTED_MODULE_6__["SignalR"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"],
+            _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"],
+            ng2_signalr__WEBPACK_IMPORTED_MODULE_6__["SignalR"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
     ], UserAuthService);
     return UserAuthService;
 }());
@@ -1863,9 +1875,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var src_app_common_validators_product_validators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/common/validators/product.validators */ "./src/app/common/validators/product.validators.ts");
 /* harmony import */ var src_app_common_errors_http_errors__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/common/errors/http-errors */ "./src/app/common/errors/http-errors.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var src_app_services_user_auth_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/services/user-auth.service */ "./src/app/services/user-auth.service.ts");
-
+/* harmony import */ var src_app_services_user_auth_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/services/user-auth.service */ "./src/app/services/user-auth.service.ts");
 
 
 
@@ -1873,10 +1883,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var SignInComponent = /** @class */ (function () {
-    function SignInComponent(userAuth, route, router) {
+    function SignInComponent(userAuth) {
         this.userAuth = userAuth;
-        this.route = route;
-        this.router = router;
         this.form = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormGroup"]({
             Email: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, src_app_common_validators_product_validators__WEBPACK_IMPORTED_MODULE_3__["ProductValidators"].cannotContainSpace]),
             Password: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required)
@@ -1909,11 +1917,7 @@ var SignInComponent = /** @class */ (function () {
             return;
         }
         this.userAuth.Login(this.form.value).subscribe(function (response) {
-            localStorage.setItem('MWToken', response.access_token);
-            _this.userAuth.user = JSON.parse(response.user_profile);
-            _this.userAuth.goLive(); // Live
-            var returnUrl = _this.route.snapshot.queryParamMap.get('returnUrl') || '/';
-            _this.router.navigateByUrl(returnUrl); // Redirect to a return url
+            _this.userAuth.afterAuthentication(response);
         }, function (err) {
             if (err instanceof src_app_common_errors_http_errors__WEBPACK_IMPORTED_MODULE_4__["BadInput"]) {
                 _this.serverError = 'Email or Password is Incorect ..'; // Display the error within Form errors
@@ -1928,7 +1932,7 @@ var SignInComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./sign-in.component.html */ "./src/app/sign-in-up/sign-in/sign-in.component.html"),
             styles: [__webpack_require__(/*! ./sign-in.component.css */ "./src/app/sign-in-up/sign-in/sign-in.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_services_user_auth_service__WEBPACK_IMPORTED_MODULE_6__["UserAuthService"], _angular_router__WEBPACK_IMPORTED_MODULE_5__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_services_user_auth_service__WEBPACK_IMPORTED_MODULE_5__["UserAuthService"]])
     ], SignInComponent);
     return SignInComponent;
 }());
@@ -1993,10 +1997,8 @@ var SignUpComponent = /** @class */ (function () {
             return;
         }
         this.userAuth.Register(form.value).subscribe(function () {
-            _this.userAuth.Login(form.value).subscribe(function (res) {
-                localStorage.setItem('MWToken', res.access_token);
-                _this.userAuth.goLive(); // Live
-                _this.router.navigate(['/']); // Redirect to a return url
+            _this.userAuth.Login(form.value).subscribe(function (response) {
+                _this.userAuth.afterAuthentication(response);
             });
         }, function (err) {
             if (err instanceof src_app_common_errors_http_errors__WEBPACK_IMPORTED_MODULE_2__["BadInput"]) {

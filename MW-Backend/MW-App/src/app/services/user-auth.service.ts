@@ -1,6 +1,6 @@
 import { Injectable, OnInit, NgZone } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { catchError } from 'rxjs/operators';
 
@@ -16,8 +16,11 @@ export class UserAuthService implements OnInit {
   // for demostration
   noAuth = new HttpHeaders({ 'NoAuth': 'true' });
 
-  constructor(private zone: NgZone, private http: HttpClient, private _signalR: SignalR, private router: Router) {
-  }
+  constructor(private zone: NgZone,
+              private http: HttpClient,
+              private _signalR: SignalR,
+              private route: ActivatedRoute,
+              private router: Router) {}
 
   ngOnInit() {
   }
@@ -32,7 +35,7 @@ export class UserAuthService implements OnInit {
     const data = 'username=' + form.Email + '&password=' + form.Password + '&grant_type=password';
     const reqHeader = new HttpHeaders({ 'Content-Type': 'application/x-www-urlencoded', 'NoAuth': 'true' });
 
-    return this.http.post('login', data, { headers: reqHeader }).pipe(
+    return this.http.post('/api/Account/token', data, { headers: reqHeader }).pipe(
       catchError(handleExpectedErrors)
     );
   }
@@ -61,7 +64,16 @@ export class UserAuthService implements OnInit {
         } else throw error;
       });
   }
-  goLive() {
+
+  afterAuthentication(response: any) {
+    localStorage.setItem('MWToken', response.access_token);
+    this.user = JSON.parse(response.user_profile) ;
+    this.goLive(); // Live
+    const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
+    this.router.navigateByUrl(returnUrl); // Redirect to a return url
+  }
+
+  private goLive() {
     const Ls = localStorage.getItem('MWToken');
     if (Ls == null) {
       return;

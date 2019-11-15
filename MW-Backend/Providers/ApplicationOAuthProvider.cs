@@ -91,11 +91,19 @@ namespace MW_Backend.Providers
 
         public static AuthenticationProperties CreateProperties(ApplicationUser user)
         {
+            var db = new ApplicationDbContext();
+            var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+
             var profile = Mapper.Map<UserProfileResourse>(user);
+            var roles = UserManager.GetRoles(user.Id);
             IDictionary<string, string> data = new Dictionary<string, string>
             {
-                { "user_profile", Json.Encode(profile) }
+                { "user_profile", Json.Encode(profile) },
             };
+
+            if (roles.Contains("ADMIN"))
+                data.Add("role", "ADMIN");
+
             return new AuthenticationProperties(data);
         }
     }
