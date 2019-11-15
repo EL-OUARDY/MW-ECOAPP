@@ -8,7 +8,7 @@ using System.Web;
 using MW_Backend.Helpers;
 
 
-namespace MW_Backend.DTOs
+namespace MW_Backend.DTO_Resourses
 {
     public class ProductDTO
     {

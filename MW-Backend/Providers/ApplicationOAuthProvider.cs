@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using System.Web.Helpers;
+using AutoMapper;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
+using MW_Backend.DTO_Resourses;
 using MW_Backend.Models;
 
 namespace MW_Backend.Providers
@@ -44,7 +47,7 @@ namespace MW_Backend.Providers
             ClaimsIdentity cookiesIdentity = await user.GenerateUserIdentityAsync(userManager,
                 CookieAuthenticationDefaults.AuthenticationType);
 
-            AuthenticationProperties properties = CreateProperties(user.UserName);
+            AuthenticationProperties properties = CreateProperties(user);
             AuthenticationTicket ticket = new AuthenticationTicket(oAuthIdentity, properties);
             context.Validated(ticket);
             context.Request.Context.Authentication.SignIn(cookiesIdentity);
@@ -86,11 +89,12 @@ namespace MW_Backend.Providers
             return Task.FromResult<object>(null);
         }
 
-        public static AuthenticationProperties CreateProperties(string userName)
+        public static AuthenticationProperties CreateProperties(ApplicationUser user)
         {
+            var profile = Mapper.Map<UserProfileResourse>(user);
             IDictionary<string, string> data = new Dictionary<string, string>
             {
-                { "userName", userName }
+                { "user_profile", Json.Encode(profile) }
             };
             return new AuthenticationProperties(data);
         }

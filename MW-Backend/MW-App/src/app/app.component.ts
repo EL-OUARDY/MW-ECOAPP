@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.userAuth.goLive();
+    this.userAuth.authenticate();
     this.cartService.loadCart();
   }
 }

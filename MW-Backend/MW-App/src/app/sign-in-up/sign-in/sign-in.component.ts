@@ -43,6 +43,7 @@ export class SignInComponent {
     this.userAuth.Login(this.form.value).subscribe(
       (response: any) => {
         localStorage.setItem('MWToken', response.access_token);
+        this.userAuth.user = JSON.parse(response.user_profile) ;
         this.userAuth.goLive(); // Live
         const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
         this.router.navigateByUrl(returnUrl); // Redirect to a return url

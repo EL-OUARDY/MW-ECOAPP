@@ -9,7 +9,7 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Http.Description;
 using AutoMapper;
-using MW_Backend.DTOs;
+using MW_Backend.DTO_Resourses;
 using MW_Backend.Helpers;
 using MW_Backend.Models;
 using MW_Backend.Models.Data;

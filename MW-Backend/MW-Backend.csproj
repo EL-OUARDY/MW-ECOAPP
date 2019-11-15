@@ -250,9 +250,11 @@
     <Compile Include="Areas\Admin\Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\api\OrdersController.cs" />
     <Compile Include="Controllers\api\ProductsController.cs" />
+    <Compile Include="Controllers\api\UserProfileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="DTOs\mProductDTO.cs" />
-    <Compile Include="DTOs\ProductDTO.cs" />
+    <Compile Include="DTO_Resourses\mProductDTO.cs" />
+    <Compile Include="DTO_Resourses\ProductDTO.cs" />
+    <Compile Include="DTO_Resourses\UserProfileResourse.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

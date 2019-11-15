@@ -145,7 +145,7 @@ var AppComponent = /** @class */ (function () {
         this.userAuth = userAuth;
     }
     AppComponent.prototype.ngOnInit = function () {
-        this.userAuth.goLive();
+        this.userAuth.authenticate();
         this.cartService.loadCart();
     };
     AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -1567,6 +1567,24 @@ var UserAuthService = /** @class */ (function () {
             _this.router.navigate(['/']);
         });
     };
+    UserAuthService.prototype.authenticate = function () {
+        var _this = this;
+        var Ls = localStorage.getItem('MWToken');
+        if (Ls == null) {
+            return;
+        }
+        this.http.get('/api/authenticate').subscribe(function (userProfile) {
+            _this.user = userProfile;
+            _this.goLive();
+        }, function (error) {
+            if (error.status === 401) { // means that acctoken has expired
+                localStorage.removeItem('MWToken');
+                _this.user = null;
+            }
+            else
+                throw error;
+        });
+    };
     UserAuthService.prototype.goLive = function () {
         var Ls = localStorage.getItem('MWToken');
         if (Ls == null) {
@@ -1892,6 +1910,7 @@ var SignInComponent = /** @class */ (function () {
         }
         this.userAuth.Login(this.form.value).subscribe(function (response) {
             localStorage.setItem('MWToken', response.access_token);
+            _this.userAuth.user = JSON.parse(response.user_profile);
             _this.userAuth.goLive(); // Live
             var returnUrl = _this.route.snapshot.queryParamMap.get('returnUrl') || '/';
             _this.router.navigateByUrl(returnUrl); // Redirect to a return url

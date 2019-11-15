@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace MW_Backend.DTOs
+namespace MW_Backend.DTO_Resourses
 {
-    public class UserProfileDTO
+    public class UserProfileResourse
     {
+        public string Email { get; set; }
+
         public string FullName { get; set; }
 
         public string Gender { get; set; }
@@ -17,12 +19,7 @@ namespace MW_Backend.DTOs
 
         public string City { get; set; }
 
-        public string Avatar //image
-        {
-            get
-            {
-                return "rockstar.jpg";
-            }
-        }
+        public string Avatar { get; set; } = "rockstar.jpg";
+
     }
 }

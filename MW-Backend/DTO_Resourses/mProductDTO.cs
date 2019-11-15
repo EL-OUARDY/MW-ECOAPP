@@ -7,7 +7,7 @@ using System.Linq;
 using System.Web;
 
 
-namespace MW_Backend.DTOs
+namespace MW_Backend.DTO_Resourses
 {
     public class mProductDTO
     {

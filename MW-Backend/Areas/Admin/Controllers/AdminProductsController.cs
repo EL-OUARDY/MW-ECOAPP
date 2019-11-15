@@ -12,7 +12,7 @@ using System.Web.Http.Description;
 using System.Web.Http.OData;
 using AutoMapper;
 using MW_Backend.Areas.Admin.ViewModel;
-using MW_Backend.DTOs;
+using MW_Backend.DTO_Resourses;
 using MW_Backend.Helpers;
 using MW_Backend.Models;
 using MW_Backend.Models.Data;

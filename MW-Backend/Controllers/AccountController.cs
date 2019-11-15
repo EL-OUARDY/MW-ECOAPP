@@ -267,7 +267,7 @@ namespace MW_Backend.Controllers
                 ClaimsIdentity cookieIdentity = await user.GenerateUserIdentityAsync(UserManager,
                     CookieAuthenticationDefaults.AuthenticationType);
 
-                AuthenticationProperties properties = ApplicationOAuthProvider.CreateProperties(user.UserName);
+                AuthenticationProperties properties = ApplicationOAuthProvider.CreateProperties(user);
                 Authentication.SignIn(properties, oAuthIdentity, cookieIdentity);
             }
             else
@@ -339,19 +339,17 @@ namespace MW_Backend.Controllers
             }
             /**/
 
-            var newUser = new ApplicationUser() { UserName = model.Email, Email = model.Email };
+            var newUser = new ApplicationUser()
+            {
+                UserName = model.Email,
+                Email = model.Email,
+                FullName = model.FullName
+            };
             IdentityResult result = await UserManager.CreateAsync(newUser, model.Password);
 
             if (!result.Succeeded)
             {
                 return GetErrorResult(result);
-            }
-
-            using (var db = new ApplicationDbContext())
-            {
-                //var Profile = new UserProfile { ApplicationUserId = newUser.Id , Email = model.Email , FullName = model.FullName};
-                //db.Users_Profiles.Add(Profile);
-                //db.SaveChanges();
             }
 
             return Ok();
