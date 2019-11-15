@@ -3,7 +3,6 @@ import { FormGroup, FormControl, Validators, NgForm } from '@angular/forms';
 import { ProductValidators } from 'src/app/common/validators/product.validators';
 import { AppError } from 'src/app/common/errors/app-error';
 import { BadInput } from 'src/app/common/errors/http-errors';
-import { Router, ActivatedRoute } from '@angular/router';
 import { UserAuthService } from 'src/app/services/user-auth.service';
 
 @Component({
@@ -13,7 +12,7 @@ import { UserAuthService } from 'src/app/services/user-auth.service';
 })
 export class SignInComponent {
   serverError: string;
-  constructor(private userAuth: UserAuthService, private route: ActivatedRoute, private router: Router) {
+  constructor(private userAuth: UserAuthService) {
   }
   form = new FormGroup({
     Email: new FormControl('', [Validators.required, ProductValidators.cannotContainSpace]),
@@ -42,11 +41,7 @@ export class SignInComponent {
     }
     this.userAuth.Login(this.form.value).subscribe(
       (response: any) => {
-        localStorage.setItem('MWToken', response.access_token);
-        this.userAuth.user = JSON.parse(response.user_profile) ;
-        this.userAuth.goLive(); // Live
-        const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
-        this.router.navigateByUrl(returnUrl); // Redirect to a return url
+        this.userAuth.afterAuthentication(response);
       },
       (err: AppError) => {
         if (err instanceof BadInput) {

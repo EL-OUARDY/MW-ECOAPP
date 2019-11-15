@@ -37,9 +37,9 @@ import { SignalRModule, SignalRConfiguration } from 'ng2-signalr';
 import { LayoutComponent } from './layout/layout.component';
 
 export function signalRConfig() {
-  const c = new SignalRConfiguration();
-  c.hubName = 'mainHub';
-  return c;
+  const config = new SignalRConfiguration();
+  config.hubName = 'mainHub';
+  return config;
 }
 
 
