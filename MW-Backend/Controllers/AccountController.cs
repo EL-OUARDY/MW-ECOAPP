@@ -15,9 +15,10 @@ using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
 using MW_Backend.Models;
-using MW_Backend.Models.Data;
 using MW_Backend.Providers;
 using MW_Backend.Results;
+using System.Text;
+using Microsoft.Owin.Testing;
 
 namespace MW_Backend.Controllers
 {
@@ -53,6 +54,72 @@ namespace MW_Backend.Controllers
         }
 
         public ISecureDataFormat<AuthenticationTicket> AccessTokenFormat { get; private set; }
+
+        // POST api/Account/Login
+        [HttpPost]
+        [AllowAnonymous]
+        [Route("Login")]
+        public async Task<IHttpActionResult> Login(LoginBindingModel model)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest("Invalid user data");
+
+            // Invoke the "token" OWIN service to perform the login (POST /token)
+            // Use Microsoft.Owin.Testing.TestServer to perform in-memory HTTP POST request
+            var testServer = TestServer.Create<Startup>();
+            var requestParams = new List<KeyValuePair<string, string>>
+            {
+                new KeyValuePair<string, string>("grant_type", "password"),
+                new KeyValuePair<string, string>("username", model.Email),
+                new KeyValuePair<string, string>("password", model.Password),
+            };
+            var requestParamsFormUrlEncoded = new FormUrlEncodedContent(requestParams);
+            var tokenServiceResponse = await testServer.HttpClient.PostAsync(
+                Startup.TokenEndpointPath, requestParamsFormUrlEncoded);
+
+            return ResponseMessage(tokenServiceResponse);
+        }
+
+
+        // POST api/Account/Register
+        [AllowAnonymous]
+        [Route("Register")]
+        public async Task<IHttpActionResult> Register(RegisterBindingModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest("Fill all fields with valid data");
+            }
+            /**/
+            var _user = await UserManager.FindByEmailAsync(model.Email);
+
+            if (_user != null)
+            {
+                return BadRequest("Email is already taken");
+            }
+            /**/
+
+            var newUser = new ApplicationUser()
+            {
+                UserName = model.Email,
+                Email = model.Email,
+                FullName = model.FullName
+            };
+            IdentityResult result = await UserManager.CreateAsync(newUser, model.Password);
+
+            if (!result.Succeeded)
+            {
+                return GetErrorResult(result);
+            }
+
+            // Auto login after registration (successful user registration should return access_token)
+            var loginResult = await Login(new LoginBindingModel()
+            {
+                Email = model.Email,
+                Password = model.Password
+            });
+            return loginResult;
+        }
 
         // GET api/Account/UserInfo
         [HostAuthentication(DefaultAuthenticationTypes.ExternalBearer)]
@@ -319,40 +386,6 @@ namespace MW_Backend.Controllers
             }
 
             return logins;
-        }
-
-        // POST api/Account/Register
-        [AllowAnonymous]
-        [Route("Register")]
-        public async Task<IHttpActionResult> Register(RegisterBindingModel model)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest( "Fill all fields with valid data" );
-            }
-            /**/
-            var _user =  await UserManager.FindByEmailAsync(model.Email);
-
-            if (_user != null )
-            {
-                return BadRequest("Email is already taken");
-            }
-            /**/
-
-            var newUser = new ApplicationUser()
-            {
-                UserName = model.Email,
-                Email = model.Email,
-                FullName = model.FullName
-            };
-            IdentityResult result = await UserManager.CreateAsync(newUser, model.Password);
-
-            if (!result.Succeeded)
-            {
-                return GetErrorResult(result);
-            }
-
-            return Ok();
         }
 
         // POST api/Account/RegisterExternal

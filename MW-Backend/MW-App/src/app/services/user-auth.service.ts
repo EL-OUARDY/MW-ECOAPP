@@ -32,10 +32,7 @@ export class UserAuthService implements OnInit {
   }
 
   Login(form) {
-    const data = 'username=' + form.Email + '&password=' + form.Password + '&grant_type=password';
-    const reqHeader = new HttpHeaders({ 'Content-Type': 'application/x-www-urlencoded', 'NoAuth': 'true' });
-
-    return this.http.post('/api/Account/token', data, { headers: reqHeader }).pipe(
+    return this.http.post('api/Account/Login', form, { headers: this.noAuth } ).pipe(
       catchError(handleExpectedErrors)
     );
   }
@@ -55,7 +52,7 @@ export class UserAuthService implements OnInit {
     }
     this.http.get('/api/authenticate').subscribe((userProfile: any) => {
       this.user = userProfile;
-      this.goLive();
+      // this.goLive();
     },
       (error: Response) => {
         if (error.status === 401) { // means that acctoken has expired
@@ -65,19 +62,17 @@ export class UserAuthService implements OnInit {
       });
   }
 
-  afterAuthentication(response: any) {
+  afterAuthentication(response: any) { // change method name later
     localStorage.setItem('MWToken', response.access_token);
-    this.user = JSON.parse(response.user_profile) ;
-    this.goLive(); // Live
+    this.user = JSON.parse(response.user_profile);
+    // this.goLive(); // Live
     const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
     this.router.navigateByUrl(returnUrl); // Redirect to a return url
   }
 
   private goLive() {
     const Ls = localStorage.getItem('MWToken');
-    if (Ls == null) {
-      return;
-    }
+    if (Ls == null) return;
 
     this.cnx = this._signalR.createConnection();
     this.cnx.start().then((c) => {

@@ -15,6 +15,7 @@ namespace MW_Backend
 {
     public partial class Startup
     {
+        public const string TokenEndpointPath = "/getauthentication-token";
         public static OAuthAuthorizationServerOptions OAuthOptions { get; private set; }
 
         public static string PublicClientId { get; private set; }
@@ -28,20 +29,24 @@ namespace MW_Backend
 
             // Enable the application to use a cookie to store information for the signed in user
             // and to use a cookie to temporarily store information about a user logging in with a third party login provider
-            app.UseCookieAuthentication(new CookieAuthenticationOptions());
+
+            // app.UseCookieAuthentication(new CookieAuthenticationOptions());
             app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
 
-            // Configure the application for OAuth based flow
+            // Configure the application for OAuth based flow, Do it only once!
             PublicClientId = "self";
-            OAuthOptions = new OAuthAuthorizationServerOptions
+            if (OAuthOptions == null)
             {
-                TokenEndpointPath = new PathString("/api/Account/token"),
-                Provider = new ApplicationOAuthProvider(PublicClientId),
-                AuthorizeEndpointPath = new PathString("/api/Account/ExternalLogin"),
-                AccessTokenExpireTimeSpan = TimeSpan.FromDays(7),
-                // In production mode set AllowInsecureHttp = false
-                AllowInsecureHttp = true
-            };
+                OAuthOptions = new OAuthAuthorizationServerOptions
+                {
+                    TokenEndpointPath = new PathString(TokenEndpointPath),
+                    Provider = new ApplicationOAuthProvider(PublicClientId),
+                    AuthorizeEndpointPath = new PathString("/api/Account/ExternalLogin"),
+                    AccessTokenExpireTimeSpan = TimeSpan.FromDays(7),
+                    // In production mode set AllowInsecureHttp = false
+                    AllowInsecureHttp = true
+                };
+            }
 
             // Enable the application to use bearer tokens to authenticate users
             app.UseOAuthBearerTokens(OAuthOptions);

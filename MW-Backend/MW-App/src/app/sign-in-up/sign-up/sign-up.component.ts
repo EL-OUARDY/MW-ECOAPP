@@ -23,11 +23,8 @@ export class SignUpComponent implements OnInit {
       return;
     }
     this.userAuth.Register(form.value).subscribe(
-      () => {
-        this.userAuth.Login(form.value).subscribe(
-          (response: any) => {
-            this.userAuth.afterAuthentication(response);
-          });
+      (response: any) => {
+        this.userAuth.afterAuthentication(response);
       },
       (err: AppError) => {
         if (err instanceof BadInput) {

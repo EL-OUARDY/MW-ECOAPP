@@ -1555,9 +1555,12 @@ var UserAuthService = /** @class */ (function () {
         return this.http.post('api/Account/Register', form, { headers: this.noAuth }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(src_app_common_errors_http_errors__WEBPACK_IMPORTED_MODULE_5__["handleExpectedErrors"]));
     };
     UserAuthService.prototype.Login = function (form) {
-        var data = 'username=' + form.Email + '&password=' + form.Password + '&grant_type=password';
-        var reqHeader = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({ 'Content-Type': 'application/x-www-urlencoded', 'NoAuth': 'true' });
-        return this.http.post('/api/Account/token', data, { headers: reqHeader }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(src_app_common_errors_http_errors__WEBPACK_IMPORTED_MODULE_5__["handleExpectedErrors"]));
+        // const data = 'username=' + form.Email + '&password=' + form.Password + '&grant_type=password';
+        // const reqHeader = new HttpHeaders({ 'Content-Type': 'application/x-www-urlencoded', 'NoAuth': 'true' });
+        // return this.http.post('/token', data, { headers: reqHeader } ).pipe(
+        //   catchError(handleExpectedErrors)
+        // );
+        return this.http.post('api/Account/Login', form, { headers: this.noAuth }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(src_app_common_errors_http_errors__WEBPACK_IMPORTED_MODULE_5__["handleExpectedErrors"]));
     };
     UserAuthService.prototype.Logout = function () {
         var _this = this;
@@ -1576,7 +1579,7 @@ var UserAuthService = /** @class */ (function () {
         }
         this.http.get('/api/authenticate').subscribe(function (userProfile) {
             _this.user = userProfile;
-            _this.goLive();
+            // this.goLive();
         }, function (error) {
             if (error.status === 401) { // means that acctoken has expired
                 localStorage.removeItem('MWToken');
@@ -1589,15 +1592,14 @@ var UserAuthService = /** @class */ (function () {
     UserAuthService.prototype.afterAuthentication = function (response) {
         localStorage.setItem('MWToken', response.access_token);
         this.user = JSON.parse(response.user_profile);
-        this.goLive(); // Live
+        // this.goLive(); // Live
         var returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
         this.router.navigateByUrl(returnUrl); // Redirect to a return url
     };
     UserAuthService.prototype.goLive = function () {
         var Ls = localStorage.getItem('MWToken');
-        if (Ls == null) {
+        if (Ls == null)
             return;
-        }
         this.cnx = this._signalR.createConnection();
         this.cnx.start().then(function (c) {
             console.log('you are connected to the hub..');
@@ -1996,10 +1998,8 @@ var SignUpComponent = /** @class */ (function () {
             this.serverError = 'Fill all fields with valid data';
             return;
         }
-        this.userAuth.Register(form.value).subscribe(function () {
-            _this.userAuth.Login(form.value).subscribe(function (response) {
-                _this.userAuth.afterAuthentication(response);
-            });
+        this.userAuth.Register(form.value).subscribe(function (response) {
+            _this.userAuth.afterAuthentication(response);
         }, function (err) {
             if (err instanceof src_app_common_errors_http_errors__WEBPACK_IMPORTED_MODULE_2__["BadInput"]) {
                 _this.serverError = err.originalError.error.Message; // Display the error within Form errors
