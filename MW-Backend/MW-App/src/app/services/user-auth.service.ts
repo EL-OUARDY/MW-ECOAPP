@@ -50,8 +50,8 @@ export class UserAuthService implements OnInit {
     if (Ls == null) {
       return;
     }
-    this.http.get('/api/authenticate').subscribe((userProfile: any) => {
-      this.user = userProfile;
+    this.http.get('/api/authenticate').subscribe((response: any) => {
+      this.user = JSON.parse(response.profile);
       // this.goLive();
     },
       (error: Response) => {
@@ -64,7 +64,7 @@ export class UserAuthService implements OnInit {
 
   afterAuthentication(response: any) { // change method name later
     localStorage.setItem('MWToken', response.access_token);
-    this.user = JSON.parse(response.user_profile);
+    this.user = JSON.parse(response.profile);
     // this.goLive(); // Live
     const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
     this.router.navigateByUrl(returnUrl); // Redirect to a return url

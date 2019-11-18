@@ -41,6 +41,7 @@ import { AdminUploadService } from './services/admin-upload.service';
 import { LayoutComponent } from './layout/layout.component';
 import { LoginComponent } from './login/login.component';
 import { AdminAuthService } from './services/admin-auth.service';
+import { isListLikeIterable } from '@angular/core/src/change_detection/change_detection_util';
 
 @NgModule({
   declarations: [
@@ -98,9 +99,9 @@ import { AdminAuthService } from './services/admin-auth.service';
     AdminProductService,
     AdminUploadService,
 
-    // { provide: ErrorHandler, useClass: AppErrorHandler },
+    { provide: ErrorHandler, useClass: AppErrorHandler },
 
-    // { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
   ],
   bootstrap: [AppComponent],
   entryComponents: [ConfirmDialogComponent]

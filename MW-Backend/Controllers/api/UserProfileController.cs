@@ -16,6 +16,7 @@ using MW_Backend.Models.Data;
 
 namespace MW_Backend.Controllers.api
 {
+    [Authorize]
     public class UserProfileController : ApiController
     {
         private ApplicationDbContext db;
@@ -28,13 +29,23 @@ namespace MW_Backend.Controllers.api
         }
 
         // GET: api/UserIdentity
-        [Authorize]
         [HttpGet]
         [Route("api/authenticate")]
-        public IHttpActionResult GetUserProfile()
+        public IHttpActionResult Authenticate()
         {
-            var _user = UserManager.FindById(User.Identity.GetUserId());
-            return Ok(Mapper.Map<UserProfileResourse>(_user));
+            string userId = User.Identity.GetUserId();
+            var _user = UserManager.FindById(userId);
+            var roles = UserManager.GetRoles(userId);
+
+            IDictionary<string, string> response = new Dictionary<string, string>
+            {
+                { "profile", System.Web.Helpers.Json.Encode(Mapper.Map<UserProfileResourse>(_user)) }
+            };
+
+            if (roles.Contains("ADMIN"))
+                response.Add("role", "ADMIN");
+
+            return Ok(response);
         }
 
         protected override void Dispose(bool disposing)

@@ -49,11 +49,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _tickets_tickets_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./tickets/tickets.component */ "./src/app/tickets/tickets.component.ts");
 /* harmony import */ var _profile_profile_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./profile/profile.component */ "./src/app/profile/profile.component.ts");
 /* harmony import */ var _settings_settings_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./settings/settings.component */ "./src/app/settings/settings.component.ts");
-/* harmony import */ var _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./dashboard/dashboard.component */ "./src/app/dashboard/dashboard.component.ts");
-/* harmony import */ var _guards_admin_auth_guard__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./guards/admin-auth.guard */ "./src/app/guards/admin-auth.guard.ts");
-/* harmony import */ var _layout_layout_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./layout/layout.component */ "./src/app/layout/layout.component.ts");
-/* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
-
+/* harmony import */ var _guards_admin_auth_guard__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./guards/admin-auth.guard */ "./src/app/guards/admin-auth.guard.ts");
+/* harmony import */ var _layout_layout_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./layout/layout.component */ "./src/app/layout/layout.component.ts");
+/* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
 
 
 
@@ -74,26 +72,27 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var routes = [
-    { path: 'admin/login', component: _login_login_component__WEBPACK_IMPORTED_MODULE_19__["LoginComponent"] },
-    { path: 'admin/404', component: _error_pages_not_found_not_found_component__WEBPACK_IMPORTED_MODULE_3__["NotFoundComponent"] },
-    { path: 'admin/error', component: _error_pages_unexpected_error_unexpected_error_component__WEBPACK_IMPORTED_MODULE_4__["UnexpectedErrorComponent"] },
+    { path: "admin/login", component: _login_login_component__WEBPACK_IMPORTED_MODULE_18__["LoginComponent"] },
+    { path: "admin/404", component: _error_pages_not_found_not_found_component__WEBPACK_IMPORTED_MODULE_3__["NotFoundComponent"] },
+    { path: "admin/error", component: _error_pages_unexpected_error_unexpected_error_component__WEBPACK_IMPORTED_MODULE_4__["UnexpectedErrorComponent"] },
     {
-        path: '', component: _layout_layout_component__WEBPACK_IMPORTED_MODULE_18__["LayoutComponent"],
+        path: "",
+        component: _layout_layout_component__WEBPACK_IMPORTED_MODULE_17__["LayoutComponent"], canActivate: [_guards_admin_auth_guard__WEBPACK_IMPORTED_MODULE_16__["AdminAuthGuard"]],
         children: [
-            { path: '', component: _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_16__["DashboardComponent"], canActivate: [_guards_admin_auth_guard__WEBPACK_IMPORTED_MODULE_17__["AdminAuthGuard"]] },
-            { path: 'admin', component: _product_product_form_product_form_component__WEBPACK_IMPORTED_MODULE_5__["ProductFormComponent"], canActivate: [_guards_admin_auth_guard__WEBPACK_IMPORTED_MODULE_17__["AdminAuthGuard"]] },
-            { path: 'admin/products', component: _product_product_list_product_list_component__WEBPACK_IMPORTED_MODULE_8__["ProductListComponent"], canActivate: [_guards_admin_auth_guard__WEBPACK_IMPORTED_MODULE_17__["AdminAuthGuard"]] },
-            { path: 'admin/product-form', component: _product_product_form_product_form_component__WEBPACK_IMPORTED_MODULE_5__["ProductFormComponent"], canActivate: [_guards_admin_auth_guard__WEBPACK_IMPORTED_MODULE_17__["AdminAuthGuard"]] },
-            { path: 'admin/orders', component: _order_orders_orders_component__WEBPACK_IMPORTED_MODULE_6__["OrdersComponent"], canActivate: [_guards_admin_auth_guard__WEBPACK_IMPORTED_MODULE_17__["AdminAuthGuard"]] },
-            { path: 'admin/support', component: _support_support_component__WEBPACK_IMPORTED_MODULE_7__["SupportComponent"], canActivate: [_guards_admin_auth_guard__WEBPACK_IMPORTED_MODULE_17__["AdminAuthGuard"]] },
-            { path: 'admin/users', component: _user_users_list_users_list_component__WEBPACK_IMPORTED_MODULE_9__["UsersListComponent"], canActivate: [_guards_admin_auth_guard__WEBPACK_IMPORTED_MODULE_17__["AdminAuthGuard"]] },
-            { path: 'admin/coupons', component: _coupon_coupon_component__WEBPACK_IMPORTED_MODULE_10__["CouponComponent"], canActivate: [_guards_admin_auth_guard__WEBPACK_IMPORTED_MODULE_17__["AdminAuthGuard"]] },
-            { path: 'admin/user-reviews', component: _user_reviews_reviews_component__WEBPACK_IMPORTED_MODULE_11__["ReviewsComponent"], canActivate: [_guards_admin_auth_guard__WEBPACK_IMPORTED_MODULE_17__["AdminAuthGuard"]] },
-            { path: 'admin/edit-pages', component: _pages_edit_pages_edit_component__WEBPACK_IMPORTED_MODULE_12__["PagesEditComponent"], canActivate: [_guards_admin_auth_guard__WEBPACK_IMPORTED_MODULE_17__["AdminAuthGuard"]] },
-            { path: 'admin/tickets', component: _tickets_tickets_component__WEBPACK_IMPORTED_MODULE_13__["TicketsComponent"], canActivate: [_guards_admin_auth_guard__WEBPACK_IMPORTED_MODULE_17__["AdminAuthGuard"]] },
-            { path: 'admin/profile', component: _profile_profile_component__WEBPACK_IMPORTED_MODULE_14__["ProfileComponent"], canActivate: [_guards_admin_auth_guard__WEBPACK_IMPORTED_MODULE_17__["AdminAuthGuard"]] },
-            { path: 'admin/settings', component: _settings_settings_component__WEBPACK_IMPORTED_MODULE_15__["SettingsComponent"], canActivate: [_guards_admin_auth_guard__WEBPACK_IMPORTED_MODULE_17__["AdminAuthGuard"]] },
-            { path: '**', redirectTo: '' }
+            { path: "", component: _product_product_form_product_form_component__WEBPACK_IMPORTED_MODULE_5__["ProductFormComponent"] },
+            { path: "admin", component: _product_product_form_product_form_component__WEBPACK_IMPORTED_MODULE_5__["ProductFormComponent"] },
+            { path: "admin/products", component: _product_product_list_product_list_component__WEBPACK_IMPORTED_MODULE_8__["ProductListComponent"] },
+            { path: "admin/product-form", component: _product_product_form_product_form_component__WEBPACK_IMPORTED_MODULE_5__["ProductFormComponent"] },
+            { path: "admin/orders", component: _order_orders_orders_component__WEBPACK_IMPORTED_MODULE_6__["OrdersComponent"] },
+            { path: "admin/support", component: _support_support_component__WEBPACK_IMPORTED_MODULE_7__["SupportComponent"] },
+            { path: "admin/users", component: _user_users_list_users_list_component__WEBPACK_IMPORTED_MODULE_9__["UsersListComponent"] },
+            { path: "admin/coupons", component: _coupon_coupon_component__WEBPACK_IMPORTED_MODULE_10__["CouponComponent"] },
+            { path: "admin/user-reviews", component: _user_reviews_reviews_component__WEBPACK_IMPORTED_MODULE_11__["ReviewsComponent"] },
+            { path: "admin/edit-pages", component: _pages_edit_pages_edit_component__WEBPACK_IMPORTED_MODULE_12__["PagesEditComponent"] },
+            { path: "admin/tickets", component: _tickets_tickets_component__WEBPACK_IMPORTED_MODULE_13__["TicketsComponent"] },
+            { path: "admin/profile", component: _profile_profile_component__WEBPACK_IMPORTED_MODULE_14__["ProfileComponent"] },
+            { path: "admin/settings", component: _settings_settings_component__WEBPACK_IMPORTED_MODULE_15__["SettingsComponent"] },
+            { path: "**", redirectTo: "" }
         ]
     }
 ];
@@ -147,18 +146,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppComponent", function() { return AppComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_admin_auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./services/admin-auth.service */ "./src/app/services/admin-auth.service.ts");
+
 
 
 var AppComponent = /** @class */ (function () {
-    function AppComponent() {
-        this.title = 'MW-Admin';
+    function AppComponent(adminAuth) {
+        this.adminAuth = adminAuth;
     }
+    AppComponent.prototype.ngOnInit = function () {
+        this.adminAuth.authenticate();
+    };
     AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-root',
             template: __webpack_require__(/*! ./app.component.html */ "./src/app/app.component.html"),
             styles: [__webpack_require__(/*! ./app.component.css */ "./src/app/app.component.css")]
-        })
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_admin_auth_service__WEBPACK_IMPORTED_MODULE_2__["AdminAuthService"]])
     ], AppComponent);
     return AppComponent;
 }());
@@ -188,31 +193,35 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm5/animations.js");
 /* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm5/ngx-toastr.js");
 /* harmony import */ var _error_pages_not_found_not_found_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./error-pages/not-found/not-found.component */ "./src/app/error-pages/not-found/not-found.component.ts");
-/* harmony import */ var _error_pages_unexpected_error_unexpected_error_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./error-pages/unexpected-error/unexpected-error.component */ "./src/app/error-pages/unexpected-error/unexpected-error.component.ts");
-/* harmony import */ var _product_product_history_product_history_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./product/product-history/product-history.component */ "./src/app/product/product-history/product-history.component.ts");
-/* harmony import */ var _product_product_form_product_form_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./product/product-form/product-form.component */ "./src/app/product/product-form/product-form.component.ts");
-/* harmony import */ var _services_admin_product_service__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./services/admin-product.service */ "./src/app/services/admin-product.service.ts");
-/* harmony import */ var _sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./sidebar/sidebar.component */ "./src/app/sidebar/sidebar.component.ts");
-/* harmony import */ var _header_header_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./header/header.component */ "./src/app/header/header.component.ts");
-/* harmony import */ var _order_orders_orders_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./order/orders/orders.component */ "./src/app/order/orders/orders.component.ts");
-/* harmony import */ var _support_support_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./support/support.component */ "./src/app/support/support.component.ts");
-/* harmony import */ var _product_product_list_product_list_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./product/product-list/product-list.component */ "./src/app/product/product-list/product-list.component.ts");
-/* harmony import */ var _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./dashboard/dashboard.component */ "./src/app/dashboard/dashboard.component.ts");
-/* harmony import */ var _user_users_list_users_list_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./user/users-list/users-list.component */ "./src/app/user/users-list/users-list.component.ts");
-/* harmony import */ var _coupon_coupon_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./coupon/coupon.component */ "./src/app/coupon/coupon.component.ts");
-/* harmony import */ var _user_reviews_reviews_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./user/reviews/reviews.component */ "./src/app/user/reviews/reviews.component.ts");
-/* harmony import */ var _pages_edit_pages_edit_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./pages-edit/pages-edit.component */ "./src/app/pages-edit/pages-edit.component.ts");
-/* harmony import */ var _tickets_tickets_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./tickets/tickets.component */ "./src/app/tickets/tickets.component.ts");
-/* harmony import */ var _profile_profile_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./profile/profile.component */ "./src/app/profile/profile.component.ts");
-/* harmony import */ var _settings_settings_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./settings/settings.component */ "./src/app/settings/settings.component.ts");
-/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
-/* harmony import */ var _angular_cdk_table__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! @angular/cdk/table */ "./node_modules/@angular/cdk/esm5/table.es5.js");
-/* harmony import */ var ngx_scrollbar__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ngx-scrollbar */ "./node_modules/ngx-scrollbar/fesm5/ngx-scrollbar.js");
-/* harmony import */ var _shared_confirm_dialog_confirm_dialog_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./shared/confirm-dialog/confirm-dialog.component */ "./src/app/shared/confirm-dialog/confirm-dialog.component.ts");
-/* harmony import */ var _services_admin_upload_service__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./services/admin-upload.service */ "./src/app/services/admin-upload.service.ts");
-/* harmony import */ var _layout_layout_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./layout/layout.component */ "./src/app/layout/layout.component.ts");
-/* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
-/* harmony import */ var _services_admin_auth_service__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./services/admin-auth.service */ "./src/app/services/admin-auth.service.ts");
+/* harmony import */ var _common_errors_global_error_handler__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./common/errors/global-error-handler */ "./src/app/common/errors/global-error-handler.ts");
+/* harmony import */ var _error_pages_unexpected_error_unexpected_error_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./error-pages/unexpected-error/unexpected-error.component */ "./src/app/error-pages/unexpected-error/unexpected-error.component.ts");
+/* harmony import */ var _common_auth_interceptor__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./common/auth-interceptor */ "./src/app/common/auth-interceptor.ts");
+/* harmony import */ var _product_product_history_product_history_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./product/product-history/product-history.component */ "./src/app/product/product-history/product-history.component.ts");
+/* harmony import */ var _product_product_form_product_form_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./product/product-form/product-form.component */ "./src/app/product/product-form/product-form.component.ts");
+/* harmony import */ var _services_admin_product_service__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./services/admin-product.service */ "./src/app/services/admin-product.service.ts");
+/* harmony import */ var _sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./sidebar/sidebar.component */ "./src/app/sidebar/sidebar.component.ts");
+/* harmony import */ var _header_header_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./header/header.component */ "./src/app/header/header.component.ts");
+/* harmony import */ var _order_orders_orders_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./order/orders/orders.component */ "./src/app/order/orders/orders.component.ts");
+/* harmony import */ var _support_support_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./support/support.component */ "./src/app/support/support.component.ts");
+/* harmony import */ var _product_product_list_product_list_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./product/product-list/product-list.component */ "./src/app/product/product-list/product-list.component.ts");
+/* harmony import */ var _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./dashboard/dashboard.component */ "./src/app/dashboard/dashboard.component.ts");
+/* harmony import */ var _user_users_list_users_list_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./user/users-list/users-list.component */ "./src/app/user/users-list/users-list.component.ts");
+/* harmony import */ var _coupon_coupon_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./coupon/coupon.component */ "./src/app/coupon/coupon.component.ts");
+/* harmony import */ var _user_reviews_reviews_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./user/reviews/reviews.component */ "./src/app/user/reviews/reviews.component.ts");
+/* harmony import */ var _pages_edit_pages_edit_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./pages-edit/pages-edit.component */ "./src/app/pages-edit/pages-edit.component.ts");
+/* harmony import */ var _tickets_tickets_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./tickets/tickets.component */ "./src/app/tickets/tickets.component.ts");
+/* harmony import */ var _profile_profile_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./profile/profile.component */ "./src/app/profile/profile.component.ts");
+/* harmony import */ var _settings_settings_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./settings/settings.component */ "./src/app/settings/settings.component.ts");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _angular_cdk_table__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! @angular/cdk/table */ "./node_modules/@angular/cdk/esm5/table.es5.js");
+/* harmony import */ var ngx_scrollbar__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ngx-scrollbar */ "./node_modules/ngx-scrollbar/fesm5/ngx-scrollbar.js");
+/* harmony import */ var _shared_confirm_dialog_confirm_dialog_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./shared/confirm-dialog/confirm-dialog.component */ "./src/app/shared/confirm-dialog/confirm-dialog.component.ts");
+/* harmony import */ var _services_admin_upload_service__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./services/admin-upload.service */ "./src/app/services/admin-upload.service.ts");
+/* harmony import */ var _layout_layout_component__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./layout/layout.component */ "./src/app/layout/layout.component.ts");
+/* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
+/* harmony import */ var _services_admin_auth_service__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./services/admin-auth.service */ "./src/app/services/admin-auth.service.ts");
+
+
 
 
 
@@ -256,26 +265,26 @@ var AppModule = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
             declarations: [
                 _app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"],
-                _product_product_form_product_form_component__WEBPACK_IMPORTED_MODULE_13__["ProductFormComponent"],
-                _product_product_history_product_history_component__WEBPACK_IMPORTED_MODULE_12__["ProductHistoryComponent"],
+                _product_product_form_product_form_component__WEBPACK_IMPORTED_MODULE_15__["ProductFormComponent"],
+                _product_product_history_product_history_component__WEBPACK_IMPORTED_MODULE_14__["ProductHistoryComponent"],
                 _error_pages_not_found_not_found_component__WEBPACK_IMPORTED_MODULE_10__["NotFoundComponent"],
-                _error_pages_unexpected_error_unexpected_error_component__WEBPACK_IMPORTED_MODULE_11__["UnexpectedErrorComponent"],
-                _sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_15__["SidebarComponent"],
-                _header_header_component__WEBPACK_IMPORTED_MODULE_16__["HeaderComponent"],
-                _order_orders_orders_component__WEBPACK_IMPORTED_MODULE_17__["OrdersComponent"],
-                _support_support_component__WEBPACK_IMPORTED_MODULE_18__["SupportComponent"],
-                _product_product_list_product_list_component__WEBPACK_IMPORTED_MODULE_19__["ProductListComponent"],
-                _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_20__["DashboardComponent"],
-                _user_users_list_users_list_component__WEBPACK_IMPORTED_MODULE_21__["UsersListComponent"],
-                _coupon_coupon_component__WEBPACK_IMPORTED_MODULE_22__["CouponComponent"],
-                _user_reviews_reviews_component__WEBPACK_IMPORTED_MODULE_23__["ReviewsComponent"],
-                _pages_edit_pages_edit_component__WEBPACK_IMPORTED_MODULE_24__["PagesEditComponent"],
-                _tickets_tickets_component__WEBPACK_IMPORTED_MODULE_25__["TicketsComponent"],
-                _profile_profile_component__WEBPACK_IMPORTED_MODULE_26__["ProfileComponent"],
-                _settings_settings_component__WEBPACK_IMPORTED_MODULE_27__["SettingsComponent"],
-                _shared_confirm_dialog_confirm_dialog_component__WEBPACK_IMPORTED_MODULE_31__["ConfirmDialogComponent"],
-                _layout_layout_component__WEBPACK_IMPORTED_MODULE_33__["LayoutComponent"],
-                _login_login_component__WEBPACK_IMPORTED_MODULE_34__["LoginComponent"],
+                _error_pages_unexpected_error_unexpected_error_component__WEBPACK_IMPORTED_MODULE_12__["UnexpectedErrorComponent"],
+                _sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_17__["SidebarComponent"],
+                _header_header_component__WEBPACK_IMPORTED_MODULE_18__["HeaderComponent"],
+                _order_orders_orders_component__WEBPACK_IMPORTED_MODULE_19__["OrdersComponent"],
+                _support_support_component__WEBPACK_IMPORTED_MODULE_20__["SupportComponent"],
+                _product_product_list_product_list_component__WEBPACK_IMPORTED_MODULE_21__["ProductListComponent"],
+                _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_22__["DashboardComponent"],
+                _user_users_list_users_list_component__WEBPACK_IMPORTED_MODULE_23__["UsersListComponent"],
+                _coupon_coupon_component__WEBPACK_IMPORTED_MODULE_24__["CouponComponent"],
+                _user_reviews_reviews_component__WEBPACK_IMPORTED_MODULE_25__["ReviewsComponent"],
+                _pages_edit_pages_edit_component__WEBPACK_IMPORTED_MODULE_26__["PagesEditComponent"],
+                _tickets_tickets_component__WEBPACK_IMPORTED_MODULE_27__["TicketsComponent"],
+                _profile_profile_component__WEBPACK_IMPORTED_MODULE_28__["ProfileComponent"],
+                _settings_settings_component__WEBPACK_IMPORTED_MODULE_29__["SettingsComponent"],
+                _shared_confirm_dialog_confirm_dialog_component__WEBPACK_IMPORTED_MODULE_33__["ConfirmDialogComponent"],
+                _layout_layout_component__WEBPACK_IMPORTED_MODULE_35__["LayoutComponent"],
+                _login_login_component__WEBPACK_IMPORTED_MODULE_36__["LoginComponent"],
             ],
             imports: [
                 _angular_common__WEBPACK_IMPORTED_MODULE_7__["CommonModule"],
@@ -284,27 +293,29 @@ var AppModule = /** @class */ (function () {
                 _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormsModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_5__["ReactiveFormsModule"],
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_6__["HttpClientModule"],
-                ngx_scrollbar__WEBPACK_IMPORTED_MODULE_30__["NgScrollbarModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_28__["MatSelectModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_28__["MatCheckboxModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_28__["MatRadioModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_28__["MatDialogModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_28__["MatSnackBarModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_28__["MatTableModule"],
-                _angular_cdk_table__WEBPACK_IMPORTED_MODULE_29__["CdkTableModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_28__["MatDialogModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_28__["MatInputModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_28__["MatButtonModule"],
+                ngx_scrollbar__WEBPACK_IMPORTED_MODULE_32__["NgScrollbarModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_30__["MatSelectModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_30__["MatCheckboxModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_30__["MatRadioModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_30__["MatDialogModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_30__["MatSnackBarModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_30__["MatTableModule"],
+                _angular_cdk_table__WEBPACK_IMPORTED_MODULE_31__["CdkTableModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_30__["MatDialogModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_30__["MatInputModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_30__["MatButtonModule"],
                 _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_8__["BrowserAnimationsModule"],
                 ngx_toastr__WEBPACK_IMPORTED_MODULE_9__["ToastrModule"].forRoot()
             ],
             providers: [
-                _services_admin_auth_service__WEBPACK_IMPORTED_MODULE_35__["AdminAuthService"],
-                _services_admin_product_service__WEBPACK_IMPORTED_MODULE_14__["AdminProductService"],
-                _services_admin_upload_service__WEBPACK_IMPORTED_MODULE_32__["AdminUploadService"],
+                _services_admin_auth_service__WEBPACK_IMPORTED_MODULE_37__["AdminAuthService"],
+                _services_admin_product_service__WEBPACK_IMPORTED_MODULE_16__["AdminProductService"],
+                _services_admin_upload_service__WEBPACK_IMPORTED_MODULE_34__["AdminUploadService"],
+                { provide: _angular_core__WEBPACK_IMPORTED_MODULE_2__["ErrorHandler"], useClass: _common_errors_global_error_handler__WEBPACK_IMPORTED_MODULE_11__["AppErrorHandler"] },
+                { provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_6__["HTTP_INTERCEPTORS"], useClass: _common_auth_interceptor__WEBPACK_IMPORTED_MODULE_13__["AuthInterceptor"], multi: true }
             ],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]],
-            entryComponents: [_shared_confirm_dialog_confirm_dialog_component__WEBPACK_IMPORTED_MODULE_31__["ConfirmDialogComponent"]]
+            entryComponents: [_shared_confirm_dialog_confirm_dialog_component__WEBPACK_IMPORTED_MODULE_33__["ConfirmDialogComponent"]]
         })
     ], AppModule);
     return AppModule;
@@ -318,17 +329,67 @@ var AppModule = /** @class */ (function () {
 /*!*******************************************!*\
   !*** ./src/app/common/GlobalConstants.ts ***!
   \*******************************************/
-/*! exports provided: FormJob */
+/*! exports provided: FormJob, ADMIN_ROLE */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FormJob", function() { return FormJob; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ADMIN_ROLE", function() { return ADMIN_ROLE; });
 var FormJob = {
     Add: 'Add',
     Update: 'Update',
     Copy: 'Copy'
 };
+var ADMIN_ROLE = "ADMIN";
+
+
+/***/ }),
+
+/***/ "./src/app/common/auth-interceptor.ts":
+/*!********************************************!*\
+  !*** ./src/app/common/auth-interceptor.ts ***!
+  \********************************************/
+/*! exports provided: AuthInterceptor */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthInterceptor", function() { return AuthInterceptor; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_admin_auth_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services/admin-auth.service */ "./src/app/services/admin-auth.service.ts");
+
+
+
+
+var AuthInterceptor = /** @class */ (function () {
+    function AuthInterceptor(router, adminAuth) {
+        this.router = router;
+        this.adminAuth = adminAuth;
+    }
+    AuthInterceptor.prototype.intercept = function (req, next) {
+        if (req.headers.get('NoAuth') === 'true')
+            return next.handle(req.clone());
+        var token = localStorage.getItem('MWToken') || this.adminAuth._TOKEN;
+        if (token != null) {
+            var clonedreq = req.clone({
+                headers: req.headers.set('Authorization', 'Bearer ' + token)
+            });
+            return next.handle(clonedreq);
+        }
+        else {
+            this.router.navigate(['admin/login']);
+        }
+    };
+    AuthInterceptor = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Injectable"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"], _services_admin_auth_service__WEBPACK_IMPORTED_MODULE_3__["AdminAuthService"]])
+    ], AuthInterceptor);
+    return AuthInterceptor;
+}());
+
 
 
 /***/ }),
@@ -348,6 +409,46 @@ var AppError = /** @class */ (function () {
         this.originalError = originalError;
     }
     return AppError;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/common/errors/global-error-handler.ts":
+/*!*******************************************************!*\
+  !*** ./src/app/common/errors/global-error-handler.ts ***!
+  \*******************************************************/
+/*! exports provided: AppErrorHandler */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppErrorHandler", function() { return AppErrorHandler; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var AppErrorHandler = /** @class */ (function () {
+    function AppErrorHandler() {
+    }
+    AppErrorHandler.prototype.handleError = function (error) {
+        if (error.status === 401) { // either unRegistred or Token has Expired
+            localStorage.removeItem('MW-AccessToken');
+            window.location.href = '/admin/sign-in';
+            return;
+        }
+        if (error.status === 404) {
+            window.location.href = '/admin/404';
+            return;
+        }
+        window.location.href = '/admin/error';
+    };
+    AppErrorHandler = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], AppErrorHandler);
+    return AppErrorHandler;
 }());
 
 
@@ -689,18 +790,30 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminAuthGuard", function() { return AdminAuthGuard; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _services_admin_auth_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services/admin-auth.service */ "./src/app/services/admin-auth.service.ts");
+
+
 
 
 var AdminAuthGuard = /** @class */ (function () {
-    function AdminAuthGuard() {
+    function AdminAuthGuard(router, adminAuth) {
+        this.router = router;
+        this.adminAuth = adminAuth;
     }
     AdminAuthGuard.prototype.canActivate = function (next, state) {
-        return true;
+        var admin = this.adminAuth.admin;
+        var token = localStorage.getItem("MWToken");
+        if (admin || token) {
+            return true;
+        }
+        this.router.navigate(['admin/login'], { queryParams: { returnUrl: state.url } });
     };
     AdminAuthGuard = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
             providedIn: 'root'
-        })
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _services_admin_auth_service__WEBPACK_IMPORTED_MODULE_3__["AdminAuthService"]])
     ], AdminAuthGuard);
     return AdminAuthGuard;
 }());
@@ -839,7 +952,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"divprofileset divphoto\">\n  <form [formGroup]=\"form\" (ngSubmit)=\"login()\" class=\"allinformation\">\n    <div class=\"divforminfo\">\n      <svg class=\"loginSvg\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" viewBox=\"0 0 50 50\"><defs><style>.cls-1{fill:url(#linear-gradient);}.cls-2{fill:url(#linear-gradient-2);}.cls-3{fill:url(#linear-gradient-3);}.cls-4{fill:url(#linear-gradient-4);}</style><linearGradient id=\"linear-gradient\" x1=\"1571.13\" y1=\"657.12\" x2=\"1622.86\" y2=\"657.03\" gradientTransform=\"translate(1622 695.5) rotate(180)\" gradientUnits=\"userSpaceOnUse\"><stop offset=\"0\" stop-color=\"#1c1d1f\"/><stop offset=\"0.38\" stop-color=\"#1c1d1f\"/><stop offset=\"0.63\" stop-color=\"#1c1d1f\"/><stop offset=\"1\" stop-color=\"#1c1d1f\"/></linearGradient><linearGradient id=\"linear-gradient-2\" x1=\"1576.79\" y1=\"678.95\" x2=\"1572.75\" y2=\"656.14\" gradientTransform=\"translate(1622 695.5) rotate(180)\" gradientUnits=\"userSpaceOnUse\"><stop offset=\"0\" stop-color=\"#1c1d1f\"/><stop offset=\"0.44\" stop-color=\"#212225\"/><stop offset=\"1\" stop-color=\"#2f3134\"/></linearGradient><linearGradient id=\"linear-gradient-3\" x1=\"1501.14\" y1=\"578.13\" x2=\"1552.88\" y2=\"578.04\" gradientTransform=\"translate(-1502 -566.5)\" xlink:href=\"#linear-gradient\"/><linearGradient id=\"linear-gradient-4\" x1=\"1506.79\" y1=\"599.95\" x2=\"1502.75\" y2=\"577.14\" gradientTransform=\"translate(-1502 -566.5)\" xlink:href=\"#linear-gradient-2\"/></defs><title>Asset 12</title><g id=\"Layer_2\" data-name=\"Layer 2\"><g id=\"logo\"><path class=\"cls-1\" d=\"M0,48.37V43.28a3,3,0,0,1,1.43-2.59L23.9,27.09a2.12,2.12,0,0,1,2.2,0L43.75,37.76,50,41.55v6.82a1.57,1.57,0,0,1-2.12,1.52L25,41,2.12,49.89A1.57,1.57,0,0,1,0,48.37Z\"/><path class=\"cls-2\" d=\"M43.75,37.76V17.67a3.75,3.75,0,0,1,1.83-3.25L48,13a1.36,1.36,0,0,1,2,1.23v27.3Z\"/><path class=\"cls-3\" d=\"M50,1.63V6.72a3,3,0,0,1-1.43,2.59L26.1,22.91a2.12,2.12,0,0,1-2.2,0L6.25,12.24,0,8.45V1.63A1.57,1.57,0,0,1,2.12.11L25,9,47.88.11A1.57,1.57,0,0,1,50,1.63Z\"/><path class=\"cls-4\" d=\"M6.25,12.24V32.33a3.75,3.75,0,0,1-1.83,3.25L2,37a1.36,1.36,0,0,1-2-1.23V8.45Z\"/></g></g></svg>\n      <div class=\"divemail\">\n        <input formControlName=\"Email\" placeholder=\"Admin@mw.io\" type=\"email\" class=\"loginInput inputemail\">\n      </div>\n      <div class=\"divemail\">\n        <input formControlName=\"Password\" placeholder=\"Password\" type=\"password\" class=\"loginInput inputemail\">\n      </div>\n      <div class=\"grey\">\n        <mat-checkbox formControlName=\"stayLogged\">Stay Logged ?</mat-checkbox>\n      </div>\n    </div>\n    <button type=\"submit\" class=\"loginBtn\">Login</button>\n  </form>\n</div>\n"
+module.exports = "<div class=\"divprofileset divphoto\">\n  <form [formGroup]=\"form\" (ngSubmit)=\"login()\" class=\"allinformation\">\n    <div class=\"divforminfo\">\n      <svg class=\"loginSvg\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" viewBox=\"0 0 50 50\"><defs><style>.cls-1{fill:url(#linear-gradient);}.cls-2{fill:url(#linear-gradient-2);}.cls-3{fill:url(#linear-gradient-3);}.cls-4{fill:url(#linear-gradient-4);}</style><linearGradient id=\"linear-gradient\" x1=\"1571.13\" y1=\"657.12\" x2=\"1622.86\" y2=\"657.03\" gradientTransform=\"translate(1622 695.5) rotate(180)\" gradientUnits=\"userSpaceOnUse\"><stop offset=\"0\" stop-color=\"#1c1d1f\"/><stop offset=\"0.38\" stop-color=\"#1c1d1f\"/><stop offset=\"0.63\" stop-color=\"#1c1d1f\"/><stop offset=\"1\" stop-color=\"#1c1d1f\"/></linearGradient><linearGradient id=\"linear-gradient-2\" x1=\"1576.79\" y1=\"678.95\" x2=\"1572.75\" y2=\"656.14\" gradientTransform=\"translate(1622 695.5) rotate(180)\" gradientUnits=\"userSpaceOnUse\"><stop offset=\"0\" stop-color=\"#1c1d1f\"/><stop offset=\"0.44\" stop-color=\"#212225\"/><stop offset=\"1\" stop-color=\"#2f3134\"/></linearGradient><linearGradient id=\"linear-gradient-3\" x1=\"1501.14\" y1=\"578.13\" x2=\"1552.88\" y2=\"578.04\" gradientTransform=\"translate(-1502 -566.5)\" xlink:href=\"#linear-gradient\"/><linearGradient id=\"linear-gradient-4\" x1=\"1506.79\" y1=\"599.95\" x2=\"1502.75\" y2=\"577.14\" gradientTransform=\"translate(-1502 -566.5)\" xlink:href=\"#linear-gradient-2\"/></defs><title>Asset 12</title><g id=\"Layer_2\" data-name=\"Layer 2\"><g id=\"logo\"><path class=\"cls-1\" d=\"M0,48.37V43.28a3,3,0,0,1,1.43-2.59L23.9,27.09a2.12,2.12,0,0,1,2.2,0L43.75,37.76,50,41.55v6.82a1.57,1.57,0,0,1-2.12,1.52L25,41,2.12,49.89A1.57,1.57,0,0,1,0,48.37Z\"/><path class=\"cls-2\" d=\"M43.75,37.76V17.67a3.75,3.75,0,0,1,1.83-3.25L48,13a1.36,1.36,0,0,1,2,1.23v27.3Z\"/><path class=\"cls-3\" d=\"M50,1.63V6.72a3,3,0,0,1-1.43,2.59L26.1,22.91a2.12,2.12,0,0,1-2.2,0L6.25,12.24,0,8.45V1.63A1.57,1.57,0,0,1,2.12.11L25,9,47.88.11A1.57,1.57,0,0,1,50,1.63Z\"/><path class=\"cls-4\" d=\"M6.25,12.24V32.33a3.75,3.75,0,0,1-1.83,3.25L2,37a1.36,1.36,0,0,1-2-1.23V8.45Z\"/></g></g></svg>\n      <div class=\"divemail\">\n        <input formControlName=\"Email\" placeholder=\"Admin@mw.io\" type=\"email\" class=\"loginInput inputemail\">\n      </div>\n      <div class=\"divemail\">\n        <input formControlName=\"Password\" placeholder=\"Password\" type=\"password\" class=\"loginInput inputemail\">\n      </div>\n      <div class=\"grey\">\n        <mat-checkbox formControlName=\"StayLogged\">Stay Logged ?</mat-checkbox>\n      </div>\n    </div>\n    <button type=\"submit\" class=\"loginBtn\">Login</button>\n  </form>\n</div>\n"
 
 /***/ }),
 
@@ -857,36 +970,53 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var _common_validators_product_validators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../common/validators/product.validators */ "./src/app/common/validators/product.validators.ts");
+/* harmony import */ var _services_admin_auth_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../services/admin-auth.service */ "./src/app/services/admin-auth.service.ts");
+/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm5/ngx-toastr.js");
+/* harmony import */ var _common_errors_http_errors__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../common/errors/http-errors */ "./src/app/common/errors/http-errors.ts");
+/* harmony import */ var _common_GlobalConstants__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../common/GlobalConstants */ "./src/app/common/GlobalConstants.ts");
+
+
+
+
 
 
 
 
 var LoginComponent = /** @class */ (function () {
-    function LoginComponent() {
+    function LoginComponent(adminAuth, toaster) {
+        this.adminAuth = adminAuth;
+        this.toaster = toaster;
         this.form = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormGroup"]({
             Email: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].email, _common_validators_product_validators__WEBPACK_IMPORTED_MODULE_3__["ProductValidators"].cannotContainSpace]),
             Password: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required),
-            stayLogged: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](false)
+            StayLogged: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](true)
         });
     }
-    Object.defineProperty(LoginComponent.prototype, "Email", {
+    Object.defineProperty(LoginComponent.prototype, "StayLogged", {
         get: function () {
-            return this.form.get('Email');
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(LoginComponent.prototype, "Password", {
-        get: function () {
-            return this.form.get('Password');
+            return this.form.get('StayLogged').value;
         },
         enumerable: true,
         configurable: true
     });
     LoginComponent.prototype.login = function () {
-        if (this.form.invalid)
-            return; //
-        console.log(this.form.value);
+        var _this = this;
+        if (this.form.invalid) {
+            this.toaster.warning("data isn't valid");
+            return;
+        }
+        this.adminAuth.Login(this.form.value).subscribe(function (response) {
+            if (response.role === _common_GlobalConstants__WEBPACK_IMPORTED_MODULE_7__["ADMIN_ROLE"])
+                _this.adminAuth.afterAuthentication(response, _this.StayLogged);
+            else
+                _this.toaster.error("You're trying to log with a user account !");
+        }, function (err) {
+            if (err instanceof _common_errors_http_errors__WEBPACK_IMPORTED_MODULE_6__["BadInput"]) {
+                _this.toaster.error('Email or Password is Incorect ..'); // Display the error within Form errors
+            }
+            else
+                throw err;
+        });
     };
     LoginComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -894,7 +1024,7 @@ var LoginComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./login.component.html */ "./src/app/login/login.component.html"),
             styles: [__webpack_require__(/*! ./login.component.css */ "./src/app/login/login.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_admin_auth_service__WEBPACK_IMPORTED_MODULE_4__["AdminAuthService"], ngx_toastr__WEBPACK_IMPORTED_MODULE_5__["ToastrService"]])
     ], LoginComponent);
     return LoginComponent;
 }());
@@ -1075,7 +1205,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"divaddproduct\" id=\"my-addproduct\">\n  <form #f=\"ngForm\" (ngSubmit)=\"onSubmit(f)\" autocomplete=\"off\">\n    <input type=\"hidden\" [(ngModel)]=\"_Product.Id\" name=\"Id\" #Id=\"ngModel\">\n    <div class=\"divtitleprod\">\n\n      <label>Source</label>\n      <input id=\"inpulien\" required minlength=\"6\" type=\"text\" name=\"SourceLink\" placeholder=\"https://example.io\">\n\n      <label>Name</label>\n      <input id=\"inputtitle\" required minlength=\"6\" type=\"text\" [(ngModel)]=\"_Product.Name\" name=\"Name\" #Name=\"ngModel\">\n\n      <label>Price</label>\n      <input class=\"inputprice\" required maxlength=\"7\" type=\"number\" [(ngModel)]=\"_Product.Price\" name=\"Price\"\n        #Price=\"ngModel\">\n\n      <svg *ngIf=\"!expand\" (click)=\"expand = true\" version=\"1.1\" x=\"0px\" y=\"0px\" viewBox=\"0 0 286.376 286.376\"\n        style=\"enable-background:new 0 0 286.376 286.376;\" xml:space=\"preserve\">\n        <path style=\"fill-rule:evenodd;clip-rule:evenodd;\"\n          d=\"M268.477,125.29H161.086V17.899c0-9.885-8.013-17.898-17.898-17.898   s-17.898,8.013-17.898,17.898v107.39H17.9c-9.885,0-17.9,8.013-17.9,17.898c0,9.885,8.015,17.898,17.9,17.898h107.39v107.39   c0,9.885,8.013,17.898,17.898,17.898s17.898-8.013,17.898-17.898v-107.39h107.391c9.885,0,17.898-8.014,17.898-17.898   C286.376,133.303,278.362,125.29,268.477,125.29z\">\n        </path>\n      </svg>\n\n      <ng-container *ngIf=\"expand\">\n\n        <label>Old Price</label>\n        <input class=\"inputprice\" maxlength=\"7\" type=\"number\" [(ngModel)]=\"_Product.OldPrice\" name=\"OldPrice\"\n          #OldPrice=\"ngModel\">\n        <svg (click)=\"expand = false\" version=\"1.1\" x=\"0px\" y=\"0px\" viewBox=\"0 0 612 612\"\n          style=\"enable-background:new 0 0 612 612;\" xml:space=\"preserve\">\n          <polygon\n            points=\"612,36.004 576.521,0.603 306,270.608 35.478,0.603 0,36.004 270.522,306.011 0,575.997 35.478,611.397      306,341.411 576.521,611.397 612,575.997 341.459,306.011    \">\n          </polygon>\n        </svg>\n\n      </ng-container>\n\n    </div>\n\n    <div class=\"divimageproduct\">\n      <!-- Edit existing product images -->\n      <ng-container *ngIf=\"_Product.Id > 0 || copyingId > 0 ; else addingProduct1\">\n        <div (click)=\"mainImg.click()\" class=\"divmainimageprod\">\n          <input #mainImg type=\"file\" name=\"MainImg\" ngModel (change)=\"setMainImage($event.target.files)\">\n          <img *ngIf=\"_Product.mainImg && !imgPath && !mainImgFromCopy\" src=\"/Content/Images/Products/{{(_Product.Id > 0) ? _Product.Id : copyingId }}/Main/{{_Product.mainImg}}\" class=\"mainimage\">\n          \n          <img *ngIf=\" imgPath && !mainImgFromCopy\" [src]=\"imgPath\" class=\"mainimage halfOpacity\">\n        \n          <img *ngIf=\" mainImgFromCopy \" \n          src=\"/Content/Images/Products/{{ copyingId }}/Gallery/{{mainImgFromCopy}}\"\n          class=\"mainimage halfOpacity\">\n\n          <!-- <ng-template #noImage>\n            <svg _ngcontent-c3=\"\" xml:space=\"preserve\" class=\"svgplusimage\" enable-background=\"new 0 0 1000 1000\"\n              version=\"1.1\" viewBox=\"0 0 1000 1000\" x=\"0px\" y=\"0px\">\n              <path _ngcontent-c3=\"\"\n                d=\"M383.6,313.6c0-38.7-31.4-70-70.1-70c-38.7,0-70,31.4-70,70c0,38.7,31.4,70.1,70,70.1C352.3,383.6,383.6,352.3,383.6,313.6L383.6,313.6z\">\n              </path>\n              <path _ngcontent-c3=\"\" d=\"M383.6,313.6\"></path>\n              <path _ngcontent-c3=\"\"\n                d=\"M616.5,671.3h57.9v-57.9c0-42.6,25.6-79.3,62.1-95.9l-9.7-33.2V482h0.1l-63.3-191.4L442.4,576l-59.3-100.4L148,712.9h346.3h38.9C552.5,687.8,582.5,671.3,616.5,671.3z\">\n              </path>\n              <path _ngcontent-c3=\"\"\n                d=\"M990,166.8C990,80.6,919.4,10,833.2,10H166.8C80.6,10,10,80.6,10,166.8v666.4C10,919.4,80.6,990,166.8,990h470.4v0c0.1,0,0.1,0,0.2,0c16.2,0,29.4-13.2,29.4-29.4c0-16.2-13.2-29.4-29.4-29.4c-0.1,0-0.1,0-0.2,0v0H166.8c-54.1,0-98-43.9-98-98V166.8c0-54.1,43.9-98,98-98h666.4c54.1,0,98,43.9,98,98v467.5c0,0.4-0.2,0.6-0.2,0.9c0,16.2,13.2,29.4,29.4,29.4c16.2,0,29.4-13.2,29.4-29.4c0-0.1-0.1-0.2-0.1-0.4h0.3V166.8z\">\n              </path>\n              <path _ngcontent-c3=\"\"\n                d=\"M959.5,747.5H809.6V597.6c0-16.2-13.2-29.4-29.4-29.4c-16.2,0-29.4,13.2-29.4,29.4v149.9H600.9c-16.2,0-29.4,13.2-29.4,29.4c0,16.2,13.2,29.4,29.4,29.4h149.9v149.9c0,16.2,13.2,29.4,29.4,29.4c16.2,0,29.4-13.2,29.4-29.4V806.3h149.9c16.2,0,29.4-13.2,29.4-29.4C988.9,760.6,975.7,747.5,959.5,747.5z\">\n              </path>\n            </svg>\n          </ng-template> -->\n        </div>\n\n        <div class=\"divmoreimage\">\n          <div (click)=\"galleryImgs.click()\" class=\"roidfudsdxv\">\n            <input [disabled]=\"(GalleryImgs.length + _Product.galleryImgs.length) === _maxG\" #galleryImgs type=\"file\" accept=\"image/*\" name=\"GalleryImgs\" \n              multiple (change)=\"addGalleryImages($event.target.files)\">\n            <svg class=\"svgplusimage\" version=\"1.1\" x=\"0px\" y=\"0px\" viewBox=\"0 0 1000 1000\" enable-background=\"new 0 0 1000 1000\"\n              xml:space=\"preserve\">\n              <path\n                d=\"M383.6,313.6c0-38.7-31.4-70-70.1-70c-38.7,0-70,31.4-70,70c0,38.7,31.4,70.1,70,70.1C352.3,383.6,383.6,352.3,383.6,313.6L383.6,313.6z\">\n              </path>\n              <path d=\"M383.6,313.6\"></path>\n              <path\n                d=\"M616.5,671.3h57.9v-57.9c0-42.6,25.6-79.3,62.1-95.9l-9.7-33.2V482h0.1l-63.3-191.4L442.4,576l-59.3-100.4L148,712.9h346.3h38.9C552.5,687.8,582.5,671.3,616.5,671.3z\">\n              </path>\n              <path\n                d=\"M990,166.8C990,80.6,919.4,10,833.2,10H166.8C80.6,10,10,80.6,10,166.8v666.4C10,919.4,80.6,990,166.8,990h470.4v0c0.1,0,0.1,0,0.2,0c16.2,0,29.4-13.2,29.4-29.4c0-16.2-13.2-29.4-29.4-29.4c-0.1,0-0.1,0-0.2,0v0H166.8c-54.1,0-98-43.9-98-98V166.8c0-54.1,43.9-98,98-98h666.4c54.1,0,98,43.9,98,98v467.5c0,0.4-0.2,0.6-0.2,0.9c0,16.2,13.2,29.4,29.4,29.4c16.2,0,29.4-13.2,29.4-29.4c0-0.1-0.1-0.2-0.1-0.4h0.3V166.8z\">\n              </path>\n              <path\n                d=\"M959.5,747.5H809.6V597.6c0-16.2-13.2-29.4-29.4-29.4c-16.2,0-29.4,13.2-29.4,29.4v149.9H600.9c-16.2,0-29.4,13.2-29.4,29.4c0,16.2,13.2,29.4,29.4,29.4h149.9v149.9c0,16.2,13.2,29.4,29.4,29.4c16.2,0,29.4-13.2,29.4-29.4V806.3h149.9c16.2,0,29.4-13.2,29.4-29.4C988.9,760.6,975.7,747.5,959.5,747.5z\">\n              </path>\n            </svg>\n          </div>\n\n          <ng-container *ngFor=\"let item of _Product.galleryImgs\">\n            <div class=\"roidfudsdxv\">\n              <div class=\"rytfhgqsfez\">\n                <svg (click)=\"asMainImageServer(item)\" class=\"imgControle\" version=\"1.1\" x=\"0px\" y=\"0px\" viewBox=\"0 0 45.937 45.937\"\n                  style=\"enable-background:new 0 0 45.937 45.937;\" xml:space=\"preserve\">\n                  <path\n                    d=\"M44.745,18.253L24.455,0.558c-0.852-0.743-2.121-0.743-2.973,0L1.191,18.253c-0.474,0.414-0.642,1.088-0.421,1.677    c0.221,0.589,0.784,0.99,1.413,0.99h2.45v23.458c0,0.834,0.629,1.558,1.463,1.558H39.84c0.834,0,1.428-0.724,1.428-1.558V20.92    h2.485c0.629,0,1.193-0.401,1.414-0.99S45.219,18.667,44.745,18.253z M27.257,31.398c0,0.614-0.529,1.143-1.144,1.143h-6.289    c-0.614,0-1.11-0.527-1.11-1.143v-7.109c0-2.351,1.92-4.256,4.271-4.256c2.352,0,4.271,1.906,4.271,4.256V31.398z\">\n                  </path>\n                </svg>\n                <svg (click)=\"removeGalleryImageServer(item)\" class=\"imgControle\" version=\"1.1\" x=\"0px\" y=\"0px\" viewBox=\"0 0 612 612\"\n                  xml:space=\"preserve\">\n                  <polygon\n                    points=\"612,36.004 576.521,0.603 306,270.608 35.478,0.603 0,36.004 270.522,306.011 0,575.997 35.478,611.397      306,341.411 576.521,611.397 612,575.997 341.459,306.011    \">\n                  </polygon>\n                </svg>\n              </div>\n              <img class=\"otherimage\" src=\"/Content/Images/Products/{{(_Product.Id > 0) ? _Product.Id : copyingId}}/Gallery/{{item}}\">\n            </div>\n          </ng-container>\n\n          <ng-container *ngFor=\"let item of GalleryImgs\">\n            <div class=\"roidfudsdxv halfOpacity\">\n              <div class=\"rytfhgqsfez\">\n                <svg (click)=\"asMainImagePlus(item.img)\" class=\"imgControle\" version=\"1.1\" x=\"0px\" y=\"0px\" viewBox=\"0 0 45.937 45.937\"\n                  style=\"enable-background:new 0 0 45.937 45.937;\" xml:space=\"preserve\">\n                  <path\n                    d=\"M44.745,18.253L24.455,0.558c-0.852-0.743-2.121-0.743-2.973,0L1.191,18.253c-0.474,0.414-0.642,1.088-0.421,1.677    c0.221,0.589,0.784,0.99,1.413,0.99h2.45v23.458c0,0.834,0.629,1.558,1.463,1.558H39.84c0.834,0,1.428-0.724,1.428-1.558V20.92    h2.485c0.629,0,1.193-0.401,1.414-0.99S45.219,18.667,44.745,18.253z M27.257,31.398c0,0.614-0.529,1.143-1.144,1.143h-6.289    c-0.614,0-1.11-0.527-1.11-1.143v-7.109c0-2.351,1.92-4.256,4.271-4.256c2.352,0,4.271,1.906,4.271,4.256V31.398z\">\n                  </path>\n                </svg>\n                <svg (click)=\"removeGalleryImage(item.name)\" class=\"imgControle\" version=\"1.1\" x=\"0px\" y=\"0px\"\n                  viewBox=\"0 0 612 612\" xml:space=\"preserve\">\n                  <polygon\n                    points=\"612,36.004 576.521,0.603 306,270.608 35.478,0.603 0,36.004 270.522,306.011 0,575.997 35.478,611.397      306,341.411 576.521,611.397 612,575.997 341.459,306.011    \">\n                  </polygon>\n                </svg>\n              </div>\n              <img class=\"otherimage\" [src]=\"item.data\">\n            </div>\n          </ng-container>\n\n        </div>\n      </ng-container>\n      <!-- add images for new product  -->\n      <ng-template #addingProduct1>\n        <div (click)=\"mainImg.click()\" class=\"divmainimageprod\">\n          <input #mainImg type=\"file\" name=\"MainImg\" ngModel (change)=\"setMainImage($event.target.files)\">\n          <img *ngIf=\"imgPath; else noImage \" [src]=\"imgPath\" class=\"mainimage\">\n          <ng-template #noImage>\n            <svg _ngcontent-c3=\"\" xml:space=\"preserve\" class=\"svgplusimage\" enable-background=\"new 0 0 1000 1000\"\n              version=\"1.1\" viewBox=\"0 0 1000 1000\" x=\"0px\" y=\"0px\">\n              <path _ngcontent-c3=\"\"\n                d=\"M383.6,313.6c0-38.7-31.4-70-70.1-70c-38.7,0-70,31.4-70,70c0,38.7,31.4,70.1,70,70.1C352.3,383.6,383.6,352.3,383.6,313.6L383.6,313.6z\">\n              </path>\n              <path _ngcontent-c3=\"\" d=\"M383.6,313.6\"></path>\n              <path _ngcontent-c3=\"\"\n                d=\"M616.5,671.3h57.9v-57.9c0-42.6,25.6-79.3,62.1-95.9l-9.7-33.2V482h0.1l-63.3-191.4L442.4,576l-59.3-100.4L148,712.9h346.3h38.9C552.5,687.8,582.5,671.3,616.5,671.3z\">\n              </path>\n              <path _ngcontent-c3=\"\"\n                d=\"M990,166.8C990,80.6,919.4,10,833.2,10H166.8C80.6,10,10,80.6,10,166.8v666.4C10,919.4,80.6,990,166.8,990h470.4v0c0.1,0,0.1,0,0.2,0c16.2,0,29.4-13.2,29.4-29.4c0-16.2-13.2-29.4-29.4-29.4c-0.1,0-0.1,0-0.2,0v0H166.8c-54.1,0-98-43.9-98-98V166.8c0-54.1,43.9-98,98-98h666.4c54.1,0,98,43.9,98,98v467.5c0,0.4-0.2,0.6-0.2,0.9c0,16.2,13.2,29.4,29.4,29.4c16.2,0,29.4-13.2,29.4-29.4c0-0.1-0.1-0.2-0.1-0.4h0.3V166.8z\">\n              </path>\n              <path _ngcontent-c3=\"\"\n                d=\"M959.5,747.5H809.6V597.6c0-16.2-13.2-29.4-29.4-29.4c-16.2,0-29.4,13.2-29.4,29.4v149.9H600.9c-16.2,0-29.4,13.2-29.4,29.4c0,16.2,13.2,29.4,29.4,29.4h149.9v149.9c0,16.2,13.2,29.4,29.4,29.4c16.2,0,29.4-13.2,29.4-29.4V806.3h149.9c16.2,0,29.4-13.2,29.4-29.4C988.9,760.6,975.7,747.5,959.5,747.5z\">\n              </path>\n            </svg>\n          </ng-template>\n        </div>\n\n        <div class=\"divmoreimage\">\n          <div (click)=\"galleryImgs.click()\" class=\"roidfudsdxv\">\n            <input [disabled]=\"(GalleryImgs.length + _Product.galleryImgs.length) === _maxG\" #galleryImgs type=\"file\" accept=\"image/*\"\n              name=\"GalleryImgs\" ngModel multiple (change)=\"addGalleryImages($event.target.files)\">\n            <svg class=\"svgplusimage\" version=\"1.1\" x=\"0px\" y=\"0px\" viewBox=\"0 0 1000 1000\"\n              enable-background=\"new 0 0 1000 1000\" xml:space=\"preserve\">\n              <path\n                d=\"M383.6,313.6c0-38.7-31.4-70-70.1-70c-38.7,0-70,31.4-70,70c0,38.7,31.4,70.1,70,70.1C352.3,383.6,383.6,352.3,383.6,313.6L383.6,313.6z\">\n              </path>\n              <path d=\"M383.6,313.6\"></path>\n              <path\n                d=\"M616.5,671.3h57.9v-57.9c0-42.6,25.6-79.3,62.1-95.9l-9.7-33.2V482h0.1l-63.3-191.4L442.4,576l-59.3-100.4L148,712.9h346.3h38.9C552.5,687.8,582.5,671.3,616.5,671.3z\">\n              </path>\n              <path\n                d=\"M990,166.8C990,80.6,919.4,10,833.2,10H166.8C80.6,10,10,80.6,10,166.8v666.4C10,919.4,80.6,990,166.8,990h470.4v0c0.1,0,0.1,0,0.2,0c16.2,0,29.4-13.2,29.4-29.4c0-16.2-13.2-29.4-29.4-29.4c-0.1,0-0.1,0-0.2,0v0H166.8c-54.1,0-98-43.9-98-98V166.8c0-54.1,43.9-98,98-98h666.4c54.1,0,98,43.9,98,98v467.5c0,0.4-0.2,0.6-0.2,0.9c0,16.2,13.2,29.4,29.4,29.4c16.2,0,29.4-13.2,29.4-29.4c0-0.1-0.1-0.2-0.1-0.4h0.3V166.8z\">\n              </path>\n              <path\n                d=\"M959.5,747.5H809.6V597.6c0-16.2-13.2-29.4-29.4-29.4c-16.2,0-29.4,13.2-29.4,29.4v149.9H600.9c-16.2,0-29.4,13.2-29.4,29.4c0,16.2,13.2,29.4,29.4,29.4h149.9v149.9c0,16.2,13.2,29.4,29.4,29.4c16.2,0,29.4-13.2,29.4-29.4V806.3h149.9c16.2,0,29.4-13.2,29.4-29.4C988.9,760.6,975.7,747.5,959.5,747.5z\">\n              </path>\n            </svg>\n          </div>\n\n          <ng-container *ngFor=\"let item of GalleryImgs\">\n            <div class=\"roidfudsdxv\">\n              <div class=\"rytfhgqsfez\">\n                <svg (click)=\"asMainImage(item.img)\" class=\"imgControle\" version=\"1.1\" x=\"0px\" y=\"0px\"\n                  viewBox=\"0 0 45.937 45.937\" style=\"enable-background:new 0 0 45.937 45.937;\" xml:space=\"preserve\">\n                  <path\n                    d=\"M44.745,18.253L24.455,0.558c-0.852-0.743-2.121-0.743-2.973,0L1.191,18.253c-0.474,0.414-0.642,1.088-0.421,1.677    c0.221,0.589,0.784,0.99,1.413,0.99h2.45v23.458c0,0.834,0.629,1.558,1.463,1.558H39.84c0.834,0,1.428-0.724,1.428-1.558V20.92    h2.485c0.629,0,1.193-0.401,1.414-0.99S45.219,18.667,44.745,18.253z M27.257,31.398c0,0.614-0.529,1.143-1.144,1.143h-6.289    c-0.614,0-1.11-0.527-1.11-1.143v-7.109c0-2.351,1.92-4.256,4.271-4.256c2.352,0,4.271,1.906,4.271,4.256V31.398z\">\n                  </path>\n                </svg>\n                <svg (click)=\"removeGalleryImage(item.name)\" class=\"imgControle\" version=\"1.1\" x=\"0px\" y=\"0px\"\n                  viewBox=\"0 0 612 612\" xml:space=\"preserve\">\n                  <polygon\n                    points=\"612,36.004 576.521,0.603 306,270.608 35.478,0.603 0,36.004 270.522,306.011 0,575.997 35.478,611.397      306,341.411 576.521,611.397 612,575.997 341.459,306.011    \">\n                  </polygon>\n                </svg>\n              </div>\n              <img class=\"otherimage\" [src]=\"item.data\">\n            </div>\n          </ng-container>\n\n        </div>\n      </ng-template>\n\n      <div class=\"divcolorproduct\">\n        <div class=\"lijksdfgdsvc\">\n\n          <mat-radio-group [(ngModel)]=\"_Product.Color\" name=\"Color\">\n            <div [ngStyle]=\"{'background': 'var(--'+ item + ')'  }\" *ngFor=\"let item of colors\" class=\"colorbox\">\n              <mat-radio-button [disabled]=\" hasNoColor \" [value]=\"item\"></mat-radio-button>\n            </div>\n          </mat-radio-group>\n          <div class=\"noColor\">\n            <mat-checkbox (change)=\"setNoColor()\" name=\"hasNoColor\" [(ngModel)]=\"hasNoColor\">No Color</mat-checkbox>\n          </div>\n          <!-- <mat-select  #colorSelect (selectionChange)=\"mixedColor(colorSelect)\" >\n              <div [ngStyle]=\"{'background': 'var(--'+ item + ')'  }\" *ngFor=\"let item of colors\" class=\"colorbox\">\n                <mat-option [value]=\"item\"></mat-option>\n              </div>\n            </mat-select> -->\n\n        </div>\n      </div>\n\n      <div class=\"divcategproduct\">\n        <div class=\"iofdgljkgfd\">\n\n          <div class=\"selectsubcateg1\">\n            <mat-select disableOptionCentering #Category (selectionChange)=\"getSub(Category.value, true)\"\n              name=\"CategoryId\" required [(ngModel)]=\"_Product.CategoryId\" placeholder=\"Category\"\n              panelClass=\"select-panel\">\n              <mat-option *ngFor=\"let item of categories\" [value]=\"item.Id\">{{item.Name}}</mat-option>\n            </mat-select>\n          </div>\n\n          <div class=\"selectsubcateg1\">\n            <mat-select disableOptionCentering name=\"SubCategoryId\" required [(ngModel)]=\"_Product.SubCategoryId\"\n              placeholder=\"SubCategory\" panelClass=\"select-panel\">\n              <mat-option *ngFor=\"let item of subCategories\" [value]=\"item.Id\">{{item.Name}}</mat-option>\n            </mat-select>\n          </div>\n\n\n          <div class=\"labplustype\">\n            <svg class=\"svgpluytrice\" version=\"1.1\" x=\"0px\" y=\"0px\" viewBox=\"0 0 286.376 286.376\" xml:space=\"preserve\">\n              <path style=\"fill-rule:evenodd;clip-rule:evenodd;\"\n                d=\"M268.477,125.29H161.086V17.899c0-9.885-8.013-17.898-17.898-17.898   s-17.898,8.013-17.898,17.898v107.39H17.9c-9.885,0-17.9,8.013-17.9,17.898c0,9.885,8.015,17.898,17.9,17.898h107.39v107.39   c0,9.885,8.013,17.898,17.898,17.898s17.898-8.013,17.898-17.898v-107.39h107.391c9.885,0,17.898-8.014,17.898-17.898   C286.376,133.303,278.362,125.29,268.477,125.29z\">\n              </path>\n            </svg>\n            <label class=\"dfgcbxvc\">Option</label>\n          </div>\n\n        </div>\n      </div>\n    </div>\n\n    <div class=\"divdecription\">\n      <div class=\"textareaWrapper\">\n        <ng-scrollbar [shown]=\"'always'\" class=\"txtareacontent\" barClass=\"scrollbar\" thumbClass=\"scroll-thumb\">\n          <textarea matInput cdkTextareaAutosize required [(ngModel)]=\"_Product.Description\" name=\"Description\"\n            #des=\"ngModel\"></textarea>\n        </ng-scrollbar>\n      </div>\n\n      <div class=\"divimagedescr\">\n        <!-- Edit existing images  -->\n        <ng-container *ngIf=\"_Product.Id > 0 || copyingId; else addingProduct2\">\n          <div (click)=\"descImgs.click()\" class=\"uopietter\">\n            <input [disabled]=\"(DescImgs.length + _Product.descImgs.length) === _maxD\" #descImgs type=\"file\" accept=\"image/*\" name=\"DescImgs\"  multiple\n              (change)=\"addDescImages($event.target.files)\">\n            <svg class=\"svgplusimage\" version=\"1.1\" x=\"0px\" y=\"0px\" viewBox=\"0 0 1000 1000\" enable-background=\"new 0 0 1000 1000\"\n              xml:space=\"preserve\">\n              <path\n                d=\"M383.6,313.6c0-38.7-31.4-70-70.1-70c-38.7,0-70,31.4-70,70c0,38.7,31.4,70.1,70,70.1C352.3,383.6,383.6,352.3,383.6,313.6L383.6,313.6z\">\n              </path>\n              <path d=\"M383.6,313.6\"></path>\n              <path\n                d=\"M616.5,671.3h57.9v-57.9c0-42.6,25.6-79.3,62.1-95.9l-9.7-33.2V482h0.1l-63.3-191.4L442.4,576l-59.3-100.4L148,712.9h346.3h38.9C552.5,687.8,582.5,671.3,616.5,671.3z\">\n              </path>\n              <path\n                d=\"M990,166.8C990,80.6,919.4,10,833.2,10H166.8C80.6,10,10,80.6,10,166.8v666.4C10,919.4,80.6,990,166.8,990h470.4v0c0.1,0,0.1,0,0.2,0c16.2,0,29.4-13.2,29.4-29.4c0-16.2-13.2-29.4-29.4-29.4c-0.1,0-0.1,0-0.2,0v0H166.8c-54.1,0-98-43.9-98-98V166.8c0-54.1,43.9-98,98-98h666.4c54.1,0,98,43.9,98,98v467.5c0,0.4-0.2,0.6-0.2,0.9c0,16.2,13.2,29.4,29.4,29.4c16.2,0,29.4-13.2,29.4-29.4c0-0.1-0.1-0.2-0.1-0.4h0.3V166.8z\">\n              </path>\n              <path\n                d=\"M959.5,747.5H809.6V597.6c0-16.2-13.2-29.4-29.4-29.4c-16.2,0-29.4,13.2-29.4,29.4v149.9H600.9c-16.2,0-29.4,13.2-29.4,29.4c0,16.2,13.2,29.4,29.4,29.4h149.9v149.9c0,16.2,13.2,29.4,29.4,29.4c16.2,0,29.4-13.2,29.4-29.4V806.3h149.9c16.2,0,29.4-13.2,29.4-29.4C988.9,760.6,975.7,747.5,959.5,747.5z\">\n              </path>\n            </svg>\n          </div>\n\n          <ng-container *ngFor=\"let item of _Product.descImgs\">\n            <div class=\"uopietter\">\n              <div (click)=\"removeDescImageServer(item)\" class=\"rytfhgqsfez\">\n                <svg class=\"imgControle\" version=\"1.1\" x=\"0px\" y=\"0px\" viewBox=\"0 0 612 612\" xml:space=\"preserve\">\n                  <polygon\n                    points=\"612,36.004 576.521,0.603 306,270.608 35.478,0.603 0,36.004 270.522,306.011 0,575.997 35.478,611.397      306,341.411 576.521,611.397 612,575.997 341.459,306.011    \">\n                  </polygon>\n                </svg>\n              </div>\n              <img class=\"otherimagedescr\" src=\"/Content/Images/Products/{{(_Product.Id > 0) ? _Product.Id : copyingId}}/Desc/{{item}}\">\n            </div>\n          </ng-container>\n\n          <ng-container *ngFor=\"let item of DescImgs\">\n            <div class=\"uopietter halfOpacity\">\n              <div (click)=\"removeDescImage(item.name)\" class=\"rytfhgqsfez\">\n                <svg class=\"imgControle\" version=\"1.1\" x=\"0px\" y=\"0px\" viewBox=\"0 0 612 612\" xml:space=\"preserve\">\n                  <polygon\n                    points=\"612,36.004 576.521,0.603 306,270.608 35.478,0.603 0,36.004 270.522,306.011 0,575.997 35.478,611.397      306,341.411 576.521,611.397 612,575.997 341.459,306.011    \">\n                  </polygon>\n                </svg>\n              </div>\n              <img class=\"otherimagedescr\" [src]=\"item.data\">\n            </div>\n          </ng-container>\n          \n        </ng-container>\n\n        <!-- Adding Product images  -->\n        <ng-template #addingProduct2>\n          <div (click)=\"descImgs.click()\" class=\"uopietter\">\n            <input [disabled]=\"(DescImgs.length + _Product.descImgs.length) === _maxD\" #descImgs type=\"file\" accept=\"image/*\" name=\"DescImgs\" ngModel multiple\n              (change)=\"addDescImages($event.target.files)\">\n            <svg class=\"svgplusimage\" version=\"1.1\" x=\"0px\" y=\"0px\" viewBox=\"0 0 1000 1000\" enable-background=\"new 0 0 1000 1000\"\n              xml:space=\"preserve\">\n              <path\n                d=\"M383.6,313.6c0-38.7-31.4-70-70.1-70c-38.7,0-70,31.4-70,70c0,38.7,31.4,70.1,70,70.1C352.3,383.6,383.6,352.3,383.6,313.6L383.6,313.6z\">\n              </path>\n              <path d=\"M383.6,313.6\"></path>\n              <path\n                d=\"M616.5,671.3h57.9v-57.9c0-42.6,25.6-79.3,62.1-95.9l-9.7-33.2V482h0.1l-63.3-191.4L442.4,576l-59.3-100.4L148,712.9h346.3h38.9C552.5,687.8,582.5,671.3,616.5,671.3z\">\n              </path>\n              <path\n                d=\"M990,166.8C990,80.6,919.4,10,833.2,10H166.8C80.6,10,10,80.6,10,166.8v666.4C10,919.4,80.6,990,166.8,990h470.4v0c0.1,0,0.1,0,0.2,0c16.2,0,29.4-13.2,29.4-29.4c0-16.2-13.2-29.4-29.4-29.4c-0.1,0-0.1,0-0.2,0v0H166.8c-54.1,0-98-43.9-98-98V166.8c0-54.1,43.9-98,98-98h666.4c54.1,0,98,43.9,98,98v467.5c0,0.4-0.2,0.6-0.2,0.9c0,16.2,13.2,29.4,29.4,29.4c16.2,0,29.4-13.2,29.4-29.4c0-0.1-0.1-0.2-0.1-0.4h0.3V166.8z\">\n              </path>\n              <path\n                d=\"M959.5,747.5H809.6V597.6c0-16.2-13.2-29.4-29.4-29.4c-16.2,0-29.4,13.2-29.4,29.4v149.9H600.9c-16.2,0-29.4,13.2-29.4,29.4c0,16.2,13.2,29.4,29.4,29.4h149.9v149.9c0,16.2,13.2,29.4,29.4,29.4c16.2,0,29.4-13.2,29.4-29.4V806.3h149.9c16.2,0,29.4-13.2,29.4-29.4C988.9,760.6,975.7,747.5,959.5,747.5z\">\n              </path>\n            </svg>\n          </div>\n          <ng-container *ngFor=\"let item of DescImgs\">\n            <div class=\"uopietter\">\n              <div (click)=\"removeDescImage(item.name)\" class=\"rytfhgqsfez\">\n                <svg class=\"imgControle\" version=\"1.1\" x=\"0px\" y=\"0px\" viewBox=\"0 0 612 612\" xml:space=\"preserve\">\n                  <polygon\n                    points=\"612,36.004 576.521,0.603 306,270.608 35.478,0.603 0,36.004 270.522,306.011 0,575.997 35.478,611.397      306,341.411 576.521,611.397 612,575.997 341.459,306.011    \">\n                  </polygon>\n                </svg>\n              </div>\n              <img class=\"otherimagedescr\" [src]=\"item.data\">\n            </div>\n          </ng-container>\n        </ng-template>\n\n      </div>\n\n      <div class=\"divshipping\">\n        <div class=\"uytuytyuuy\">\n          <label class=\"labshipping\">Shipping</label>\n          <mat-radio-group [(ngModel)]=\"_Product.ShippingMethod\" name=\"ShippingMethod\">\n            <div class=\"eryttyyhy\">\n              <mat-radio-button value=\"gearbest\">Gearbest</mat-radio-button>\n            </div>\n            <div class=\"eryttyyhy\">\n              <mat-radio-button value=\"aliexpress\">Aliexpress</mat-radio-button>\n            </div>\n          </mat-radio-group>\n          <div _ngcontent-c3=\"\" class=\"labplustype\">\n            <svg _ngcontent-c3=\"\" xml:space=\"preserve\" class=\"svgpluytrice\" version=\"1.1\" viewBox=\"0 0 286.376 286.376\"\n              x=\"0px\" y=\"0px\">\n              <path _ngcontent-c3=\"\"\n                d=\"M268.477,125.29H161.086V17.899c0-9.885-8.013-17.898-17.898-17.898   s-17.898,8.013-17.898,17.898v107.39H17.9c-9.885,0-17.9,8.013-17.9,17.898c0,9.885,8.015,17.898,17.9,17.898h107.39v107.39   c0,9.885,8.013,17.898,17.898,17.898s17.898-8.013,17.898-17.898v-107.39h107.391c9.885,0,17.898-8.014,17.898-17.898   C286.376,133.303,278.362,125.29,268.477,125.29z\"\n                style=\"fill-rule:evenodd;clip-rule:evenodd;\"></path>\n            </svg>\n            <label _ngcontent-c3=\"\" class=\"dfgcbxvc\">Option</label></div>\n        </div>\n      </div>\n    </div>\n\n    <div class=\"formFooter\">\n      <div class=\"divtitleprod lastdiv\">\n\n        <label>Quantity</label>\n        <input (blur)=\"QteBlured()\" min=\"0\" placeholder=\"NULL\" class=\"inputprice\" maxlength=\"7\" type=\"number\" [(ngModel)]=\"_Product.Quantity\"\n          name=\"Quantity\">\n\n        <label>On Sale</label>\n        <div class=\"switch1\" [ngClass]=\"{'switchadd1': _Product.OnSale}\">\n          <input (change)=\"OnsaleChanged()\" name=\"OnSale\" [(ngModel)]=\"_Product.OnSale\" #OnSale=\"ngModel\" id=\"checkanimat1\" type=\"checkbox\">\n          <div class=\"switch2\" [ngClass]=\"{'switchadd2': _Product.OnSale}\"></div>\n        </div>\n\n      </div>\n\n      <!-- <div class=\"bottonaddprod mgLeft\" (click)=\"onSubmit(f)\">\n        {{ (_Product.Id > 0) ? 'Update' : 'Add Product' }}\n      </div> -->\n      <div class=\"bottonaddprod mgLeft\" (click)=\"onSubmit(f)\">\n        {{ _formJob + ' Product'}}\n      </div>\n\n      <div class=\"bottonaddprod\" (click)=\"Reset()\">\n        Reset\n      </div>\n    </div>\n    <div class=\"alert\">\n      _Product.mainImg: {{ _Product.mainImg ?_Product.mainImg: \"no\"}} / \n      imgPath: {{ imgPath ? \"yes\" : \"no\"}} / \n      mainImgFromCopy: {{ mainImgFromCopy ? mainImgFromCopy : \"no\"}} /\n      isPristine : {{f.pristine}}\n    </div>\n    <!-- <div class=\"alert\">\n      Job: {{ _formJob}} / \n      Id: {{ _Product.Id}} / \n      CopyId: {{ copyingId}}\n    </div> -->\n    <div class=\"alert\">\n      {{ _Product | json }}\n    </div>\n  </form>\n\n  <div class=\"history\">\n    <product-history [Products]=\"lastProducts\" (delete)=\"getLastAddedProducts()\"></product-history>\n  </div>\n</div>"
+module.exports = "<div class=\"divaddproduct\" id=\"my-addproduct\">\n  <form #f=\"ngForm\" (ngSubmit)=\"onSubmit(f)\" autocomplete=\"off\">\n    <input type=\"hidden\" [(ngModel)]=\"_Product.Id\" name=\"Id\" #Id=\"ngModel\">\n    <div class=\"divtitleprod\">\n\n      <label>Source</label>\n      <input id=\"inpulien\" required minlength=\"6\" type=\"text\" name=\"SourceLink\" placeholder=\"https://example.io\">\n\n      <label>Name</label>\n      <input id=\"inputtitle\" required minlength=\"6\" type=\"text\" [(ngModel)]=\"_Product.Name\" name=\"Name\" #Name=\"ngModel\">\n\n      <label>Price</label>\n      <input class=\"inputprice\" required maxlength=\"7\" type=\"number\" [(ngModel)]=\"_Product.Price\" name=\"Price\"\n        #Price=\"ngModel\">\n\n      <svg *ngIf=\"!expand\" (click)=\"expand = true\" version=\"1.1\" x=\"0px\" y=\"0px\" viewBox=\"0 0 286.376 286.376\"\n        style=\"enable-background:new 0 0 286.376 286.376;\" xml:space=\"preserve\">\n        <path style=\"fill-rule:evenodd;clip-rule:evenodd;\"\n          d=\"M268.477,125.29H161.086V17.899c0-9.885-8.013-17.898-17.898-17.898   s-17.898,8.013-17.898,17.898v107.39H17.9c-9.885,0-17.9,8.013-17.9,17.898c0,9.885,8.015,17.898,17.9,17.898h107.39v107.39   c0,9.885,8.013,17.898,17.898,17.898s17.898-8.013,17.898-17.898v-107.39h107.391c9.885,0,17.898-8.014,17.898-17.898   C286.376,133.303,278.362,125.29,268.477,125.29z\">\n        </path>\n      </svg>\n\n      <ng-container *ngIf=\"expand\">\n\n        <label>Old Price</label>\n        <input class=\"inputprice\" maxlength=\"7\" type=\"number\" [(ngModel)]=\"_Product.OldPrice\" name=\"OldPrice\"\n          #OldPrice=\"ngModel\">\n        <svg (click)=\"expand = false\" version=\"1.1\" x=\"0px\" y=\"0px\" viewBox=\"0 0 612 612\"\n          style=\"enable-background:new 0 0 612 612;\" xml:space=\"preserve\">\n          <polygon\n            points=\"612,36.004 576.521,0.603 306,270.608 35.478,0.603 0,36.004 270.522,306.011 0,575.997 35.478,611.397      306,341.411 576.521,611.397 612,575.997 341.459,306.011    \">\n          </polygon>\n        </svg>\n\n      </ng-container>\n\n    </div>\n\n    <div class=\"divimageproduct\">\n      <!-- Edit existing product images -->\n      <ng-container *ngIf=\"_Product.Id > 0 || copyingId > 0 ; else addingProduct1\">\n        <div (click)=\"mainImg.click()\" class=\"divmainimageprod\">\n          <input #mainImg type=\"file\" name=\"MainImg\" ngModel (change)=\"setMainImage($event.target.files)\">\n          <img *ngIf=\"_Product.mainImg && !imgPath && !mainImgFromCopy\" src=\"/Content/Images/Products/{{(_Product.Id > 0) ? _Product.Id : copyingId }}/Main/{{_Product.mainImg}}\" class=\"mainimage\">\n          \n          <img *ngIf=\" imgPath && !mainImgFromCopy\" [src]=\"imgPath\" class=\"mainimage halfOpacity\">\n        \n          <img *ngIf=\" mainImgFromCopy \" \n          src=\"/Content/Images/Products/{{ copyingId }}/Gallery/{{mainImgFromCopy}}\"\n          class=\"mainimage halfOpacity\">\n\n          <!-- <ng-template #noImage>\n            <svg _ngcontent-c3=\"\" xml:space=\"preserve\" class=\"svgplusimage\" enable-background=\"new 0 0 1000 1000\"\n              version=\"1.1\" viewBox=\"0 0 1000 1000\" x=\"0px\" y=\"0px\">\n              <path _ngcontent-c3=\"\"\n                d=\"M383.6,313.6c0-38.7-31.4-70-70.1-70c-38.7,0-70,31.4-70,70c0,38.7,31.4,70.1,70,70.1C352.3,383.6,383.6,352.3,383.6,313.6L383.6,313.6z\">\n              </path>\n              <path _ngcontent-c3=\"\" d=\"M383.6,313.6\"></path>\n              <path _ngcontent-c3=\"\"\n                d=\"M616.5,671.3h57.9v-57.9c0-42.6,25.6-79.3,62.1-95.9l-9.7-33.2V482h0.1l-63.3-191.4L442.4,576l-59.3-100.4L148,712.9h346.3h38.9C552.5,687.8,582.5,671.3,616.5,671.3z\">\n              </path>\n              <path _ngcontent-c3=\"\"\n                d=\"M990,166.8C990,80.6,919.4,10,833.2,10H166.8C80.6,10,10,80.6,10,166.8v666.4C10,919.4,80.6,990,166.8,990h470.4v0c0.1,0,0.1,0,0.2,0c16.2,0,29.4-13.2,29.4-29.4c0-16.2-13.2-29.4-29.4-29.4c-0.1,0-0.1,0-0.2,0v0H166.8c-54.1,0-98-43.9-98-98V166.8c0-54.1,43.9-98,98-98h666.4c54.1,0,98,43.9,98,98v467.5c0,0.4-0.2,0.6-0.2,0.9c0,16.2,13.2,29.4,29.4,29.4c16.2,0,29.4-13.2,29.4-29.4c0-0.1-0.1-0.2-0.1-0.4h0.3V166.8z\">\n              </path>\n              <path _ngcontent-c3=\"\"\n                d=\"M959.5,747.5H809.6V597.6c0-16.2-13.2-29.4-29.4-29.4c-16.2,0-29.4,13.2-29.4,29.4v149.9H600.9c-16.2,0-29.4,13.2-29.4,29.4c0,16.2,13.2,29.4,29.4,29.4h149.9v149.9c0,16.2,13.2,29.4,29.4,29.4c16.2,0,29.4-13.2,29.4-29.4V806.3h149.9c16.2,0,29.4-13.2,29.4-29.4C988.9,760.6,975.7,747.5,959.5,747.5z\">\n              </path>\n            </svg>\n          </ng-template> -->\n        </div>\n\n        <div class=\"divmoreimage\">\n          <div (click)=\"galleryImgs.click()\" class=\"roidfudsdxv\">\n            <input [disabled]=\"(GalleryImgs.length + _Product.galleryImgs.length) === _maxG\" #galleryImgs type=\"file\" accept=\"image/*\" name=\"GalleryImgs\" \n              multiple (change)=\"addGalleryImages($event.target.files)\">\n            <svg class=\"svgplusimage\" version=\"1.1\" x=\"0px\" y=\"0px\" viewBox=\"0 0 1000 1000\" enable-background=\"new 0 0 1000 1000\"\n              xml:space=\"preserve\">\n              <path\n                d=\"M383.6,313.6c0-38.7-31.4-70-70.1-70c-38.7,0-70,31.4-70,70c0,38.7,31.4,70.1,70,70.1C352.3,383.6,383.6,352.3,383.6,313.6L383.6,313.6z\">\n              </path>\n              <path d=\"M383.6,313.6\"></path>\n              <path\n                d=\"M616.5,671.3h57.9v-57.9c0-42.6,25.6-79.3,62.1-95.9l-9.7-33.2V482h0.1l-63.3-191.4L442.4,576l-59.3-100.4L148,712.9h346.3h38.9C552.5,687.8,582.5,671.3,616.5,671.3z\">\n              </path>\n              <path\n                d=\"M990,166.8C990,80.6,919.4,10,833.2,10H166.8C80.6,10,10,80.6,10,166.8v666.4C10,919.4,80.6,990,166.8,990h470.4v0c0.1,0,0.1,0,0.2,0c16.2,0,29.4-13.2,29.4-29.4c0-16.2-13.2-29.4-29.4-29.4c-0.1,0-0.1,0-0.2,0v0H166.8c-54.1,0-98-43.9-98-98V166.8c0-54.1,43.9-98,98-98h666.4c54.1,0,98,43.9,98,98v467.5c0,0.4-0.2,0.6-0.2,0.9c0,16.2,13.2,29.4,29.4,29.4c16.2,0,29.4-13.2,29.4-29.4c0-0.1-0.1-0.2-0.1-0.4h0.3V166.8z\">\n              </path>\n              <path\n                d=\"M959.5,747.5H809.6V597.6c0-16.2-13.2-29.4-29.4-29.4c-16.2,0-29.4,13.2-29.4,29.4v149.9H600.9c-16.2,0-29.4,13.2-29.4,29.4c0,16.2,13.2,29.4,29.4,29.4h149.9v149.9c0,16.2,13.2,29.4,29.4,29.4c16.2,0,29.4-13.2,29.4-29.4V806.3h149.9c16.2,0,29.4-13.2,29.4-29.4C988.9,760.6,975.7,747.5,959.5,747.5z\">\n              </path>\n            </svg>\n          </div>\n\n          <ng-container *ngFor=\"let item of _Product.galleryImgs\">\n            <div class=\"roidfudsdxv\">\n              <div class=\"rytfhgqsfez\">\n                <svg (click)=\"asMainImageServer(item)\" class=\"imgControle\" version=\"1.1\" x=\"0px\" y=\"0px\" viewBox=\"0 0 45.937 45.937\"\n                  style=\"enable-background:new 0 0 45.937 45.937;\" xml:space=\"preserve\">\n                  <path\n                    d=\"M44.745,18.253L24.455,0.558c-0.852-0.743-2.121-0.743-2.973,0L1.191,18.253c-0.474,0.414-0.642,1.088-0.421,1.677    c0.221,0.589,0.784,0.99,1.413,0.99h2.45v23.458c0,0.834,0.629,1.558,1.463,1.558H39.84c0.834,0,1.428-0.724,1.428-1.558V20.92    h2.485c0.629,0,1.193-0.401,1.414-0.99S45.219,18.667,44.745,18.253z M27.257,31.398c0,0.614-0.529,1.143-1.144,1.143h-6.289    c-0.614,0-1.11-0.527-1.11-1.143v-7.109c0-2.351,1.92-4.256,4.271-4.256c2.352,0,4.271,1.906,4.271,4.256V31.398z\">\n                  </path>\n                </svg>\n                <svg (click)=\"removeGalleryImageServer(item)\" class=\"imgControle\" version=\"1.1\" x=\"0px\" y=\"0px\" viewBox=\"0 0 612 612\"\n                  xml:space=\"preserve\">\n                  <polygon\n                    points=\"612,36.004 576.521,0.603 306,270.608 35.478,0.603 0,36.004 270.522,306.011 0,575.997 35.478,611.397      306,341.411 576.521,611.397 612,575.997 341.459,306.011    \">\n                  </polygon>\n                </svg>\n              </div>\n              <img class=\"otherimage\" src=\"/Content/Images/Products/{{(_Product.Id > 0) ? _Product.Id : copyingId}}/Gallery/{{item}}\">\n            </div>\n          </ng-container>\n\n          <ng-container *ngFor=\"let item of GalleryImgs\">\n            <div class=\"roidfudsdxv halfOpacity\">\n              <div class=\"rytfhgqsfez\">\n                <svg (click)=\"asMainImagePlus(item.img)\" class=\"imgControle\" version=\"1.1\" x=\"0px\" y=\"0px\" viewBox=\"0 0 45.937 45.937\"\n                  style=\"enable-background:new 0 0 45.937 45.937;\" xml:space=\"preserve\">\n                  <path\n                    d=\"M44.745,18.253L24.455,0.558c-0.852-0.743-2.121-0.743-2.973,0L1.191,18.253c-0.474,0.414-0.642,1.088-0.421,1.677    c0.221,0.589,0.784,0.99,1.413,0.99h2.45v23.458c0,0.834,0.629,1.558,1.463,1.558H39.84c0.834,0,1.428-0.724,1.428-1.558V20.92    h2.485c0.629,0,1.193-0.401,1.414-0.99S45.219,18.667,44.745,18.253z M27.257,31.398c0,0.614-0.529,1.143-1.144,1.143h-6.289    c-0.614,0-1.11-0.527-1.11-1.143v-7.109c0-2.351,1.92-4.256,4.271-4.256c2.352,0,4.271,1.906,4.271,4.256V31.398z\">\n                  </path>\n                </svg>\n                <svg (click)=\"removeGalleryImage(item.name)\" class=\"imgControle\" version=\"1.1\" x=\"0px\" y=\"0px\"\n                  viewBox=\"0 0 612 612\" xml:space=\"preserve\">\n                  <polygon\n                    points=\"612,36.004 576.521,0.603 306,270.608 35.478,0.603 0,36.004 270.522,306.011 0,575.997 35.478,611.397      306,341.411 576.521,611.397 612,575.997 341.459,306.011    \">\n                  </polygon>\n                </svg>\n              </div>\n              <img class=\"otherimage\" [src]=\"item.data\">\n            </div>\n          </ng-container>\n\n        </div>\n      </ng-container>\n      <!-- add images for new product  -->\n      <ng-template #addingProduct1>\n        <div (click)=\"mainImg.click()\" class=\"divmainimageprod\">\n          <input #mainImg type=\"file\" name=\"MainImg\" ngModel (change)=\"setMainImage($event.target.files)\">\n          <img *ngIf=\"imgPath; else noImage \" [src]=\"imgPath\" class=\"mainimage\">\n          <ng-template #noImage>\n            <svg _ngcontent-c3=\"\" xml:space=\"preserve\" class=\"svgplusimage\" enable-background=\"new 0 0 1000 1000\"\n              version=\"1.1\" viewBox=\"0 0 1000 1000\" x=\"0px\" y=\"0px\">\n              <path _ngcontent-c3=\"\"\n                d=\"M383.6,313.6c0-38.7-31.4-70-70.1-70c-38.7,0-70,31.4-70,70c0,38.7,31.4,70.1,70,70.1C352.3,383.6,383.6,352.3,383.6,313.6L383.6,313.6z\">\n              </path>\n              <path _ngcontent-c3=\"\" d=\"M383.6,313.6\"></path>\n              <path _ngcontent-c3=\"\"\n                d=\"M616.5,671.3h57.9v-57.9c0-42.6,25.6-79.3,62.1-95.9l-9.7-33.2V482h0.1l-63.3-191.4L442.4,576l-59.3-100.4L148,712.9h346.3h38.9C552.5,687.8,582.5,671.3,616.5,671.3z\">\n              </path>\n              <path _ngcontent-c3=\"\"\n                d=\"M990,166.8C990,80.6,919.4,10,833.2,10H166.8C80.6,10,10,80.6,10,166.8v666.4C10,919.4,80.6,990,166.8,990h470.4v0c0.1,0,0.1,0,0.2,0c16.2,0,29.4-13.2,29.4-29.4c0-16.2-13.2-29.4-29.4-29.4c-0.1,0-0.1,0-0.2,0v0H166.8c-54.1,0-98-43.9-98-98V166.8c0-54.1,43.9-98,98-98h666.4c54.1,0,98,43.9,98,98v467.5c0,0.4-0.2,0.6-0.2,0.9c0,16.2,13.2,29.4,29.4,29.4c16.2,0,29.4-13.2,29.4-29.4c0-0.1-0.1-0.2-0.1-0.4h0.3V166.8z\">\n              </path>\n              <path _ngcontent-c3=\"\"\n                d=\"M959.5,747.5H809.6V597.6c0-16.2-13.2-29.4-29.4-29.4c-16.2,0-29.4,13.2-29.4,29.4v149.9H600.9c-16.2,0-29.4,13.2-29.4,29.4c0,16.2,13.2,29.4,29.4,29.4h149.9v149.9c0,16.2,13.2,29.4,29.4,29.4c16.2,0,29.4-13.2,29.4-29.4V806.3h149.9c16.2,0,29.4-13.2,29.4-29.4C988.9,760.6,975.7,747.5,959.5,747.5z\">\n              </path>\n            </svg>\n          </ng-template>\n        </div>\n\n        <div class=\"divmoreimage\">\n          <div (click)=\"galleryImgs.click()\" class=\"roidfudsdxv\">\n            <input [disabled]=\"(GalleryImgs.length + _Product.galleryImgs.length) === _maxG\" #galleryImgs type=\"file\" accept=\"image/*\"\n              name=\"GalleryImgs\" ngModel multiple (change)=\"addGalleryImages($event.target.files)\">\n            <svg class=\"svgplusimage\" version=\"1.1\" x=\"0px\" y=\"0px\" viewBox=\"0 0 1000 1000\"\n              enable-background=\"new 0 0 1000 1000\" xml:space=\"preserve\">\n              <path\n                d=\"M383.6,313.6c0-38.7-31.4-70-70.1-70c-38.7,0-70,31.4-70,70c0,38.7,31.4,70.1,70,70.1C352.3,383.6,383.6,352.3,383.6,313.6L383.6,313.6z\">\n              </path>\n              <path d=\"M383.6,313.6\"></path>\n              <path\n                d=\"M616.5,671.3h57.9v-57.9c0-42.6,25.6-79.3,62.1-95.9l-9.7-33.2V482h0.1l-63.3-191.4L442.4,576l-59.3-100.4L148,712.9h346.3h38.9C552.5,687.8,582.5,671.3,616.5,671.3z\">\n              </path>\n              <path\n                d=\"M990,166.8C990,80.6,919.4,10,833.2,10H166.8C80.6,10,10,80.6,10,166.8v666.4C10,919.4,80.6,990,166.8,990h470.4v0c0.1,0,0.1,0,0.2,0c16.2,0,29.4-13.2,29.4-29.4c0-16.2-13.2-29.4-29.4-29.4c-0.1,0-0.1,0-0.2,0v0H166.8c-54.1,0-98-43.9-98-98V166.8c0-54.1,43.9-98,98-98h666.4c54.1,0,98,43.9,98,98v467.5c0,0.4-0.2,0.6-0.2,0.9c0,16.2,13.2,29.4,29.4,29.4c16.2,0,29.4-13.2,29.4-29.4c0-0.1-0.1-0.2-0.1-0.4h0.3V166.8z\">\n              </path>\n              <path\n                d=\"M959.5,747.5H809.6V597.6c0-16.2-13.2-29.4-29.4-29.4c-16.2,0-29.4,13.2-29.4,29.4v149.9H600.9c-16.2,0-29.4,13.2-29.4,29.4c0,16.2,13.2,29.4,29.4,29.4h149.9v149.9c0,16.2,13.2,29.4,29.4,29.4c16.2,0,29.4-13.2,29.4-29.4V806.3h149.9c16.2,0,29.4-13.2,29.4-29.4C988.9,760.6,975.7,747.5,959.5,747.5z\">\n              </path>\n            </svg>\n          </div>\n\n          <ng-container *ngFor=\"let item of GalleryImgs\">\n            <div class=\"roidfudsdxv\">\n              <div class=\"rytfhgqsfez\">\n                <svg (click)=\"asMainImage(item.img)\" class=\"imgControle\" version=\"1.1\" x=\"0px\" y=\"0px\"\n                  viewBox=\"0 0 45.937 45.937\" style=\"enable-background:new 0 0 45.937 45.937;\" xml:space=\"preserve\">\n                  <path\n                    d=\"M44.745,18.253L24.455,0.558c-0.852-0.743-2.121-0.743-2.973,0L1.191,18.253c-0.474,0.414-0.642,1.088-0.421,1.677    c0.221,0.589,0.784,0.99,1.413,0.99h2.45v23.458c0,0.834,0.629,1.558,1.463,1.558H39.84c0.834,0,1.428-0.724,1.428-1.558V20.92    h2.485c0.629,0,1.193-0.401,1.414-0.99S45.219,18.667,44.745,18.253z M27.257,31.398c0,0.614-0.529,1.143-1.144,1.143h-6.289    c-0.614,0-1.11-0.527-1.11-1.143v-7.109c0-2.351,1.92-4.256,4.271-4.256c2.352,0,4.271,1.906,4.271,4.256V31.398z\">\n                  </path>\n                </svg>\n                <svg (click)=\"removeGalleryImage(item.name)\" class=\"imgControle\" version=\"1.1\" x=\"0px\" y=\"0px\"\n                  viewBox=\"0 0 612 612\" xml:space=\"preserve\">\n                  <polygon\n                    points=\"612,36.004 576.521,0.603 306,270.608 35.478,0.603 0,36.004 270.522,306.011 0,575.997 35.478,611.397      306,341.411 576.521,611.397 612,575.997 341.459,306.011    \">\n                  </polygon>\n                </svg>\n              </div>\n              <img class=\"otherimage\" [src]=\"item.data\">\n            </div>\n          </ng-container>\n\n        </div>\n      </ng-template>\n\n      <div class=\"divcolorproduct\">\n        <div class=\"lijksdfgdsvc\">\n\n          <mat-radio-group [(ngModel)]=\"_Product.Color\" name=\"Color\">\n            <div [ngStyle]=\"{'background': 'var(--'+ item + ')'  }\" *ngFor=\"let item of colors\" class=\"colorbox\">\n              <mat-radio-button [disabled]=\" hasNoColor \" [value]=\"item\"></mat-radio-button>\n            </div>\n          </mat-radio-group>\n          <div class=\"noColor\">\n            <mat-checkbox (change)=\"setNoColor()\" name=\"hasNoColor\" [(ngModel)]=\"hasNoColor\">No Color</mat-checkbox>\n          </div>\n          <!-- <mat-select  #colorSelect (selectionChange)=\"mixedColor(colorSelect)\" >\n              <div [ngStyle]=\"{'background': 'var(--'+ item + ')'  }\" *ngFor=\"let item of colors\" class=\"colorbox\">\n                <mat-option [value]=\"item\"></mat-option>\n              </div>\n            </mat-select> -->\n\n        </div>\n      </div>\n\n      <div class=\"divcategproduct\">\n        <div class=\"iofdgljkgfd\">\n\n          <div class=\"selectsubcateg1\">\n            <mat-select disableOptionCentering #Category (selectionChange)=\"getSub(Category.value, true)\"\n              name=\"CategoryId\" required [(ngModel)]=\"_Product.CategoryId\" placeholder=\"Category\"\n              panelClass=\"select-panel\">\n              <mat-option *ngFor=\"let item of categories\" [value]=\"item.Id\">{{item.Name}}</mat-option>\n            </mat-select>\n          </div>\n\n          <div class=\"selectsubcateg1\">\n            <mat-select disableOptionCentering name=\"SubCategoryId\" required [(ngModel)]=\"_Product.SubCategoryId\"\n              placeholder=\"SubCategory\" panelClass=\"select-panel\">\n              <mat-option *ngFor=\"let item of subCategories\" [value]=\"item.Id\">{{item.Name}}</mat-option>\n            </mat-select>\n          </div>\n\n\n          <div class=\"labplustype\">\n            <svg class=\"svgpluytrice\" version=\"1.1\" x=\"0px\" y=\"0px\" viewBox=\"0 0 286.376 286.376\" xml:space=\"preserve\">\n              <path style=\"fill-rule:evenodd;clip-rule:evenodd;\"\n                d=\"M268.477,125.29H161.086V17.899c0-9.885-8.013-17.898-17.898-17.898   s-17.898,8.013-17.898,17.898v107.39H17.9c-9.885,0-17.9,8.013-17.9,17.898c0,9.885,8.015,17.898,17.9,17.898h107.39v107.39   c0,9.885,8.013,17.898,17.898,17.898s17.898-8.013,17.898-17.898v-107.39h107.391c9.885,0,17.898-8.014,17.898-17.898   C286.376,133.303,278.362,125.29,268.477,125.29z\">\n              </path>\n            </svg>\n            <label class=\"dfgcbxvc\">Option</label>\n          </div>\n\n        </div>\n      </div>\n    </div>\n\n    <div class=\"divdecription\">\n      <div class=\"textareaWrapper\">\n        <ng-scrollbar [shown]=\"'always'\" class=\"txtareacontent\" barClass=\"scrollbar\" thumbClass=\"scroll-thumb\">\n          <textarea matInput cdkTextareaAutosize required [(ngModel)]=\"_Product.Description\" name=\"Description\"\n            #des=\"ngModel\"></textarea>\n        </ng-scrollbar>\n      </div>\n\n      <div class=\"divimagedescr\">\n        <!-- Edit existing images  -->\n        <ng-container *ngIf=\"_Product.Id > 0 || copyingId; else addingProduct2\">\n          <div (click)=\"descImgs.click()\" class=\"uopietter\">\n            <input [disabled]=\"(DescImgs.length + _Product.descImgs.length) === _maxD\" #descImgs type=\"file\" accept=\"image/*\" name=\"DescImgs\"  multiple\n              (change)=\"addDescImages($event.target.files)\">\n            <svg class=\"svgplusimage\" version=\"1.1\" x=\"0px\" y=\"0px\" viewBox=\"0 0 1000 1000\" enable-background=\"new 0 0 1000 1000\"\n              xml:space=\"preserve\">\n              <path\n                d=\"M383.6,313.6c0-38.7-31.4-70-70.1-70c-38.7,0-70,31.4-70,70c0,38.7,31.4,70.1,70,70.1C352.3,383.6,383.6,352.3,383.6,313.6L383.6,313.6z\">\n              </path>\n              <path d=\"M383.6,313.6\"></path>\n              <path\n                d=\"M616.5,671.3h57.9v-57.9c0-42.6,25.6-79.3,62.1-95.9l-9.7-33.2V482h0.1l-63.3-191.4L442.4,576l-59.3-100.4L148,712.9h346.3h38.9C552.5,687.8,582.5,671.3,616.5,671.3z\">\n              </path>\n              <path\n                d=\"M990,166.8C990,80.6,919.4,10,833.2,10H166.8C80.6,10,10,80.6,10,166.8v666.4C10,919.4,80.6,990,166.8,990h470.4v0c0.1,0,0.1,0,0.2,0c16.2,0,29.4-13.2,29.4-29.4c0-16.2-13.2-29.4-29.4-29.4c-0.1,0-0.1,0-0.2,0v0H166.8c-54.1,0-98-43.9-98-98V166.8c0-54.1,43.9-98,98-98h666.4c54.1,0,98,43.9,98,98v467.5c0,0.4-0.2,0.6-0.2,0.9c0,16.2,13.2,29.4,29.4,29.4c16.2,0,29.4-13.2,29.4-29.4c0-0.1-0.1-0.2-0.1-0.4h0.3V166.8z\">\n              </path>\n              <path\n                d=\"M959.5,747.5H809.6V597.6c0-16.2-13.2-29.4-29.4-29.4c-16.2,0-29.4,13.2-29.4,29.4v149.9H600.9c-16.2,0-29.4,13.2-29.4,29.4c0,16.2,13.2,29.4,29.4,29.4h149.9v149.9c0,16.2,13.2,29.4,29.4,29.4c16.2,0,29.4-13.2,29.4-29.4V806.3h149.9c16.2,0,29.4-13.2,29.4-29.4C988.9,760.6,975.7,747.5,959.5,747.5z\">\n              </path>\n            </svg>\n          </div>\n\n          <ng-container *ngFor=\"let item of _Product.descImgs\">\n            <div class=\"uopietter\">\n              <div (click)=\"removeDescImageServer(item)\" class=\"rytfhgqsfez\">\n                <svg class=\"imgControle\" version=\"1.1\" x=\"0px\" y=\"0px\" viewBox=\"0 0 612 612\" xml:space=\"preserve\">\n                  <polygon\n                    points=\"612,36.004 576.521,0.603 306,270.608 35.478,0.603 0,36.004 270.522,306.011 0,575.997 35.478,611.397      306,341.411 576.521,611.397 612,575.997 341.459,306.011    \">\n                  </polygon>\n                </svg>\n              </div>\n              <img class=\"otherimagedescr\" src=\"/Content/Images/Products/{{(_Product.Id > 0) ? _Product.Id : copyingId}}/Desc/{{item}}\">\n            </div>\n          </ng-container>\n\n          <ng-container *ngFor=\"let item of DescImgs\">\n            <div class=\"uopietter halfOpacity\">\n              <div (click)=\"removeDescImage(item.name)\" class=\"rytfhgqsfez\">\n                <svg class=\"imgControle\" version=\"1.1\" x=\"0px\" y=\"0px\" viewBox=\"0 0 612 612\" xml:space=\"preserve\">\n                  <polygon\n                    points=\"612,36.004 576.521,0.603 306,270.608 35.478,0.603 0,36.004 270.522,306.011 0,575.997 35.478,611.397      306,341.411 576.521,611.397 612,575.997 341.459,306.011    \">\n                  </polygon>\n                </svg>\n              </div>\n              <img class=\"otherimagedescr\" [src]=\"item.data\">\n            </div>\n          </ng-container>\n          \n        </ng-container>\n\n        <!-- Adding Product images  -->\n        <ng-template #addingProduct2>\n          <div (click)=\"descImgs.click()\" class=\"uopietter\">\n            <input [disabled]=\"(DescImgs.length + _Product.descImgs.length) === _maxD\" #descImgs type=\"file\" accept=\"image/*\" name=\"DescImgs\" ngModel multiple\n              (change)=\"addDescImages($event.target.files)\">\n            <svg class=\"svgplusimage\" version=\"1.1\" x=\"0px\" y=\"0px\" viewBox=\"0 0 1000 1000\" enable-background=\"new 0 0 1000 1000\"\n              xml:space=\"preserve\">\n              <path\n                d=\"M383.6,313.6c0-38.7-31.4-70-70.1-70c-38.7,0-70,31.4-70,70c0,38.7,31.4,70.1,70,70.1C352.3,383.6,383.6,352.3,383.6,313.6L383.6,313.6z\">\n              </path>\n              <path d=\"M383.6,313.6\"></path>\n              <path\n                d=\"M616.5,671.3h57.9v-57.9c0-42.6,25.6-79.3,62.1-95.9l-9.7-33.2V482h0.1l-63.3-191.4L442.4,576l-59.3-100.4L148,712.9h346.3h38.9C552.5,687.8,582.5,671.3,616.5,671.3z\">\n              </path>\n              <path\n                d=\"M990,166.8C990,80.6,919.4,10,833.2,10H166.8C80.6,10,10,80.6,10,166.8v666.4C10,919.4,80.6,990,166.8,990h470.4v0c0.1,0,0.1,0,0.2,0c16.2,0,29.4-13.2,29.4-29.4c0-16.2-13.2-29.4-29.4-29.4c-0.1,0-0.1,0-0.2,0v0H166.8c-54.1,0-98-43.9-98-98V166.8c0-54.1,43.9-98,98-98h666.4c54.1,0,98,43.9,98,98v467.5c0,0.4-0.2,0.6-0.2,0.9c0,16.2,13.2,29.4,29.4,29.4c16.2,0,29.4-13.2,29.4-29.4c0-0.1-0.1-0.2-0.1-0.4h0.3V166.8z\">\n              </path>\n              <path\n                d=\"M959.5,747.5H809.6V597.6c0-16.2-13.2-29.4-29.4-29.4c-16.2,0-29.4,13.2-29.4,29.4v149.9H600.9c-16.2,0-29.4,13.2-29.4,29.4c0,16.2,13.2,29.4,29.4,29.4h149.9v149.9c0,16.2,13.2,29.4,29.4,29.4c16.2,0,29.4-13.2,29.4-29.4V806.3h149.9c16.2,0,29.4-13.2,29.4-29.4C988.9,760.6,975.7,747.5,959.5,747.5z\">\n              </path>\n            </svg>\n          </div>\n          <ng-container *ngFor=\"let item of DescImgs\">\n            <div class=\"uopietter\">\n              <div (click)=\"removeDescImage(item.name)\" class=\"rytfhgqsfez\">\n                <svg class=\"imgControle\" version=\"1.1\" x=\"0px\" y=\"0px\" viewBox=\"0 0 612 612\" xml:space=\"preserve\">\n                  <polygon\n                    points=\"612,36.004 576.521,0.603 306,270.608 35.478,0.603 0,36.004 270.522,306.011 0,575.997 35.478,611.397      306,341.411 576.521,611.397 612,575.997 341.459,306.011    \">\n                  </polygon>\n                </svg>\n              </div>\n              <img class=\"otherimagedescr\" [src]=\"item.data\">\n            </div>\n          </ng-container>\n        </ng-template>\n\n      </div>\n\n      <div class=\"divshipping\">\n        <div class=\"uytuytyuuy\">\n          <label class=\"labshipping\">Shipping</label>\n          <mat-radio-group [(ngModel)]=\"_Product.ShippingMethod\" name=\"ShippingMethod\">\n            <div class=\"eryttyyhy\">\n              <mat-radio-button value=\"gearbest\">Gearbest</mat-radio-button>\n            </div>\n            <div class=\"eryttyyhy\">\n              <mat-radio-button value=\"aliexpress\">Aliexpress</mat-radio-button>\n            </div>\n          </mat-radio-group>\n          <div _ngcontent-c3=\"\" class=\"labplustype\">\n            <svg _ngcontent-c3=\"\" xml:space=\"preserve\" class=\"svgpluytrice\" version=\"1.1\" viewBox=\"0 0 286.376 286.376\"\n              x=\"0px\" y=\"0px\">\n              <path _ngcontent-c3=\"\"\n                d=\"M268.477,125.29H161.086V17.899c0-9.885-8.013-17.898-17.898-17.898   s-17.898,8.013-17.898,17.898v107.39H17.9c-9.885,0-17.9,8.013-17.9,17.898c0,9.885,8.015,17.898,17.9,17.898h107.39v107.39   c0,9.885,8.013,17.898,17.898,17.898s17.898-8.013,17.898-17.898v-107.39h107.391c9.885,0,17.898-8.014,17.898-17.898   C286.376,133.303,278.362,125.29,268.477,125.29z\"\n                style=\"fill-rule:evenodd;clip-rule:evenodd;\"></path>\n            </svg>\n            <label _ngcontent-c3=\"\" class=\"dfgcbxvc\">Option</label></div>\n        </div>\n      </div>\n    </div>\n\n    <div class=\"formFooter\">\n      <div class=\"divtitleprod lastdiv\">\n\n        <label>Quantity</label>\n        <input (blur)=\"QteBlured()\" min=\"0\" placeholder=\"NULL\" class=\"inputprice\" maxlength=\"7\" type=\"number\" [(ngModel)]=\"_Product.Quantity\"\n          name=\"Quantity\">\n\n        <label>On Sale</label>\n        <div class=\"switch1\" [ngClass]=\"{'switchadd1': _Product.OnSale}\">\n          <input (change)=\"OnsaleChanged()\" name=\"OnSale\" [(ngModel)]=\"_Product.OnSale\" #OnSale=\"ngModel\" id=\"checkanimat1\" type=\"checkbox\">\n          <div class=\"switch2\" [ngClass]=\"{'switchadd2': _Product.OnSale}\"></div>\n        </div>\n\n      </div>\n\n      <!-- <div class=\"bottonaddprod mgLeft\" (click)=\"onSubmit(f)\">\n        {{ (_Product.Id > 0) ? 'Update' : 'Add Product' }}\n      </div> -->\n      <div class=\"bottonaddprod mgLeft\" (click)=\"onSubmit(f)\">\n        {{ _formJob + ' Product'}}\n      </div>\n\n      <div class=\"bottonaddprod\" (click)=\"Reset()\">\n        Reset\n      </div>\n    </div>\n    <!-- <div class=\"alert\">\n      _Product.mainImg: {{ _Product.mainImg ?_Product.mainImg: \"no\"}} / \n      imgPath: {{ imgPath ? \"yes\" : \"no\"}} / \n      mainImgFromCopy: {{ mainImgFromCopy ? mainImgFromCopy : \"no\"}} /\n      isPristine : {{f.pristine}}\n    </div> -->\n    <!-- <div class=\"alert\">\n      Job: {{ _formJob}} / \n      Id: {{ _Product.Id}} / \n      CopyId: {{ copyingId}}\n    </div> -->\n    <!-- <div class=\"alert\">\n      {{ _Product | json }}\n    </div> -->\n  </form>\n\n  <div class=\"history\">\n    <product-history [Products]=\"lastProducts\" (delete)=\"getLastAddedProducts()\"></product-history>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -1099,6 +1229,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var src_app_common_GlobalConstants__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/common/GlobalConstants */ "./src/app/common/GlobalConstants.ts");
 /* harmony import */ var src_app_services_admin_upload_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/services/admin-upload.service */ "./src/app/services/admin-upload.service.ts");
+/* harmony import */ var src_app_services_category_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/services/category.service */ "./src/app/services/category.service.ts");
+
 
 
 
@@ -1110,9 +1242,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var ProductFormComponent = /** @class */ (function () {
-    function ProductFormComponent(productService, uploadService, router, activeRoute, toaster) {
-        var _this = this;
+    function ProductFormComponent(productService, categoryService, uploadService, router, activeRoute, toaster) {
         this.productService = productService;
+        this.categoryService = categoryService;
         this.uploadService = uploadService;
         this.router = router;
         this.activeRoute = activeRoute;
@@ -1120,7 +1252,19 @@ var ProductFormComponent = /** @class */ (function () {
         this.expand = false;
         this.hasNoColor = false;
         this._formJob = src_app_common_GlobalConstants__WEBPACK_IMPORTED_MODULE_8__["FormJob"].Add; // what operation the form will achieve adding, editing ..
-        this.colors = ['white', 'red', 'green', 'yellow', 'gray', 'orange', 'blue', 'pink', 'brown', 'purple', 'black'];
+        this.colors = [
+            "white",
+            "red",
+            "green",
+            "yellow",
+            "gray",
+            "orange",
+            "blue",
+            "pink",
+            "brown",
+            "purple",
+            "black"
+        ];
         this._maxG = 7; // Max gallery images
         this._maxD = 5; // Max description images
         this.GalleryImgs = [];
@@ -1129,20 +1273,32 @@ var ProductFormComponent = /** @class */ (function () {
         this.DescImgsDrop = [];
         this._Product = new _models_adminProduct__WEBPACK_IMPORTED_MODULE_3__["AdminProduct"]();
         this.copyingId = 0; // store the product id that the new product will copy from
-        this.productService.getCategories().subscribe(function (res) {
-            _this.categories = res;
-        });
+        this.getCategories();
     }
+    ProductFormComponent.prototype.getCategories = function (locally) {
+        if (locally === void 0) { locally = true; }
+        this.categories = this.categoryService.getCategoriesLocally();
+        if (!this.categories || !locally) {
+            this.getNewCategoriesAndStoreThem();
+        }
+    };
+    ProductFormComponent.prototype.getNewCategoriesAndStoreThem = function () {
+        var _this = this;
+        this.categoryService.getCategoriesFromServer().subscribe(function (cats) {
+            localStorage.setItem("MWCategories", JSON.stringify(cats));
+            _this.categories = cats;
+        });
+    };
     // implements ngOnDestroy to Remove all subscriptions
     ProductFormComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.activeRoute.queryParamMap.subscribe(function (p) {
-            var editId = +p.get('editId');
+            var editId = +p.get("editId");
             if (editId) {
                 _this._formJob = src_app_common_GlobalConstants__WEBPACK_IMPORTED_MODULE_8__["FormJob"].Update;
                 _this.getProduct(editId, src_app_common_GlobalConstants__WEBPACK_IMPORTED_MODULE_8__["FormJob"].Update);
             }
-            var copyId = +p.get('copyId');
+            var copyId = +p.get("copyId");
             if (copyId) {
                 _this._formJob = src_app_common_GlobalConstants__WEBPACK_IMPORTED_MODULE_8__["FormJob"].Copy;
                 _this.getProduct(copyId, src_app_common_GlobalConstants__WEBPACK_IMPORTED_MODULE_8__["FormJob"].Copy);
@@ -1159,15 +1315,18 @@ var ProductFormComponent = /** @class */ (function () {
             this.toaster.warning("Form Is Not Valid ..");
             return;
         }
-        if (this._Product.Id > 0) // update case
+        if (this._Product.Id > 0)
+            // update case
             this.updateProduct();
         else
             this.addProduct();
     };
     ProductFormComponent.prototype.checkImages = function () {
-        if ((this._formJob === src_app_common_GlobalConstants__WEBPACK_IMPORTED_MODULE_8__["FormJob"].Add && (!this.MainImage || this.GalleryImgs.length === 0)) ||
+        if ((this._formJob === src_app_common_GlobalConstants__WEBPACK_IMPORTED_MODULE_8__["FormJob"].Add &&
+            (!this.MainImage || this.GalleryImgs.length === 0)) ||
             (this._formJob !== src_app_common_GlobalConstants__WEBPACK_IMPORTED_MODULE_8__["FormJob"].Add &&
-                (this.GalleryImgs.length === 0 && this._Product.galleryImgs.length === 0))) {
+                (this.GalleryImgs.length === 0 &&
+                    this._Product.galleryImgs.length === 0))) {
             this.toaster.warning("Main Image and Gallery images are Mandatory");
             return false;
         }
@@ -1177,14 +1336,14 @@ var ProductFormComponent = /** @class */ (function () {
         var _this = this;
         if (!this.checkImages())
             return;
-        this._Product.Slug = this._Product.Name.replace(/\s+/g, '-'); // on server side
+        this._Product.Slug = this._Product.Name.replace(/\s+/g, "-"); // on server side
         this.productService.PostProduct(this._Product).subscribe(function (ProductId) {
-            _this.toaster.success('Product has been added ' + ProductId, 'Success');
+            _this.toaster.success("Product has been added " + ProductId, "Success");
             _this.uploadProductImages(ProductId);
         }, function (error) {
             if (error instanceof src_app_common_errors_http_errors__WEBPACK_IMPORTED_MODULE_5__["BadInput"]) {
                 console.log(error.originalError);
-                _this.toaster.warning('ModelState is not valid ..'); // Display the error within Form errors and Wrap it with JSON pipe
+                _this.toaster.warning("ModelState is not valid .."); // Display the error within Form errors and Wrap it with JSON pipe
             }
             else {
                 throw error;
@@ -1195,13 +1354,16 @@ var ProductFormComponent = /** @class */ (function () {
         var _this = this;
         if (!this.checkImages())
             return;
-        if (!this.ngForm.pristine) { // the form has changed (dirty)
-            this.productService.UpdateProduct(this._Product.Id, this._Product).subscribe(function (ProductId) {
-                _this.toaster.success('Product modified ' + ProductId, 'Success');
+        if (!this.ngForm.pristine) {
+            // the form has changed (dirty)
+            this.productService
+                .UpdateProduct(this._Product.Id, this._Product)
+                .subscribe(function (ProductId) {
+                _this.toaster.success("Product modified " + ProductId, "Success");
             }, function (error) {
                 if (error instanceof src_app_common_errors_http_errors__WEBPACK_IMPORTED_MODULE_5__["BadInput"]) {
                     console.log(error.originalError);
-                    _this.toaster.warning('ModelState is not valid ..'); // Display the error within Form errors and Wrap it with JSON pipe
+                    _this.toaster.warning("ModelState is not valid .."); // Display the error within Form errors and Wrap it with JSON pipe
                 }
                 else if (error instanceof src_app_common_errors_http_errors__WEBPACK_IMPORTED_MODULE_5__["NotFound"]) {
                     console.log(error.originalError);
@@ -1226,31 +1388,33 @@ var ProductFormComponent = /** @class */ (function () {
     ProductFormComponent.prototype.uploadProductImages = function (ProductId) {
         var _this = this;
         var form = new FormData();
-        form.append('ProductId', ProductId);
+        form.append("ProductId", ProductId);
         if (this.MainImage) {
-            form.append('MainImg', this.MainImage, this.MainImage.name);
+            form.append("MainImg", this.MainImage, this.MainImage.name);
         }
         this.GalleryImgs.forEach(function (e) {
-            form.append('GalleryImgs', e.img, e.img.name);
+            form.append("GalleryImgs", e.img, e.img.name);
         });
         this.DescImgs.forEach(function (e) {
-            form.append('DescImgs', e.img, e.img.name);
+            form.append("DescImgs", e.img, e.img.name);
         });
         if (this._formJob === src_app_common_GlobalConstants__WEBPACK_IMPORTED_MODULE_8__["FormJob"].Copy) {
-            form.append('CopyingId', this.copyingId.toString());
-            form.append('mainImgFromCopy', this.mainImgFromCopy);
+            form.append("CopyingId", this.copyingId.toString());
+            form.append("mainImgFromCopy", this.mainImgFromCopy);
         }
         // Updating case, or copying case
         if (this._formJob !== src_app_common_GlobalConstants__WEBPACK_IMPORTED_MODULE_8__["FormJob"].Add) {
-            form.append('GalleryImgsDrop', JSON.stringify(this.GalleryImgsDrop));
-            form.append('DescImgsDrop', JSON.stringify(this.DescImgsDrop));
+            form.append("GalleryImgsDrop", JSON.stringify(this.GalleryImgsDrop));
+            form.append("DescImgsDrop", JSON.stringify(this.DescImgsDrop));
         }
-        var action = (this._formJob === src_app_common_GlobalConstants__WEBPACK_IMPORTED_MODULE_8__["FormJob"].Add) ? this.uploadService.addProductImages(form)
-            : (this._formJob === src_app_common_GlobalConstants__WEBPACK_IMPORTED_MODULE_8__["FormJob"].Update) ? this.uploadService.updateProductImages(form)
+        var action = this._formJob === src_app_common_GlobalConstants__WEBPACK_IMPORTED_MODULE_8__["FormJob"].Add
+            ? this.uploadService.addProductImages(form)
+            : this._formJob === src_app_common_GlobalConstants__WEBPACK_IMPORTED_MODULE_8__["FormJob"].Update
+                ? this.uploadService.updateProductImages(form)
                 : this.uploadService.copyProductImages(form);
         action.subscribe(function (Product) {
             _this.addToHistory(Product);
-            _this.toaster.success('Images Uploaded !', 'Success');
+            _this.toaster.success("Images Uploaded !", "Success");
             _this.resetForm();
         }, function (err) {
             if (err instanceof src_app_common_errors_http_errors__WEBPACK_IMPORTED_MODULE_5__["BadInput"]) {
@@ -1276,14 +1440,15 @@ var ProductFormComponent = /** @class */ (function () {
         this.GalleryImgsDrop = [];
         this.DescImgsDrop = [];
         this.mainImgFromCopy = null;
-        this.router.navigateByUrl('/admin/product-form');
+        this.router.navigateByUrl("/admin/product-form");
     };
     ProductFormComponent.prototype.addToHistory = function (item) {
         var array = this.lastProducts;
         var ex_item = array.find(function (x) { return x.Id === item.Id; });
         if (ex_item)
             array.splice(array.indexOf(ex_item), 1);
-        if (array.length >= 6) // Magic Number 6 => item had to display within history
+        if (array.length >= 6)
+            // Magic Number 6 => item had to display within history
             array.pop(); // Remove The Last
         array.unshift(item); // Insert at The start
     };
@@ -1298,8 +1463,7 @@ var ProductFormComponent = /** @class */ (function () {
     };
     ProductFormComponent.prototype.getProduct = function (id, mode) {
         var _this = this;
-        this.productService.getProduct(id)
-            .subscribe(function (p) {
+        this.productService.getProduct(id).subscribe(function (p) {
             _this.freeImages();
             _this._Product = p;
             _this.hasNoColor = _this._Product.Color ? false : true;
@@ -1310,7 +1474,7 @@ var ProductFormComponent = /** @class */ (function () {
             }
         }, function (err) {
             if (err instanceof src_app_common_errors_http_errors__WEBPACK_IMPORTED_MODULE_5__["NotFound"]) {
-                _this.toaster.warning('Product Not Found Or Deleted');
+                _this.toaster.warning("Product Not Found Or Deleted");
             }
             else {
                 throw err;
@@ -1330,7 +1494,8 @@ var ProductFormComponent = /** @class */ (function () {
     };
     ProductFormComponent.prototype.previewMainImg = function () {
         var _this = this;
-        if (this.MainImage) { // image exist
+        if (this.MainImage) {
+            // image exist
             var reader = new FileReader();
             reader.onload = function (e) {
                 _this.imgPath = e.target.result.toString();
@@ -1341,7 +1506,9 @@ var ProductFormComponent = /** @class */ (function () {
     ProductFormComponent.prototype.addGalleryImages = function (files) {
         var _this = this;
         var _loop_1 = function (i) {
-            var exist = (this_1.GalleryImgs.find(function (x) { return x.name === files[i].name; })) ? true : false;
+            var exist = this_1.GalleryImgs.find(function (x) { return x.name === files[i].name; })
+                ? true
+                : false;
             if (files[i] && !exist) {
                 var reader = new FileReader();
                 reader.onload = function (e) {
@@ -1350,7 +1517,7 @@ var ProductFormComponent = /** @class */ (function () {
                         name: files[i].name,
                         data: e.target.result.toString()
                     };
-                    var _length = (_this.GalleryImgs.length + _this._Product.galleryImgs.length);
+                    var _length = _this.GalleryImgs.length + _this._Product.galleryImgs.length;
                     if (_length < _this._maxG) {
                         _this.GalleryImgs.push(item);
                     }
@@ -1366,7 +1533,9 @@ var ProductFormComponent = /** @class */ (function () {
     ProductFormComponent.prototype.addDescImages = function (files) {
         var _this = this;
         var _loop_2 = function (i) {
-            var exist = (this_2.DescImgs.find(function (x) { return x.name === files[i].name; })) ? true : false;
+            var exist = this_2.DescImgs.find(function (x) { return x.name === files[i].name; })
+                ? true
+                : false;
             if (files[i] && !exist) {
                 var reader = new FileReader();
                 reader.onload = function (e) {
@@ -1375,7 +1544,7 @@ var ProductFormComponent = /** @class */ (function () {
                         name: files[i].name,
                         data: e.target.result.toString()
                     };
-                    var _length = (_this.DescImgs.length + _this._Product.descImgs.length);
+                    var _length = _this.DescImgs.length + _this._Product.descImgs.length;
                     if (_length < _this._maxD) {
                         _this.DescImgs.push(item);
                     }
@@ -1399,13 +1568,14 @@ var ProductFormComponent = /** @class */ (function () {
     };
     ProductFormComponent.prototype.asMainImageServer = function (img) {
         var _this = this;
+        // this method will call the server once it raised !
         if (this._formJob === src_app_common_GlobalConstants__WEBPACK_IMPORTED_MODULE_8__["FormJob"].Copy) {
             this.imgPath = this.MainImage = null;
             this.mainImgFromCopy = img;
             return;
         }
         this.uploadService.ReplaceMainImg(this._Product.Id, img).subscribe(function () {
-            _this.toaster.success('main image changed', 'Success');
+            _this.toaster.success("main image changed", "Success");
             _this._Product.mainImg = img;
             _this.imgPath = _this.MainImage = null;
             _this.getLastAddedProducts();
@@ -1444,7 +1614,7 @@ var ProductFormComponent = /** @class */ (function () {
         if (this.hasNoColor)
             this._Product.Color = null;
         else
-            this._Product.Color = 'white';
+            this._Product.Color = "white";
     };
     ProductFormComponent.prototype.OnsaleChanged = function () {
         if (this._Product.OnSale === false)
@@ -1459,16 +1629,17 @@ var ProductFormComponent = /** @class */ (function () {
             this._Product.OnSale = true;
     };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('f'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])("f"),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_forms__WEBPACK_IMPORTED_MODULE_6__["NgForm"])
     ], ProductFormComponent.prototype, "ngForm", void 0);
     ProductFormComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-            selector: 'product-form',
+            selector: "product-form",
             template: __webpack_require__(/*! ./product-form.component.html */ "./src/app/product/product-form/product-form.component.html"),
             styles: [__webpack_require__(/*! ./product-form.component.css */ "./src/app/product/product-form/product-form.component.css")]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_admin_product_service__WEBPACK_IMPORTED_MODULE_2__["AdminProductService"],
+            src_app_services_category_service__WEBPACK_IMPORTED_MODULE_10__["CategoryService"],
             src_app_services_admin_upload_service__WEBPACK_IMPORTED_MODULE_9__["AdminUploadService"],
             _angular_router__WEBPACK_IMPORTED_MODULE_7__["Router"],
             _angular_router__WEBPACK_IMPORTED_MODULE_7__["ActivatedRoute"],
@@ -1757,16 +1928,65 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminAuthService", function() { return AdminAuthService; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _common_errors_http_errors__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../common/errors/http-errors */ "./src/app/common/errors/http-errors.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _common_GlobalConstants__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../common/GlobalConstants */ "./src/app/common/GlobalConstants.ts");
+
+
+
+
+
 
 
 var AdminAuthService = /** @class */ (function () {
-    function AdminAuthService() {
+    function AdminAuthService(http, route, router) {
+        this.http = http;
+        this.route = route;
+        this.router = router;
+        this.noAuth = new _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpHeaders"]({ 'NoAuth': 'true' });
     }
+    AdminAuthService.prototype.Login = function (form) {
+        return this.http.post('api/Account/Login', form, { headers: this.noAuth }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])(_common_errors_http_errors__WEBPACK_IMPORTED_MODULE_3__["handleExpectedErrors"]));
+    };
+    AdminAuthService.prototype.authenticate = function () {
+        var _this = this;
+        var Ls = localStorage.getItem('MWToken');
+        if (Ls == null)
+            return;
+        this.http.get('/api/authenticate').subscribe(function (response) {
+            if (response.role === _common_GlobalConstants__WEBPACK_IMPORTED_MODULE_6__["ADMIN_ROLE"])
+                _this.admin = JSON.parse(response.profile);
+            else
+                _this.authenticationFailed();
+        }, function (error) {
+            if (error.status === 401) // means that acctoken has expired
+                _this.authenticationFailed();
+            else
+                throw error;
+        });
+    };
+    AdminAuthService.prototype.authenticationFailed = function () {
+        localStorage.removeItem('MWToken');
+        this.admin = null;
+    };
+    AdminAuthService.prototype.afterAuthentication = function (response, stayLogged) {
+        if (stayLogged)
+            localStorage.setItem('MWToken', response.access_token);
+        else
+            this._TOKEN = response.access_token;
+        this.admin = JSON.parse(response.profile);
+        var returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/admin';
+        this.router.navigateByUrl(returnUrl); // Redirect to a return url
+    };
     AdminAuthService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
             providedIn: 'root'
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClient"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_5__["ActivatedRoute"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"]])
     ], AdminAuthService);
     return AdminAuthService;
 }());
@@ -1806,30 +2026,27 @@ var AdminProductService = /** @class */ (function () {
         this.END_POINT = 'api/AdminProducts/';
         this.noAuth = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({ 'NoAuth': 'true' }); // only for testing
     }
-    AdminProductService.prototype.getCategories = function () {
-        return this.http.get('api/Categories', { headers: this.noAuth });
-    };
     AdminProductService.prototype.getShippings = function () {
         return ['GearBest', 'Ali Express', 'Other']; // available shipping methods
     };
     // calling the server
     AdminProductService.prototype.GetProductsList = function (filter) {
-        return this.http.get(this.END_POINT + '?' + this.toQueryString(filter), { headers: this.noAuth });
+        return this.http.get(this.END_POINT + '?' + this.toQueryString(filter));
     };
     AdminProductService.prototype.PostProduct = function (form) {
-        return this.http.post(this.END_POINT, form, { headers: this.noAuth }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(src_app_common_errors_http_errors__WEBPACK_IMPORTED_MODULE_4__["handleExpectedErrors"]));
+        return this.http.post(this.END_POINT, form).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(src_app_common_errors_http_errors__WEBPACK_IMPORTED_MODULE_4__["handleExpectedErrors"]));
     };
     AdminProductService.prototype.UpdateProduct = function (id, p) {
-        return this.http.put('/api/UpdateProducts/' + id.toString(), p, { headers: this.noAuth }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(src_app_common_errors_http_errors__WEBPACK_IMPORTED_MODULE_4__["handleExpectedErrors"]));
+        return this.http.put('/api/UpdateProducts/' + id.toString(), p).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(src_app_common_errors_http_errors__WEBPACK_IMPORTED_MODULE_4__["handleExpectedErrors"]));
     };
     AdminProductService.prototype.GetLastProducts = function () {
-        return this.http.get(this.END_POINT + 'History', { headers: this.noAuth });
+        return this.http.get(this.END_POINT + 'History');
     };
     AdminProductService.prototype.getProduct = function (id) {
-        return this.http.get(this.END_POINT + id, { headers: this.noAuth }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(src_app_common_errors_http_errors__WEBPACK_IMPORTED_MODULE_4__["handleExpectedErrors"]));
+        return this.http.get(this.END_POINT + id).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(src_app_common_errors_http_errors__WEBPACK_IMPORTED_MODULE_4__["handleExpectedErrors"]));
     };
     AdminProductService.prototype.deleteProduct = function (id) {
-        return this.http.delete(this.END_POINT + id, { headers: this.noAuth }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(src_app_common_errors_http_errors__WEBPACK_IMPORTED_MODULE_4__["handleExpectedErrors"]));
+        return this.http.delete(this.END_POINT + id).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(src_app_common_errors_http_errors__WEBPACK_IMPORTED_MODULE_4__["handleExpectedErrors"]));
     };
     // Shared Functions
     AdminProductService.prototype.toQueryString = function (obj) {
@@ -1915,6 +2132,46 @@ var AdminUploadService = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
     ], AdminUploadService);
     return AdminUploadService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/category.service.ts":
+/*!**********************************************!*\
+  !*** ./src/app/services/category.service.ts ***!
+  \**********************************************/
+/*! exports provided: CategoryService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CategoryService", function() { return CategoryService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+
+
+
+var CategoryService = /** @class */ (function () {
+    function CategoryService(http) {
+        this.http = http;
+    }
+    CategoryService.prototype.getCategoriesLocally = function () {
+        var categories = localStorage.getItem("MWCategories");
+        return JSON.parse(categories);
+    };
+    CategoryService.prototype.getCategoriesFromServer = function () {
+        return this.http.get('api/Categories');
+    };
+    CategoryService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+            providedIn: 'root'
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
+    ], CategoryService);
+    return CategoryService;
 }());
 
 

@@ -20,7 +20,7 @@ using Newtonsoft.Json;
 
 namespace MW_Backend.Areas.Admin.Controllers
 {
-    // [Authorize] //Admin Role
+    [Authorize(Roles = "ADMIN")]
     public class AdminProductsController : ApiController
     {
         private ApplicationDbContext db;

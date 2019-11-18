@@ -9,6 +9,7 @@ using System.Web.Http;
 
 namespace MW_Backend.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "ADMIN")]
     public class UsersController : ApiController
     {
         private ApplicationDbContext db;
