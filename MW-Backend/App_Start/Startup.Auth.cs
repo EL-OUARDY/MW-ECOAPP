@@ -15,7 +15,7 @@ namespace MW_Backend
 {
     public partial class Startup
     {
-        public const string TokenEndpointPath = "/getauthentication-token";
+        public const string TokenEndpointPath = "/_getauthentication-token";
         public static OAuthAuthorizationServerOptions OAuthOptions { get; private set; }
 
         public static string PublicClientId { get; private set; }

@@ -98,7 +98,7 @@ namespace MW_Backend.Providers
             var roles = UserManager.GetRoles(user.Id);
             IDictionary<string, string> data = new Dictionary<string, string>
             {
-                { "user_profile", Json.Encode(profile) },
+                { "profile", Json.Encode(profile) }
             };
 
             if (roles.Contains("ADMIN"))

@@ -19,27 +19,28 @@ import { LayoutComponent } from './layout/layout.component';
 import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-  { path: 'admin/login', component: LoginComponent },
-  { path: 'admin/404', component: NotFoundComponent },
-  { path: 'admin/error', component: UnexpectedErrorComponent },
+  { path: "admin/login", component: LoginComponent },
+  { path: "admin/404", component: NotFoundComponent },
+  { path: "admin/error", component: UnexpectedErrorComponent },
 
   {
-    path: '', component: LayoutComponent,
+    path: "",
+    component: LayoutComponent, canActivate: [AdminAuthGuard],
     children: [
-      { path: '', component: DashboardComponent , canActivate: [AdminAuthGuard] },
-      { path: 'admin', component: ProductFormComponent , canActivate: [AdminAuthGuard] },
-      { path: 'admin/products', component: ProductListComponent, canActivate: [AdminAuthGuard] },
-      { path: 'admin/product-form', component: ProductFormComponent, canActivate: [AdminAuthGuard] },
-      { path: 'admin/orders', component: OrdersComponent, canActivate: [AdminAuthGuard] },
-      { path: 'admin/support', component: SupportComponent, canActivate: [AdminAuthGuard] },
-      { path: 'admin/users', component: UsersListComponent, canActivate: [AdminAuthGuard] },
-      { path: 'admin/coupons', component: CouponComponent, canActivate: [AdminAuthGuard] },
-      { path: 'admin/user-reviews', component: ReviewsComponent, canActivate: [AdminAuthGuard] },
-      { path: 'admin/edit-pages', component: PagesEditComponent, canActivate: [AdminAuthGuard] },
-      { path: 'admin/tickets', component: TicketsComponent, canActivate: [AdminAuthGuard] },
-      { path: 'admin/profile', component: ProfileComponent, canActivate: [AdminAuthGuard] },
-      { path: 'admin/settings', component: SettingsComponent, canActivate: [AdminAuthGuard] },
-      { path: '**', redirectTo: '' }
+      { path: "", component: ProductFormComponent },
+      { path: "admin", component: ProductFormComponent },
+      { path: "admin/products", component: ProductListComponent },
+      { path: "admin/product-form", component: ProductFormComponent },
+      { path: "admin/orders", component: OrdersComponent },
+      { path: "admin/support", component: SupportComponent },
+      { path: "admin/users", component: UsersListComponent },
+      { path: "admin/coupons", component: CouponComponent },
+      { path: "admin/user-reviews", component: ReviewsComponent },
+      { path: "admin/edit-pages", component: PagesEditComponent },
+      { path: "admin/tickets", component: TicketsComponent },
+      { path: "admin/profile", component: ProfileComponent },
+      { path: "admin/settings", component: SettingsComponent },
+      { path: "**", redirectTo: "" }
     ]
   }
 ];

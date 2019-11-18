@@ -15,6 +15,7 @@ using MW_Backend.Models.Data;
 
 namespace MW_Backend.Controllers.api
 {
+    [Authorize(Roles = "ADMIN")]
     public class CategoriesController : ApiController
     {
         private ApplicationDbContext db;

@@ -1555,11 +1555,6 @@ var UserAuthService = /** @class */ (function () {
         return this.http.post('api/Account/Register', form, { headers: this.noAuth }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(src_app_common_errors_http_errors__WEBPACK_IMPORTED_MODULE_5__["handleExpectedErrors"]));
     };
     UserAuthService.prototype.Login = function (form) {
-        // const data = 'username=' + form.Email + '&password=' + form.Password + '&grant_type=password';
-        // const reqHeader = new HttpHeaders({ 'Content-Type': 'application/x-www-urlencoded', 'NoAuth': 'true' });
-        // return this.http.post('/token', data, { headers: reqHeader } ).pipe(
-        //   catchError(handleExpectedErrors)
-        // );
         return this.http.post('api/Account/Login', form, { headers: this.noAuth }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(src_app_common_errors_http_errors__WEBPACK_IMPORTED_MODULE_5__["handleExpectedErrors"]));
     };
     UserAuthService.prototype.Logout = function () {
@@ -1577,8 +1572,8 @@ var UserAuthService = /** @class */ (function () {
         if (Ls == null) {
             return;
         }
-        this.http.get('/api/authenticate').subscribe(function (userProfile) {
-            _this.user = userProfile;
+        this.http.get('/api/authenticate').subscribe(function (response) {
+            _this.user = JSON.parse(response.profile);
             // this.goLive();
         }, function (error) {
             if (error.status === 401) { // means that acctoken has expired
@@ -1591,7 +1586,7 @@ var UserAuthService = /** @class */ (function () {
     };
     UserAuthService.prototype.afterAuthentication = function (response) {
         localStorage.setItem('MWToken', response.access_token);
-        this.user = JSON.parse(response.user_profile);
+        this.user = JSON.parse(response.profile);
         // this.goLive(); // Live
         var returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
         this.router.navigateByUrl(returnUrl); // Redirect to a return url

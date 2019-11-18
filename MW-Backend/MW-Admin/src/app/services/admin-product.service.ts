@@ -16,10 +16,6 @@ export class AdminProductService {
 
   constructor(private http: HttpClient, private dialog: MatDialog) { }
 
-  getCategories() { // Extract it to category service
-    return this.http.get('api/Categories', { headers: this.noAuth });
-  }
-
   getShippings() {
     return ['GearBest', 'Ali Express', 'Other']; // available shipping methods
   }
@@ -27,33 +23,33 @@ export class AdminProductService {
   // calling the server
 
   GetProductsList(filter) {
-    return this.http.get( this.END_POINT + '?' +  this.toQueryString(filter), { headers: this.noAuth });
+    return this.http.get( this.END_POINT + '?' +  this.toQueryString(filter));
   }
 
   PostProduct(form) {
-    return this.http.post( this.END_POINT , form, { headers: this.noAuth }).pipe(
+    return this.http.post( this.END_POINT , form).pipe(
       catchError(handleExpectedErrors)
     );
   }
 
   UpdateProduct( id: number, p: AdminProduct) {
-    return this.http.put('/api/UpdateProducts/' + id.toString(), p, { headers: this.noAuth }).pipe(
+    return this.http.put('/api/UpdateProducts/' + id.toString(), p).pipe(
       catchError(handleExpectedErrors)
     );
   }
 
   GetLastProducts() {
-    return this.http.get( this.END_POINT + 'History', { headers: this.noAuth });
+    return this.http.get( this.END_POINT + 'History');
   }
 
   getProduct(id: number) { // for updating products
-    return this.http.get( this.END_POINT + id, { headers: this.noAuth }).pipe(
+    return this.http.get( this.END_POINT + id).pipe(
       catchError(handleExpectedErrors)
     );
   }
 
   deleteProduct(id: number) {
-    return this.http.delete( this.END_POINT + id , { headers: this.noAuth }).pipe(
+    return this.http.delete( this.END_POINT + id ).pipe(
       catchError(handleExpectedErrors)
     );
   }
