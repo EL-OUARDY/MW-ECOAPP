@@ -4452,6 +4452,13 @@ td.fdgdzeazreio {
 .halfOpacity {
     opacity: .3;
 }
+
+.emptyCat{
+    text-align: center;
+    color: #f12525;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
 /* .ng-touched.ng-invalid:not(form) {
     add a style applied on validation error 
 }*/

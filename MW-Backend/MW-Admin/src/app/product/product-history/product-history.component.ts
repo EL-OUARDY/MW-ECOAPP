@@ -33,7 +33,7 @@ export class ProductHistoryComponent implements OnInit {
       if (res) {
         this.aps.deleteProduct(product.Id)
           .subscribe(
-            () => this.delete.emit(),
+            () => this.delete.emit(product.Id),
             (err: AppError) => {
               if (err instanceof BadInput) {
                 this.toaster.warning('Something Went Wrong');

@@ -99,7 +99,7 @@ import { isListLikeIterable } from '@angular/core/src/change_detection/change_de
     AdminProductService,
     AdminUploadService,
 
-    { provide: ErrorHandler, useClass: AppErrorHandler },
+    // { provide: ErrorHandler, useClass: AppErrorHandler },
 
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
   ],

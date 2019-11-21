@@ -1,10 +1,10 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { AdminProductService } from '../../services/admin-product.service';
 import { AdminProduct } from '../../models/adminProduct';
 import { ToastrService } from 'ngx-toastr';
 import { MiniProduct } from 'src/app/models/miniProduct';
 import { BadInput, NotFound } from 'src/app/common/errors/http-errors';
-import { NgForm } from '@angular/forms';
+import { NgForm, FormControl } from '@angular/forms';
 import { AppError } from 'src/app/common/errors/app-error';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormJob } from 'src/app/common/GlobalConstants';
@@ -20,20 +20,13 @@ export class ProductFormComponent implements OnInit {
   expand = false;
   hasNoColor = false;
   _formJob: string = FormJob.Add; // what operation the form will achieve adding, editing ..
-  colors = [
-    "white",
-    "red",
-    "green",
-    "yellow",
-    "gray",
-    "orange",
-    "blue",
-    "pink",
-    "brown",
-    "purple",
-    "black"
-  ];
+  colors = ["white", "red", "green", "yellow", "gray", "orange", "blue", "pink", "brown", "purple", "black"];
+  
   @ViewChild("f") ngForm: NgForm;
+  @ViewChild("mainImg") mainImgInput: ElementRef;
+  @ViewChild("galleryImgs") galleryImgsInput: ElementRef;
+  @ViewChild("descImgs") descImgsInput: ElementRef;
+
   _maxG = 7; // Max gallery images
   _maxD = 5; // Max description images
 
@@ -42,8 +35,8 @@ export class ProductFormComponent implements OnInit {
   shipping;
   MainImage: File;
   imgPath: string;
-  GalleryImgs: IPath[] = [];
-  DescImgs: IPath[] = [];
+  GalleryImgs: IFilePath[] = [];
+  DescImgs: IFilePath[] = [];
 
   GalleryImgsDrop: string[] = []; // images names to drop from server
   DescImgsDrop: string[] = [];
@@ -65,10 +58,11 @@ export class ProductFormComponent implements OnInit {
     this.getCategories();
   }
 
-  private getCategories(locally = true) { // use it with locally=false to bring new categories from server
+  private getCategories(locally = true) {
+    // use it with locally=false to bring new categories from server
     this.categories = this.categoryService.getCategoriesLocally();
-    
-    if (!this.categories || !locally){
+
+    if (!this.categories || !locally) {
       this.getNewCategoriesAndStoreThem();
     }
   }
@@ -100,7 +94,6 @@ export class ProductFormComponent implements OnInit {
     });
 
     this.getLastAddedProducts();
-    // this.shipping = this.aps.getShippings();
   }
 
   // Posting The Product
@@ -185,6 +178,7 @@ export class ProductFormComponent implements OnInit {
 
     this.resetForm(); // just reset the form !
   }
+
   //////////////////////
 
   private uploadProductImages(ProductId: string) {
@@ -243,6 +237,17 @@ export class ProductFormComponent implements OnInit {
     });
   }
 
+  productDeleted(productId) {
+    console.log(productId);
+    
+    if (productId > 0) {
+      const editId = +this.activeRoute.snapshot.queryParamMap.get("editId");
+      console.log(editId);      
+      if (productId === editId) this.Reset();
+    }
+    this.getLastAddedProducts();
+  }
+
   private resetForm() {
     this.ngForm.resetForm();
     this._Product = new AdminProduct();
@@ -270,11 +275,13 @@ export class ProductFormComponent implements OnInit {
 
   getSub(cat, reset) {
     try {
-      if (cat)
-        this.subCategories = this.categories.find(
-          x => x.Id === Number(cat)
-        ).SubCategories;
       if (reset) this._Product.SubCategoryId = null;
+      if (cat) {
+        this.subCategories = this.categories.find(
+          x => x.Id === +cat
+        ).SubCategories;
+        this._Product.SubCategoryId = +this.subCategories[0].Id;
+      }
     } catch (e) {}
   }
 
@@ -300,13 +307,6 @@ export class ProductFormComponent implements OnInit {
     );
   }
 
-  freeImages() {
-    this.imgPath = null;
-    this.MainImage = null;
-    this.GalleryImgs = [];
-    this.DescImgs = [];
-  }
-
   /* Images Functions */
 
   setMainImage(files) {
@@ -316,7 +316,6 @@ export class ProductFormComponent implements OnInit {
 
   previewMainImg() {
     if (this.MainImage) {
-      // image exist
       const reader = new FileReader();
       reader.onload = (e: ProgressEvent) => {
         this.imgPath = (<FileReader>e.target).result.toString();
@@ -326,53 +325,33 @@ export class ProductFormComponent implements OnInit {
   }
 
   addGalleryImages(files: File[]) {
-    for (let i = 0; i < files.length; i++) {
-      const exist = this.GalleryImgs.find(x => x.name === files[i].name)
-        ? true
-        : false;
-      if (files[i] && !exist) {
-        const reader = new FileReader();
-        reader.onload = (e: ProgressEvent) => {
-          const item: IPath = {
-            img: files[i],
-            name: files[i].name,
-            data: (<FileReader>e.target).result.toString()
-          };
-          const _length =
-            this.GalleryImgs.length + this._Product.galleryImgs.length;
-
-          if (_length < this._maxG) {
-            this.GalleryImgs.push(item);
-          }
-        };
-        reader.readAsDataURL(files[i]);
-      }
-    }
+    this.storeAndPreviewImages(files, this.GalleryImgs, this._Product.galleryImgs, this._maxG);
   }
 
   addDescImages(files: File[]) {
+    this.storeAndPreviewImages(files, this.DescImgs, this._Product.descImgs, this._maxD);
+  }
+
+  private storeAndPreviewImages(files: File[], imagesList: IFilePath[], productImages: string[], maxImages: number) {
     for (let i = 0; i < files.length; i++) {
-      const exist = this.DescImgs.find(x => x.name === files[i].name)
-        ? true
-        : false;
+      const exist = imagesList.find(x => x.name === files[i].name) ? true : false;
       if (files[i] && !exist) {
         const reader = new FileReader();
-        reader.onload = (e: ProgressEvent) => {
-          const item: IPath = {
-            img: files[i],
-            name: files[i].name,
-            data: (<FileReader>e.target).result.toString()
+        reader.onload = async(e: ProgressEvent) => {
+          const item: IFilePath = {
+            img: await files[i],
+            name: await files[i].name,
+            data: await (<FileReader>e.target).result.toString()
           };
-
-          const _length = this.DescImgs.length + this._Product.descImgs.length;
-
-          if (_length < this._maxD) {
-            this.DescImgs.push(item);
+          const _length = imagesList.length + productImages.length;
+          if (_length < maxImages) {
+            imagesList.push(item);
           }
         };
         reader.readAsDataURL(files[i]);
       }
     }
+    return true;
   }
 
   asMainImage(img: File) {
@@ -436,6 +415,21 @@ export class ProductFormComponent implements OnInit {
 
     this.DescImgsDrop.push(name);
   }
+
+  private resetInputs() { // coz we dont want the input controles to keep its files
+    this.mainImgInput.nativeElement.value = '';
+    this.galleryImgsInput.nativeElement.value = '';
+    this.descImgsInput.nativeElement.value = '';
+  }
+
+  freeImages() {
+    this.imgPath = null;
+    this.MainImage = null;
+    this.GalleryImgs = [];
+    this.DescImgs = [];
+    this.resetInputs();
+  }
+
   Reset() {
     this.resetForm();
   }
@@ -456,7 +450,7 @@ export class ProductFormComponent implements OnInit {
 }
 // interface helps to store both img file and img data that display on template,
 // plus the name that identify every image
-interface IPath { 
+interface IFilePath { 
   img: File;
   name: string;
   data: string;

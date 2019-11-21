@@ -12,7 +12,6 @@ import { AdminProduct } from '../models/adminProduct';
 export class AdminProductService {
 
   private readonly END_POINT = 'api/AdminProducts/';
-  noAuth = new HttpHeaders({ 'NoAuth': 'true' }); // only for testing
 
   constructor(private http: HttpClient, private dialog: MatDialog) { }
 
