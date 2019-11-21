@@ -8,29 +8,27 @@ import { handleExpectedErrors } from '../common/errors/http-errors';
 })
 export class AdminUploadService {
   private readonly END_POINT = 'api/upload/';
-  noAuth = new HttpHeaders({ 'NoAuth': 'true' }); // only for testing
-
   constructor(private http: HttpClient) { }
 
   
   UploadImages(form: FormData) {
-    return this.http.post( this.END_POINT + 'productImages', form, { headers: this.noAuth }).pipe(
+    return this.http.post( this.END_POINT + 'productImages', form).pipe(
       catchError(handleExpectedErrors)
     );
   }
 
   addProductImages(form: FormData) {
-    return this.http.post( this.END_POINT + 'addProductImages', form, { headers: this.noAuth }).pipe(
+    return this.http.post( this.END_POINT + 'addProductImages', form).pipe(
       catchError(handleExpectedErrors)
     );
   }
   updateProductImages(form: FormData) {
-    return this.http.post( this.END_POINT + 'updateProductImages', form, { headers: this.noAuth }).pipe(
+    return this.http.post( this.END_POINT + 'updateProductImages', form).pipe(
       catchError(handleExpectedErrors)
     );
   }
   copyProductImages(form: FormData) {
-    return this.http.post( this.END_POINT + 'copyProductImages', form, { headers: this.noAuth }).pipe(
+    return this.http.post( this.END_POINT + 'copyProductImages', form).pipe(
       catchError(handleExpectedErrors)
     );
   }
@@ -38,7 +36,7 @@ export class AdminUploadService {
 
   ReplaceMainImg(id: number, img: string) {
     const data =  { id: id, filename: img };    
-    return this.http.post( this.END_POINT + 'ReplaceMainImg', data, { headers: this.noAuth }).pipe(
+    return this.http.post( this.END_POINT + 'ReplaceMainImg', data).pipe(
       catchError(handleExpectedErrors)
     );
   }
