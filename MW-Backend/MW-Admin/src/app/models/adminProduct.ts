@@ -39,10 +39,10 @@ export class AdminProduct {
         this.OnSale = true;
         this.ShippingMethod = 'gearbest';
 
-        this.Name = 'Lorem Ipsum';
-        this.Price = 17;
-        this.OldPrice = 23;
-        this.Description = 'Some Dummy Text ..';
+        // this.Name = 'Lorem Ipsum';
+        // this.Price = 17;
+        // this.OldPrice = 23;
+        // this.Description = 'Some Dummy Text ..';
         this.galleryImgs = [];
         this.descImgs = [];
     }

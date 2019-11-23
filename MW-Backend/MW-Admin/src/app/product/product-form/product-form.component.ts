@@ -19,7 +19,7 @@ import { CategoryService } from 'src/app/services/category.service';
 export class ProductFormComponent implements OnInit {
   expand = false;
   hasNoColor = false;
-  _formJob: string = FormJob.Add; // what operation the form will achieve adding, editing ..
+  _formJob: string = FormJob.Add; // what operation the form will achieve
   colors = ["white", "red", "green", "yellow", "gray", "orange", "blue", "pink", "brown", "purple", "black"];
   
   @ViewChild("f") ngForm: NgForm;
@@ -78,19 +78,13 @@ export class ProductFormComponent implements OnInit {
 
   ngOnInit() {
     this.activeRoute.queryParamMap.subscribe(p => {
+      this.resetForm(false);
       const editId = +p.get("editId");
-      if (editId) {
-        this._formJob = FormJob.Update;
-        this.getProduct(editId, FormJob.Update);
-      }
+      if (editId) this.getProduct(editId, FormJob.Update);
 
       const copyId = +p.get("copyId");
-      if (copyId) {
-        this._formJob = FormJob.Copy;
-        this.getProduct(copyId, FormJob.Copy);
-      }
-      this.mainImgFromCopy = null;
-      this.ngForm.resetForm();
+      if (copyId) this.getProduct(copyId, FormJob.Copy);
+
     });
 
     this.getLastAddedProducts();
@@ -238,17 +232,15 @@ export class ProductFormComponent implements OnInit {
   }
 
   productDeleted(productId) {
-    console.log(productId);
-    
     if (productId > 0) {
       const editId = +this.activeRoute.snapshot.queryParamMap.get("editId");
-      console.log(editId);      
+      console.log(editId);
       if (productId === editId) this.Reset();
     }
     this.getLastAddedProducts();
   }
 
-  private resetForm() {
+  private resetForm(redirect = true) {
     this.ngForm.resetForm();
     this._Product = new AdminProduct();
     this.copyingId = 0;
@@ -257,7 +249,7 @@ export class ProductFormComponent implements OnInit {
     this.GalleryImgsDrop = [];
     this.DescImgsDrop = [];
     this.mainImgFromCopy = null;
-    this.router.navigateByUrl("/admin/product-form");
+    if (redirect) this.router.navigateByUrl("/admin/product-form");
   }
 
   addToHistory(item: MiniProduct) {
@@ -285,17 +277,18 @@ export class ProductFormComponent implements OnInit {
     } catch (e) {}
   }
 
-  getProduct(id: number, mode: string) {
+  getProduct(id: number, job: string) {
     this.productService.getProduct(id).subscribe(
       p => {
         this.freeImages();
         this._Product = p as AdminProduct;
         this.hasNoColor = this._Product.Color ? false : true;
         this.getSub(this._Product.CategoryId, false);
-        if (mode === FormJob.Copy) {
+        if (job === FormJob.Copy) {
           this.copyingId = id;
           this._Product.Id = 0;
         }
+        this._formJob = job;
       },
       (err: AppError) => {
         if (err instanceof NotFound) {
@@ -417,9 +410,11 @@ export class ProductFormComponent implements OnInit {
   }
 
   private resetInputs() { // coz we dont want the input controles to keep its files
-    this.mainImgInput.nativeElement.value = '';
-    this.galleryImgsInput.nativeElement.value = '';
-    this.descImgsInput.nativeElement.value = '';
+    const inputs = [ this.mainImgInput, this.galleryImgsInput, this.descImgsInput ];
+
+    inputs.forEach(item => {
+      if (item) item.nativeElement.value = '';
+    });
   }
 
   freeImages() {
