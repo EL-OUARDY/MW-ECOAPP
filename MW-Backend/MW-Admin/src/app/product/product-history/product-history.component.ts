@@ -21,19 +21,18 @@ export class ProductHistoryComponent implements OnInit {
   ngOnInit() {
   }
 
-  editProduct(p: MiniProduct) {
-    // this.router.navigateByUrl('/admin/product-form/' + p.Id.toString());
-    this.router.navigate(['/admin/product-form'], { queryParams: { editId: p.Id } });
+  editProduct(id) {
+    this.router.navigate(['/admin/product-form'], { queryParams: { editId: id } });
   }
-  copyProduct(p: MiniProduct) {
-    this.router.navigate(['/admin/product-form'], { queryParams: { copyId: p.Id } });
+  copyProduct(id) {
+    this.router.navigate(['/admin/product-form'], { queryParams: { copyId: id } });
   }
-  deleteProduct(product: MiniProduct) {
+  deleteProduct(id) {
     this.aps.raiseConfirmDialog().subscribe(res => {
       if (res) {
-        this.aps.deleteProduct(product.Id)
+        this.aps.deleteProduct(id)
           .subscribe(
-            () => this.delete.emit(product.Id),
+            () => this.delete.emit(id),
             (err: AppError) => {
               if (err instanceof BadInput) {
                 this.toaster.warning('Something Went Wrong');

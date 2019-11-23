@@ -32,7 +32,7 @@ export class AdminProductService {
   }
 
   UpdateProduct( id: number, p: AdminProduct) {
-    return this.http.put('/api/UpdateProducts/' + id.toString(), p).pipe(
+    return this.http.put('/api/UpdateProduct/' + id.toString(), p).pipe(
       catchError(handleExpectedErrors)
     );
   }
@@ -49,6 +49,12 @@ export class AdminProductService {
 
   deleteProduct(id: number) {
     return this.http.delete( this.END_POINT + id ).pipe(
+      catchError(handleExpectedErrors)
+    );
+  }
+
+  deleteRange(Ids: number[]) {
+    return this.http.post( '/api/DeleteRange/', Ids ).pipe(
       catchError(handleExpectedErrors)
     );
   }

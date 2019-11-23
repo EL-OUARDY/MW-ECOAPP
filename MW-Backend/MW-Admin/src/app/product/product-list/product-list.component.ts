@@ -4,6 +4,10 @@ import { AdminProduct } from 'src/app/models/adminProduct';
 import { SelectionModel } from '@angular/cdk/collections';
 import { MatTableDataSource} from '@angular/material';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { Router } from '@angular/router';
+import { AppError } from 'src/app/common/errors/app-error';
+import { BadInput, NotFound } from 'src/app/common/errors/http-errors';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
@@ -19,12 +23,16 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 export class ProductListComponent implements OnInit {
   
   queryObj: any = {};
-  columns = ['Select', 'Id', 'Image', 'Name', 'Price', 'Color', 'Quantity', 'Source', 'Date_Created', 'OnSale', 'Controls', 'Expand'];
+  columns = ['Select', 'Id', 'Image', 'Name', 'Price', 'Color', 'Quantity', 'Source', 'OnSale', 'Date_Created', 'Controls', 'Expand'];
   dataSource: MatTableDataSource<AdminProduct>;
   expandedElement: AdminProduct | null;
   selection = new SelectionModel<AdminProduct>(true, []);
+  show = 10;
+  page = 1;
   
-  constructor(private productService: AdminProductService) { }
+  constructor(private productService: AdminProductService,
+              private router: Router,
+              private toaster: ToastrService) { }
 
   ngOnInit() {
     this.populateProducts();
@@ -33,6 +41,17 @@ export class ProductListComponent implements OnInit {
   onSaleChange(onSale) {
     this.queryObj.OnSale = onSale;
     this.populateProducts();
+  }
+
+  deleteRange(products: AdminProduct[]) {
+    const ids = [];
+    products.forEach( x => ids.push(x.Id) );
+    this.productService.deleteRange(ids).subscribe(() => {
+      this.toaster.success("Deleted Successfuly");
+      this.populateProducts();
+    },
+    err => this.toaster.error(err)
+    );
   }
 
   private populateProducts() {
@@ -44,9 +63,9 @@ export class ProductListComponent implements OnInit {
   }
 
   isAllSelected() {
-    const numSelected = this.selection.selected.length;
-    const numRows = this.dataSource.data.length;
-    return numSelected === numRows;
+    const nbSelected = this.selection.selected.length;
+    const nbRows = this.dataSource.data.length;
+    return nbSelected === nbRows;
   }
 
   masterToggle(){
@@ -59,4 +78,29 @@ export class ProductListComponent implements OnInit {
     return product ? product.Id : undefined;
   }
 
+
+  // Controls
+  editProduct(id) {
+    this.router.navigate(['/admin/product-form'], { queryParams: { editId: id } });
+  }
+  copyProduct(id) {
+    this.router.navigate(['/admin/product-form'], { queryParams: { copyId: id } });
+  }
+  deleteProduct(id) {
+    this.productService.raiseConfirmDialog().subscribe(res => {
+      if (res) {
+        this.productService.deleteProduct(id)
+          .subscribe(
+            () => console.log("DELETED"),
+            (err: AppError) => {
+              if (err instanceof BadInput) {
+                this.toaster.warning('Something Went Wrong');
+                console.log(err.originalError.error.Message);
+              } else if (err instanceof NotFound) {
+                this.toaster.warning('Product Not Found Or Already Deleted');
+              } else { throw err; }
+            });
+      }
+    });
+  }
 }
