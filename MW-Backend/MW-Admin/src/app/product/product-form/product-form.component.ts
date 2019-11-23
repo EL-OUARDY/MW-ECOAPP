@@ -71,7 +71,8 @@ export class ProductFormComponent implements OnInit {
     this.categoryService.getCategoriesFromServer().subscribe(cats => {
       localStorage.setItem("MWCategories", JSON.stringify(cats));
       this.categories = cats;
-    });
+    },
+    () => this.toaster.error("Could Not Get New Categories .."));
   }
 
   // implements ngOnDestroy to Remove all subscriptions

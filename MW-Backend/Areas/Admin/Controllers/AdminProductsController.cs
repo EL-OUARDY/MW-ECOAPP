@@ -60,7 +60,7 @@ namespace MW_Backend.Areas.Admin.Controllers
 
         // PUT: api/AdminProducts/5
         [HttpPut]
-        [Route("api/UpdateProducts/{id}")]
+        [Route("api/UpdateProduct/{id}")]
         public IHttpActionResult PutAdminProduct(int id, ProductDTO productDto)
         {
             if (!ModelState.IsValid)
@@ -151,6 +151,39 @@ namespace MW_Backend.Areas.Admin.Controllers
             {
                 return BadRequest("An error was occured while deleting images directory !");
             }
+
+            return Ok();
+        }
+
+        // Post: api/AdminProducts/5
+        [HttpPost]
+        [Route("api/DeleteRange")]
+        public async Task<IHttpActionResult> DeleteRange(int[] ids)
+        {
+            var products = await db.Products.Where(x => ids.Contains(x.Id)).ToListAsync();
+
+            try
+            {
+                db.Products.RemoveRange(products);
+                await db.SaveChangesAsync();
+            }
+            catch (Exception)
+            {
+                return BadRequest("Cannot delete Products ..");
+            }
+
+            // Remove Images Directory
+            bool isOK = true;
+            foreach (var id in ids)
+            {
+                var _dir = new Product_Dir(id);
+                var task = Task.Run(() => !_dir.DeleteProductImages());
+
+                if (await task)
+                    isOK = false;
+            }
+            if (!isOK)
+                return BadRequest("can't remove all products images ");
 
             return Ok();
         }
