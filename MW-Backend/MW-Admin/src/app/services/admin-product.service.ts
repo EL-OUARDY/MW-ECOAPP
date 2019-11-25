@@ -60,13 +60,14 @@ export class AdminProductService {
   }
 
   // Shared Functions
-
   toQueryString(obj) {
     const parts = [];
     if (obj.OnSale != null && obj.OnSale !== undefined) 
       parts.push('$filter=OnSale eq ' + obj.OnSale);
 
+    parts.push('$count=true');
     console.log(parts.join('&'));
+    
     return parts.join('&');
   }
   
