@@ -4,19 +4,17 @@ using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
-using System.Net;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Http;
-using System.Web.Http.Description;
-using System.Web.Http.OData;
+using Microsoft.AspNet.OData;
+using Microsoft.AspNet.OData.Query;
+using Microsoft.AspNet.OData.Extensions;
 using AutoMapper;
 using MW_Backend.Areas.Admin.ViewModel;
 using MW_Backend.DTO_Resourses;
 using MW_Backend.Helpers;
 using MW_Backend.Models;
 using MW_Backend.Models.Data;
-using Newtonsoft.Json;
 
 namespace MW_Backend.Areas.Admin.Controllers
 {
@@ -32,14 +30,15 @@ namespace MW_Backend.Areas.Admin.Controllers
 
         // GET: api/AdminProducts
         [HttpGet]
-        [EnableQuery] // OData
-        public async Task<IHttpActionResult> GetAdminProducts()
+        public async Task<PageResult<ProductListVM>> GetAdminProducts(ODataQueryOptions<ProductListVM> options)
         {
-            // [FromODataUri] Allow you to catch what ever parameter that has passed with OData uri
-
             var products = await db.Products.ToListAsync();
+            var model = products.Select(Mapper.Map<Product, ProductListVM>);
 
-            return Ok(products.Select(Mapper.Map<Product, ProductListVM>));
+            IQueryable results = options.ApplyTo(model.AsQueryable());
+            return new PageResult<ProductListVM>(
+                                results as IEnumerable<ProductListVM>, null,
+                                Request.ODataProperties().TotalCount);
         }
 
         // POST: api/AdminProducts

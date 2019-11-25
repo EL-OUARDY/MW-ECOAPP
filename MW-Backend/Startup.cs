@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web.Http;
+using Microsoft.AspNet.OData.Extensions;
 using Microsoft.AspNet.SignalR;
 using Microsoft.AspNet.SignalR.Transports;
 using Microsoft.Owin;
@@ -16,6 +18,8 @@ namespace MW_Backend
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
+
+            GlobalConfiguration.Configuration.EnableDependencyInjection();
 
             var heartBeat = GlobalHost.DependencyResolver.Resolve<ITransportHeartbeat>();
 

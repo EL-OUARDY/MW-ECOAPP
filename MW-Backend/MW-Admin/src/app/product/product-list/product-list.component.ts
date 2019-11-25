@@ -27,6 +27,7 @@ export class ProductListComponent implements OnInit {
   dataSource: MatTableDataSource<AdminProduct>;
   expandedElement: AdminProduct | null;
   selection = new SelectionModel<AdminProduct>(true, []);
+  nbTotal: Number;
   show = 10;
   page = 1;
   
@@ -56,8 +57,9 @@ export class ProductListComponent implements OnInit {
 
   private populateProducts() {
     this.productService.GetProductsList(this.queryObj)
-      .subscribe((data: AdminProduct[]) => {
-        this.dataSource = new MatTableDataSource<AdminProduct>(data);
+      .subscribe((res: any) => {
+        this.nbTotal = res.Count;
+        this.dataSource = new MatTableDataSource<AdminProduct>(res.Items);
         this.selection.clear();
       });
   }
