@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { catchError } from 'rxjs/operators';
-import { handleExpectedErrors } from '../common/errors/http-errors';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ADMIN_ROLE } from '../common/GlobalConstants';
+import { handleExpectedErrors } from '../shared/errors/http-errors';
+import { ADMIN_ROLE } from '../shared/GlobalConstants';
 
 @Injectable({
   providedIn: 'root'

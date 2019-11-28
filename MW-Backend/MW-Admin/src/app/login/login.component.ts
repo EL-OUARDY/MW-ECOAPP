@@ -1,16 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { ProductValidators } from '../common/validators/product.validators';
 import { AdminAuthService } from '../services/admin-auth.service';
 import { ToastrService } from 'ngx-toastr';
-import { AppError } from '../common/errors/app-error';
-import { BadInput } from '../common/errors/http-errors';
-import { ADMIN_ROLE } from '../common/GlobalConstants';
+import { ProductValidators } from '../shared/validators/product.validators';
+import { ADMIN_ROLE } from '../shared/GlobalConstants';
+import { AppError } from '../shared/errors/app-error';
+import { BadInput } from '../shared/errors/http-errors';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
   flipped;
