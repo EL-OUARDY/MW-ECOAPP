@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
-import { handleExpectedErrors, BadInput } from 'src/app/common/errors/http-errors';
 import { MatDialog } from '@angular/material';
 import { ConfirmDialogComponent } from '../shared/confirm-dialog/confirm-dialog.component';
 import { AdminProduct } from '../models/adminProduct';
+import { handleExpectedErrors } from '../shared/errors/http-errors';
+import { QueryObject } from '../shared/IQueryObject';
 
 @Injectable({
   providedIn: 'root'
@@ -60,17 +61,25 @@ export class AdminProductService {
   }
 
   // Shared Functions
-  toQueryString(obj) {
+  toQueryString(obj: QueryObject) {
     const parts = [];
-    if (obj.OnSale != null && obj.OnSale !== undefined) 
+
+    if ( obj.OnSale != null )
       parts.push('$filter=OnSale eq ' + obj.OnSale);
+    
+      parts.push('$top=' + obj.PageSize);
+
+      parts.push('$skip=' + (obj.PageNumber * obj.PageSize));
 
     parts.push('$count=true');
-    console.log(parts.join('&'));
     
     return parts.join('&');
   }
   
+  private hasValue(value) {
+    return value !== null && value !== undefined;
+  }
+
   // toQueryString(obj) {
   //   const parts = [];
   //   for (const property in obj) {

@@ -12,9 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ToastrModule } from 'ngx-toastr';
 import { NotFoundComponent } from './error-pages/not-found/not-found.component';
-import { AppErrorHandler } from './common/errors/global-error-handler';
 import { UnexpectedErrorComponent } from './error-pages/unexpected-error/unexpected-error.component';
-import { AuthInterceptor } from './common/auth-interceptor';
 import { ProductHistoryComponent } from './product/product-history/product-history.component';
 import { ProductFormComponent } from './product/product-form/product-form.component';
 import { AdminProductService } from './services/admin-product.service';
@@ -32,8 +30,7 @@ import { TicketsComponent } from './tickets/tickets.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SettingsComponent } from './settings/settings.component';
 
-import { MatSelectModule, MatCheckboxModule, MatRadioModule, MatDialogModule, MatSnackBarModule, MatTableModule, MatInputModule, MatButton, MatButtonModule } from '@angular/material';
-import { CdkTableModule } from '@angular/cdk/table';
+import { MatSelectModule, MatCheckboxModule, MatRadioModule, MatDialogModule, MatSnackBarModule, MatTableModule, MatInputModule, MatButtonModule } from '@angular/material';
 
 import { NgScrollbarModule } from 'ngx-scrollbar';
 import { ConfirmDialogComponent } from './shared/confirm-dialog/confirm-dialog.component';
@@ -41,7 +38,7 @@ import { AdminUploadService } from './services/admin-upload.service';
 import { LayoutComponent } from './layout/layout.component';
 import { LoginComponent } from './login/login.component';
 import { AdminAuthService } from './services/admin-auth.service';
-import { isListLikeIterable } from '@angular/core/src/change_detection/change_detection_util';
+import { AuthInterceptor } from './shared/auth-interceptor';
 
 @NgModule({
   declarations: [
@@ -85,7 +82,6 @@ import { isListLikeIterable } from '@angular/core/src/change_detection/change_de
     MatDialogModule,
     MatSnackBarModule,
     MatTableModule,
-    CdkTableModule,
     MatDialogModule,
     MatInputModule,
     MatButtonModule,

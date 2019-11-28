@@ -3,18 +3,17 @@ import { AdminProductService } from '../../services/admin-product.service';
 import { AdminProduct } from '../../models/adminProduct';
 import { ToastrService } from 'ngx-toastr';
 import { MiniProduct } from 'src/app/models/miniProduct';
-import { BadInput, NotFound } from 'src/app/common/errors/http-errors';
 import { NgForm, FormControl } from '@angular/forms';
-import { AppError } from 'src/app/common/errors/app-error';
 import { Router, ActivatedRoute } from '@angular/router';
-import { FormJob } from 'src/app/common/GlobalConstants';
 import { AdminUploadService } from 'src/app/services/admin-upload.service';
 import { CategoryService } from 'src/app/services/category.service';
+import { FormJob } from 'src/app/shared/GlobalConstants';
+import { AppError } from 'src/app/shared/errors/app-error';
+import { BadInput, NotFound } from 'src/app/shared/errors/http-errors';
 
 @Component({
   selector: "product-form",
   templateUrl: "./product-form.component.html",
-  styleUrls: ["./product-form.component.css"]
 })
 export class ProductFormComponent implements OnInit {
   expand = false;
