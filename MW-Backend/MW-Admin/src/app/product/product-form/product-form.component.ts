@@ -73,6 +73,10 @@ export class ProductFormComponent implements OnInit {
     this.getLastAddedProducts();
   }
 
+  refreshCat() {
+    this.categoryService.getCategoriesFromServer();
+  }
+
   // Posting The Product
   onSubmit(f: NgForm) {
     if (f.invalid) {

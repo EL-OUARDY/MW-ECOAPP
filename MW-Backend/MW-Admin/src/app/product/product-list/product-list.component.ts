@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AppError } from 'src/app/shared/errors/app-error';
 import { BadInput, NotFound } from 'src/app/shared/errors/http-errors';
-import { QueryObject } from 'src/app/shared/IQueryObject';
+import { QueryObject } from 'src/app/shared/QueryObject';
 @Component({
   selector: "app-product-list",
   templateUrl: "./product-list.component.html",
@@ -77,13 +77,9 @@ export class ProductListComponent implements OnInit {
   private populateProducts() {
     this.productService.GetProductsList(this.queryObj).subscribe((res: any) => {
       this.nbTotal = res.Count;
-      this.setPaging();
       this.dataSource = new MatTableDataSource<AdminProduct>(res.Items);
       this.selection.clear();
     });
-  }
-  setPaging() {
-    
   }
 
   isAllSelected() {
@@ -100,6 +96,17 @@ export class ProductListComponent implements OnInit {
 
   trackById(index, product) {
     return product ? product.Id : undefined;
+  }
+
+  orderBy(value) {
+    if (this.queryObj.OrderBy === value)
+      this.queryObj.IsSortAscending = !this.queryObj.IsSortAscending;
+    else {
+      this.queryObj.IsSortAscending = true;
+      this.queryObj.OrderBy = value;
+    }
+    
+    this.populateProducts();
   }
 
   itemsToShowChanged() {

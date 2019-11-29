@@ -31,9 +31,9 @@ namespace MW_Backend.Areas.Admin.ViewModel
 
         public decimal? OldPrice { get; set; }
 
-        public byte Discount { get; set; } = 0; 
+        public byte Discount { get; set; } = 0;
 
-        //public virtual SubCategory SubCategory { get; set; }
+        public int SubCategoryId { get; set; }
 
         public string CouponLibel { get; set; }
 

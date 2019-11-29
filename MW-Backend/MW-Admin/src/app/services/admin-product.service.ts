@@ -5,7 +5,7 @@ import { MatDialog } from '@angular/material';
 import { ConfirmDialogComponent } from '../shared/confirm-dialog/confirm-dialog.component';
 import { AdminProduct } from '../models/adminProduct';
 import { handleExpectedErrors } from '../shared/errors/http-errors';
-import { QueryObject } from '../shared/IQueryObject';
+import { QueryObject } from '../shared/QueryObject';
 
 @Injectable({
   providedIn: 'root'
@@ -67,10 +67,49 @@ export class AdminProductService {
     if ( obj.OnSale != null )
       parts.push('$filter=OnSale eq ' + obj.OnSale);
     
-      parts.push('$top=' + obj.PageSize);
+    parts.push('$top=' + obj.PageSize);
 
-      parts.push('$skip=' + (obj.CurrentPage * obj.PageSize));
+    parts.push('$skip=' + (obj.CurrentPage * obj.PageSize));
 
+    if (obj.CategoryId) {
+      if (!obj.SubCategoryId || obj.SubCategoryId === 0) {
+        parts.push('$filter=CategoryId eq ' + obj.CategoryId);
+      } else {
+        parts.push('$filter=SubCategoryId eq ' + obj.SubCategoryId);
+      }
+    }
+
+    if (obj.Search) {
+      const key = obj.Search.charAt(0);
+      const key2 = obj.Search.substr(0, 1);
+
+      console.log(key);
+      console.log(key2);
+      
+      
+      switch (key) {
+        case '#':
+          parts.push('$filter=Id eq ' + obj.Search);
+          break;
+        
+        case '+':
+          parts.push('$filter=Price gt ' + obj.Search);
+          break;
+        
+        default:
+          parts.push('$filter=Name eq ' + obj.Search);
+          break;
+      }
+
+      if (obj.Search.startsWith('#')) 
+        parts.push('$filter=Id eq ' + obj.Search.slice());
+      else parts.push('$filter=Name eq ' + obj.Search);
+    }
+
+    if (obj.OrderBy) {
+      const isAsc = obj.IsSortAscending ? 'Asc' : 'Desc';
+      parts.push('$orderby=' + obj.OrderBy + ' ' + isAsc);
+    }
     parts.push('$count=true');
     
     return parts.join('&');
