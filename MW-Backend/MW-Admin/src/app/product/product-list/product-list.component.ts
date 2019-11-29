@@ -61,7 +61,7 @@ export class ProductListComponent implements OnInit {
   }
 
   public get availablePages(): number {
-    const nb = Math.ceil(this.nbTotal / this.queryObj.PageSize);
+    const nb = Math.ceil(this.nbTotal / this.queryObj.PageSize) || 1;
     return nb;
   }
 
