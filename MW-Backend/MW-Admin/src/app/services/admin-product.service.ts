@@ -69,7 +69,7 @@ export class AdminProductService {
     
       parts.push('$top=' + obj.PageSize);
 
-      parts.push('$skip=' + (obj.PageNumber * obj.PageSize));
+      parts.push('$skip=' + (obj.CurrentPage * obj.PageSize));
 
     parts.push('$count=true');
     
