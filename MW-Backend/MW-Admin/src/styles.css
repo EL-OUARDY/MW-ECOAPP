@@ -1546,6 +1546,8 @@ input[type="text"] {
     cursor: pointer;
     padding: 3px 31px;
     /* border: 1px solid #00BCD4; */
+    width: 40px;
+    text-align: center 
 }
 
 .rqsetgertg {
@@ -1766,6 +1768,7 @@ input[type="text"] {
     height: 80%;
 }
 
+
 .datefilt1, .datefilt2 {
     border-radius: 30px;
     border: none;
@@ -1779,6 +1782,9 @@ input[type="text"] {
     /* height: 100%; */
 }
 
+.datefilt1 {
+    margin-left: 40px !important;
+}
 .peorgosdfdfg {
     width: 20px;
     height: 20px;

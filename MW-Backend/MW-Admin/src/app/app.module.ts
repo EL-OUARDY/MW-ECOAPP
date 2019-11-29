@@ -41,6 +41,7 @@ import { AdminAuthService } from './services/admin-auth.service';
 import { AuthInterceptor } from './shared/auth-interceptor';
 import { CdkTableModule } from '@angular/cdk/table';
 import { IteratePipe } from './shared/pipes/iterate.pipe';
+import { CategoryControleComponent } from './category/category-controle/category-controle.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +68,7 @@ import { IteratePipe } from './shared/pipes/iterate.pipe';
     LayoutComponent,
     LoginComponent,
     IteratePipe,
+    CategoryControleComponent,
   ],
   imports: [
     CommonModule,

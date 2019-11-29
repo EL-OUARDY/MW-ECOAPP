@@ -54,24 +54,7 @@ export class ProductFormComponent implements OnInit {
     private activeRoute: ActivatedRoute,
     private toaster: ToastrService
   ) {
-    this.getCategories();
-  }
-
-  private getCategories(locally = true) {
-    // use it with locally=false to bring new categories from server
-    this.categories = this.categoryService.getCategoriesLocally();
-
-    if (!this.categories || !locally) {
-      this.getNewCategoriesAndStoreThem();
-    }
-  }
-
-  private getNewCategoriesAndStoreThem() {
-    this.categoryService.getCategoriesFromServer().subscribe(cats => {
-      localStorage.setItem("MWCategories", JSON.stringify(cats));
-      this.categories = cats;
-    },
-    () => this.toaster.error("Could Not Get New Categories .."));
+    this.categories = this.categoryService._categories;
   }
 
   // implements ngOnDestroy to Remove all subscriptions
