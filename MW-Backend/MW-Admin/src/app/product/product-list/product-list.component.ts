@@ -44,21 +44,31 @@ export class ProductListComponent implements OnInit {
   dataSource: MatTableDataSource<AdminProduct>;
   expandedElement: AdminProduct | null;
   selection = new SelectionModel<AdminProduct>(true, []);
-  nbTotal: Number;
+  nbTotal: number;
   queryObj: QueryObject;
 
+  
   constructor(
     private productService: AdminProductService,
     private router: Router,
     private toaster: ToastrService
-  ) {
-    this.queryObj = new QueryObject();
-  }
-
+    ) {
+      this.queryObj = new QueryObject();
+    }
+    
   ngOnInit() {
     this.populateProducts();
   }
 
+  public get availablePages(): number {
+    const nb = Math.ceil(this.nbTotal / this.queryObj.PageSize);
+    return nb;
+  }
+
+  public get activePage(): number {
+    return this.queryObj.CurrentPage + 1;
+  }
+    
   onSaleChange(onSale) {
     this.queryObj.OnSale = onSale;
     this.populateProducts();
@@ -92,17 +102,36 @@ export class ProductListComponent implements OnInit {
     return product ? product.Id : undefined;
   }
 
-  nextPage() {
-    // a condition must goes here (this.queryObj.PageNumber < (this.nbTotal / this.queryObj.PageSize))
-    console.log('Next');
-    this.queryObj.PageNumber++;
+  itemsToShowChanged() {
+    this.queryObj.CurrentPage = 0; // Might Changed later
     this.populateProducts();
   }
 
+  paggingInputChanged(page) {
+    if (page > 0) {
+      this.queryObj.CurrentPage = page - 1;
+    } else {
+      this.queryObj.CurrentPage = 0; 
+    }
+
+    this.populateProducts();
+  }
+
+  goToPage(page) {
+    this.queryObj.CurrentPage = page;
+    this.populateProducts();
+  }
+
+  nextPage() {
+    if ((this.queryObj.CurrentPage + 1) < this.availablePages) {
+    this.queryObj.CurrentPage++;
+    this.populateProducts();
+    }
+  }
+
   prevPage() {
-    if (this.queryObj.PageNumber > 0) {
-      console.log('Prev');
-      this.queryObj.PageNumber--;
+    if (this.queryObj.CurrentPage > 0) {
+      this.queryObj.CurrentPage--;
       this.populateProducts();
     }
   }

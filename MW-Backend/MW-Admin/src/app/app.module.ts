@@ -39,6 +39,8 @@ import { LayoutComponent } from './layout/layout.component';
 import { LoginComponent } from './login/login.component';
 import { AdminAuthService } from './services/admin-auth.service';
 import { AuthInterceptor } from './shared/auth-interceptor';
+import { CdkTableModule } from '@angular/cdk/table';
+import { IteratePipe } from './shared/pipes/iterate.pipe';
 
 @NgModule({
   declarations: [
@@ -64,6 +66,7 @@ import { AuthInterceptor } from './shared/auth-interceptor';
     ConfirmDialogComponent,
     LayoutComponent,
     LoginComponent,
+    IteratePipe,
   ],
   imports: [
     CommonModule,
@@ -85,6 +88,7 @@ import { AuthInterceptor } from './shared/auth-interceptor';
     MatDialogModule,
     MatInputModule,
     MatButtonModule,
+    CdkTableModule,
 
     BrowserAnimationsModule,
     ToastrModule.forRoot()

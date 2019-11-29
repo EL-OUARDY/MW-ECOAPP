@@ -55,7 +55,6 @@ body {
     padding: 0;
     background: var(--backgrbody);
 }
-
 .divallcontent {
     /* position: relative; */
     /* float: left; */
@@ -4230,7 +4229,23 @@ td.fdgdzeazreio {
 
 .tableFooter {
     display: flex;
+    position: relative;
     margin: 18px 0 0;
+    padding-right: 8px;
+}
+
+.paggingInput {
+    float: left;
+    border: none;
+    color: var(--color-font);
+}
+.paggingInput input {
+    height: 21px;
+    font-family: AgencyFB !important;
+    font-size: 16px;
+    text-align: center;
+    background: var(--backgrcontent);
+    width: 20px;
 }
 
 .rqsetgertg select {
@@ -4364,7 +4379,7 @@ td.fdgdzeazreio {
     margin-top: 1%;
     color: var(--color-font);
     background-color: var(--backgrcontent);
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .bordered {
@@ -4460,7 +4475,7 @@ td.fdgdzeazreio {
 }
 
 .pagingControle {
-    width: 15%;
+    width: 95%;
 }
 .pagingControle .pageNumbers{
     background: var(--backgrcontent);
@@ -4471,25 +4486,23 @@ td.fdgdzeazreio {
 .itemsToShow{
     width: 5%;
 }
-.footerControls{
-    width: 80%;
-}
+
 .footerControls svg {
     height: 25px;
     width: 23px;
     padding: 0 12px;
     cursor: pointer;
 }
-.footerControls .controls{
+.footerControls{
+    position: absolute;
+    left: calc( 50% - 67px) ;
     background: var(--backgrcontent);
     border-radius: 100px;
     width: fit-content;
     margin: 0 auto;
-    padding: 0px 20px;
+    padding: 2px 20px;
+    bottom: 10px
 }
-/* .ng-touched.ng-invalid:not(form) {
-    add a style applied on validation error 
-}*/
 
 .lijksdfgdsvc .mat-radio-checked .mat-radio-container {
     box-shadow: 0 0.75px 10px 3px #4dd0e169;
@@ -4799,3 +4812,7 @@ td.fdgdzeazreio {
 .flippingCard .back {
     transform: rotateY(180deg);
 }
+
+/* .ng-touched.ng-invalid:not(form) {
+    add a style applied on validation error 
+}*/
