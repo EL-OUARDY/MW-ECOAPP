@@ -32,6 +32,7 @@ namespace MW_Backend.Areas.Admin.Controllers
         [HttpGet]
         public async Task<PageResult<ProductListVM>> GetAdminProducts(ODataQueryOptions<ProductListVM> options)
         {
+            // [FromODataUri] catch odata param
             var products = await db.Products.ToListAsync();
             var model = products.Select(Mapper.Map<Product, ProductListVM>);
 

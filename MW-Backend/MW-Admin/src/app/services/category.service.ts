@@ -12,20 +12,20 @@ export class CategoryService {
     this.getCategories();
   }
 
-  private getCategories(locally = true) {
-    // use it with locally=false to bring new categories from server
+  // ngOnDestoy
+
+  private getCategories() {
     this._categories = this.getCategoriesLocally();
 
-    if (!this._categories || !locally) {
+    if (!this._categories)
       this.getCategoriesFromServer();
-    }
   }
   private getCategoriesLocally() {
     const categories = localStorage.getItem("MWCategories");
     return JSON.parse(categories);
   }
 
-  private getCategoriesFromServer() {
+  getCategoriesFromServer() {
     return this.http.get('api/Categories').subscribe(cats => {
       localStorage.setItem("MWCategories", JSON.stringify(cats));
       this._categories = cats;
