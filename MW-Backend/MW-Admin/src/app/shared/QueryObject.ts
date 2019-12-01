@@ -20,6 +20,7 @@ export class QueryObject {
         this.OnSale = null;
         this.PageSize = 2;
         this.CurrentPage = 0;
+        this.OrderBy = 'Id';
         this.IsSortAscending = true;
     }
 }

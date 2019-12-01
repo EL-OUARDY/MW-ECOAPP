@@ -35,6 +35,8 @@ namespace MW_Backend.Areas.Admin.ViewModel
 
         public int SubCategoryId { get; set; }
 
+        public int? CategoryId { get; set; }
+
         public string CouponLibel { get; set; }
 
         public string mainImg

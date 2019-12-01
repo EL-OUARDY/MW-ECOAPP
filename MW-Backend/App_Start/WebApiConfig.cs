@@ -18,6 +18,7 @@ namespace MW_Backend
 
             // Web API configuration and services
             config.AddODataQueryFilter();
+            config.EnableDependencyInjection();
 
             // Configure Web API to use only bearer token authentication.
             config.SuppressDefaultHostAuthentication();

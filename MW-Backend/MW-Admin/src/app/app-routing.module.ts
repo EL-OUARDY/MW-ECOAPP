@@ -17,9 +17,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AdminAuthGuard } from './guards/admin-auth.guard';
 import { LayoutComponent } from './layout/layout.component';
 import { LoginComponent } from './login/login.component';
+import { NotLoggedGuard } from './guards/not-logged.guard';
 
 const routes: Routes = [
-  { path: "admin/login", component: LoginComponent },
+  { path: "admin/login", component: LoginComponent, canActivate: [NotLoggedGuard]},
   { path: "admin/404", component: NotFoundComponent },
   { path: "admin/error", component: UnexpectedErrorComponent },
 

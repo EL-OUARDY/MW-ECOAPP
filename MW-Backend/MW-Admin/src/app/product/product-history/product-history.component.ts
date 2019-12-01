@@ -10,15 +10,12 @@ import { BadInput, NotFound } from 'src/app/shared/errors/http-errors';
   selector: 'product-history',
   templateUrl: './product-history.component.html',
 })
-export class ProductHistoryComponent implements OnInit {
+export class ProductHistoryComponent {
 
   @Input('Products') Products: MiniProduct[];
   @Output('delete') delete = new EventEmitter();
 
   constructor(private aps: AdminProductService, private toaster: ToastrService, private router: Router) { }
-
-  ngOnInit() {
-  }
 
   editProduct(id) {
     this.router.navigate(['/admin/product-form'], { queryParams: { editId: id } });

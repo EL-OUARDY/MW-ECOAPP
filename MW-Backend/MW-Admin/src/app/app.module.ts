@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, ErrorHandler } from '@angular/core';
+import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -33,7 +33,7 @@ import { SettingsComponent } from './settings/settings.component';
 import { MatSelectModule, MatCheckboxModule, MatRadioModule, MatDialogModule, MatSnackBarModule, MatTableModule, MatInputModule, MatButtonModule } from '@angular/material';
 
 import { NgScrollbarModule } from 'ngx-scrollbar';
-import { ConfirmDialogComponent } from './shared/confirm-dialog/confirm-dialog.component';
+import { ConfirmDialogComponent } from './shared/dialogs/confirm-dialog/confirm-dialog.component';
 import { AdminUploadService } from './services/admin-upload.service';
 import { LayoutComponent } from './layout/layout.component';
 import { LoginComponent } from './login/login.component';
@@ -42,6 +42,7 @@ import { AuthInterceptor } from './shared/auth-interceptor';
 import { CdkTableModule } from '@angular/cdk/table';
 import { IteratePipe } from './shared/pipes/iterate.pipe';
 import { TableFilterComponent } from './shared/filter-components/table-filter/table-filter.component';
+import { InfosDialogComponent } from './shared/dialogs/infos/infos-dialog.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +70,7 @@ import { TableFilterComponent } from './shared/filter-components/table-filter/ta
     LoginComponent,
     IteratePipe,
     TableFilterComponent,
+    InfosDialogComponent,
   ],
   imports: [
     CommonModule,
@@ -106,6 +108,6 @@ import { TableFilterComponent } from './shared/filter-components/table-filter/ta
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
   ],
   bootstrap: [AppComponent],
-  entryComponents: [ConfirmDialogComponent]
+  entryComponents: [ConfirmDialogComponent, InfosDialogComponent]
 })
 export class AppModule { }

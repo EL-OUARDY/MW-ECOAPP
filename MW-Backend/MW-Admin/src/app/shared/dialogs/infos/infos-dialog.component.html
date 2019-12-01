@@ -1,0 +1,39 @@
+<h3 mat-dialog-title>Advanced Search :</h3>
+<p mat-dialog-content>
+  Search normaly uses product's name, you could also type an expression in the search box that can extand searching
+  to other properties like price, quantity, ..
+  to acheive this all you have to do is prefixing your searching query with "$" or "#" signs and follow it with
+  your expression <br>
+  An expression could be like what you see in the exemples below.
+</p>
+<div>
+  <table>
+    <tr>
+      <td>#574995214</td>
+      <td>Will look for a product with this Id</td>
+    </tr>
+    <tr>
+      <td>$price = value</td>
+      <td>Price equal a given value</td>
+    </tr>
+    <tr>
+      <td>$quantiy &gt; 7 and $price = 9.99</td>
+      <td>Quantity greater then 7 and price equal 9.99</td>
+    </tr>
+    <tr>
+      <td>$price &gt; 10 and price &lt; 15</td>
+      <td>Price between 10 and 15</td>
+    </tr>
+    <tr>
+      <td>$color = 'pink' or color = 'green'</td>
+      <td>Color eithe pink or green</td>
+    </tr>
+  </table>
+</div>
+<p mat-dialog-content>
+  NB: be aware that areas with characters value not numbers (such as: Name, Color, ..) should be wrapped within single qouts 'string' otherwise just
+  pass the value directly <br>
+</p>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>Okey !!</button>
+</div>
