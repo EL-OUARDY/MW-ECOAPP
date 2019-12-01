@@ -55,6 +55,11 @@ body {
     padding: 0;
     background: var(--backgrbody);
 }
+
+input[type="text"] {
+    font-family: monospace !important;
+}
+
 .divallcontent {
     /* position: relative; */
     /* float: left; */
@@ -1512,13 +1517,15 @@ input[type="text"] {
 }
 
 #inputsearor {
+    font-size: 14px;
+    width: 90%;
     box-sizing: border-box;
-    padding: 2px 12px;
+    padding: 5px 12px;
     background: transparent;
 }
 
 .svgsearcus2 {
-    right: 6%;
+    right: 3%;
     top: 25%;
     position: absolute;
     height: auto;
@@ -1528,7 +1535,7 @@ input[type="text"] {
     /* padding: 5px; */
     /* border-radius: 50%; */
     /* background: #eee; */
-    /* fill: #696666; */
+    fill: #696666;
 }
 .filterBtns {
     width: 15%;
@@ -1556,6 +1563,7 @@ input[type="text"] {
     width: 100%;
     display: flex;
     margin-top: 15px;
+    margin-bottom: 1px;
 }
 
 .bottonimport:hover {
@@ -4381,8 +4389,32 @@ td.fdgdzeazreio {
 
 /***************************/
 
-/* Overide Default Angular Material Styles */
+/* Override Default Angular Material Styles */
+.mat-dialog-container {
+    background: #101011;
+    color: #acacac;
+}
+.confirm-dialog .mat-dialog-container {
+    margin-top: -70%;
+}
 
+.info-dialog {
+    margin-top: -5%;
+    width: 40%;
+}
+.info-dialog table{
+    margin: 15px auto;
+    width: 90%;
+}
+.info-dialog table td {
+    padding: 4px 5px;
+}
+.info-dialog table tr:nth-of-type(2n+1) {
+    background: var(--backgrcontent)
+}
+.info-dialog button{
+    margin: 0 auto;
+}
 .select-panel, .mat-select-panel {
     background: var(--backgrbody);
 }

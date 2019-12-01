@@ -2,10 +2,11 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { MatDialog } from '@angular/material';
-import { ConfirmDialogComponent } from '../shared/confirm-dialog/confirm-dialog.component';
+import { ConfirmDialogComponent } from '../shared/dialogs/confirm-dialog/confirm-dialog.component';
 import { AdminProduct } from '../models/adminProduct';
 import { handleExpectedErrors } from '../shared/errors/http-errors';
 import { QueryObject } from '../shared/QueryObject';
+import { InfosDialogComponent } from '../shared/dialogs/infos/infos-dialog.component';
 
 @Injectable({
   providedIn: 'root'
@@ -80,59 +81,83 @@ export class AdminProductService {
     }
 
     if (obj.Search) {
-      const key = obj.Search.charAt(0);
-      const key2 = obj.Search.substr(0, 1);
-
-      console.log(key);
-      console.log(key2);
-      
-      
-      switch (key) {
-        case '#':
-          parts.push('$filter=Id eq ' + obj.Search);
-          break;
-        
-        case '+':
-          parts.push('$filter=Price gt ' + obj.Search);
-          break;
-        
-        default:
-          parts.push('$filter=Name eq ' + obj.Search);
-          break;
-      }
-
-      if (obj.Search.startsWith('#')) 
-        parts.push('$filter=Id eq ' + obj.Search.slice());
-      else parts.push('$filter=Name eq ' + obj.Search);
+      if (this.isComplexSearchQuery(obj.Search)) {
+        const formatted = this.formatSearchQuery(obj.Search);
+        parts.push('$filter=' + formatted);
+      } else
+        parts.push("$filter=Name eq '" + obj.Search + "'");
     }
 
-    if (obj.OrderBy) {
-      const isAsc = obj.IsSortAscending ? 'Asc' : 'Desc';
-      parts.push('$orderby=' + obj.OrderBy + ' ' + isAsc);
-    }
+    const isAsc = obj.IsSortAscending ? 'Asc' : 'Desc';
+    parts.push('$orderby=' + obj.OrderBy + ' ' + isAsc);
+
     parts.push('$count=true');
-    
+    console.log(parts.join('&'));
     return parts.join('&');
+  }
+
+  formatSearchQuery(search: string) {
+    let formatted;
+    if (search.charAt(0) === '#') {
+      formatted = 'Id eq ' + search.replace('#', '');
+    }
+    if (search.charAt(0) === '$') {
+      formatted = search.replace('$', '') // how to replace all $ in string
+                        .replace('=', ' eq ')
+                        .replace('>', ' gt ') // greater then and equal ?!!
+                        .replace('<', ' lt ');
+    }
+    console.log('Formatted: ', formatted);
+    return formatted;
+  }
+
+  isComplexSearchQuery(search: string) {
+    if (search.charAt(0) === '$' || search.charAt(0) === '#')
+      return true;
+    return false;
   }
   
   private hasValue(value) {
     return value !== null && value !== undefined;
   }
 
+  raiseConfirmDialog() {
+    return this.dialog.open(ConfirmDialogComponent, {
+      panelClass: 'confirm-dialog',
+      data: {message: 'Are you sure ?!'}
+    }).afterClosed();
+  }
+  
   // toQueryString(obj) {
-  //   const parts = [];
-  //   for (const property in obj) {
-  //     const value = obj[property];
-  //     if (value != null && value !== undefined) 
-  //       parts.push(encodeURIComponent(property) + '=' + encodeURIComponent(value));
+    //   const parts = [];
+    //   for (const property in obj) {
+      //     const value = obj[property];
+      //     if (value != null && value !== undefined) 
+      //       parts.push(encodeURIComponent(property) + '=' + encodeURIComponent(value));
   //   }
   //   return parts.join('&');
   // }
 
-  raiseConfirmDialog() {
-    return this.dialog.open(ConfirmDialogComponent, {
-      panelClass: 'confirm-dialog-container',
-      // data: // a message can be passed
-    }).afterClosed();
-  }
+  // switch (key) {
+  //   case '#':
+  //     parts.push('$filter=Id eq ' + rawSearch);
+  //     break;
+    
+  //   case '+':
+  //     parts.push('$filter=Price gt ' + rawSearch);
+  //     break;
+
+  //   case '-':
+  //     parts.push('$filter=Price lt ' + rawSearch);
+  //     break;
+
+  //   case '=':
+  //     parts.push('$filter=Price eq ' + rawSearch);
+  //     break;
+
+  //   default:
+  //     parts.push("$filter=Name eq '" + obj.Search + "'");
+  //     break;
+  // }
+
 }

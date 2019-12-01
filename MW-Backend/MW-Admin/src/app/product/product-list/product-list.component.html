@@ -5,7 +5,7 @@
     <label (click)="onSaleChange(false)" [class.active]="queryObj.OnSale === false" >Out Of Stock</label>
   </div>
 
-  <table-filter [queryObj]="queryObj" (filter)="populateProducts()" ></table-filter>
+  <table-filter [queryObj]="queryObj" (filter)="populateProducts()"></table-filter>
   
   <div class="divallordersm">
 
@@ -233,7 +233,7 @@
             <mat-option [value]="3">3 item</mat-option>
             <mat-option [value]="5">5 item</mat-option>
             <mat-option [value]="10">10 item</mat-option>
-            <mat-option [value]="10">20 item</mat-option>
+            <mat-option [value]="20">20 item</mat-option>
             <!-- <mat-option [value]="10">50 item</mat-option>
             <mat-option [value]="10">100 item</mat-option> -->
          </mat-select>
@@ -270,7 +270,7 @@
     </div>
   </div>
 
-  <div class="alert">
+  <!-- <div class="alert">
     Count: {{nbTotal}}   /   Query: {{ queryObj | json }}  / AvailablePages: {{availablePages}}
-  </div>
+  </div> -->
 </div>
