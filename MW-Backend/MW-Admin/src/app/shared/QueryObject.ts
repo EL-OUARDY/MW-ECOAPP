@@ -1,4 +1,5 @@
 
+// all filter classes will inherit from this one
 export class QueryObject {
     Search: string;
     OnSale: string;
@@ -6,19 +7,12 @@ export class QueryObject {
     PageSize: number;
     CurrentPage: number;
 
-    CategoryId: number;
-    SubCategoryId: number;
-    
-
-    DateMin: Date;
-    DateMax: Date;
-
     OrderBy: string;
     IsSortAscending: boolean;
 
     constructor() {
         this.OnSale = null;
-        this.PageSize = 2;
+        this.PageSize = 10;
         this.CurrentPage = 0;
         this.OrderBy = 'Id';
         this.IsSortAscending = true;

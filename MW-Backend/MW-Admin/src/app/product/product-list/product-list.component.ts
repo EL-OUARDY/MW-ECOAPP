@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AppError } from 'src/app/shared/errors/app-error';
 import { BadInput, NotFound } from 'src/app/shared/errors/http-errors';
-import { QueryObject } from 'src/app/shared/QueryObject';
+import { ProductFilter } from 'src/app/shared/ProductFilter';
 @Component({
   selector: "app-product-list",
   templateUrl: "./product-list.component.html",
@@ -45,7 +45,7 @@ export class ProductListComponent implements OnInit {
   expandedElement: AdminProduct | null;
   selection = new SelectionModel<AdminProduct>(true, []);
   nbTotal: number;
-  queryObj: QueryObject;
+  queryObj: ProductFilter;
 
   
   constructor(
@@ -53,7 +53,7 @@ export class ProductListComponent implements OnInit {
     private router: Router,
     private toaster: ToastrService
     ) {
-      this.queryObj = new QueryObject();
+      this.queryObj = new ProductFilter();
     }
     
   ngOnInit() {
@@ -70,8 +70,10 @@ export class ProductListComponent implements OnInit {
   }
     
   onSaleChange(onSale) {
-    this.queryObj.OnSale = onSale;
-    this.populateProducts();
+    if (this.queryObj.OnSale !== onSale) {
+      this.queryObj.OnSale = onSale;
+      this.populateProducts();
+    }
   }
 
   private populateProducts() {

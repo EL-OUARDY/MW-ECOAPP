@@ -37,7 +37,7 @@ export class AdminProduct {
         this.Id = 0;
         this.Color = 'white';
         this.OnSale = true;
-        this.ShippingMethod = 'gearbest';
+        // this.ShippingMethod = 'gearbest';
 
         // this.Name = 'Lorem Ipsum';
         // this.Price = 17;
