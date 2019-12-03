@@ -6,7 +6,7 @@ import { MatSnackBar } from '@angular/material';
   templateUrl: './dashboard.component.html',
 })
 export class DashboardComponent implements OnInit {
-  constructor( private snackbar: MatSnackBar) { }
+  constructor(private snackbar: MatSnackBar) { }
 
   ngOnInit() {
   }

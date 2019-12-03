@@ -5,7 +5,7 @@ import { MatDialog } from '@angular/material';
 import { ConfirmDialogComponent } from '../shared/dialogs/confirm-dialog/confirm-dialog.component';
 import { AdminProduct } from '../models/adminProduct';
 import { handleExpectedErrors } from '../shared/errors/http-errors';
-import { QueryObject } from '../shared/QueryObject';
+import { ProductFilter } from '../shared/ProductFilter';
 import { InfosDialogComponent } from '../shared/dialogs/infos/infos-dialog.component';
 
 @Injectable({
@@ -62,36 +62,41 @@ export class AdminProductService {
   }
 
   // Shared Functions
-  toQueryString(obj: QueryObject) {
+  toQueryString(obj: ProductFilter) {
     const parts = [];
+    const filter = [];
 
     if ( obj.OnSale != null )
-      parts.push('$filter=OnSale eq ' + obj.OnSale);
-    
-    parts.push('$top=' + obj.PageSize);
-
-    parts.push('$skip=' + (obj.CurrentPage * obj.PageSize));
+      filter.push(' OnSale eq ' + obj.OnSale);
 
     if (obj.CategoryId) {
       if (!obj.SubCategoryId || obj.SubCategoryId === 0) {
-        parts.push('$filter=CategoryId eq ' + obj.CategoryId);
+        filter.push(' CategoryId eq ' + obj.CategoryId);
       } else {
-        parts.push('$filter=SubCategoryId eq ' + obj.SubCategoryId);
+        filter.push(' SubCategoryId eq ' + obj.SubCategoryId);
       }
     }
 
     if (obj.Search) {
       if (this.isComplexSearchQuery(obj.Search)) {
         const formatted = this.formatSearchQuery(obj.Search);
-        parts.push('$filter=' + formatted);
+        filter.push(formatted);
       } else
-        parts.push("$filter=Name eq '" + obj.Search + "'");
+        filter.push(" contains(tolower(Name), '" + obj.Search + "')");
+    }
+
+    if (filter.length > 0) {
+      console.log('Filter: ', filter.join(' and '));
+      parts.push(`$apply=filter(${filter.join(' and ')})`);
     }
 
     const isAsc = obj.IsSortAscending ? 'Asc' : 'Desc';
     parts.push('$orderby=' + obj.OrderBy + ' ' + isAsc);
-
+    
+    parts.push('$top=' + obj.PageSize);
+    parts.push('$skip=' + (obj.CurrentPage * obj.PageSize));
     parts.push('$count=true');
+
     console.log(parts.join('&'));
     return parts.join('&');
   }
@@ -103,11 +108,13 @@ export class AdminProductService {
     }
     if (search.charAt(0) === '$') {
       formatted = search.replace('$', '') // how to replace all $ in string
-                        .replace('=', ' eq ')
-                        .replace('>', ' gt ') // greater then and equal ?!!
-                        .replace('<', ' lt ');
+                        .replace(/>=/g, ' ge ')
+                        .replace(/<=/g, ' le ')
+                        .replace(/!=/g, ' ne ')
+                        .replace(/=/g, ' eq ')
+                        .replace(/>/g, ' gt ')
+                        .replace(/</g, ' lt ');
     }
-    console.log('Formatted: ', formatted);
     return formatted;
   }
 

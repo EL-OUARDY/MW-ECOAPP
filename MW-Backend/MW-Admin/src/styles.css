@@ -1561,9 +1561,12 @@ input[type="text"] {
 
 .rqsetgertg {
     width: 100%;
-    display: flex;
     margin-top: 15px;
     margin-bottom: 1px;
+}
+
+.rqsetgertg form{
+    display: flex;
 }
 
 .bottonimport:hover {
@@ -4405,9 +4408,14 @@ td.fdgdzeazreio {
 .info-dialog table{
     margin: 15px auto;
     width: 90%;
+    height: 162px;
 }
 .info-dialog table td {
     padding: 4px 5px;
+}
+.info-dialog table tr td:first-of-type {
+    color: #ffc107a4 !important;
+    letter-spacing: 1px;
 }
 .info-dialog table tr:nth-of-type(2n+1) {
     background: var(--backgrcontent)

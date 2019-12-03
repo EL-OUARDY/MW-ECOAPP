@@ -6,34 +6,18 @@
   your expression <br>
   An expression could be like what you see in the exemples below.
 </p>
-<div>
-  <table>
-    <tr>
-      <td>#574995214</td>
-      <td>Will look for a product with this Id</td>
-    </tr>
-    <tr>
-      <td>$price = value</td>
-      <td>Price equal a given value</td>
-    </tr>
-    <tr>
-      <td>$quantiy &gt; 7 and $price = 9.99</td>
-      <td>Quantity greater then 7 and price equal 9.99</td>
-    </tr>
-    <tr>
-      <td>$price &gt; 10 and price &lt; 15</td>
-      <td>Price between 10 and 15</td>
-    </tr>
-    <tr>
-      <td>$color = 'pink' or color = 'green'</td>
-      <td>Color eithe pink or green</td>
-    </tr>
-  </table>
-</div>
+<table>
+  <tr *ngFor="let el of array">
+    <td>{{el.name}}</td>
+    <td>{{el.meaning}}</td>
+  </tr>
+</table>
+
 <p mat-dialog-content>
-  NB: be aware that areas with characters value not numbers (such as: Name, Color, ..) should be wrapped within single qouts 'string' otherwise just
-  pass the value directly <br>
+  NB: be aware that areas with characters value not numbers (such as: Name, Color, ..) must be delimited by single quotation marks 'string' otherwise just
+  pass the value directly  {{availablePages}}<br>
 </p>
 <div mat-dialog-actions>
-  <button mat-button mat-dialog-close>Okey !!</button>
+  <button mat-button (click)="prev()">Prev</button>
+  <button mat-button (click)="next()">Next</button>
 </div>
