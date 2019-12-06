@@ -5,8 +5,8 @@ export class ProductFilter extends QueryObject {
     CategoryId: number;
     SubCategoryId: number;
 
-    DateMin: Date;
-    DateMax: Date;
+    MinDate: string;
+    MaxDate: string;
 
     constructor() {
         super();

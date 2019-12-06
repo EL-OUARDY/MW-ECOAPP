@@ -271,6 +271,7 @@
     <Compile Include="Areas\Admin\Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\api\OrdersController.cs" />
     <Compile Include="Controllers\api\ProductsController.cs" />
+    <Compile Include="Controllers\api\TestController.cs" />
     <Compile Include="Controllers\api\UserProfileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DTO_Resourses\mProductDTO.cs" />
@@ -402,6 +403,14 @@
     <Compile Include="Migrations\201911142157277_dropUserProfileModelAndAddItsColumnsToUser.cs" />
     <Compile Include="Migrations\201911142157277_dropUserProfileModelAndAddItsColumnsToUser.Designer.cs">
       <DependentUpon>201911142157277_dropUserProfileModelAndAddItsColumnsToUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912042055553_RenameProductDateProperty.cs" />
+    <Compile Include="Migrations\201912042055553_RenameProductDateProperty.Designer.cs">
+      <DependentUpon>201912042055553_RenameProductDateProperty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912042255137_changeProductDateTypeToDateTimeOffsetAndName.cs" />
+    <Compile Include="Migrations\201912042255137_changeProductDateTypeToDateTimeOffsetAndName.Designer.cs">
+      <DependentUpon>201912042255137_changeProductDateTypeToDateTimeOffsetAndName.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
@@ -650,6 +659,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911142157277_dropUserProfileModelAndAddItsColumnsToUser.resx">
       <DependentUpon>201911142157277_dropUserProfileModelAndAddItsColumnsToUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912042055553_RenameProductDateProperty.resx">
+      <DependentUpon>201912042055553_RenameProductDateProperty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912042255137_changeProductDateTypeToDateTimeOffsetAndName.resx">
+      <DependentUpon>201912042255137_changeProductDateTypeToDateTimeOffsetAndName.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
