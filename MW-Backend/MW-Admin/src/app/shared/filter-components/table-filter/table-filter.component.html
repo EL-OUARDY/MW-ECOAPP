@@ -1,5 +1,5 @@
 <div class="rqsetgertg">
-  <form #f="ngForm" (ngSubmit)="doFilter()" autocomplete="off">
+  <form #f="ngForm" autocomplete="off">
     <div class="divsearchorder">
       <input id="inputsearor" [(ngModel)]="searchQuery" type="text" placeholder="Search Product .." name="search" />
       <svg *ngIf="searchQuery?.startsWith('#') || searchQuery?.startsWith('$')" style="right: 8%" class="svgsearcus2" version="1.1" x="0px" y="0px" viewBox="0 0 356.484 356.484"
@@ -60,4 +60,4 @@
   </form>
 </div>
 
-<data-viewer [data]="{form: f.value, isValid: f.valid, isPristine: f.isPristine}" ></data-viewer>
+<!-- <data-viewer [data]="{form: f.value, isValid: f.valid, isPristine: f.isPristine}" ></data-viewer> -->

@@ -4541,12 +4541,6 @@ td.fdgdzeazreio {
     width: 5%;
 }
 
-.footerControls svg {
-    height: 25px;
-    width: 23px;
-    padding: 0 12px;
-    cursor: pointer;
-}
 .footerControls{
     position: absolute;
     left: calc( 50% - 67px) ;
@@ -4556,6 +4550,12 @@ td.fdgdzeazreio {
     margin: 0 auto;
     padding: 2px 20px;
     bottom: 10px
+}
+.footerControls svg {
+    height: 21px;
+    width: 21px;
+    padding: 0 12px;
+    cursor: pointer;
 }
 
 .lijksdfgdsvc .mat-radio-checked .mat-radio-container {
