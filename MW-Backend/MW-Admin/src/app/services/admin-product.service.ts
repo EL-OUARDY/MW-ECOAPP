@@ -61,13 +61,19 @@ export class AdminProductService {
     );
   }
 
-  // Shared Functions
+  // Generate Query string from filter object
   toQueryString(obj: ProductFilter) {
     const parts = [];
     const filter = [];
 
     if ( obj.OnSale != null )
       filter.push(' OnSale eq ' + obj.OnSale);
+    
+    // Last_Update ge 2019-12-5 and Last_Update le 2019-12-5
+    if ( obj.MinDate && obj.MaxDate ) {
+      filter.push(` Last_Update ge ${obj.MinDate} and Last_Update le ${obj.MaxDate} `);
+    }
+
 
     if (obj.CategoryId) {
       if (!obj.SubCategoryId || obj.SubCategoryId === 0) {
@@ -77,6 +83,7 @@ export class AdminProductService {
       }
     }
 
+
     if (obj.Search) {
       if (this.isComplexSearchQuery(obj.Search)) {
         const formatted = this.formatSearchQuery(obj.Search);
@@ -85,6 +92,7 @@ export class AdminProductService {
         filter.push(" contains(tolower(Name), '" + obj.Search + "')");
     }
 
+    // append filter param to query parts
     if (filter.length > 0) {
       console.log('Filter: ', filter.join(' and '));
       parts.push(`$apply=filter(${filter.join(' and ')})`);

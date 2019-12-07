@@ -78,7 +78,7 @@ export class ProductListComponent implements OnInit {
 
   private populateProducts() {
     this.productService.GetProductsList(this.queryObj).subscribe((res: any) => {
-      this.nbTotal = res.Count;
+      this.nbTotal = res.Count; // display the total of products somewhere
       this.dataSource = new MatTableDataSource<AdminProduct>(res.Items);
       this.selection.clear();
     });
