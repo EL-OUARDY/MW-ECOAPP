@@ -12,7 +12,7 @@ export class AdminProduct {
     ShippingMethod: string;
     SubCategoryId: number;
     CategoryId: number;
-    Last_Update: Date; //
+    Date_Added: Date; //
     mainImg: string;
     galleryImgs: string[];
     descImgs: string[];

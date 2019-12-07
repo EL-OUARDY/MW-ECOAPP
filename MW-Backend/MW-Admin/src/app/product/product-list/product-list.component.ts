@@ -37,7 +37,7 @@ export class ProductListComponent implements OnInit {
     "Quantity",
     "Source",
     "OnSale",
-    "Last_Update",
+    "Date_Created",
     "Controls",
     "Expand"
   ];
