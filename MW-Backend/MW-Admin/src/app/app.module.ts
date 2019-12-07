@@ -30,8 +30,6 @@ import { TicketsComponent } from './tickets/tickets.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SettingsComponent } from './settings/settings.component';
 
-import { MatSelectModule, MatCheckboxModule, MatRadioModule, MatDialogModule, MatSnackBarModule, MatTableModule, MatInputModule, MatButtonModule } from '@angular/material';
-
 import { NgScrollbarModule } from 'ngx-scrollbar';
 import { ConfirmDialogComponent } from './shared/dialogs/confirm-dialog/confirm-dialog.component';
 import { AdminUploadService } from './services/admin-upload.service';
@@ -39,10 +37,11 @@ import { LayoutComponent } from './layout/layout.component';
 import { LoginComponent } from './login/login.component';
 import { AdminAuthService } from './services/admin-auth.service';
 import { AuthInterceptor } from './shared/auth-interceptor';
-import { CdkTableModule } from '@angular/cdk/table';
 import { IteratePipe } from './shared/pipes/iterate.pipe';
 import { TableFilterComponent } from './shared/filter-components/table-filter/table-filter.component';
 import { InfosDialogComponent } from './shared/dialogs/infos/infos-dialog.component';
+import { MaterialModule } from './shared/modules/material.module';
+import { DataViewerComponent } from './shared/data-viewer/data-viewer.component';
 
 @NgModule({
   declarations: [
@@ -71,6 +70,7 @@ import { InfosDialogComponent } from './shared/dialogs/infos/infos-dialog.compon
     IteratePipe,
     TableFilterComponent,
     InfosDialogComponent,
+    DataViewerComponent,
   ],
   imports: [
     CommonModule,
@@ -83,16 +83,7 @@ import { InfosDialogComponent } from './shared/dialogs/infos/infos-dialog.compon
 
     NgScrollbarModule,
 
-    MatSelectModule,
-    MatCheckboxModule,
-    MatRadioModule,
-    MatDialogModule,
-    MatSnackBarModule,
-    MatTableModule,
-    MatDialogModule,
-    MatInputModule,
-    MatButtonModule,
-    CdkTableModule,
+    MaterialModule,
 
     BrowserAnimationsModule,
     ToastrModule.forRoot()

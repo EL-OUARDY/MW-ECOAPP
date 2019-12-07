@@ -1,0 +1,5 @@
+<div *ngIf="!closed" (click)="closed = true" class="data-viewer">
+  <div class="content">
+    {{ data | json }}
+  </div>
+</div>
