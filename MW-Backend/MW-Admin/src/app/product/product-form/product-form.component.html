@@ -411,16 +411,20 @@
         Reset
       </div>
     </div>
-    <!-- <data-viewer 
-      [data]="{ ProductMainImg: _Product.mainImg ? _Product.mainImg : 'no',
-        imgPath: imgPath ? 'yes' : 'no',
-        mainImgFromCopy: mainImgFromCopy ? mainImgFromCopy : 'no',
-        isPristine: f.pristine }">
-    </data-viewer> -->
-
-    <!-- <data-viewer [data]="{job: _formJob, Id: _Product.Id, CopyId: copyingId}" ></data-viewer> -->
-    
-    <!-- <data-viewer [data]="_Product" ></data-viewer> -->
+    <!-- <div class="alert">
+      _Product.mainImg: {{ _Product.mainImg ?_Product.mainImg: "no"}} / 
+      imgPath: {{ imgPath ? "yes" : "no"}} / 
+      mainImgFromCopy: {{ mainImgFromCopy ? mainImgFromCopy : "no"}} /
+      isPristine : {{f.pristine}}
+    </div> -->
+    <!-- <div class="alert">
+      Job: {{ _formJob}} / 
+      Id: {{ _Product.Id}} / 
+      CopyId: {{ copyingId}}
+    </div>
+    <div class="alert">
+      {{ _Product | json }}
+    </div> -->
   </form>
 
   <div class="history">
