@@ -9,6 +9,7 @@ import { ToastrService } from 'ngx-toastr';
 import { AppError } from 'src/app/shared/errors/app-error';
 import { BadInput, NotFound } from 'src/app/shared/errors/http-errors';
 import { ProductFilter } from 'src/app/shared/ProductFilter';
+import { DateTime } from 'luxon';
 @Component({
   selector: "app-product-list",
   templateUrl: "./product-list.component.html",
@@ -47,6 +48,7 @@ export class ProductListComponent implements OnInit {
   nbTotal: number;
   queryObj: ProductFilter;
 
+  _dateTime = DateTime; // luxion instance
   
   constructor(
     private productService: AdminProductService,
@@ -80,6 +82,7 @@ export class ProductListComponent implements OnInit {
     this.productService.GetProductsList(this.queryObj).subscribe((res: any) => {
       this.nbTotal = res.Count; // display the total of products somewhere
       this.dataSource = new MatTableDataSource<AdminProduct>(res.Items);
+      
       this.selection.clear();
     });
   }

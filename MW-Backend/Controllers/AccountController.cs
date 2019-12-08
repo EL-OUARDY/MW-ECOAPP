@@ -28,10 +28,12 @@ namespace MW_Backend.Controllers
     {
         private const string LocalLoginProvider = "Local";
         private ApplicationUserManager _userManager;
-    
+        ApplicationDbContext db;
+
+
         public AccountController()
         {
-            
+            db = new ApplicationDbContext();
         }
 
         public AccountController(ApplicationUserManager userManager,
@@ -77,6 +79,14 @@ namespace MW_Backend.Controllers
             var tokenServiceResponse = await testServer.HttpClient.PostAsync(
                 Startup.TokenEndpointPath, requestParamsFormUrlEncoded);
 
+            if (tokenServiceResponse.IsSuccessStatusCode)
+            {
+                var _UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+                var user = await _UserManager.FindByEmailAsync(model.Email);
+                user.Last_Visite = DateTimeOffset.Now.ToUniversalTime();
+                db.SaveChanges();
+            }
+
             return ResponseMessage(tokenServiceResponse);
         }
 
@@ -90,20 +100,20 @@ namespace MW_Backend.Controllers
             {
                 return BadRequest("Fill all fields with valid data");
             }
-            /**/
+
             var _user = await UserManager.FindByEmailAsync(model.Email);
 
             if (_user != null)
             {
                 return BadRequest("Email is already taken");
             }
-            /**/
 
             var newUser = new ApplicationUser()
             {
                 UserName = model.Email,
                 Email = model.Email,
-                FullName = model.FullName
+                FullName = model.FullName,
+                Registration_Date = DateTimeOffset.Now.ToUniversalTime()
             };
             IdentityResult result = await UserManager.CreateAsync(newUser, model.Password);
 

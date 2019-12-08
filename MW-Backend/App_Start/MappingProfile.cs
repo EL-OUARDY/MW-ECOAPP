@@ -14,6 +14,9 @@ namespace MW_Backend.App_Start
     {
         public MappingProfile()
         {
+            Mapper.CreateMap<ApplicationUser, UsersListVM>();
+
+
             Mapper.CreateMap<Product, mProductDTO>();
             Mapper.CreateMap<mProductDTO, Product>();
 

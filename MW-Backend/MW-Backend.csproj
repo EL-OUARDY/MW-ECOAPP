@@ -263,7 +263,8 @@
     <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminProductsController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminUploads.cs" />
-    <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminUsersController.cs" />
+    <Compile Include="Areas\Admin\Helpers\UserHelper.cs" />
     <Compile Include="Areas\Admin\ViewModel\ProductListVM.cs" />
     <Compile Include="Areas\Admin\ViewModel\UsersListVM.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -411,6 +412,22 @@
     <Compile Include="Migrations\201912042255137_changeProductDateTypeToDateTimeOffsetAndName.cs" />
     <Compile Include="Migrations\201912042255137_changeProductDateTypeToDateTimeOffsetAndName.Designer.cs">
       <DependentUpon>201912042255137_changeProductDateTypeToDateTimeOffsetAndName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912072106008_setDatePropertyToUTC.cs" />
+    <Compile Include="Migrations\201912072106008_setDatePropertyToUTC.Designer.cs">
+      <DependentUpon>201912072106008_setDatePropertyToUTC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912072107099_setDatePropertyToUTC2.cs" />
+    <Compile Include="Migrations\201912072107099_setDatePropertyToUTC2.Designer.cs">
+      <DependentUpon>201912072107099_setDatePropertyToUTC2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912081448499_renameCouponProperty.cs" />
+    <Compile Include="Migrations\201912081448499_renameCouponProperty.Designer.cs">
+      <DependentUpon>201912081448499_renameCouponProperty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912081529143_addNewFieldsToApplicationUser.cs" />
+    <Compile Include="Migrations\201912081529143_addNewFieldsToApplicationUser.Designer.cs">
+      <DependentUpon>201912081529143_addNewFieldsToApplicationUser.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
@@ -665,6 +682,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201912042255137_changeProductDateTypeToDateTimeOffsetAndName.resx">
       <DependentUpon>201912042255137_changeProductDateTypeToDateTimeOffsetAndName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912072106008_setDatePropertyToUTC.resx">
+      <DependentUpon>201912072106008_setDatePropertyToUTC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912072107099_setDatePropertyToUTC2.resx">
+      <DependentUpon>201912072107099_setDatePropertyToUTC2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912081448499_renameCouponProperty.resx">
+      <DependentUpon>201912081448499_renameCouponProperty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912081529143_addNewFieldsToApplicationUser.resx">
+      <DependentUpon>201912081529143_addNewFieldsToApplicationUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

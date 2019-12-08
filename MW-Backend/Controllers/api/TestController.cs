@@ -10,9 +10,15 @@ namespace MW_Backend.Controllers.api
     public class TestController : ApiController
     {
         // GET: api/Test
-        public string Get()
+        public object Get()
         {
-            return DateTime.Now.ToShortDateString();
+            var model = new
+            {
+                DateTime = DateTime.Now.ToUniversalTime(),
+                DateTimeOffSet = DateTimeOffset.Now.ToUniversalTime()
+            };
+
+            return model;
         }
 
         // GET: api/Test/5

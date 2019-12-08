@@ -12,6 +12,6 @@ export class QueryObject {
         this.PageSize = 10;
         this.CurrentPage = 0;
         this.OrderBy = 'Id';
-        this.IsSortAscending = true;
+        this.IsSortAscending = false;
     }
 }

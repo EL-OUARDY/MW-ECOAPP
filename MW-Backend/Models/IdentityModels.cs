@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -37,6 +38,14 @@ namespace MW_Backend.Models
         public string City { get; set; }
 
         public string Avatar { get; set; }
+
+        [Required]
+        public DateTimeOffset Registration_Date { get; set; }
+
+        public DateTimeOffset Last_Visite { get; set; }
+
+        public string UserAgent { get; set; }
+
         #endregion
     }
 
@@ -69,6 +78,5 @@ namespace MW_Backend.Models
         {
             return new ApplicationDbContext();
         }
-
     }
 }

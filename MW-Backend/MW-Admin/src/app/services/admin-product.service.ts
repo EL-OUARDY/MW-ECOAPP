@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { catchError } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 import { MatDialog } from '@angular/material';
 import { ConfirmDialogComponent } from '../shared/dialogs/confirm-dialog/confirm-dialog.component';
 import { AdminProduct } from '../models/adminProduct';
 import { handleExpectedErrors } from '../shared/errors/http-errors';
 import { ProductFilter } from '../shared/ProductFilter';
-import { InfosDialogComponent } from '../shared/dialogs/infos/infos-dialog.component';
 
 @Injectable({
   providedIn: 'root'

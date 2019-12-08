@@ -27,8 +27,6 @@ export class TableFilterComponent {
 
   constructor(private categoryService: CategoryService, private dialog: MatDialog, private toaster: ToastrService) {
     this.categories = this.categoryService._categories;
-    console.log(this.todayDate);
-    
   }
 
   doFilter() {
@@ -55,7 +53,11 @@ export class TableFilterComponent {
   }
 
   minDateInputChange() {
-    if (!this.maxDate) this.maxDate = new Date();
+    if (!this.maxDate)
+      this.maxDate = new Date();
+
+    if ( DateTime.fromJSDate(this.minDate).valueOf() > DateTime.fromJSDate(this.maxDate).valueOf())
+      this.minDate = new Date();
   }
 
   Reset() {
@@ -70,6 +72,7 @@ export class TableFilterComponent {
         this.subCategories = this.categories.find(
           x => x.Id === +cat
         ).SubCategories;
+        this.queryObj.SubCategoryId = 0; // zero means all subCategories
       }
     } catch (e) {}
   }
