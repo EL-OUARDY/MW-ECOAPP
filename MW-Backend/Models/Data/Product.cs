@@ -35,7 +35,7 @@ namespace MW_Backend.Models.Data
         [Required]
         public string Description { get; set; }
 
-        public DateTimeOffset? Last_Update { get; set; } = DateTimeOffset.Now;
+        public DateTimeOffset? Last_Update { get; set; } = DateTimeOffset.Now.ToUniversalTime();
 
         public decimal? OldPrice { get; set; }
 

@@ -10,7 +10,7 @@ export class DashboardComponent implements OnInit {
   res;
   date = new Date();
   constructor(private snackbar: MatSnackBar) { 
-    this.res = DateTime.fromJSDate(this.date).toFormat('MM-dd-yyyy');
+    this.res = DateTime.fromISO("2019-12-07T19:06:41+01:00").toRelative();
   }
 
   ngOnInit() {

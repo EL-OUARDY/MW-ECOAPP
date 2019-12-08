@@ -27,7 +27,7 @@ namespace MW_Backend.Areas.Admin.ViewModel
 
         //public string Description { get; set; }
 
-        public DateTimeOffset? Last_Update { get; set; } = DateTimeOffset.Now;
+        public DateTimeOffset? Last_Update { get; set; }
 
         public decimal? OldPrice { get; set; }
 

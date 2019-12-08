@@ -9,10 +9,10 @@ namespace MW_Backend.Models.Data
     public class Coupon
     {
         [Key]
-        public string Libel { get; set; }
+        public string Label { get; set; }
 
         [Required]
-        public decimal value { get; set; }
+        public decimal Value { get; set; }
 
         public DateTime Expire_At { get; set; }
     }

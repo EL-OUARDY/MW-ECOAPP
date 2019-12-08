@@ -1,3 +1,5 @@
+import { DateTime } from 'luxon';
+
 export class AdminProduct {
     Id: number;
     Name: string;
@@ -17,6 +19,10 @@ export class AdminProduct {
     galleryImgs: string[];
     descImgs: string[];
 
+    get Last_Update_From_Now(): string {
+        return DateTime.fromJSDate(this.Last_Update).toRelative();
+    }
+    
     // get Qte() {
     //     if (!this.OnSale) {
     //         return 0;

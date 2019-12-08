@@ -73,7 +73,7 @@ namespace MW_Backend.Areas.Admin.Controllers
             }
 
             var product = Mapper.Map<ProductDTO, Product>(productDto);
-            //product.Date_Added = DateTime.Now; property must rename to date_modified
+            product.Last_Update = DateTimeOffset.Now.ToUniversalTime();
             db.Entry(product).State = EntityState.Modified;
 
             try

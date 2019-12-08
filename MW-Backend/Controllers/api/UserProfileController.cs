@@ -45,6 +45,10 @@ namespace MW_Backend.Controllers.api
             if (roles.Contains("ADMIN"))
                 response.Add("role", "ADMIN");
 
+
+            _user.Last_Visite = DateTimeOffset.Now.ToUniversalTime();
+            db.SaveChanges();
+
             return Ok(response);
         }
 

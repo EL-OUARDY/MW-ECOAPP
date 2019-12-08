@@ -429,6 +429,10 @@ export class ProductFormComponent implements OnInit {
     if (this._Product.Quantity === 0) this._Product.OnSale = false;
     else this._Product.OnSale = true;
   }
+
+  manageCategories() {
+    // open a dialog to manage categories
+  }
 }
 // interface helps to store both img file and img data that display on template,
 // plus the name that identify every image
