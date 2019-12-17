@@ -39,6 +39,8 @@ namespace MW_Backend.Areas.Admin.ViewModel
 
         public string CouponLibel { get; set; }
 
+        public bool Deleted { get; set; }
+
         public string mainImg
         {
             get

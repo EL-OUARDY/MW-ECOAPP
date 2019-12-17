@@ -5,7 +5,7 @@ import { MatDialog } from '@angular/material';
 import { ConfirmDialogComponent } from '../shared/dialogs/confirm-dialog/confirm-dialog.component';
 import { AdminProduct } from '../models/adminProduct';
 import { handleExpectedErrors } from '../shared/errors/http-errors';
-import { ProductFilter } from '../shared/ProductFilter';
+import { ProductFilter } from '../models/ProductFilter';
 
 @Injectable({
   providedIn: 'root'
@@ -19,8 +19,6 @@ export class AdminProductService {
   getShippings() {
     return ['GearBest', 'Ali Express', 'Other']; // available shipping methods
   }
-
-  // calling the server
 
   GetProductsList(filter) {
     return this.http.get( this.END_POINT + '?' +  this.toQueryString(filter));
@@ -48,14 +46,20 @@ export class AdminProductService {
     );
   }
 
-  deleteProduct(id: number) {
-    return this.http.delete( this.END_POINT + id ).pipe(
+  deleteProduct(id: number, permanently = false) {
+    return this.http.delete( `${this.END_POINT + id}/${permanently}`).pipe(
       catchError(handleExpectedErrors)
     );
   }
 
-  deleteRange(Ids: number[]) {
-    return this.http.post( '/api/DeleteRange/', Ids ).pipe(
+  restoreProducts(ids) {
+    return this.http.post('api/RestoreProduct', ids).pipe(
+      catchError(handleExpectedErrors)
+    );
+  }
+
+  deleteRange(Ids: number[], permanently = false) {
+    return this.http.post(`/api/DeleteRange/${permanently}`, Ids  ).pipe(
       catchError(handleExpectedErrors)
     );
   }
@@ -67,12 +71,14 @@ export class AdminProductService {
 
     if ( obj.OnSale != null )
       filter.push(' OnSale eq ' + obj.OnSale);
+
+    if ( obj.Deleted != null )
+      filter.push(' Deleted eq ' + obj.Deleted);
     
     // Last_Update ge 2019-12-5 and Last_Update le 2019-12-5
     if ( obj.MinDate && obj.MaxDate ) {
       filter.push(` Last_Update ge ${obj.MinDate} and Last_Update le ${obj.MaxDate} `);
     }
-
 
     if (obj.CategoryId) {
       if (!obj.SubCategoryId || obj.SubCategoryId === 0) {
@@ -135,10 +141,10 @@ export class AdminProductService {
     return value !== null && value !== undefined;
   }
 
-  raiseConfirmDialog() {
+  raiseConfirmDialog(message?: string) {
     return this.dialog.open(ConfirmDialogComponent, {
       panelClass: 'confirm-dialog',
-      data: {message: 'Are you sure ?!'}
+      data: {message: message || 'Are you sure ?!'}
     }).afterClosed();
   }
   

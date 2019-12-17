@@ -43,24 +43,38 @@ namespace MW_Backend.Areas.Admin.Controllers
 
         // POST: api/AdminProducts
         [HttpPost]
-        public IHttpActionResult PostAdminProduct(ProductDTO productDto)
+        public async Task<IHttpActionResult> PostAdminProduct(ProductDTO productDto)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
+            // Generate a slug for the product
+            productDto.Slug = await MakeSlug(productDto.Name);
+
             var product = Mapper.Map<ProductDTO, Product>(productDto);
             db.Products.Add(product);
-            db.SaveChanges();
+            await db.SaveChangesAsync();
 
             return Ok(product.Id);
+        }
+
+        private async Task<string> MakeSlug(string name)
+        {
+            var slug = name.Replace(" ", "-");
+            bool exists = await db.Products.CountAsync(x => x.Slug == slug) > 0;
+
+            if (exists)
+                slug = slug + DateTimeOffset.Now.ToString("yyyyMMddhhmmss");
+
+            return slug;
         }
 
         // PUT: api/AdminProducts/5
         [HttpPut]
         [Route("api/UpdateProduct/{id}")]
-        public IHttpActionResult PutAdminProduct(int id, ProductDTO productDto)
+        public async Task<IHttpActionResult> PutAdminProduct(int id, ProductDTO productDto)
         {
             if (!ModelState.IsValid)
             {
@@ -72,13 +86,16 @@ namespace MW_Backend.Areas.Admin.Controllers
                 return BadRequest();
             }
 
+            // Re-Generate a slug for the product
+            productDto.Slug = await MakeSlug(productDto.Name);
+
             var product = Mapper.Map<ProductDTO, Product>(productDto);
             product.Last_Update = DateTimeOffset.Now.ToUniversalTime();
             db.Entry(product).State = EntityState.Modified;
 
             try
             {
-                db.SaveChanges();
+                await db.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -114,27 +131,35 @@ namespace MW_Backend.Areas.Admin.Controllers
         // GET: api/last6
         [HttpGet]
         [Route("api/AdminProducts/history")]
-        public IHttpActionResult history()
+        public async Task<IHttpActionResult> history()
         {
-            var products = db.Products.OrderByDescending(x => x.Id)
-                                .Take(6)
-                                .ToList()
-                                .Select(Mapper.Map<Product, mProductDTO>);
+            var products = await db.Products
+                                    .Where(x => x.Deleted == false)
+                                    .OrderByDescending(x => x.Id)
+                                    .Take(6)
+                                    .ToListAsync();
 
-            return Ok(products);
+            var model = products.Select(Mapper.Map<Product, mProductDTO>);
+
+            return Ok(model);
         }
 
         // DELETE: api/AdminProducts/5
-        [Route("api/AdminProducts/{id}")]
-        public async Task<IHttpActionResult> DeleteAdminProduct(int id)
+        [Route("api/AdminProducts/{id}/{permanently}")]
+        public async Task<IHttpActionResult> DeleteAdminProduct(int id, bool permanently = false)
         {
             Product product = await db.Products.FindAsync(id);
-            if (product == null)
+
+            if (product == null || (!permanently && product.Deleted))
                 return NotFound();
 
             try
             {
-                db.Products.Remove(product);
+                if (permanently)
+                    db.Products.Remove(product);
+                else
+                    product.Deleted = true;
+
                 await db.SaveChangesAsync();
             }
             catch (Exception)
@@ -142,28 +167,39 @@ namespace MW_Backend.Areas.Admin.Controllers
                 return BadRequest("Can't Remove this product - Unknown reason !");
             }
 
-            // Remove Images Directory
-            var _dir = new Product_Dir(id);
-            var task = Task.Run(() => !_dir.DeleteProductImages());
-
-            if (await task)
+            if (permanently)
             {
-                return BadRequest("An error was occured while deleting images directory !");
+                // Remove Images Directory
+                var _dir = new Product_Dir(id);
+                var task = Task.Run(() => !_dir.DeleteProductImages());
+
+                if (await task)
+                {
+                    return BadRequest("An error was occured while deleting images directory !");
+                }
             }
 
             return Ok();
         }
 
-        // Post: api/AdminProducts/5
         [HttpPost]
-        [Route("api/DeleteRange")]
-        public async Task<IHttpActionResult> DeleteRange(int[] ids)
+        [Route("api/DeleteRange/{permanently}")]
+        public async Task<IHttpActionResult> DeleteRange(int[] ids, bool permanently = false)
         {
             var products = await db.Products.Where(x => ids.Contains(x.Id)).ToListAsync();
 
             try
             {
-                db.Products.RemoveRange(products);
+                if (permanently)
+                    db.Products.RemoveRange(products);
+                else
+                {
+                    foreach (var p in products)
+                    {
+                        p.Deleted = true;
+                    }
+                }
+                
                 await db.SaveChangesAsync();
             }
             catch (Exception)
@@ -171,21 +207,40 @@ namespace MW_Backend.Areas.Admin.Controllers
                 return BadRequest("Cannot delete Products ..");
             }
 
-            // Remove Images Directory
-            bool isOK = true;
-            foreach (var id in ids)
+            if (permanently)
             {
-                var _dir = new Product_Dir(id);
-                var task = Task.Run(() => !_dir.DeleteProductImages());
+                // Remove Images Directory
+                bool isOK = true;
+                foreach (var id in ids)
+                {
+                    var _dir = new Product_Dir(id);
+                    var task = Task.Run(() => !_dir.DeleteProductImages());
 
-                if (await task)
-                    isOK = false;
+                    if (await task)
+                        isOK = false;
+                }
+                if (!isOK)
+                    return BadRequest("can't remove all products images ");
             }
-            if (!isOK)
-                return BadRequest("can't remove all products images ");
 
             return Ok();
         }
+
+        [HttpPost]
+        [Route("api/RestoreProduct")]
+        public async Task<IHttpActionResult> RestoreProduct([FromBody] int[] ids)
+        {
+            foreach (var id in ids)
+            {
+                var product = await db.Products.Where(x => x.Id == id).FirstOrDefaultAsync();
+                product.Deleted = false;
+            }
+
+            await db.SaveChangesAsync();
+
+            return Ok();
+        }
+
 
         private bool ProductExists(int id)
         {

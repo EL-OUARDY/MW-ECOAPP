@@ -4,7 +4,7 @@
     <div class="divtitleprod">
 
       <label>Source</label>
-      <input id="inpulien" required minlength="6" type="text" name="SourceLink" placeholder="https://example.io">
+      <input id="inpulien" type="text" [(ngModel)]="_Product.Source" #Source="ngModel" name="Source" placeholder="https://example.io">
 
       <label>Name</label>
       <input id="inputtitle" required minlength="6" type="text" [(ngModel)]="_Product.Name" name="Name" #Name="ngModel">

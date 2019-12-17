@@ -32,6 +32,15 @@ namespace MW_Backend.Areas.Admin.ViewModel
 
         public string UserAgent { get; set; }
 
+        //public string HaveBeenUserFor
+        //{
+        //    get
+        //    {
+        //        var diff = DateTimeOffset.Now.ToUniversalTime() - Registration_Date;
+        //        return diff.TotalSeconds.ToString();
+        //    }
+        //}
+
         public string Status
         {
             get
@@ -68,7 +77,7 @@ namespace MW_Backend.Areas.Admin.ViewModel
             }
         }
 
-        public int SignUpWith
+        public string SignUpWith
         {
             get
             {

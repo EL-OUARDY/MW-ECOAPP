@@ -6,7 +6,7 @@ using System.Web;
 
 namespace MW_Backend.Models.Data
 {
-    public class Product_Variations
+    public class Variants
     {
         public int Id { get; set; }
 
@@ -16,10 +16,11 @@ namespace MW_Backend.Models.Data
         [Required]
         public string Value { get; set; }
 
-        [Required]
-        public bool HasImage { get; set; }
+        public decimal Price_Diff { get; set; } = 0; // ZERO means variant doesn't affect the price
 
-        public DateTime? Date_Added { get; set; } = DateTime.Now;
+        public string Image { get; set; }
+
+        public DateTimeOffset? Last_Update { get; set; } = DateTimeOffset.Now.ToUniversalTime();
 
         public Product Product { get; set; }
         public int ProductId { get; set; }
