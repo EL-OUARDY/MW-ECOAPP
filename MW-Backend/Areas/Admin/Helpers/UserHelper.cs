@@ -37,9 +37,9 @@ namespace MW_Backend.Areas.Admin.Helpers
             return 0;
         }
 
-        internal int SignUpWith()
+        internal string SignUpWith()
         {
-            return 0;
+            return "Email";
         }
     }
 }

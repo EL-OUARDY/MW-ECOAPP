@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter, ViewChild } from '@angular/core';
 import { CategoryService } from 'src/app/services/category.service';
-import { ProductFilter } from '../../ProductFilter';
+import { ProductFilter } from '../../../models/ProductFilter';
 import { MatDialog } from '@angular/material';
 import { InfosDialogComponent } from '../../dialogs/infos/infos-dialog.component';
 import { NgForm } from '@angular/forms';
@@ -14,6 +14,8 @@ import { DateTime } from 'luxon';
 export class TableFilterComponent {
   @Output('filter') filter = new EventEmitter();
   @Input('queryObj') queryObj: ProductFilter;
+  @Input('noCategory') noCategory: boolean;
+  @Input('target') target: string;
   @ViewChild("f") form: NgForm;
   
   categories: any;

@@ -21,7 +21,7 @@ export class InfosDialogComponent {
     {name: "$not endswith(name,'let')", meaning: "Product's Name NOT ends with 'let'"},
     {name: "$matchesPattern(Name,'%5EA.*e$')", meaning: "Product's Name must fit the RegEx provided"},
     {name: "$length(name) < 20", meaning: " Length of Product Name is less than 20 characters"},
-    {name: '$Price add 5 = 10', meaning: 'Using Arithmetic Operators (ex: add, sub, div, mul, divby, mod)'},
+    {name: '$Price add 5 = 10', meaning: 'Using Math Operators (ex: add, sub, div, mul, divby, mod)'},
     {name: '$floor(price) = 5', meaning: 'Floor of price equal 5 (ex: floor(5.8) = 5)'},
     {name: '$ceiling(price) = 5', meaning: 'Ceil of price equal 5 (ex: ceil(5.1) = 6)'},
     {name: '$round(price) > 9', meaning: 'Round of price greater than 9 (ex: round(5.2) = 5 | round(5.7) = 6)'},

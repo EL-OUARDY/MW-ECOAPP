@@ -28,6 +28,8 @@ namespace MW_Backend.DTO_Resourses
         [Required]
         public string Description { get; set; }
 
+        public string Source { get; set; }
+
         [Required]
         public bool OnSale { get; set; }
 

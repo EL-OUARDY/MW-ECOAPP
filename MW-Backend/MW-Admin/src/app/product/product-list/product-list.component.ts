@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AppError } from 'src/app/shared/errors/app-error';
 import { BadInput, NotFound } from 'src/app/shared/errors/http-errors';
-import { ProductFilter } from 'src/app/shared/ProductFilter';
+import { ProductFilter } from 'src/app/models/ProductFilter';
 import { DateTime } from 'luxon';
 @Component({
   selector: "app-product-list",
@@ -73,9 +73,16 @@ export class ProductListComponent implements OnInit {
     
   onSaleChange(onSale) {
     if (this.queryObj.OnSale !== onSale) {
+      this.queryObj.Deleted = false;
       this.queryObj.OnSale = onSale;
       this.populateProducts();
     }
+  }
+
+  BringDeleted() {
+    this.queryObj.OnSale = undefined;
+    this.queryObj.Deleted = true;
+    this.populateProducts();
   }
 
   private populateProducts() {
@@ -158,10 +165,11 @@ export class ProductListComponent implements OnInit {
       queryParams: { copyId: id }
     });
   }
-  deleteProduct(id) {
-    this.productService.raiseConfirmDialog().subscribe(res => {
+  deleteProduct(id, permanently = false) {
+    const message = permanently ? 'Delete this product permanently ?!' : null;
+    this.productService.raiseConfirmDialog(message).subscribe(res => {
       if (res) {
-        this.productService.deleteProduct(id).subscribe(
+        this.productService.deleteProduct(id, permanently).subscribe(
           () => this.populateProducts(),
           (err: AppError) => {
             if (err instanceof BadInput) {
@@ -191,6 +199,28 @@ export class ProductListComponent implements OnInit {
         );
       }
     });
+  }
+
+  restoreProducts(ids) {
+    this.productService.restoreProducts(ids).subscribe(
+      () => {
+        this.toaster.success("Product Restored");
+        this.populateProducts();
+      },
+      (err: AppError) => {
+        if (err instanceof NotFound) {
+          this.toaster.warning("Product Not Found Or Deleted Permanently !");
+        } else {
+          throw err;
+        }
+      }
+    );
+  }
+
+  restoreRange(products: AdminProduct[]) {
+    const ids = [];
+    products.forEach(x => ids.push(x.Id));
+    this.restoreProducts(ids);
   }
 
 }

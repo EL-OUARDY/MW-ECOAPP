@@ -264,6 +264,7 @@
     <Compile Include="Areas\Admin\Controllers\AdminProductsController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminUploads.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminUsersController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DemoController.cs" />
     <Compile Include="Areas\Admin\Helpers\UserHelper.cs" />
     <Compile Include="Areas\Admin\ViewModel\ProductListVM.cs" />
     <Compile Include="Areas\Admin\ViewModel\UsersListVM.cs" />
@@ -429,6 +430,30 @@
     <Compile Include="Migrations\201912081529143_addNewFieldsToApplicationUser.Designer.cs">
       <DependentUpon>201912081529143_addNewFieldsToApplicationUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201912102226189_addSourceToProductModel.cs" />
+    <Compile Include="Migrations\201912102226189_addSourceToProductModel.Designer.cs">
+      <DependentUpon>201912102226189_addSourceToProductModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912121523234_changeProductVarsModel.cs" />
+    <Compile Include="Migrations\201912121523234_changeProductVarsModel.Designer.cs">
+      <DependentUpon>201912121523234_changeProductVarsModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912121529143_ProductVarsAddValueCol.cs" />
+    <Compile Include="Migrations\201912121529143_ProductVarsAddValueCol.Designer.cs">
+      <DependentUpon>201912121529143_ProductVarsAddValueCol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912170947537_dropProductVariants.cs" />
+    <Compile Include="Migrations\201912170947537_dropProductVariants.Designer.cs">
+      <DependentUpon>201912170947537_dropProductVariants.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912170957105_recreateVariantsModel.cs" />
+    <Compile Include="Migrations\201912170957105_recreateVariantsModel.Designer.cs">
+      <DependentUpon>201912170957105_recreateVariantsModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912171005016_addDeletedColToProductModel.cs" />
+    <Compile Include="Migrations\201912171005016_addDeletedColToProductModel.Designer.cs">
+      <DependentUpon>201912171005016_addDeletedColToProductModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -440,7 +465,7 @@
     <Compile Include="Models\Data\Order.cs" />
     <Compile Include="Models\Data\Order_Item.cs" />
     <Compile Include="Models\Data\Product.cs" />
-    <Compile Include="Models\Data\Product_Variations.cs" />
+    <Compile Include="Models\Data\Variants.cs" />
     <Compile Include="Models\Data\SubCategory.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -694,6 +719,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201912081529143_addNewFieldsToApplicationUser.resx">
       <DependentUpon>201912081529143_addNewFieldsToApplicationUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912102226189_addSourceToProductModel.resx">
+      <DependentUpon>201912102226189_addSourceToProductModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912121523234_changeProductVarsModel.resx">
+      <DependentUpon>201912121523234_changeProductVarsModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912121529143_ProductVarsAddValueCol.resx">
+      <DependentUpon>201912121529143_ProductVarsAddValueCol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912170947537_dropProductVariants.resx">
+      <DependentUpon>201912170947537_dropProductVariants.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912170957105_recreateVariantsModel.resx">
+      <DependentUpon>201912170957105_recreateVariantsModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912171005016_addDeletedColToProductModel.resx">
+      <DependentUpon>201912171005016_addDeletedColToProductModel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
@@ -35,6 +36,8 @@ namespace MW_Backend.Models.Data
         [Required]
         public string Description { get; set; }
 
+        public string Source { get; set; }
+
         public DateTimeOffset? Last_Update { get; set; } = DateTimeOffset.Now.ToUniversalTime();
 
         public decimal? OldPrice { get; set; }
@@ -47,5 +50,14 @@ namespace MW_Backend.Models.Data
         public int SubCategoryId { get; set; }
 
         public string CouponLibel { get; set; }
+
+        public bool Deleted { get; set; } = false;
+
+        public ICollection<Variants> Variants { get; set; }
+
+        public Product()
+        {
+            Variants = new Collection<Variants>();
+        }
     }
 }

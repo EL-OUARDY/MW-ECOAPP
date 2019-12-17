@@ -1,7 +1,7 @@
 <div class="rqsetgertg">
   <form #f="ngForm" autocomplete="off">
     <div class="divsearchorder">
-      <input id="inputsearor" [(ngModel)]="searchQuery" type="text" placeholder="Search Product .." name="search" />
+      <input id="inputsearor" [(ngModel)]="searchQuery" type="text" placeholder="{{'Search a '+ target}}" name="search" />
       <svg *ngIf="searchQuery?.startsWith('#') || searchQuery?.startsWith('$')" style="right: 8%" class="svgsearcus2" version="1.1" x="0px" y="0px" viewBox="0 0 356.484 356.484"
         xml:space="preserve">
         <path
@@ -21,36 +21,40 @@
         </path>
       </svg>
     </div>
-    <div class="datePickerContainer">
-      <input matInput (change)="minDateInputChange()" [matDatepicker]="minDatePicker" [max]="maxDate || todayDate" name="minDate" [(ngModel)]="minDate"  class="datefilt" >
-      <svg (click)="minDatePicker.open()" class="svgsearcus2" focusable="false" viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"></path></svg>
-      <mat-datepicker #minDatePicker ></mat-datepicker>
-    </div>
-    <span>~</span>
-    <div class="datePickerContainer">
-      <input matInput [matDatepicker]="maxDatePicker" [min]="minDate" [max]="todayDate" name="maxDate" [(ngModel)]="maxDate" class="datefilt" >
-      <svg (click)="maxDatePicker.open()" class="svgsearcus2" focusable="false" viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"></path></svg>
-      <mat-datepicker #maxDatePicker ></mat-datepicker>
+    <div class="date-controls">
+      <div class="datePickerContainer">
+        <input matInput (change)="minDateInputChange()" [matDatepicker]="minDatePicker" [max]="maxDate || todayDate" name="minDate" [(ngModel)]="minDate"  class="datefilt" >
+        <svg (click)="minDatePicker.open()" class="svgsearcus2" focusable="false" viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"></path></svg>
+        <mat-datepicker #minDatePicker ></mat-datepicker>
+      </div>
+      <span>~</span>
+      <div class="datePickerContainer">
+        <input matInput [matDatepicker]="maxDatePicker" [min]="minDate" [max]="todayDate" name="maxDate" [(ngModel)]="maxDate" class="datefilt" >
+        <svg (click)="maxDatePicker.open()" class="svgsearcus2" focusable="false" viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"></path></svg>
+        <mat-datepicker #maxDatePicker ></mat-datepicker>
+      </div>
     </div>
 
     <div class="category-control">
-      <mat-select class="selectcategorie" disableOptionCentering #Category (selectionChange)="getSub(Category.value)"
-        name="CategoryId" [(ngModel)]="queryObj.CategoryId" placeholder="Category" panelClass="select-panel">
-        <mat-option *ngFor="let item of categories" [value]="item.Id">{{
-          item.Name
-        }}</mat-option>
-      </mat-select>
-
-      <mat-select class="selectcategorie" disableOptionCentering name="SubCategoryId"
-        [(ngModel)]="queryObj.SubCategoryId" placeholder="SubCategory" panelClass="select-panel">
-        <mat-option *ngIf="subCategories?.length > 0" [value]="0">All</mat-option>
-        <mat-option *ngFor="let item of subCategories" [value]="item.Id">{{
-          item.Name
-        }}</mat-option>
-        <mat-option *ngIf="subCategories?.length === 0">
-          <p class="emptyCat">Empty Category</p>
-        </mat-option>
-      </mat-select>
+      <ng-container *ngIf="!noCategory">
+        <mat-select class="selectcategorie" disableOptionCentering #Category (selectionChange)="getSub(Category.value)"
+          name="CategoryId" [(ngModel)]="queryObj.CategoryId" placeholder="Category" panelClass="select-panel">
+          <mat-option *ngFor="let item of categories" [value]="item.Id">{{
+            item.Name
+          }}</mat-option>
+        </mat-select>
+  
+        <mat-select class="selectcategorie" disableOptionCentering name="SubCategoryId"
+          [(ngModel)]="queryObj.SubCategoryId" placeholder="SubCategory" panelClass="select-panel">
+          <mat-option *ngIf="subCategories?.length > 0" [value]="0">All</mat-option>
+          <mat-option *ngFor="let item of subCategories" [value]="item.Id">
+            {{item.Name}}
+          </mat-option>
+          <mat-option *ngIf="subCategories?.length === 0">
+            <p class="emptyCat">Empty Category</p>
+          </mat-option>
+        </mat-select>
+      </ng-container>
     </div>
 
     <div class="filterBtns">

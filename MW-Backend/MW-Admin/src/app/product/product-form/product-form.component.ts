@@ -106,7 +106,7 @@ export class ProductFormComponent implements OnInit {
   addProduct() {
     if (!this.checkImages()) return;
 
-    this._Product.Slug = this._Product.Name.replace(/\s+/g, "-"); // on server side
+    // this._Product.Slug = this._Product.Name.replace(/\s+/g, "-"); // on server side
     this.productService.PostProduct(this._Product).subscribe(
       (ProductId: string) => {
         this.toaster.success("Product has been added " + ProductId, "Success");
