@@ -42,6 +42,7 @@ import { TableFilterComponent } from './shared/filter-components/table-filter/ta
 import { InfosDialogComponent } from './shared/dialogs/infos/infos-dialog.component';
 import { MaterialModule } from './shared/modules/material.module';
 import { DataViewerComponent } from './shared/data-viewer/data-viewer.component';
+import { VariantComponent } from './product/variant/variant.component';
 
 @NgModule({
   declarations: [
@@ -71,6 +72,7 @@ import { DataViewerComponent } from './shared/data-viewer/data-viewer.component'
     TableFilterComponent,
     InfosDialogComponent,
     DataViewerComponent,
+    VariantComponent,
   ],
   imports: [
     CommonModule,
@@ -99,6 +101,10 @@ import { DataViewerComponent } from './shared/data-viewer/data-viewer.component'
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
   ],
   bootstrap: [AppComponent],
-  entryComponents: [ConfirmDialogComponent, InfosDialogComponent]
+  entryComponents: [
+    ConfirmDialogComponent, 
+    InfosDialogComponent,
+    VariantComponent
+  ]
 })
 export class AppModule { }

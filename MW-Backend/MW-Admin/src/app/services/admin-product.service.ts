@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { catchError, map } from 'rxjs/operators';
-import { MatDialog } from '@angular/material';
-import { ConfirmDialogComponent } from '../shared/dialogs/confirm-dialog/confirm-dialog.component';
+import { HttpClient } from '@angular/common/http';
+import { catchError } from 'rxjs/operators';
 import { AdminProduct } from '../models/adminProduct';
 import { handleExpectedErrors } from '../shared/errors/http-errors';
 import { ProductFilter } from '../models/ProductFilter';
@@ -14,7 +12,7 @@ export class AdminProductService {
 
   private readonly END_POINT = 'api/AdminProducts/';
 
-  constructor(private http: HttpClient, private dialog: MatDialog) { }
+  constructor(private http: HttpClient) { }
 
   getShippings() {
     return ['GearBest', 'Ali Express', 'Other']; // available shipping methods
@@ -99,7 +97,7 @@ export class AdminProductService {
 
     // append filter param to query parts
     if (filter.length > 0) {
-      console.log('Filter: ', filter.join(' and '));
+      // console.log('Filter: ', filter.join(' and '));
       parts.push(`$apply=filter(${filter.join(' and ')})`);
     }
 
@@ -110,7 +108,7 @@ export class AdminProductService {
     parts.push('$skip=' + (obj.CurrentPage * obj.PageSize));
     parts.push('$count=true');
 
-    console.log(parts.join('&'));
+    // console.log(parts.join('&'));
     return parts.join('&');
   }
 
@@ -139,13 +137,6 @@ export class AdminProductService {
   
   private hasValue(value) {
     return value !== null && value !== undefined;
-  }
-
-  raiseConfirmDialog(message?: string) {
-    return this.dialog.open(ConfirmDialogComponent, {
-      panelClass: 'confirm-dialog',
-      data: {message: message || 'Are you sure ?!'}
-    }).afterClosed();
   }
   
   // toQueryString(obj) {

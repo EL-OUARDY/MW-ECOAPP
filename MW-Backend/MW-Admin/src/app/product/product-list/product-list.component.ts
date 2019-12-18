@@ -10,6 +10,7 @@ import { AppError } from 'src/app/shared/errors/app-error';
 import { BadInput, NotFound } from 'src/app/shared/errors/http-errors';
 import { ProductFilter } from 'src/app/models/ProductFilter';
 import { DateTime } from 'luxon';
+import { DialogService } from 'src/app/services/dialog.service';
 @Component({
   selector: "app-product-list",
   templateUrl: "./product-list.component.html",
@@ -53,6 +54,7 @@ export class ProductListComponent implements OnInit {
   constructor(
     private productService: AdminProductService,
     private router: Router,
+    private dialogService: DialogService,
     private toaster: ToastrService
     ) {
       this.queryObj = new ProductFilter();
@@ -167,7 +169,7 @@ export class ProductListComponent implements OnInit {
   }
   deleteProduct(id, permanently = false) {
     const message = permanently ? 'Delete this product permanently ?!' : null;
-    this.productService.raiseConfirmDialog(message).subscribe(res => {
+    this.dialogService.raiseConfirmDialog(message).subscribe(res => {
       if (res) {
         this.productService.deleteProduct(id, permanently).subscribe(
           () => this.populateProducts(),
@@ -186,7 +188,7 @@ export class ProductListComponent implements OnInit {
   }
 
   deleteRange(products: AdminProduct[]) {
-    this.productService.raiseConfirmDialog().subscribe(res => {
+    this.dialogService.raiseConfirmDialog().subscribe(res => {
       if (res) {
         const ids = [];
         products.forEach(x => ids.push(x.Id));
@@ -199,6 +201,10 @@ export class ProductListComponent implements OnInit {
         );
       }
     });
+  }
+
+  ProductVars(id) {
+    this.dialogService.openVariantsDialog(id);
   }
 
   restoreProducts(ids) {

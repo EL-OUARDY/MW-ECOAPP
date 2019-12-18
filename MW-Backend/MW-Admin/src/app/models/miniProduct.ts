@@ -6,4 +6,5 @@ export interface MiniProduct {
     Price: number;
     Slug: string;
     Image: string;
+    Color: string;
 }
