@@ -317,6 +317,7 @@ input[type="text"] {
   color: var(--backgrbody);
 }
 
+
 .divchatadmin {
   /* height: 90%; */
   width: 80%;
@@ -1831,11 +1832,11 @@ input[type="text"] {
   color: var(--color-font);
   background: transparent;
   /* color: var(--colordate); */
-  padding: 0px 13px;
+  padding: 0px 13px !important;
   height: 25px;
   width: 100%;
-  font-size: 15px;
-  font-family: monospace;
+  font-size: 15px !important;
+  font-family: monospace !important;
 }
 
 .datefilt svg {
@@ -4577,6 +4578,39 @@ mat-radio-button * {
 .noColor .mat-checkbox:not(.mat-checkbox-disabled).mat-accent .mat-checkbox-ripple .mat-ripple-element {
   background-color: #6c757d !important;
 }
+
+.variantsContainer{
+  display: flex;
+  box-sizing: border-box;
+  
+}
+
+.varImage{
+  width: 150px;
+  margin: 0 auto 20px;
+}
+.variantsInputs, .variantsList{
+  width: 40%;
+  background: #101011d9;
+  border-radius: 15px;
+  padding: 10px 20px;
+  border: 1px solid var(--backgrcontent)
+}
+
+.variantsList{
+  margin-left: 14px;
+  width: 60%;
+}
+
+.variantsInputs .mat-form-field-label, .variantsInputs input[type="text"]{
+  color: #9a9a9a !important
+}
+.variantsInputs .mat-form-field {
+  width: 90%;
+  font-family: monospace;
+  font-size: 16px;
+}
+
 
 /***** Custom Classes ******/
 

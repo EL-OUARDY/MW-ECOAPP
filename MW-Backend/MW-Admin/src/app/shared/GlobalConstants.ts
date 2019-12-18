@@ -5,3 +5,5 @@ export const FormJob = {
 };
 
 export const ADMIN_ROLE = "ADMIN";
+
+export const COMMUN_COLORS = [ "white", "red", "green", "yellow", "gray", "orange", "blue", "pink", "brown", "purple", "black" ];

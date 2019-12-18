@@ -7,7 +7,7 @@ import { NgForm, FormControl } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AdminUploadService } from 'src/app/services/admin-upload.service';
 import { CategoryService } from 'src/app/services/category.service';
-import { FormJob } from 'src/app/shared/GlobalConstants';
+import { FormJob, COMMUN_COLORS } from 'src/app/shared/GlobalConstants';
 import { AppError } from 'src/app/shared/errors/app-error';
 import { BadInput, NotFound } from 'src/app/shared/errors/http-errors';
 
@@ -19,7 +19,7 @@ export class ProductFormComponent implements OnInit {
   expand = false;
   hasNoColor = false;
   _formJob: string = FormJob.Add; // what operation the form will achieve
-  colors = ["white", "red", "green", "yellow", "gray", "orange", "blue", "pink", "brown", "purple", "black"];
+  colors = COMMUN_COLORS;
   
   @ViewChild("f") ngForm: NgForm;
   @ViewChild("mainImg") mainImgInput: ElementRef;

@@ -1,5 +1,5 @@
 import { NgModule } from "@angular/core";
-import { MatSelectModule, MatCheckboxModule, MatRadioModule, MatDialogModule, MatSnackBarModule, MatTableModule, MatInputModule, MatButtonModule, MatDatepickerModule, MatNativeDateModule } from '@angular/material';
+import { MatSelectModule, MatCheckboxModule, MatRadioModule, MatDialogModule, MatSnackBarModule, MatTableModule, MatInputModule, MatButtonModule, MatDatepickerModule, MatNativeDateModule, MatFormFieldModule } from '@angular/material';
 import { CdkTableModule } from "@angular/cdk/table";
 
 const materials = [
@@ -15,6 +15,7 @@ const materials = [
   CdkTableModule,
   MatDatepickerModule,
   MatNativeDateModule,
+  MatFormFieldModule,
 ];
 
 @NgModule({
