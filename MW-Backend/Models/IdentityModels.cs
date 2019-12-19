@@ -63,7 +63,7 @@ namespace MW_Backend.Models
 
         public DbSet<Product> Products { get; set; }
 
-        public DbSet<Variants> Variants { get; set; }
+        public DbSet<Variant> Variants { get; set; }
 
         public DbSet<Order> Orders { get; set; }
 

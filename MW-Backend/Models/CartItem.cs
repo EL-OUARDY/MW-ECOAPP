@@ -11,7 +11,7 @@ namespace MW_Backend.Models
     public class CartItem
     {
         [Required]
-        public mProductDTO Product { get; set; }
+        public miniProductDTO Product { get; set; }
 
         public int Quantity { get; set; }
     }

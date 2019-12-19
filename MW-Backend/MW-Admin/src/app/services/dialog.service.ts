@@ -17,7 +17,7 @@ export class DialogService {
     return this.dialog.open(VariantComponent, {
       data: {id: id },
       width: '950px',
-      height: '490px'
+      height: '470px'
     });
   }
 

@@ -313,7 +313,7 @@ input[type="text"] {
 
 .bottonaddprod:hover,
 .loginBtn:hover {
-  background: var(--colorsvg);
+  background: #bebabad0;
   color: var(--backgrbody);
 }
 
@@ -4475,6 +4475,7 @@ td.fdgdzeazreio {
 .mat-dialog-container {
   background: #101011;
   color: #acacac;
+  box-sizing: border-box
 }
 
 .confirm-dialog .mat-dialog-container {
@@ -4587,19 +4588,89 @@ mat-radio-button * {
 
 .varImage{
   width: 150px;
-  margin: 0 auto 20px;
+  margin: 0 auto 14px;
 }
+
 .variantsInputs, .variantsList{
+  box-sizing: border-box;
   width: 40%;
+  height: 420px;
   background: #101011d9;
   border-radius: 15px;
   padding: 10px 20px;
   border: 1px solid var(--backgrcontent)
 }
-
+.mat-form-field.qte,.mat-form-field.price{
+  width: 45% !important;
+}
+.mat-form-field.price{
+  margin-right: 5%;
+}
 .variantsList{
+  padding: 20px;
   margin-left: 14px;
   width: 60%;
+}
+
+.variantsList ng-scrollbar{
+  height: 385px
+}
+
+.variantsInputs button {
+  font-size: 18px;
+  width: 30%;
+  padding: 3px 0;
+
+  border-radius: 125px;
+  border: none;
+  color: #939698;
+  background: #1c1d1f;
+  font-family: "AgencyFB";
+  cursor: pointer;
+  transition: all 300ms ease-out;
+}
+.variantsInputs button[type="submit"] {
+  display: inline-block;
+  margin: 0 auto
+}
+
+.variantsInputs button.delete{
+  background: #c5303e7a
+}
+
+.variantsInputs .formFooter{
+  text-align: center
+}
+.v-row {
+  display: flex;
+  background: var(--backgrcontent);
+  border-left: 3px solid #5b5d61;
+  margin-bottom: 10px;
+  align-items: center;
+  border-radius: 6px;
+  padding: 5px;
+  cursor: pointer;
+}
+.v-row.default {
+  background: #2f313466;
+  cursor: default;
+
+}
+.col-img img {
+  border-radius: 30%;
+  width: 70%;
+}
+.col-img{
+  width: 10%
+}
+.col-var, .col-val{
+  width: 20%
+}
+.col-price,.col-qte{
+  width: 15%
+}
+.col-date{
+  width: 20%
 }
 
 .variantsInputs .mat-form-field-label, .variantsInputs input[type="text"]{

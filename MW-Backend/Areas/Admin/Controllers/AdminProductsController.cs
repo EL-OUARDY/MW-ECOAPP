@@ -139,7 +139,7 @@ namespace MW_Backend.Areas.Admin.Controllers
                                     .Take(6)
                                     .ToListAsync();
 
-            var model = products.Select(Mapper.Map<Product, mProductDTO>);
+            var model = products.Select(Mapper.Map<Product, miniProductDTO>);
 
             return Ok(model);
         }

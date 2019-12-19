@@ -16,9 +16,8 @@ namespace MW_Backend.App_Start
         {
             Mapper.CreateMap<ApplicationUser, UsersListVM>();
 
-
-            Mapper.CreateMap<Product, mProductDTO>();
-            Mapper.CreateMap<mProductDTO, Product>();
+            Mapper.CreateMap<Product, miniProductDTO>();
+            Mapper.CreateMap<miniProductDTO, Product>();
 
             Mapper.CreateMap<Product, ProductListVM>()
                 .ForMember(dist => dist.CategoryId, opt => opt.MapFrom(src => src.SubCategory.CategoryId));
@@ -30,6 +29,11 @@ namespace MW_Backend.App_Start
 
             Mapper.CreateMap<ApplicationUser, UserProfileResourse>();
             Mapper.CreateMap<UserProfileResourse, ApplicationUser>();
+
+            Mapper.CreateMap<VariantResource, Variant>();
+            Mapper.CreateMap<Variant, VariantResource>();
+
+            Mapper.CreateMap<Product, ProductVariantsVM>();
         }
     }
 }
