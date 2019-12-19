@@ -31,7 +31,7 @@ namespace MW_Backend.Controllers.api
         {
             var products = db.Products
                     .ToList()
-                    .Select(Mapper.Map<Product, mProductDTO>);
+                    .Select(Mapper.Map<Product, miniProductDTO>);
 
             return Ok(products);
         }

@@ -24,7 +24,7 @@ namespace MW_Backend.Helpers
                     {
                         cartItem = new CartItem
                         {
-                            Product = Mapper.Map<mProductDTO>(p),
+                            Product = Mapper.Map<miniProductDTO>(p),
                             Quantity = item.Quantity
                         };
 

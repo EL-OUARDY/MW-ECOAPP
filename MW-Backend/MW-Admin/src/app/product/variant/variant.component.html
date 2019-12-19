@@ -1,18 +1,23 @@
-<form [formGroup]="form" (ngSubmit)="addVariant()" autocomplete="off" class="variantsContainer">
+<form #form="ngForm" (ngSubmit)="saveVariant()" autocomplete="off" class="variantsContainer">
   <div class="variantsInputs">
     <mat-form-field>
-      <input matInput formControlName="Label" placeholder="Variant" type="text" />
+      <input matInput required [(ngModel)]="_variant.Label" #Label="ngModel" name="Label" placeholder="Variant" type="text" />
     </mat-form-field>
     <mat-form-field>
-      <input matInput formControlName="Value" placeholder="Value" type="text" />
+      <input matInput required [(ngModel)]="_variant.Value" #Value="ngModel" name="Value" placeholder="Value" type="text" />
     </mat-form-field>
-    <mat-form-field>
-      <input matInput formControlName="Price" placeholder="Price" type="number" />
-    </mat-form-field>
+    <div style="display: flex">
+      <mat-form-field class="price">
+        <input matInput [(ngModel)]="_variant.Price_Diff" #Price_Diff="ngModel" name="Price_Diff" placeholder="Price" type="number" />
+      </mat-form-field>
+      <mat-form-field class="qte">
+        <input matInput [(ngModel)]="_variant.Quantity" #Quantity="ngModel" name="Quantity" placeholder="Quantity" type="number" />
+      </mat-form-field>
+    </div>
     <div (click)="varImage.click()" class="varImage">
-      <input formControlName="Image" #varImage placeholder="Image" type="file"
+      <input name="Image" #varImage placeholder="Image" ngModel type="file"
         (change)="previewMainImg($event.target.files)" style="display: none" />
-      <img *ngIf="imgPath; else noImage" [src]="imgPath" class="mainimage" />
+      <img *ngIf="imgPath; else noImage" [src]="imgPath" class="mainimage halfOpacity" />
       <ng-template #noImage>
         <svg _ngcontent-c3="" xml:space="preserve" class="svgplusimage" enable-background="new 0 0 1000 1000"
           version="1.1" viewBox="0 0 1000 1000" x="0px" y="0px">
@@ -32,16 +37,38 @@
         </svg>
       </ng-template>
     </div>
-
-    <button type="submit" class="loginBtn">Add Variant</button>
+    <div class="formFooter">
+      <button *ngIf="_variant.Id > 0" type="button" (click)="resetForm()" class="reset">Reset</button>
+      <button type="submit" class="">{{ _variant.Id > 0 ? 'Edit Variant' : 'Add Variant'}}</button>
+      <button *ngIf="_variant.Id > 0" type="button" (click)="deleteVariant(_variant.Id)" class="delete">Delete</button>
+    </div>
   </div>
   <div class="variantsList">
-    <div class="v-row">
-      <div>
-        <img [src]="">
+    <ng-scrollbar *ngIf="_productObject" [shown]="'native'" barClass="scrollbar" thumbClass="scroll-thumb">
+      <div class="v-row default" [ngStyle]="{'border-left': '3px solid ' + 'var(--'+ _productObject.Color + ')'}">
+        <div class="col-img"><img [src]="'/Content/Images/Products/' + _productObject.Id + '/Main/' + _productObject.Image"></div>
+        <div class="col-var">COLOR</div>
+        <div class="col-val">{{_productObject.Color}}</div>
+        <div class="col-price">{{_productObject.Price | currency:'USD'}}</div>
+        <div class="col-qte">{{_productObject.Quantity ? _productObject.Quantity+'unit' : 'MAX'}}</div>
+        <div class="col-date">{{ _dateTime.fromISO(_productObject.Last_Update).toRelative() }}</div>
       </div>
-    </div>
+      <ng-container *ngIf="_productObject?.Variants">
+        <div *ngFor="let row of _productObject.Variants; trackBy: trackById" (click)="fillForm(row)" class="v-row" [ngStyle]="{'border-left': '3px solid ' + 'var(--'+ row.Color + ')'}">
+          <div class="col-img">
+            <img *ngIf="row.Image" [src]="'/Content/Images/Products/' + _productObject.Id + '/Variants/' + row.Image">
+            <img *ngIf="!row.Image" [src]="'/Content/Images/Products/' + _productObject.Id + '/Main/' + _productObject.Image">
+          </div>
+          <div class="col-var">{{row.Label}}</div>
+          <div class="col-val">{{row.Value}}</div>
+          <div class="col-price">{{ (_productObject.Price + row.Price_Diff) | currency:'USD' }}</div>
+          <div class="col-qte">{{row.Quantity ? row.Quantity+'unit' : 'MAX'}}</div>
+          <div class="col-date">{{ _dateTime.fromISO(row.Last_Update).toRelative() }}</div>
+        </div>
+      </ng-container>
+    </ng-scrollbar>
   </div>
 </form>
 
-<!-- <data-viewer [data]="form.value"></data-viewer> -->
+<!-- <data-viewer [data]="_variant"></data-viewer> -->
+<!-- <data-viewer [data]="{Form: form.value, isValid: form.valid}"></data-viewer> -->

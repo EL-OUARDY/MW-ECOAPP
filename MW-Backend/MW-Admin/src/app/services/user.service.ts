@@ -33,7 +33,7 @@ export class UserService {
 
     // append filter param to query parts
     if (filter.length > 0) {
-      console.log('Filter: ', filter.join(' and '));
+      // console.log('Filter: ', filter.join(' and '));
       parts.push(`$apply=filter(${filter.join(' and ')})`);
     }
 
@@ -47,7 +47,7 @@ export class UserService {
     parts.push('$skip=' + (obj.CurrentPage * obj.PageSize));
     parts.push('$count=true');
 
-    console.log(parts.join('&'));
+    // console.log(parts.join('&'));
     return parts.join('&');
   }
 

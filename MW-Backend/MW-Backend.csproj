@@ -265,6 +265,7 @@
     <Compile Include="Areas\Admin\Controllers\AdminUploads.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminUsersController.cs" />
     <Compile Include="Areas\Admin\Controllers\DemoController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductVariantsController.cs" />
     <Compile Include="Areas\Admin\Helpers\UserHelper.cs" />
     <Compile Include="Areas\Admin\ViewModel\ProductListVM.cs" />
     <Compile Include="Areas\Admin\ViewModel\UsersListVM.cs" />
@@ -276,9 +277,11 @@
     <Compile Include="Controllers\api\TestController.cs" />
     <Compile Include="Controllers\api\UserProfileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="DTO_Resourses\mProductDTO.cs" />
+    <Compile Include="DTO_Resourses\miniProductDTO.cs" />
     <Compile Include="DTO_Resourses\ProductDTO.cs" />
+    <Compile Include="Areas\Admin\ViewModel\ProductVariantsVM.cs" />
     <Compile Include="DTO_Resourses\UserProfileResourse.cs" />
+    <Compile Include="DTO_Resourses\VariantResource.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -453,6 +456,10 @@
     <Compile Include="Migrations\201912171005016_addDeletedColToProductModel.cs" />
     <Compile Include="Migrations\201912171005016_addDeletedColToProductModel.Designer.cs">
       <DependentUpon>201912171005016_addDeletedColToProductModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912191222310_addQuantityColToVariantModel.cs" />
+    <Compile Include="Migrations\201912191222310_addQuantityColToVariantModel.Designer.cs">
+      <DependentUpon>201912191222310_addQuantityColToVariantModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
@@ -737,6 +744,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201912171005016_addDeletedColToProductModel.resx">
       <DependentUpon>201912171005016_addDeletedColToProductModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912191222310_addQuantityColToVariantModel.resx">
+      <DependentUpon>201912191222310_addQuantityColToVariantModel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

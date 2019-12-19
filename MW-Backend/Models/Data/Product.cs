@@ -53,11 +53,11 @@ namespace MW_Backend.Models.Data
 
         public bool Deleted { get; set; } = false;
 
-        public ICollection<Variants> Variants { get; set; }
+        public ICollection<Variant> Variants { get; set; }
 
         public Product()
         {
-            Variants = new Collection<Variants>();
+            Variants = new Collection<Variant>();
         }
     }
 }

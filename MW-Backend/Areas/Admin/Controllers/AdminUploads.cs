@@ -45,7 +45,7 @@ namespace MW_Backend.Areas.Admin.Controllers
 
             var model = db.Products.Find(ProductId);
 
-            return Ok(Mapper.Map<mProductDTO>(model));
+            return Ok(Mapper.Map<miniProductDTO>(model));
         }
 
         [HttpPost]
@@ -73,7 +73,7 @@ namespace MW_Backend.Areas.Admin.Controllers
 
             var model = db.Products.Find(ProductId);
 
-            return Ok(Mapper.Map<mProductDTO>(model));
+            return Ok(Mapper.Map<miniProductDTO>(model));
         }
 
         [HttpPost]
@@ -103,7 +103,7 @@ namespace MW_Backend.Areas.Admin.Controllers
 
             var model = db.Products.Find(ProductId);
 
-            return Ok(Mapper.Map<mProductDTO>(model));
+            return Ok(Mapper.Map<miniProductDTO>(model));
         }
 
         [HttpPost]

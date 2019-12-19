@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ProductVariantService {
-  private readonly END_POINT = 'api/ProductVariant/';
+  private readonly END_POINT = 'api/ProductVariants/';
 
   constructor(private http: HttpClient) { }
 
