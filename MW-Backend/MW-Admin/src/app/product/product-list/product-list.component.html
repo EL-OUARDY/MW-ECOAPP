@@ -1,9 +1,9 @@
 <div class="divproductlist" id="my-productlist">
   <div class="divlabtyporeder">
-    <label (click)="onSaleChange(null)" [class.active]="queryObj.OnSale === null && !queryObj.Deleted" >All</label>
-    <label (click)="onSaleChange(true)" [class.active]="queryObj.OnSale === true" >On Sale</label>
-    <label (click)="onSaleChange(false)" [class.active]="queryObj.OnSale === false" >Out Of Stock</label>
-    <label (click)="BringDeleted()" [class.active]="queryObj.Deleted" >Deleted</label>
+    <label matRipple (click)="onSaleChange(true)" [class.active]="queryObj.OnSale === true" >On Sale</label>
+    <label matRipple (click)="onSaleChange(null)" [class.active]="queryObj.OnSale === null && !queryObj.Deleted" >All</label>
+    <label matRipple (click)="onSaleChange(false)" [class.active]="queryObj.OnSale === false" >Out Of Stock</label>
+    <label matRipple (click)="BringDeleted()" [class.active]="queryObj.Deleted" >Deleted</label>
   </div>
 
   <table-filter [target]="'product'" [queryObj]="queryObj" (filter)="populateProducts()"></table-filter>
@@ -105,7 +105,9 @@
                 </svg>
             </ng-container>
           </th>
-          <td cdk-cell *cdkCellDef="let row"> {{row.Quantity || 'MAX'}} </td>
+          <td cdk-cell *cdkCellDef="let row">
+            {{ (row.Quantity == null) ? 'MAX' : (row.Quantity === 0) ? 'Out' : row.Quantity+' unit' }}
+          </td>
         </ng-container>
         <ng-container cdkColumnDef="OnSale">
           <th cdk-header-cell *cdkHeaderCellDef> Stock </th>

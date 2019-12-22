@@ -281,6 +281,7 @@
     <Compile Include="DTO_Resourses\ProductDTO.cs" />
     <Compile Include="Areas\Admin\ViewModel\ProductVariantsVM.cs" />
     <Compile Include="DTO_Resourses\UserProfileResourse.cs" />
+    <Compile Include="DTO_Resourses\VariantDTO.cs" />
     <Compile Include="DTO_Resourses\VariantResource.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -460,6 +461,14 @@
     <Compile Include="Migrations\201912191222310_addQuantityColToVariantModel.cs" />
     <Compile Include="Migrations\201912191222310_addQuantityColToVariantModel.Designer.cs">
       <DependentUpon>201912191222310_addQuantityColToVariantModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912201205225_removeImageColFromVariant.cs" />
+    <Compile Include="Migrations\201912201205225_removeImageColFromVariant.Designer.cs">
+      <DependentUpon>201912201205225_removeImageColFromVariant.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912210023115_priceDiffNullable.cs" />
+    <Compile Include="Migrations\201912210023115_priceDiffNullable.Designer.cs">
+      <DependentUpon>201912210023115_priceDiffNullable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
@@ -747,6 +756,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201912191222310_addQuantityColToVariantModel.resx">
       <DependentUpon>201912191222310_addQuantityColToVariantModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912201205225_removeImageColFromVariant.resx">
+      <DependentUpon>201912201205225_removeImageColFromVariant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912210023115_priceDiffNullable.resx">
+      <DependentUpon>201912210023115_priceDiffNullable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

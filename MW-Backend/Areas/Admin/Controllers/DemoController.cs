@@ -1,8 +1,10 @@
-﻿using System;
+﻿using MW_Backend.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Web;
 using System.Web.Http;
 
 namespace MW_Backend.Areas.Admin.Controllers
@@ -16,24 +18,26 @@ namespace MW_Backend.Areas.Admin.Controllers
         }
 
         // GET: api/Demo/5
-        public string Get(int id)
+        [HttpGet]
+        [Route("api/Demo/{pid}/{vid}")]
+        public string Get(int pid, int vid)
         {
-            return "value";
+            var _dir = new Product_Dir(pid);
+            return _dir.GetVariantImage(vid);
+            //return DateTimeOffset.Now.ToString("yyyyMMddhhmmss");
         }
+
 
         // POST: api/Demo
-        public void Post([FromBody]string value)
+        public IHttpActionResult Post([FromBody] string Variant)
         {
-        }
+            var Image = HttpContext.Current.Request.Files["Image"];
 
-        // PUT: api/Demo/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
+            var variant = HttpContext.Current.Request["Variant"];
 
-        // DELETE: api/Demo/5
-        public void Delete(int id)
-        {
+            var model = (variant != null) ? variant : "From Post";
+
+            return Ok(model);
         }
     }
 }

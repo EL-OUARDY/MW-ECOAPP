@@ -16,11 +16,11 @@ namespace MW_Backend.DTO_Resourses
 
         public decimal Price { get; set; }
 
-        public int Quantity { get; set; }
+        public int? Quantity { get; set; }
 
         public string Color { get; set; }
 
-        public ICollection<VariantResource> Variants { get; set; }
+        public ICollection<VariantDTO> Variants { get; set; }
 
         public string Image
         {
