@@ -17,7 +17,6 @@ namespace MW_Backend.DTO_Resourses
         [StringLength(50)]
         public string Name { get; set; }
 
-        [Required]
         public string Slug { get; set; }
 
         [Required]

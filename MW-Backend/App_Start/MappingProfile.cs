@@ -30,8 +30,8 @@ namespace MW_Backend.App_Start
             Mapper.CreateMap<ApplicationUser, UserProfileResourse>();
             Mapper.CreateMap<UserProfileResourse, ApplicationUser>();
 
+            Mapper.CreateMap<Variant, VariantDTO>();
             Mapper.CreateMap<VariantResource, Variant>();
-            Mapper.CreateMap<Variant, VariantResource>();
 
             Mapper.CreateMap<Product, ProductVariantsVM>();
         }

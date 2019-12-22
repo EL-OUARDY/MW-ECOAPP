@@ -16,13 +16,10 @@ namespace MW_Backend.DTO_Resourses
         [Required]
         public string Value { get; set; }
 
-        public decimal Price_Diff { get; set; } = 0;
+        public decimal? Price_Diff { get; set; }
 
         public int? Quantity { get; set; }
 
-        public string Image { get; set; }
-
-        public DateTimeOffset? Last_Update { get; set; } = DateTimeOffset.Now.ToUniversalTime();
-
+        public int ProductId { get; set; }
     }
 }

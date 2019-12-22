@@ -13,6 +13,7 @@ namespace MW_Backend.Helpers
         public string mainImgPath { get; set; }
         public string galleryPath { get; set; }
         public string descPath { get; set; }
+        public string variantsPath { get; set; }
         public string thumbPath { get; set; }
 
         public Product_Dir(int productId)
@@ -22,6 +23,7 @@ namespace MW_Backend.Helpers
             mainImgPath = parent_dir + "\\Main";
             galleryPath = parent_dir + "\\Gallery";
             descPath = parent_dir + "\\Desc";
+            variantsPath = parent_dir + "\\Variants";
             thumbPath = parent_dir + "\\Thumb";
         }
 
@@ -109,6 +111,33 @@ namespace MW_Backend.Helpers
             {
                 GrantAccess();
             }
+            return true;
+        }
+
+        public bool AddVariantImage(HttpPostedFile image, int VariantId)
+        {
+            try
+            {
+                PrepareDirectories();
+
+                var path = variantsPath + "\\" + VariantId;
+
+                if (!Directory.Exists(path))
+                    Directory.CreateDirectory(path);
+
+                // saving variant Image
+                image.SaveAs(path + "/" + MakeGuid(image.FileName));
+
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                GrantAccess();
+            }
+
             return true;
         }
 
@@ -231,11 +260,52 @@ namespace MW_Backend.Helpers
             return true;
         }
 
+        public bool UpdateVariantImage( HttpPostedFile Image, int VariantId)
+        {
+            if (!this.DeleteVariantImage(VariantId))
+                return false;
+
+            if (!this.AddVariantImage(Image, VariantId))
+                return false;
+
+            return true;
+        }
+
+        public bool DeleteVariantImage(int VariantId)
+        {
+            var path = variantsPath + "\\" + VariantId;
+            DirectoryInfo dir = new DirectoryInfo(path);
+            try
+            {
+                if (dir.Exists)
+                    dir.Delete(true);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
         public string GetMainImage()
         {
             try
             {
                 return Directory.EnumerateFiles(mainImgPath).Select(x => Path.GetFileName(x)).FirstOrDefault();
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public string GetVariantImage(int VariantId)
+        {
+            try
+            {
+                var path = variantsPath + "\\" + VariantId;
+                return Directory.EnumerateFiles(path).Select(x => Path.GetFileName(x)).FirstOrDefault();
             }
             catch (Exception)
             {
@@ -275,6 +345,8 @@ namespace MW_Backend.Helpers
                 Directory.CreateDirectory(galleryPath);
             if (!Directory.Exists(descPath))
                 Directory.CreateDirectory(descPath);
+            if (!Directory.Exists(variantsPath))
+                Directory.CreateDirectory(variantsPath);
         }
 
         private string MakeGuid(string filename)

@@ -6,10 +6,12 @@ export class Variant {
   Quantity: number;
   Last_Update: string;
   Image: string;
+  ProductId: number;
   constructor() {
     this.Label = null;
     this.Value = null;
     this.Price_Diff = null;
     this.Quantity = null;
+    this.Image = null;
   }
 }
