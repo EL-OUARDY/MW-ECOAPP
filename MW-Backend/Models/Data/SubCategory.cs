@@ -13,7 +13,6 @@ namespace MW_Backend.Models.Data
 
         [Required]
         [MaxLength(30)]
-        [Display(Name = "Category")]
         public string Name { get; set; }
 
         public virtual Category Category { get; set; }

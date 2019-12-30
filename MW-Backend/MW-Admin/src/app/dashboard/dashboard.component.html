@@ -1,2 +1,7 @@
-<input type="file"  (change)="imageChanged($event.target.files)">
-<button (click)="f()" >ClickMe!</button>
+<mat-form-field style="color: white !important">
+    <input matInput [(ngModel)]="svgValue" (change)="change()" placeholder="Enter Your Svg here">
+</mat-form-field>
+<br>
+<br>
+<div id="svg">
+</div>

@@ -11,7 +11,7 @@ export class InfosDialogComponent {
     {name: '#574995214', meaning: 'Will look for a product with this Id'},
     {name: '$price = value', meaning: 'Price equal a given value'},
     {name: '$price > 10 and price < 15', meaning: 'Price between 10 and 15 (Range)'},
-    {name: "$color = 'pink' or color = 'green'", meaning: 'Color eithe pink or green'},
+    {name: "$color = 'pink' or color = 'green'", meaning: 'Color either pink or green'},
     {name: '$last_update=2019-6-27', meaning: 'Last_Update equal an exact date (respect the format!)'},
     {name: '$year(Last_Update) >= 2019', meaning: "Last_Update's year greater than or equal 2019"},
     {name: '$price in [5, 12, 99.9]', meaning: 'Price should have one of these values'},
@@ -29,11 +29,11 @@ export class InfosDialogComponent {
   array = [];
   
   _pageSize = 5;
-  page = 0;
+  _page = 0;
 
   
   public get skip(): number {
-    return this.page * this._pageSize;
+    return this._page * this._pageSize;
   }
   
   public get availablePages(): number {
@@ -49,15 +49,15 @@ export class InfosDialogComponent {
   }
 
   next() {
-    if ((this.page + 1) < this.availablePages) {
-      this.page++;
+    if ((this._page + 1) < this.availablePages) {
+      this._page++;
       this.fillArray();
     }
   }
   
   prev() {
-    if (this.page > 0) {
-      this.page--;
+    if (this._page > 0) {
+      this._page--;
       this.fillArray();
     }
   }

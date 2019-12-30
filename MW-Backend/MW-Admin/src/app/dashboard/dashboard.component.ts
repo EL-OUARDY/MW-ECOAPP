@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -6,9 +6,7 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './dashboard.component.html',
 })
 export class DashboardComponent implements OnInit {
-
-  fd = new FormData();
-
+  svgValue: string;
 
   constructor(private http: HttpClient) { 
   }
@@ -16,12 +14,16 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
   }
 
-  f() {
-    this.fd.append("Variant", "Color");
-    this.http.post("api/demo", this.fd).subscribe((response) => console.log(response));
+
+  change() {
+    this.setSVG();
+  }
+  
+  setSVG() {
+    if (this.svgValue.startsWith('<svg ') && this.svgValue.endsWith('</svg>'))
+      document.getElementById('svg').innerHTML = this.svgValue;
+    else
+      document.getElementById('svg').innerHTML = "NOT VALID";
   }
 
-  imageChanged(files) {
-    this.fd.append("Image", files[0], files[0].name);
-  }
 }
