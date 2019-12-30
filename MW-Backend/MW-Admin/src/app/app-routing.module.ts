@@ -19,6 +19,7 @@ import { LayoutComponent } from './layout/layout.component';
 import { LoginComponent } from './login/login.component';
 import { NotLoggedGuard } from './guards/not-logged.guard';
 import { CategoriesComponent } from './categories/categories.component';
+import { VariantComponent } from './product/variant/variant.component';
 
 const routes: Routes = [
   { path: "admin/login", component: LoginComponent, canActivate: [NotLoggedGuard]},
@@ -30,7 +31,7 @@ const routes: Routes = [
     component: LayoutComponent, canActivate: [AdminAuthGuard],
     children: [
       { path: "", component: DashboardComponent },
-      { path: "admin", component: CategoriesComponent }, // HOME
+      { path: "admin", component: ProductFormComponent }, // HOME
       { path: "admin/dashboard", component: DashboardComponent },
       { path: "admin/products", component: ProductListComponent },
       { path: "admin/product-form", component: ProductFormComponent },

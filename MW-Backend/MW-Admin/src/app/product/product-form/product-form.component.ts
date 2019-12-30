@@ -10,6 +10,7 @@ import { CategoryService } from 'src/app/services/category.service';
 import { FormJob, COMMUN_COLORS } from 'src/app/shared/GlobalConstants';
 import { AppError } from 'src/app/shared/errors/app-error';
 import { BadInput, NotFound } from 'src/app/shared/errors/http-errors';
+import { DialogService } from 'src/app/services/dialog.service';
 
 @Component({
   selector: "product-form",
@@ -52,6 +53,7 @@ export class ProductFormComponent implements OnInit {
     private uploadService: AdminUploadService,
     private router: Router,
     private activeRoute: ActivatedRoute,
+    private dialogService: DialogService,
     private toaster: ToastrService
   ) { 
     this.getCategories();
@@ -445,6 +447,7 @@ export class ProductFormComponent implements OnInit {
 
   manageCategories() {
     // open a dialog to manage categories
+    this.dialogService.openCategoriesDialog();
   }
 }
 // interface helps to store both img file and img data that display on template,

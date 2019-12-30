@@ -12,5 +12,9 @@ namespace MW_Backend.DTO_Resourses
         public string Name { get; set; }
 
         public int CategoryId { get; set; }
+
+        public int Sorting { get; set; }
+
+        public string Svg { get; set; }
     }
 }

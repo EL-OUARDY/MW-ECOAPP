@@ -260,6 +260,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminCategoriesController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminProductsController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminUploads.cs" />
@@ -471,6 +472,10 @@
     <Compile Include="Migrations\201912210023115_priceDiffNullable.cs" />
     <Compile Include="Migrations\201912210023115_priceDiffNullable.Designer.cs">
       <DependentUpon>201912210023115_priceDiffNullable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912302218534_addSortingAndSvgFieldsToCategories.cs" />
+    <Compile Include="Migrations\201912302218534_addSortingAndSvgFieldsToCategories.Designer.cs">
+      <DependentUpon>201912302218534_addSortingAndSvgFieldsToCategories.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
@@ -764,6 +769,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201912210023115_priceDiffNullable.resx">
       <DependentUpon>201912210023115_priceDiffNullable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912302218534_addSortingAndSvgFieldsToCategories.resx">
+      <DependentUpon>201912302218534_addSortingAndSvgFieldsToCategories.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
