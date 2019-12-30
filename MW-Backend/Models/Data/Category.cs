@@ -16,6 +16,5 @@ namespace MW_Backend.Models.Data
         public string Name { get; set; }
 
         public virtual ICollection<SubCategory> SubCategories { get; set; }
-
     }
 }

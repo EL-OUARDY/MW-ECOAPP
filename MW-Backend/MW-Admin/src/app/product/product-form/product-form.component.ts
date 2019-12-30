@@ -53,11 +53,18 @@ export class ProductFormComponent implements OnInit {
     private router: Router,
     private activeRoute: ActivatedRoute,
     private toaster: ToastrService
-  ) {
-    this.categories = this.categoryService._categories;
-  }
+  ) { 
+    this.getCategories();
+   }
 
   // implements ngOnDestroy to Remove all subscriptions
+
+  getCategories() {
+    this.categories = this.categoryService.getCategoriesLocally();
+
+    if (!this.categories) 
+      this.refreshCat();
+  }
 
   ngOnInit() {
     this.activeRoute.queryParamMap.subscribe(p => {
@@ -71,10 +78,16 @@ export class ProductFormComponent implements OnInit {
     });
 
     this.getLastAddedProducts();
+
+
   }
 
   refreshCat() {
-    this.categoryService.getCategoriesFromServer();
+    this.categoryService.getCategoriesFromServer().subscribe((cats: []) => {
+      this.categoryService.saveOnLocalStorage(cats);
+      this.categories = cats;
+    },
+    () => this.toaster.error("Could Not Get Categories From Server .."));
   }
 
   // Posting The Product

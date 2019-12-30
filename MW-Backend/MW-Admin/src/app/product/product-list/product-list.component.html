@@ -1,7 +1,7 @@
 <div class="divproductlist" id="my-productlist">
   <div class="divlabtyporeder">
-    <label matRipple (click)="onSaleChange(true)" [class.active]="queryObj.OnSale === true" >On Sale</label>
     <label matRipple (click)="onSaleChange(null)" [class.active]="queryObj.OnSale === null && !queryObj.Deleted" >All</label>
+    <label matRipple (click)="onSaleChange(true)" [class.active]="queryObj.OnSale === true" >On Sale</label>
     <label matRipple (click)="onSaleChange(false)" [class.active]="queryObj.OnSale === false" >Out Of Stock</label>
     <label matRipple (click)="BringDeleted()" [class.active]="queryObj.Deleted" >Deleted</label>
   </div>

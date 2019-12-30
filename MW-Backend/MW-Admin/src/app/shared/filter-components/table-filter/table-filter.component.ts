@@ -24,7 +24,7 @@ export class TableFilterComponent {
   @Input("target") target: string;
   @ViewChild("f") form: NgForm;
 
-  categories: any;
+  categories;
   subCategories: any;
   searchQuery: string;
 
@@ -40,7 +40,22 @@ export class TableFilterComponent {
     private toaster: ToastrService
   ) {
     this.dateAdapter.setLocale("fr");
-    this.categories = this.categoryService._categories;
+    this.getCategories();
+  }
+
+  getCategories() {
+    this.categories = this.categoryService.getCategoriesLocally();
+
+    if (!this.categories)
+      this.refreshCat();
+  }
+
+  refreshCat() {
+    this.categoryService.getCategoriesFromServer().subscribe((cats: []) => {
+      this.categoryService.saveOnLocalStorage(cats);
+      this.categories = cats;
+    },
+    () => this.toaster.error("Could Not Get Categories From Server .."));
   }
 
   doFilter() {
