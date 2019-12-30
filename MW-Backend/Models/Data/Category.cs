@@ -15,6 +15,10 @@ namespace MW_Backend.Models.Data
         [MaxLength(30)]
         public string Name { get; set; }
 
+        public int Sorting { get; set; }
+
+        public string Svg { get; set; }
+
         public virtual ICollection<SubCategory> SubCategories { get; set; }
     }
 }

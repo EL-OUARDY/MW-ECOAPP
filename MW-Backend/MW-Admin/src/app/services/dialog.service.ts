@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { VariantComponent } from '../product/variant/variant.component';
 import { ConfirmDialogComponent } from '../shared/dialogs/confirm-dialog/confirm-dialog.component';
+import { CategoriesComponent } from '../categories/categories.component';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,13 @@ export class DialogService {
   openVariantsDialog(id) {
     return this.dialog.open(VariantComponent, {
       data: {id: id },
+      width: '950px',
+      height: '470px'
+    });
+  }
+
+  openCategoriesDialog() {
+    return this.dialog.open(CategoriesComponent, {
       width: '950px',
       height: '470px'
     });

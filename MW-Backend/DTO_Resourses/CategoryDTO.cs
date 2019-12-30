@@ -12,6 +12,10 @@ namespace MW_Backend.DTO_Resourses
 
         public string Name { get; set; }
 
+        public int Sorting { get; set; }
+
+        public string Svg { get; set; }
+
         public virtual ICollection<SubCategoryDTO> SubCategories { get; set; }
     }
 }

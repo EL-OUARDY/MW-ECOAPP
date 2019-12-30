@@ -4585,13 +4585,12 @@ mat-radio-button * {
 .variantsContainer{
   display: flex;
   box-sizing: border-box;
-  
 }
 
 .varImage{
   width: 110px;
-    height: 110px;
-    margin: 15px auto 24px;
+  height: 110px;
+  margin: 15px auto 24px;
 }
 
 .variantsInputs, .variantsList{

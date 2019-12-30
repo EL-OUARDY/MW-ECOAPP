@@ -54,8 +54,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _layout_layout_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./layout/layout.component */ "./src/app/layout/layout.component.ts");
 /* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
 /* harmony import */ var _guards_not_logged_guard__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./guards/not-logged.guard */ "./src/app/guards/not-logged.guard.ts");
-/* harmony import */ var _categories_categories_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./categories/categories.component */ "./src/app/categories/categories.component.ts");
-
 
 
 
@@ -86,7 +84,7 @@ var routes = [
         component: _layout_layout_component__WEBPACK_IMPORTED_MODULE_18__["LayoutComponent"], canActivate: [_guards_admin_auth_guard__WEBPACK_IMPORTED_MODULE_17__["AdminAuthGuard"]],
         children: [
             { path: "", component: _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_16__["DashboardComponent"] },
-            { path: "admin", component: _categories_categories_component__WEBPACK_IMPORTED_MODULE_21__["CategoriesComponent"] },
+            { path: "admin", component: _product_product_form_product_form_component__WEBPACK_IMPORTED_MODULE_5__["ProductFormComponent"] },
             { path: "admin/dashboard", component: _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_16__["DashboardComponent"] },
             { path: "admin/products", component: _product_product_list_product_list_component__WEBPACK_IMPORTED_MODULE_8__["ProductListComponent"] },
             { path: "admin/product-form", component: _product_product_form_product_form_component__WEBPACK_IMPORTED_MODULE_5__["ProductFormComponent"] },
@@ -318,7 +316,8 @@ var AppModule = /** @class */ (function () {
             entryComponents: [
                 _shared_dialogs_confirm_dialog_confirm_dialog_component__WEBPACK_IMPORTED_MODULE_29__["ConfirmDialogComponent"],
                 _shared_dialogs_infos_infos_dialog_component__WEBPACK_IMPORTED_MODULE_37__["InfosDialogComponent"],
-                _product_variant_variant_component__WEBPACK_IMPORTED_MODULE_40__["VariantComponent"]
+                _product_variant_variant_component__WEBPACK_IMPORTED_MODULE_40__["VariantComponent"],
+                _categories_categories_component__WEBPACK_IMPORTED_MODULE_41__["CategoriesComponent"],
             ]
         })
     ], AppModule);
@@ -336,7 +335,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  categories works!\n</p>\n"
+module.exports = "<div class=\"variantsContainer bordered\">\n  <mat-form-field style=\"color: white !important\">\n    <input matInput [(ngModel)]=\"svgValue\" (change)=\"change()\" placeholder=\"Enter Your Svg here\">\n  </mat-form-field>\n  <br>\n  <br>\n  <div id=\"svg\">\n  </div>\n</div>\n\n"
 
 /***/ }),
 
@@ -358,6 +357,15 @@ var CategoriesComponent = /** @class */ (function () {
     function CategoriesComponent() {
     }
     CategoriesComponent.prototype.ngOnInit = function () {
+    };
+    CategoriesComponent.prototype.change = function () {
+        this.setSVG();
+    };
+    CategoriesComponent.prototype.setSVG = function () {
+        if (this.svgValue.startsWith('<svg ') && this.svgValue.endsWith('</svg>'))
+            document.getElementById('svg').innerHTML = this.svgValue;
+        else
+            document.getElementById('svg').innerHTML = "NOT VALID";
     };
     CategoriesComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -424,7 +432,7 @@ var CouponComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-form-field style=\"color: white !important\">\r\n    <input matInput [(ngModel)]=\"svgValue\" (change)=\"change()\" placeholder=\"Enter Your Svg here\">\r\n</mat-form-field>\r\n<br>\r\n<br>\r\n<div id=\"svg\">\r\n</div>\r\n"
+module.exports = ""
 
 /***/ }),
 
@@ -449,15 +457,6 @@ var DashboardComponent = /** @class */ (function () {
         this.http = http;
     }
     DashboardComponent.prototype.ngOnInit = function () {
-    };
-    DashboardComponent.prototype.change = function () {
-        this.setSVG();
-    };
-    DashboardComponent.prototype.setSVG = function () {
-        if (this.svgValue.startsWith('<svg ') && this.svgValue.endsWith('</svg>'))
-            document.getElementById('svg').innerHTML = this.svgValue;
-        else
-            document.getElementById('svg').innerHTML = "NOT VALID";
     };
     DashboardComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1087,6 +1086,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_services_category_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/services/category.service */ "./src/app/services/category.service.ts");
 /* harmony import */ var src_app_shared_GlobalConstants__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/shared/GlobalConstants */ "./src/app/shared/GlobalConstants.ts");
 /* harmony import */ var src_app_shared_errors_http_errors__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/shared/errors/http-errors */ "./src/app/shared/errors/http-errors.ts");
+/* harmony import */ var src_app_services_dialog_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! src/app/services/dialog.service */ "./src/app/services/dialog.service.ts");
+
 
 
 
@@ -1099,12 +1100,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var ProductFormComponent = /** @class */ (function () {
-    function ProductFormComponent(productService, categoryService, uploadService, router, activeRoute, toaster) {
+    function ProductFormComponent(productService, categoryService, uploadService, router, activeRoute, dialogService, toaster) {
         this.productService = productService;
         this.categoryService = categoryService;
         this.uploadService = uploadService;
         this.router = router;
         this.activeRoute = activeRoute;
+        this.dialogService = dialogService;
         this.toaster = toaster;
         this.expand = false;
         this.hasNoColor = false;
@@ -1478,6 +1480,7 @@ var ProductFormComponent = /** @class */ (function () {
     };
     ProductFormComponent.prototype.manageCategories = function () {
         // open a dialog to manage categories
+        this.dialogService.openCategoriesDialog();
     };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])("f"),
@@ -1505,6 +1508,7 @@ var ProductFormComponent = /** @class */ (function () {
             src_app_services_admin_upload_service__WEBPACK_IMPORTED_MODULE_7__["AdminUploadService"],
             _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"],
             _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"],
+            src_app_services_dialog_service__WEBPACK_IMPORTED_MODULE_11__["DialogService"],
             ngx_toastr__WEBPACK_IMPORTED_MODULE_4__["ToastrService"]])
     ], ProductFormComponent);
     return ProductFormComponent;
@@ -2454,6 +2458,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
 /* harmony import */ var _product_variant_variant_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../product/variant/variant.component */ "./src/app/product/variant/variant.component.ts");
 /* harmony import */ var _shared_dialogs_confirm_dialog_confirm_dialog_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../shared/dialogs/confirm-dialog/confirm-dialog.component */ "./src/app/shared/dialogs/confirm-dialog/confirm-dialog.component.ts");
+/* harmony import */ var _categories_categories_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../categories/categories.component */ "./src/app/categories/categories.component.ts");
+
 
 
 
@@ -2466,6 +2472,12 @@ var DialogService = /** @class */ (function () {
     DialogService.prototype.openVariantsDialog = function (id) {
         return this.dialog.open(_product_variant_variant_component__WEBPACK_IMPORTED_MODULE_3__["VariantComponent"], {
             data: { id: id },
+            width: '950px',
+            height: '470px'
+        });
+    };
+    DialogService.prototype.openCategoriesDialog = function () {
+        return this.dialog.open(_categories_categories_component__WEBPACK_IMPORTED_MODULE_5__["CategoriesComponent"], {
             width: '950px',
             height: '470px'
         });

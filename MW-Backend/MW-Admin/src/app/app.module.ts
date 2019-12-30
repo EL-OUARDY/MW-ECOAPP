@@ -106,7 +106,8 @@ import { CategoriesComponent } from './categories/categories.component';
   entryComponents: [
     ConfirmDialogComponent, 
     InfosDialogComponent,
-    VariantComponent
+    VariantComponent,
+    CategoriesComponent,
   ]
 })
 export class AppModule { }

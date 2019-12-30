@@ -17,7 +17,7 @@ export class CategoryService {
   }
   
   getCategoriesFromServer() {
-    return this.http.get('api/Categories');
+    return this.http.get('api/adminCategories');
   }
   
   saveOnLocalStorage(cats: any) {
