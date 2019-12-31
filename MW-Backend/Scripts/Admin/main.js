@@ -217,6 +217,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _shared_data_viewer_data_viewer_component__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./shared/data-viewer/data-viewer.component */ "./src/app/shared/data-viewer/data-viewer.component.ts");
 /* harmony import */ var _product_variant_variant_component__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./product/variant/variant.component */ "./src/app/product/variant/variant.component.ts");
 /* harmony import */ var _categories_categories_component__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./categories/categories.component */ "./src/app/categories/categories.component.ts");
+/* harmony import */ var _shared_escape_html_pipe__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./shared/escape-html.pipe */ "./src/app/shared/escape-html.pipe.ts");
+
 
 
 
@@ -292,6 +294,7 @@ var AppModule = /** @class */ (function () {
                 _shared_data_viewer_data_viewer_component__WEBPACK_IMPORTED_MODULE_39__["DataViewerComponent"],
                 _product_variant_variant_component__WEBPACK_IMPORTED_MODULE_40__["VariantComponent"],
                 _categories_categories_component__WEBPACK_IMPORTED_MODULE_41__["CategoriesComponent"],
+                _shared_escape_html_pipe__WEBPACK_IMPORTED_MODULE_42__["EscapeHtmlPipe"],
             ],
             imports: [
                 _angular_common__WEBPACK_IMPORTED_MODULE_7__["CommonModule"],
@@ -335,7 +338,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"variantsContainer bordered\">\n  <mat-form-field style=\"color: white !important\">\n    <input matInput [(ngModel)]=\"svgValue\" (change)=\"change()\" placeholder=\"Enter Your Svg here\">\n  </mat-form-field>\n  <br>\n  <br>\n  <div id=\"svg\">\n  </div>\n</div>\n\n"
+module.exports = "<div class=\"variantsContainer\">\n  <mat-form-field style=\"color: white !important\">\n    <input matInput [(ngModel)]=\"svgValue\" (change)=\"change()\" placeholder=\"Enter Your Svg here\">\n  </mat-form-field>\n  <br>\n  <br>\n  <div [innerHTML]=\"svgValue | keepHtml\">\n  </div>\n</div>\n\n"
 
 /***/ }),
 
@@ -359,7 +362,12 @@ var CategoriesComponent = /** @class */ (function () {
     CategoriesComponent.prototype.ngOnInit = function () {
     };
     CategoriesComponent.prototype.change = function () {
-        this.setSVG();
+        this.checkSVG();
+    };
+    CategoriesComponent.prototype.checkSVG = function () {
+        if (!this.svgValue.startsWith('<svg ') || !this.svgValue.endsWith('</svg>')) // SVG Not Valid
+            // add error to the form
+            console.log("NOT VALID");
     };
     CategoriesComponent.prototype.setSVG = function () {
         if (this.svgValue.startsWith('<svg ') && this.svgValue.endsWith('</svg>'))
@@ -2425,7 +2433,7 @@ var CategoryService = /** @class */ (function () {
         return JSON.parse(localStorage.getItem("MWCategories"));
     };
     CategoryService.prototype.getCategoriesFromServer = function () {
-        return this.http.get('api/Categories');
+        return this.http.get('api/adminCategories');
     };
     CategoryService.prototype.saveOnLocalStorage = function (cats) {
         localStorage.setItem("MWCategories", JSON.stringify(cats)); // Save On LS
@@ -3027,6 +3035,43 @@ function handleExpectedErrors(err) {
         return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["throwError"])(new NotFound(err));
     }
 }
+
+
+/***/ }),
+
+/***/ "./src/app/shared/escape-html.pipe.ts":
+/*!********************************************!*\
+  !*** ./src/app/shared/escape-html.pipe.ts ***!
+  \********************************************/
+/*! exports provided: EscapeHtmlPipe */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EscapeHtmlPipe", function() { return EscapeHtmlPipe; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
+
+
+
+var EscapeHtmlPipe = /** @class */ (function () {
+    function EscapeHtmlPipe(sanitizer) {
+        this.sanitizer = sanitizer;
+    }
+    EscapeHtmlPipe.prototype.transform = function (value, args) {
+        return this.sanitizer.bypassSecurityTrustHtml(value);
+    };
+    EscapeHtmlPipe = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Pipe"])({
+            name: 'keepHtml',
+            pure: false
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["DomSanitizer"]])
+    ], EscapeHtmlPipe);
+    return EscapeHtmlPipe;
+}());
+
 
 
 /***/ }),

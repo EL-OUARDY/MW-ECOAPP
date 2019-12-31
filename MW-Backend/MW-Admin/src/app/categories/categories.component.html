@@ -1,10 +1,10 @@
-<div class="variantsContainer bordered">
+<div class="variantsContainer">
   <mat-form-field style="color: white !important">
     <input matInput [(ngModel)]="svgValue" (change)="change()" placeholder="Enter Your Svg here">
   </mat-form-field>
   <br>
   <br>
-  <div id="svg">
+  <div [innerHTML]="svgValue | keepHtml">
   </div>
 </div>
 

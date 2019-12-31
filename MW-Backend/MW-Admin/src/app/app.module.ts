@@ -44,6 +44,7 @@ import { MaterialModule } from './shared/modules/material.module';
 import { DataViewerComponent } from './shared/data-viewer/data-viewer.component';
 import { VariantComponent } from './product/variant/variant.component';
 import { CategoriesComponent } from './categories/categories.component';
+import { EscapeHtmlPipe } from './shared/escape-html.pipe';
 
 @NgModule({
   declarations: [
@@ -75,6 +76,7 @@ import { CategoriesComponent } from './categories/categories.component';
     DataViewerComponent,
     VariantComponent,
     CategoriesComponent,
+    EscapeHtmlPipe,
   ],
   imports: [
     CommonModule,
