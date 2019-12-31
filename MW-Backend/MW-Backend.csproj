@@ -279,10 +279,12 @@
     <Compile Include="Controllers\api\UserProfileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DTO_Resourses\CategoryDTO.cs" />
+    <Compile Include="DTO_Resourses\CategoryListDTO.cs" />
     <Compile Include="DTO_Resourses\miniProductDTO.cs" />
     <Compile Include="DTO_Resourses\ProductDTO.cs" />
     <Compile Include="Areas\Admin\ViewModel\ProductVariantsVM.cs" />
     <Compile Include="DTO_Resourses\SubCategoryDTO.cs" />
+    <Compile Include="DTO_Resourses\SubCategoryListDTO.cs" />
     <Compile Include="DTO_Resourses\UserProfileResourse.cs" />
     <Compile Include="DTO_Resourses\VariantDTO.cs" />
     <Compile Include="DTO_Resourses\VariantResource.cs" />

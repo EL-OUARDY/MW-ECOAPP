@@ -16,6 +16,7 @@ using MW_Backend.Models.Data;
 
 namespace MW_Backend.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "ADMIN")]
     public class AdminCategoriesController : ApiController
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -25,6 +26,17 @@ namespace MW_Backend.Areas.Admin.Controllers
         {
             var _categories = db.Categories.ToList()
                     .Select(Mapper.Map<Category, CategoryDTO>);
+
+            return Ok(_categories);
+        }
+
+        // GET: api/AdminCategoriesList
+        [HttpGet]
+        [Route("api/AdminCategoriesList")]
+        public IHttpActionResult GetCategoriesList()
+        {
+            var _categories = db.Categories.ToList()
+                    .Select(Mapper.Map<Category, CategoryListDTO>);
 
             return Ok(_categories);
         }
