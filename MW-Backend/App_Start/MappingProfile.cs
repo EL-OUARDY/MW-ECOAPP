@@ -14,6 +14,9 @@ namespace MW_Backend.App_Start
     {
         public MappingProfile()
         {
+            Mapper.CreateMap<CategoryRessource, Category>();
+            Mapper.CreateMap<SubCategoryRessource, SubCategory>();
+
             Mapper.CreateMap<Category, CategoryListDTO>();
             Mapper.CreateMap<SubCategory, SubCategoryListDTO>();
 
