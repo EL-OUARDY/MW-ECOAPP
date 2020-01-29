@@ -10,6 +10,7 @@ export class CategoriesComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    
   }
 
   change() {
@@ -20,7 +21,6 @@ export class CategoriesComponent implements OnInit {
     if (!this.svgValue.startsWith('<svg ') || !this.svgValue.endsWith('</svg>')) // SVG Not Valid
       // add error to the form
       console.log("NOT VALID");
-      
   }
   
   setSVG() {
