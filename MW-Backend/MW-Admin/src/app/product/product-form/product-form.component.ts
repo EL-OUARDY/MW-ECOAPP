@@ -3,7 +3,7 @@ import { AdminProductService } from '../../services/admin-product.service';
 import { AdminProduct } from '../../models/adminProduct';
 import { ToastrService } from 'ngx-toastr';
 import { MiniProduct } from 'src/app/models/miniProduct';
-import { NgForm, FormControl } from '@angular/forms';
+import { NgForm } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AdminUploadService } from 'src/app/services/admin-upload.service';
 import { CategoryService } from 'src/app/services/category.service';

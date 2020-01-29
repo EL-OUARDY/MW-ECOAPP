@@ -1,8 +1,8 @@
 <div class="divproductlist" id="my-productlist">
   <div class="divlabtyporeder">
-    <label matRipple (click)="selectUsersType(null)" [class.active]="queryObj.UserRole == null">All</label>
-    <label matRipple (click)="selectUsersType('premium')" [class.active]="queryObj.UserRole === 'premium'">Premium</label>
-    <label matRipple (click)="selectUsersType('banned')" [class.active]="queryObj.UserRole === 'banned'">Banned</label>
+    <label (click)="selectUsersType(null)" [class.active]="queryObj.UserRole == null">All</label>
+    <label (click)="selectUsersType('premium')" [class.active]="queryObj.UserRole === 'premium'">Premium</label>
+    <label (click)="selectUsersType('banned')" [class.active]="queryObj.UserRole === 'banned'">Banned</label>
   </div>
 
   <table-filter [target]="'user'" [queryObj]="queryObj" [noCategory]="true" (filter)="populateUsers()"></table-filter>

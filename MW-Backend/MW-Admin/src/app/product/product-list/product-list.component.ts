@@ -77,13 +77,18 @@ export class ProductListComponent implements OnInit {
     if (this.queryObj.OnSale !== onSale) {
       this.queryObj.Deleted = false;
       this.queryObj.OnSale = onSale;
+      this.resetPagging();
       this.populateProducts();
     }
+  }
+  resetPagging() {
+    this.queryObj.CurrentPage = 0;
   }
 
   BringDeleted() {
     this.queryObj.OnSale = undefined;
     this.queryObj.Deleted = true;
+    this.resetPagging();
     this.populateProducts();
   }
 
@@ -187,12 +192,13 @@ export class ProductListComponent implements OnInit {
     });
   }
 
-  deleteRange(products: AdminProduct[]) {
-    this.dialogService.raiseConfirmDialog().subscribe(res => {
+  deleteRange(products: AdminProduct[], permanently = false) {
+    const message = permanently ? 'Delete this product permanently ?!' : null;
+    this.dialogService.raiseConfirmDialog(message).subscribe(res => {
       if (res) {
         const ids = [];
         products.forEach(x => ids.push(x.Id));
-        this.productService.deleteRange(ids).subscribe(
+        this.productService.deleteRange(ids, permanently).subscribe(
           () => {
             this.toaster.success("Deleted Successfuly");
             this.populateProducts();

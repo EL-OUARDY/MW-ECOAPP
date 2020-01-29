@@ -515,20 +515,6 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\Images\Products\1.jpg" />
-    <Content Include="Content\Images\Products\12\Main\87.jpg" />
-    <Content Include="Content\Images\Products\13\Main\1.jpg" />
-    <Content Include="Content\Images\Products\14.jfif" />
-    <Content Include="Content\Images\Products\15\Main\7.jpg" />
-    <Content Include="Content\Images\Products\19.jpg" />
-    <Content Include="Content\Images\Products\7.jpg" />
-    <Content Include="Content\Images\Products\87.jpg" />
-    <Content Include="Content\Images\Products\88.jpg" />
-    <Content Include="Content\Images\Products\99.jpg" />
-    <Content Include="Content\Images\Products\9\Main\99.jpg" />
-    <Content Include="Content\Images\Products\bb.png" />
-    <Content Include="Content\Images\Products\pc.jpg" />
-    <Content Include="Content\Images\Products\tv.jfif" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -537,9 +523,6 @@
     </Content>
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\Admin\Index.cshtml" />
-    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
-    <None Include="Properties\PublishProfiles\FolderProfile1.pubxml" />
-    <Content Include="Scripts\Admin\assets\bootstrap.min.css" />
     <Content Include="Scripts\Admin\favicon.ico" />
     <Content Include="Scripts\Admin\index.html" />
     <Content Include="Scripts\Admin\main.js" />
@@ -547,17 +530,12 @@
     <Content Include="Scripts\Admin\runtime.js" />
     <Content Include="Scripts\Admin\styles.js" />
     <Content Include="Scripts\Admin\vendor.js" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\Client\main.js.map" />
     <Content Include="Scripts\Client\polyfills.js.map" />
     <Content Include="Scripts\Client\runtime.js.map" />
     <Content Include="Scripts\Client\styles.js.map" />
     <Content Include="Scripts\Client\vendor.js.map" />
-    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\Client\assets\bootstrap.min.css" />
-    <Content Include="Scripts\Client\assets\jquery-3.3.1.min.js" />
-    <Content Include="Scripts\Client\assets\jquery.signalR.min.js" />
     <Content Include="Scripts\Client\favicon.ico" />
     <Content Include="Scripts\Client\index.html" />
     <Content Include="Scripts\Client\main.js" />
@@ -565,19 +543,13 @@
     <Content Include="Scripts\Client\runtime.js" />
     <Content Include="Scripts\Client\styles.js" />
     <Content Include="Scripts\Client\vendor.js" />
-    <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
-    <Content Include="Scripts\jquery-3.3.1.slim.js" />
-    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <Content Include="Scripts\jquery.signalR.js" />
     <Content Include="Scripts\jquery.signalR.min.js" />
-    <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery.validate.js" />
-    <Content Include="Scripts\jquery.validate.min.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -595,21 +567,13 @@
     <Content Include="Scripts\Admin\runtime.js.map" />
     <Content Include="Scripts\Admin\styles.js.map" />
     <Content Include="Scripts\Admin\vendor.js.map" />
-    <Content Include="Scripts\jquery-3.3.1.min.map" />
-    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\AdminProduct\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
-    <Folder Include="Content\Images\Products\12\Desc\" />
-    <Folder Include="Content\Images\Products\12\Gallery\" />
-    <Folder Include="Content\Images\Products\13\Desc\" />
-    <Folder Include="Content\Images\Products\13\Gallery\" />
-    <Folder Include="Content\Images\Products\15\Desc\" />
-    <Folder Include="Content\Images\Products\15\Gallery\" />
-    <Folder Include="Content\Images\Products\9\Desc\" />
-    <Folder Include="Content\Images\Products\9\Gallery\" />
+    <Folder Include="Content\Images\" />
+    <Folder Include="Scripts\Admin\assets\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -636,7 +600,9 @@
     <Content Include="Content\bootstrap-theme.css.map" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\agency_fb.ttf" />
     <None Include="packages.config" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201901311336117_addProductCategorieModels.resx">
