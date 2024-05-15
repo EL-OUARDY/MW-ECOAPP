@@ -262,3 +262,6 @@ __pycache__/
 
 # Product Images
 MW-Backend\Content\Images\Products\
+
+# Temporary files
+*EDY.txt
